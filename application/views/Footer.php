@@ -1,4 +1,6 @@
-
+<?php 
+    if($this->session->userdata('id_user')== NULL){
+  ?>
       <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -27,6 +29,10 @@
         </div>
       </div>
     </div>
+    <?php
+      
+    }
+    ?>
 
 
     <!-- Bootstrap core JavaScript
