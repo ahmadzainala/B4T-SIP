@@ -16,17 +16,18 @@
     <!-- Custom styles for this template -->    
     <link href="<?php echo base_url() ?>template/user/css/material-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>template/user/css/dashboard.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>template/user/css/main.css" rel="stylesheet">
   </head>
 
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>
+        <a class="navbar-brand" href="<?php echo base_url(); ?>Login/main_page"><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>
         <div class="dropdown">
           <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 13px">account_circle</i><?php echo " ".$this->session->userdata('username'); ?></button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Edit Profile</a>
+            <a class="dropdown-item" href="<?php echo base_url() ?>/login/edit_profile">Edit Profile</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" style="color: red; font-weight: bold" href="<?php echo base_url() ?>/login/logout">Logout</a>
           </div>

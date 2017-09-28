@@ -37,9 +37,9 @@
                 <!-- Logo -->
                 <a href="#" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><img src="<?php echo base_url() ?>template/user/img/logo.png"></span>
+                    <span class="logo-mini"><img src="<?php echo base_url() ?>template/user/img/logo.png" style="max-width: 80%; and height: auto"></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b><img src="<?php echo base_url() ?>template/user/img/logo.png" style="max-width: 60%; and height: auto"></b></span>
+                    <span class="logo-lg"><b><img src="<?php echo base_url() ?>template/user/img/logo.png" style="max-height: 50px; and width: auto"></b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -72,9 +72,6 @@
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
                                         <div class="pull-right">
                                             <?php
                                             echo anchor('login/logout','Sing out',array('class'=>'btn btn-default btn-flat'));
@@ -93,7 +90,7 @@
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
+            <div class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
@@ -141,7 +138,7 @@
                     </ul>
                 </section>
                 <!-- /.sidebar -->
-            </aside>
+            </div>
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">

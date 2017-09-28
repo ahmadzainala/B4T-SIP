@@ -15,13 +15,13 @@
               <input type="text" class="form-control" name="id_user" id="id_user" placeholder="Id User" value="<?php echo $id_user; ?>" />
             !-->
         </td>
-	    <tr><td>Date <?php echo form_error('date') ?></td>
+      <tr><td>Date <?php echo form_error('date') ?></td>
             <td><input type="date" class="form-control" name="date" id="date" value="<?php echo date("Y-m-d"); ?>" readonly />
         </td>
       <tr><td>That <?php echo form_error('that') ?></td>
             <td><input type="text" class="form-control" name="that" id="that" placeholder="Agar" value="<?php echo $that; ?>" />
         </td>
-	    <tr><td>Date Needs <?php echo form_error('date_needs') ?></td>
+      <tr><td>Date Needs <?php echo form_error('date_needs') ?></td>
             <td>
               <select name='date_needs' id="date_needs" class='selectpicker' onchange="getinput(this);">
                 <option value='Segera'>Segera</option>
@@ -35,6 +35,18 @@
       <tr><td>Information <?php echo form_error('information') ?></td>
           <td><textarea class="form-control" rows="3" name="information" id="information" placeholder="Keterangan"><?php echo $information; ?></textarea>
       </td></tr>
+	    <tr><td>Read Status Ketua <?php echo form_error('read_status_Ketua') ?></td>
+            <td><input type="text" class="form-control" name="read_status_Ketua" id="read_status_Ketua" placeholder="Read Status Ketua" value="<?php echo $read_status_Ketua; ?>" />
+        </td>
+	    <tr><td>Read Status TU <?php echo form_error('read_status_TU') ?></td>
+            <td><input type="text" class="form-control" name="read_status_TU" id="read_status_TU" placeholder="Read Status TU" value="<?php echo $read_status_TU; ?>" />
+        </td>
+	    <tr><td>Read Status PPK <?php echo form_error('read_status_PPK') ?></td>
+            <td><input type="text" class="form-control" name="read_status_PPK" id="read_status_PPK" placeholder="Read Status PPK" value="<?php echo $read_status_PPK; ?>" />
+        </td>
+	    <tr><td>Status Submit <?php echo form_error('status_submit') ?></td>
+            <td><input type="text" class="form-control" name="status_submit" id="status_submit" placeholder="Status Submit" value="<?php echo $status_submit; ?>" />
+        </td>
 	    <input type="hidden" name="id_form" value="<?php echo $id_form; ?>" /> 
 	    <tr><td colspan='2'><button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
 	    <a href="<?php echo site_url('form') ?>" class="btn btn-default">Cancel</a></td></tr>
@@ -46,7 +58,7 @@
           </div><!-- /.row -->
         </section><!-- /.content -->
 
-    <script type="text/javascript">
+         <script type="text/javascript">
       
 
       function getinput(data){

@@ -12,6 +12,10 @@
 	    <tr><td>Information</td><td><?php echo $information; ?></td></tr>
 	    <tr><td>Date Needs</td><td><?php echo $date_needs; ?></td></tr>
 	    <tr><td>That</td><td><?php echo $that; ?></td></tr>
+	    <tr><td>Read Status Ketua</td><td><?php echo $read_status_Ketua; ?></td></tr>
+	    <tr><td>Read Status TU</td><td><?php echo $read_status_TU; ?></td></tr>
+	    <tr><td>Read Status PPK</td><td><?php echo $read_status_PPK; ?></td></tr>
+	    <tr><td>Status Submit</td><td><?php echo $status_submit; ?></td></tr>
 	    <tr><td></td><td><a href="<?php echo site_url('form') ?>" class="btn btn-default">Cancel</a></td></tr>
 	</table>
         </div><!-- /.box-body -->

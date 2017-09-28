@@ -1,27 +1,24 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="container">
-      <div class="row">
-
-        <main class="ml-sm-auto col-md-12" role="main">
-          <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-              <h1><i class="material-icons" style="font-size: 28px">timelapse</i> 11</h1>
-              <h4>Menunggu Disetujui</h4>
-            </div>
-            <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-              <h1><i class="material-icons" style="font-size: 28px">shopping_cart</i> 12</h1>
-              <h4>Proses Pengadaan</h4>
-            </div>
-            <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-              <h1><i class="material-icons" style="font-size: 28px">speaker_notes_off</i> 10</h1>
-              <h4>Tidak Disetujui</h4>
-            </div>
-            <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-              <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> 10</h1>
-              <h4>Selesai Pengadaan</h4>
-            </div>
-          </section>
+      <section class="row text-center placeholders">
+        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">timelapse</i> 11</h1>
+          <h4>Menunggu Disetujui</h4>
+        </div>
+        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">shopping_cart</i> 12</h1>
+          <h4>Proses Pengadaan</h4>
+        </div>
+        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">speaker_notes_off</i> 10</h1>
+          <h4>Tidak Disetujui</h4>
+        </div>
+        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> 10</h1>
+          <h4>Selesai Pengadaan</h4>
+        </div>
+      </section>
 
           <div class="table-responsive" style="padding-top: 20px">
             <table class="table">
@@ -56,37 +53,48 @@
                 </tr>
               </thead>
               <tbody>
-                
                   <?php 
-
-                    foreach ($form_data as $d){
-                      //print_r($d);
-                     echo "<tr style='font-weight:bold'>";
-                        echo "<td>".$this->session->userdata('username')."</td>";
-                        echo "<td>".$d->information."</td>";
-                        echo "<td>".$d->date."</td>";
-                        echo "<td>Usulan Dalam Antrian</td>";
-                      echo "</tr>";
+                    if($this->session->userdata('id_position')== 3){
+                      foreach ($form_data as $d){
+                      $link = base_url()."Login/form_acc/".$d->id_form;
+                        if($d->read_status_Ketua == 0){  
+                         echo "<tr style='font-weight:bold'>";
+                        }else{
+                         echo "<tr style='font-weight:italic'>";
+                        }
+                          echo "<td>"."<a href=".$link.">".$d->username."</a></td>";
+                          echo "<td>".$d->information."</td>";
+                          echo "<td>".$d->date."</td>";
+                          echo "<td>Usulan Dalam Antrian</td>";
+                        echo "</tr>";
+                      }
+                    }else{
+                      foreach ($form_data as $d){
+                        //print_r($d);
+                        $link = base_url()."Login/detail_form/".$d->id_form;
+                       echo "<tr >";
+                          echo "<td>"."<a href=".$link.">".$d->username."</a></td>";
+                          echo "<td>".$d->information."</td>";
+                          echo "<td>".$d->date."</td>";
+                          echo "<td>Usulan Dalam Antrian</td>";
+                        echo "</tr>";
+                      }
                     }
                   ?>
               </tbody>
             </table>
           </div>
-        </main>
-      </div>
+        </div>
+      <br>
+      <br>
+      <br>
+      <br>
     </div> <!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    
-    <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
+
+ <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-      $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-      })
-    </script>
-
+  </body>
+</html>

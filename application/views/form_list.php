@@ -20,6 +20,10 @@
 		    <th>Information</th>
 		    <th>Date Needs</th>
 		    <th>That</th>
+		    <th>Read Status Ketua</th>
+		    <th>Read Status TU</th>
+		    <th>Read Status PPK</th>
+		    <th>Status Submit</th>
 		    <th>Action</th>
                 </tr>
             </thead>
@@ -36,6 +40,10 @@
 		    <td><?php echo $form->information ?></td>
 		    <td><?php echo $form->date_needs ?></td>
 		    <td><?php echo $form->that ?></td>
+		    <td><?php echo $form->read_status_Ketua ?></td>
+		    <td><?php echo $form->read_status_TU ?></td>
+		    <td><?php echo $form->read_status_PPK ?></td>
+		    <td><?php echo $form->status_submit ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('form/read/'.$form->id_form),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 

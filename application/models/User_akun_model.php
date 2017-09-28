@@ -42,6 +42,11 @@ class User_akun_model extends CI_Model
         return $this->db->query('select * from user_akun a, position b, division c where a.id_position = b.id_position and c.id_divison = a.id_division')->result();
     }
 
+    function get_name_div_pos($id)
+    {
+        return $this->db->query('select a.id_user, b.name_position, c.name_division from user_akun a, position b, division c where a.id_position = b.id_position and c.id_divison = a.id_division and a.id_user = '.$id)->row();
+    }
+
     // get data by id
     function get_by_id($id)
     {

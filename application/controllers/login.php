@@ -26,7 +26,15 @@ class Login extends CI_Controller {
 
 	public function main_page()
 	{
-		$form = $this->Form_model->get_by_user($this->session->userdata('id_user'));
+		if($this->session->userdata('id_position') == 1){
+			$form = $this->Form_model->get_all_detail();	
+
+		}else if($this->session->userdata('id_position') == 3){
+			$form = $this->Form_model->get_by_user_div($this->session->userdata('id_division'));	
+
+		}else{
+			$form = $this->Form_model->get_by_user($this->session->userdata('id_user'));	
+		}
 		$data = array(
             'form_data' => $form
         );
@@ -37,6 +45,66 @@ class Login extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function edit_profile()
+	{
+		$name_dp = $this->User_akun_model->get_name_div_pos($this->session->userdata('id_user'));
+		//print_r($data);
+		$data = array(
+            'name_dp' => $name_dp
+        );
+		$this->load->view('header_login');
+		$this->load->view('Edit_profile',$data);
+		//$this->load->view('footer');
+	}
+
+	public function submit_profile()
+	{
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$p1 = $_POST['ps1'];
+		$p2 = $_POST['ps2'];
+		if($first_name == ""){
+			$first_name = $this->session->userdata('first_name');
+		}else{
+			$this->session->set_userdata('first_name',$first_name);
+		}
+		if($last_name == ""){
+			$last_name = $this->session->userdata('last_name');
+		}else{
+			$this->session->set_userdata('last_name',$last_name);
+		}
+
+		if($p1 != ""){
+			if($p1 == $p2){
+				$pass = md5($p1);
+				$data = array(
+		            'first_name' => $first_name,
+		            'last_name' => $last_name,
+		            'password' => $pass,
+		        );
+	       		$this->User_akun_model->update($this->session->userdata('id_user'),$data);
+		        redirect('login/edit_profile');
+			}else{
+				$name_dp = $this->User_akun_model->get_name_div_pos($this->session->userdata('id_user'));
+				//print_r($data);
+				$data = array(
+		            'name_dp' => $name_dp
+		        );
+				$this->load->view('header_login');
+				$this->load->view('Edit_profile',$data);
+				$this->load->view('notification');
+				//$this->load->view('footer');
+			}
+		}else{
+			$data = array(
+	            'first_name' => $first_name,
+	            'last_name' => $last_name,
+	        );
+	        $this->User_akun_model->update($this->session->userdata('id_user'),$data);
+	        redirect('login/edit_profile');
+		}
+	}
+
 	public function add_form(){
 		$that = "";
 		$date_needs = "";
@@ -44,6 +112,10 @@ class Login extends CI_Controller {
 		$items = "";
 		$item_list = "";
 		
+		if(isset($_POST['delete_items'])){
+			echo "aaaaaaaaaaaaa";
+		}
+
 		if(isset($_POST['add'])){
 			$this->load->model('Form_content_model');
 			$cek = $this->Form_content_model->get_by_item_quantity_form($_POST['item'],$_POST['quantity'],$this->session->userdata('id_form'));
@@ -61,6 +133,7 @@ class Login extends CI_Controller {
 					'id_form' => $this->session->userdata('id_form'),
 					'id_items_detail' => $_POST['item'],
 					'quantity' => $_POST['quantity'],
+					'unit' => $_POST['unit']
 				    );
 				
 				$this->Form_content_model->insert($data);
@@ -69,6 +142,7 @@ class Login extends CI_Controller {
 		}
 
 		if($this->session->userdata('id_form') == NULL){
+			$this->Form_model->delete_useless_form();
 			$data = array(
 				'id_user' => $this->session->userdata('id_user'),
 				'date' => date("Y-m-d"),
@@ -139,6 +213,16 @@ class Login extends CI_Controller {
 		$this->Form_model->update($this->session->userdata('id_form'),$data);
 
 		if($valid_user != FALSE){
+			$data = array(
+				'status_submit' => 1
+			);
+			$this->Form_model->update($this->session->userdata('id_form'),$data);
+			if($this->session->userdata('id_position') == 3){
+				$data = array(
+					'read_status_Ketua' => 1
+				);
+				$this->Form_model->update($this->session->userdata('id_form'),$data);
+			}
 			$this->session->set_userdata('id_form',NULL);
 
 			$form = $this->Form_model->get_by_user($this->session->userdata('id_user'));
@@ -154,6 +238,50 @@ class Login extends CI_Controller {
 			redirect('Login/add_form');
 			
 		}
+	}
+
+	public function detail_form($id_form = NULL){
+		
+		$this->load->model('Form_content_model');
+		$item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
+		$this->load->model('Division_model');
+		$divisi = $this->Division_model->get_by_id($this->session->userdata('id_division'));
+		$form_data = $this->Form_model->get_by_id($id_form);
+
+		$data = array(
+            'divisi' => $divisi,
+            'form_data' => $form_data,
+            'item_list' => $item_list
+        );
+
+		$this->load->view('header_login');
+		$this->load->view('Form_view',$data);
+	}
+
+	public function form_acc($id_form = NULL){
+		
+		$form_data = $this->Form_model->get_by_id($id_form);
+		if($this->session->userdata('id_position') == 3){
+			$data = array(
+	            'read_status_Ketua' => 1
+	        );
+			$this->Form_model->update($id_form,$data);
+		}
+		$user_data = $this->User_akun_model->get_by_id($form_data->id_user);
+		$this->load->model('Division_model');
+		$divisi = $this->Division_model->get_by_id($user_data->id_division);
+		$this->load->model('Form_content_model');
+		$item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
+
+		$data = array(
+            'divisi' => $divisi,
+            'form_data' => $form_data,
+            'item_list' => $item_list,
+            'user_data' => $user_data
+        );
+
+		$this->load->view('header_login');
+		$this->load->view('Form_acc',$data);
 	}
 
 	public function validation()
@@ -181,7 +309,7 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('id_position', $valid_user->id_position);
 				$this->session->set_userdata('id_division', $valid_user->id_division);
 				
-				switch(md5($valid_user->password)){
+				switch($valid_user->password){
 					case "21232f297a57a5a743894a0e4a801fc3": //admin
 				      	redirect('menu_admin'); 
 						//print_r($valid_user);

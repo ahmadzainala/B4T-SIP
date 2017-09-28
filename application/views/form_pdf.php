@@ -25,6 +25,10 @@
 		<th>Information</th>
 		<th>Date Needs</th>
 		<th>That</th>
+		<th>Read Status Ketua</th>
+		<th>Read Status TU</th>
+		<th>Read Status PPK</th>
+		<th>Status Submit</th>
 		
             </tr><?php
             foreach ($form_data as $form)
@@ -36,7 +40,11 @@
 		      <td><?php echo $form->date ?></td>
 		      <td><?php echo $form->information ?></td>
 		      <td><?php echo $form->date_needs ?></td>
-		      <td><?php echo $form->that ?></td>	
+		      <td><?php echo $form->that ?></td>
+		      <td><?php echo $form->read_status_Ketua ?></td>
+		      <td><?php echo $form->read_status_TU ?></td>
+		      <td><?php echo $form->read_status_PPK ?></td>
+		      <td><?php echo $form->status_submit ?></td>	
                 </tr>
                 <?php
             }

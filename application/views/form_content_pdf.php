@@ -24,6 +24,8 @@
 		<th>Id Items Detail</th>
 		<th>Id Supplier</th>
 		<th>Quantity</th>
+		<th>Status Acc</th>
+		<th>Unit</th>
 		
             </tr><?php
             foreach ($form_content_data as $form_content)
@@ -34,7 +36,9 @@
 		      <td><?php echo $form_content->id_form ?></td>
 		      <td><?php echo $form_content->id_items_detail ?></td>
 		      <td><?php echo $form_content->id_supplier ?></td>
-		      <td><?php echo $form_content->quantity ?></td>	
+		      <td><?php echo $form_content->quantity ?></td>
+		      <td><?php echo $form_content->status_acc ?></td>
+		      <td><?php echo $form_content->unit ?></td>	
                 </tr>
                 <?php
             }

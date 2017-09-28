@@ -1,11 +1,4 @@
 
-    <!-- Main -->
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <h1 class="display-3">Something's wrong</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+    <script type="text/javascript">
+    alert("Maaf Username atau Password Salah.");
+    </script>

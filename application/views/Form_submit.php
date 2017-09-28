@@ -20,7 +20,6 @@
                   <td>Agar</td>
                   <td colspan="2">
                     <input class="form-control" type="text" name="that" value="<?php echo $form_data->that;?>" required>
-                    
                   </td>
                   <td width="30%"></td>
                 </tr>
@@ -54,10 +53,11 @@
               <table border="0" class="table">
                 <thead class="thead-default">
                   <tr>
-                    <th>No.</th>
-                    <th width="17%">Kategori</th>
+                    <th width="5%">No.</th>
+                    <th width="15%">Kategori</th>
                     <th>Nama dan Spesifikasi Barang / Jasa</th>
-                    <th width="20%" colspan="2">Banyaknya</th>
+                    <th width="18%" colspan="2" style="text-align: center;">Banyaknya</th>
+                    <th width="5%" colspan="2"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,7 @@
                   $i = 1;
                   if($item_list != ""){
                     foreach ($item_list as $il) {
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td colspan='2'>$il->quantity</td></tr>";
+                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td style='text-align: right;'>$il->quantity</td><td>$il->unit</td><td><button class='btn btn-danger btn-sm' value='$il->id_items_detail' type='button' onclick=''><i class='material-icons'>delete_forever</i></button></td><td><button class='btn btn-warning btn-sm' type='button'><i class='material-icons'>edit</i></button></td></tr>";
                       $i++;
                     }
                   }else{
@@ -106,8 +106,9 @@
                       </select>
                       <input type="hidden" id"itemnew" placeholder="Item baru" value="" required>
                     </td>
-                    <td><input class="form-control" type="number" name="quantity" required></td>
-                    <td><button class="btn btn-info" type="submit" name="add" value ="1">Add</button></td>
+                    <td><input class="form-control" type="number" min="0"  name="quantity" required></td>
+                    <td><input class="form-control" type="text" name="unit" required></td>
+                    <td><button class="btn btn-info" type="submit" colspan="2" name="add" value ="1">Tambahkan</button></td>
                   </tr>    
                 </tbody>
               </table>
@@ -179,3 +180,8 @@
       }
     </script>
 
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+
+  </body>
+</html>
