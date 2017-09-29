@@ -58,11 +58,11 @@
                       foreach ($form_data as $d){
                       $link = base_url()."Login/form_acc/".$d->id_form;
                         if($d->read_status_Ketua == 0){  
-                         echo "<tr style='font-weight:bold'>";
+                         echo "<tr href='$link' style='font-weight:bold'>";
                         }else{
-                         echo "<tr style='font-weight:italic'>";
+                         echo "<tr href='$link' style='font-weight:italic'>";
                         }
-                          echo "<td>"."<a href=".$link.">".$d->username."</a></td>";
+                          echo "<td>".$d->username."</td>";
                           echo "<td>".$d->information."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td>Usulan Dalam Antrian</td>";
@@ -72,8 +72,8 @@
                       foreach ($form_data as $d){
                         //print_r($d);
                         $link = base_url()."Login/detail_form/".$d->id_form;
-                       echo "<tr >";
-                          echo "<td>"."<a href=".$link.">".$d->username."</a></td>";
+                       echo "<tr href='$link'>";
+                          echo "<td>".$d->username."</td>";
                           echo "<td>".$d->information."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td>Usulan Dalam Antrian</td>";
@@ -96,5 +96,14 @@
  <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $('table tr').click(function(){
+              window.location = $(this).attr('href');
+              return false;
+          });
+      });
+  </script>
   </body>
 </html>

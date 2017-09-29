@@ -8,7 +8,7 @@ class Form_content_model extends CI_Model
 
     public $table = 'form_content';
     public $id = 'id_form_content';
-    public $order = 'DESC';
+    public $order = 'ASC';
 
     function __construct()
     {

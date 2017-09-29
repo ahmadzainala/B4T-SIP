@@ -105,16 +105,32 @@ class Login extends CI_Controller {
 		}
 	}
 
+	public function edit_item(){
+		
+		$this->load->model('Form_content_model');
+		if($_POST['id_item_val'] != ""){
+			
+			if($_POST['qty_val'] != "" && $_POST['unit_val'] != ""){
+				$data = array(
+					'quantity' => $_POST['qty_val'],
+					'unit' => $_POST['unit_val'],
+			    );
+				$this->Form_content_model->update($_POST['id_item_val'],$data);
+			}
+		}else{
+			echo $_POST['unit'];
+			echo $_POST['delete'];
+			$this->Form_content_model->delete($_POST['delete']);
+		}
+		redirect('login/add_form');
+	}
+
 	public function add_form(){
 		$that = "";
 		$date_needs = "";
 		$kategori = "";
 		$items = "";
 		$item_list = "";
-		
-		if(isset($_POST['delete_items'])){
-			echo "aaaaaaaaaaaaa";
-		}
 
 		if(isset($_POST['add'])){
 			$this->load->model('Form_content_model');
@@ -216,24 +232,19 @@ class Login extends CI_Controller {
 			$data = array(
 				'status_submit' => 1
 			);
+			//echo $this->session->userdata('id_form');
 			$this->Form_model->update($this->session->userdata('id_form'),$data);
+
 			if($this->session->userdata('id_position') == 3){
 				$data = array(
 					'read_status_Ketua' => 1
 				);
 				$this->Form_model->update($this->session->userdata('id_form'),$data);
 			}
+			
 			$this->session->set_userdata('id_form',NULL);
 
-			$form = $this->Form_model->get_by_user($this->session->userdata('id_user'));
-			$data = array(
-	            'form_data' => $form
-	        );
-		
-			//print_r($data);
-			$this->load->view('header_login');
-			$this->load->view('Main_login',$data);
-			$this->load->view('footer');
+			redirect('login/main_page');
 		}else{
 			redirect('Login/add_form');
 			

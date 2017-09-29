@@ -24,7 +24,7 @@ class Form_model extends CI_Model
 
     function get_all_detail()
     {
-        return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user')->result();
+        return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user ORDER BY `date` DESC')->result();
     }
 
     // get data by id
@@ -37,12 +37,12 @@ class Form_model extends CI_Model
     //get by id user
     function get_by_user($id)
     {
-        return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user and b.id_user ='.$id)->result();
+        return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user and b.status_submit=1 and b.id_user ='.$id.' ORDER BY `date` DESC')->result();
     }
 
     function get_by_user_div($id)
     {
-        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` ON `form`.`id_user` = `user_akun`.`id_user` WHERE `user_akun`.`id_division` ='.$id)->result();
+        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` ON `form`.`id_user` = `user_akun`.`id_user` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `date` DESC')->result();
     }
 
     //get by id user
@@ -109,8 +109,19 @@ class Form_model extends CI_Model
 
     function delete_useless_form()
     {
-        $this->db->where('status_submit', 0);
+        $this->db->where('status_submit', "0");
+        $temp = $this->db->get($this->table)->result();
+        $this->delete_child($temp);
+        
+        $this->db->where('status_submit', "0");
         $this->db->delete($this->table);
+    }
+
+    function delete_child($temp){
+        foreach ($temp as $x) {
+            $this->db->where('id_form', $x->id_form);
+            $this->db->delete('form_content');
+        }
     }
     
 
