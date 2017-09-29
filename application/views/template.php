@@ -109,7 +109,7 @@
                     <ul class="sidebar-menu">
 
                         <li>
-                            <a href="#">
+                            <a href="<?php echo base_url(); ?>Login/main_page">
                                 <i class="fa fa-laptop"></i> <span>DASHBOARD</span>
                             </a>
                         </li>

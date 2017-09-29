@@ -47,3 +47,7 @@
 #container {
   display: none;
 }
+
+.borderless td, .borderless th {
+    border: none;
+}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2017 at 08:43 AM
+-- Generation Time: Sep 25, 2017 at 12:12 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -52,27 +52,20 @@ CREATE TABLE IF NOT EXISTS `form` (
   `date` date NOT NULL,
   `information` text,
   `date_needs` varchar(50) DEFAULT NULL,
-  `that` text,
-  `read_status_Ketua` int(11) NOT NULL,
-  `read_status_TU` int(11) NOT NULL,
-  `read_status_PPK` int(11) NOT NULL,
-  `status_submit` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  `that` text
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `form`
 --
 
-INSERT INTO `form` (`id_form`, `id_user`, `date`, `information`, `date_needs`, `that`, `read_status_Ketua`, `read_status_TU`, `read_status_PPK`, `status_submit`) VALUES
-(1, 5, '2017-09-24', 'tes tes', 'Segera', 'dipenuhi secepatnya', 1, 0, 0, 1),
-(2, 6, '2017-09-24', 'blablbablbalab', '2017-09-01', 'diadakan untuk keperluan rapat', 1, 0, 0, 1),
-(3, 5, '2017-09-24', 'xxxxxxx', 'Segera', 'tes lagi dan lagi', 0, 0, 0, 1),
-(9, 5, '2017-09-24', 'zzzzzzzzzzzzzzzzzzzzzzzzzz', '2017-11-20', 'mohon segera di adakan untuk keperluan rapat', 0, 0, 0, 1),
-(10, 5, '2017-09-24', 'azzz', '2017-12-22', 'aweuaweuaweu', 0, 0, 0, 1),
-(11, 5, '2017-09-24', 'asdasdas', 'Segera', 'kumaha aaa', 0, 0, 0, 1),
-(18, 6, '2017-09-29', 'adadadadadaad', 'Segera', 'sss', 1, 0, 0, 1),
-(19, 6, '2017-09-29', 'sssssss', 'Segera', 'aaa', 1, 0, 0, 1),
-(20, 7, '2017-09-29', 'coba lagi', 'Segera', 'sss', 1, 0, 0, 1);
+INSERT INTO `form` (`id_form`, `id_user`, `date`, `information`, `date_needs`, `that`) VALUES
+(1, 5, '2017-09-24', 'tes tes', 'Segera', 'dipenuhi secepatnya'),
+(2, 6, '2017-09-24', 'blablbablbalab', '2017-09-01', 'diadakan untuk keperluan rapat'),
+(3, 5, '2017-09-24', 'xxxxxxx', 'Segera', 'tes lagi dan lagi'),
+(9, 5, '2017-09-24', 'zzzzzzzzzzzzzzzzzzzzzzzzzz', '2017-11-20', 'mohon segera di adakan untuk keperluan rapat'),
+(10, 5, '2017-09-24', 'azzz', '2017-12-22', 'aweuaweuaweu'),
+(11, 5, '2017-09-24', 'asdasdas', 'Segera', 'kumaha aaa');
 
 -- --------------------------------------------------------
 
@@ -85,31 +78,27 @@ CREATE TABLE IF NOT EXISTS `form_content` (
   `id_form` int(11) NOT NULL,
   `id_items_detail` int(11) NOT NULL,
   `id_supplier` int(11) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  `status_acc` int(11) NOT NULL,
-  `unit` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `form_content`
 --
 
-INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id_supplier`, `quantity`, `status_acc`, `unit`) VALUES
-(1, 1, 1, NULL, 12, 0, 'unit'),
-(2, 1, 2, NULL, 2, 0, ''),
-(3, 1, 3, NULL, 10, 0, 'unit'),
-(4, 1, 4, NULL, 1, 0, ''),
-(6, 3, 2, NULL, 222, 0, 'buah'),
-(7, 2, 4, NULL, 22, 0, ''),
-(17, 9, 4, NULL, 4, 0, 'lusin'),
-(28, 9, 4, NULL, 2, 0, ''),
-(29, 10, 4, NULL, 10, 0, ''),
-(30, 10, 3, NULL, 2, 0, ''),
-(31, 10, 2, NULL, 1, 0, ''),
-(32, 11, 2, NULL, 2, 0, ''),
-(49, 18, 5, NULL, 1, 0, 'ss'),
-(50, 19, 5, NULL, 1, 0, 'bolrh'),
-(51, 20, 5, NULL, 1, 0, 'ss');
+INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id_supplier`, `quantity`) VALUES
+(1, 1, 1, NULL, 12),
+(2, 1, 2, NULL, 2),
+(3, 1, 3, NULL, 10),
+(4, 1, 4, NULL, 1),
+(5, 2, 1, NULL, 10),
+(6, 3, 2, NULL, 222),
+(7, 2, 4, NULL, 22),
+(17, 9, 4, NULL, 4),
+(28, 9, 4, NULL, 2),
+(29, 10, 4, NULL, 10),
+(30, 10, 3, NULL, 2),
+(31, 10, 2, NULL, 1),
+(32, 11, 2, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -120,7 +109,7 @@ INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id
 CREATE TABLE IF NOT EXISTS `items_category` (
 `id_category` int(11) NOT NULL,
   `name_category` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items_category`
@@ -128,9 +117,7 @@ CREATE TABLE IF NOT EXISTS `items_category` (
 
 INSERT INTO `items_category` (`id_category`, `name_category`) VALUES
 (1, 'ATK'),
-(2, 'Cek'),
-(3, 'Elektronik'),
-(4, 'Furnitur');
+(2, 'Cek');
 
 -- --------------------------------------------------------
 
@@ -142,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `items_detail` (
 `id_items_detail` int(11) NOT NULL,
   `id_category` int(11) NOT NULL,
   `name_items` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items_detail`
@@ -152,9 +139,7 @@ INSERT INTO `items_detail` (`id_items_detail`, `id_category`, `name_items`) VALU
 (1, 1, 'Buku'),
 (2, 1, 'Pensil'),
 (3, 1, 'Pulpen'),
-(4, 1, 'Penghapus'),
-(5, 3, 'AC'),
-(6, 4, 'Meja');
+(4, 1, 'Penghapus');
 
 -- --------------------------------------------------------
 
@@ -185,9 +170,9 @@ INSERT INTO `menu_admin` (`id`, `name`, `link`, `icon`, `is_active`, `is_parent`
 (7, 'position', 'position', 'fa fa-list-alt', 1, 0),
 (8, 'supplier category', 'supplier_category', 'fa fa-list-alt', 1, 0),
 (9, 'supplier', 'supplier', 'fa fa-list-alt', 1, 0),
-(10, 'tracking', 'tracking', 'fa fa-list-alt', 0, 0),
-(11, 'tracking status', 'status_tracking', 'fa fa-list-alt', 0, 0),
-(12, 'tracking catalog', 'tracking_catalog', 'fa fa-list-alt', 0, 0),
+(10, 'tracking', 'tracking', 'fa fa-list-alt', 1, 0),
+(11, 'tracking status', 'status_tracking', 'fa fa-list-alt', 1, 0),
+(12, 'tracking catalog', 'tracking_catalog', 'fa fa-list-alt', 1, 0),
 (14, 'user akun', 'user_akun', 'fa fa-list-alt', 1, 0);
 
 -- --------------------------------------------------------
@@ -218,22 +203,9 @@ INSERT INTO `position` (`id_position`, `name_position`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `status_tracking` (
-  `id_status_tracking` int(11) NOT NULL,
-  `description` text NOT NULL
+`id_status_tracking` int(11) NOT NULL,
+  `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `status_tracking`
---
-
-INSERT INTO `status_tracking` (`id_status_tracking`, `description`) VALUES
-(1, 'Acc Ketua'),
-(2, 'Acc TU'),
-(3, 'Acc PPK'),
-(4, 'Tidak Acc'),
-(10, 'Belum di Baca Ketua'),
-(11, 'Belum di Baca TU'),
-(12, 'Belum di baca PPK');
 
 -- --------------------------------------------------------
 
@@ -284,15 +256,7 @@ CREATE TABLE IF NOT EXISTS `tracking` (
 `id_tracking` int(11) NOT NULL,
   `id_status_tracking` int(11) NOT NULL,
   `id_form` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tracking`
---
-
-INSERT INTO `tracking` (`id_tracking`, `id_status_tracking`, `id_form`) VALUES
-(1, 1, 1),
-(2, 1, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -309,6 +273,7 @@ CREATE TABLE IF NOT EXISTS `tracking_catalog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `user_akun`
@@ -429,22 +394,22 @@ MODIFY `id_divison` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `form`
 --
 ALTER TABLE `form`
-MODIFY `id_form` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id_form` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `form_content`
 --
 ALTER TABLE `form_content`
-MODIFY `id_form_content` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+MODIFY `id_form_content` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `items_category`
 --
 ALTER TABLE `items_category`
-MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `items_detail`
 --
 ALTER TABLE `items_detail`
-MODIFY `id_items_detail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_items_detail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `menu_admin`
 --
@@ -455,6 +420,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 ALTER TABLE `position`
 MODIFY `id_position` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `status_tracking`
+--
+ALTER TABLE `status_tracking`
+MODIFY `id_status_tracking` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `supplier`
 --
@@ -469,7 +439,7 @@ MODIFY `id_supplier_category` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `tracking`
 --
 ALTER TABLE `tracking`
-MODIFY `id_tracking` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_tracking` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tracking_catalog`
 --
@@ -514,8 +484,8 @@ ADD CONSTRAINT `supplier_category_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES
 -- Constraints for table `tracking`
 --
 ALTER TABLE `tracking`
-ADD CONSTRAINT `tracking_ibfk_2` FOREIGN KEY (`id_form`) REFERENCES `form` (`id_form`),
-ADD CONSTRAINT `tracking_ibfk_3` FOREIGN KEY (`id_status_tracking`) REFERENCES `status_tracking` (`id_status_tracking`);
+ADD CONSTRAINT `tracking_ibfk_1` FOREIGN KEY (`id_status_tracking`) REFERENCES `status_tracking` (`id_status_tracking`),
+ADD CONSTRAINT `tracking_ibfk_2` FOREIGN KEY (`id_form`) REFERENCES `form` (`id_form`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -51,13 +51,13 @@ class Menu_admin extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('menu_admin/create_action'),
-        'id' => set_value('id'),
-        'name' => set_value('name'),
-        'link' => set_value('link'),
-        'icon' => set_value('icon'),
-        'is_active' => set_value('is_active'),
-        'is_parent' => set_value('is_parent'),
-    );
+            'id' => set_value('id'),
+            'name' => set_value('name'),
+            'link' => set_value('link'),
+            'icon' => set_value('icon'),
+            'is_active' => set_value('is_active'),
+            'is_parent' => set_value('is_parent'),
+        );
         $this->template->load('template','menu_form', $data);
     }
     
