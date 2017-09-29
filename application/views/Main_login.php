@@ -23,7 +23,7 @@
           <div class="table-responsive" style="padding-top: 20px">
             <table class="table">
               <thead>
-                <tr>
+                <div>
                   <th>
                     <form action="<?php echo base_url(); ?>/Login/add_form" method="POST">
                       <button class="btn btn-success" type="submit"><i class="material-icons" style="font-size: 15px">add</i> Buat Pesanan</button>
@@ -37,7 +37,7 @@
                       <button class="btn btn-primary" type="submit"><i class="material-icons" style="font-size: 13px">search</i></button>
                     </th>
                   </form>
-                </tr>              
+                </div>              
               </thead>         
             </table> 
           </div>
@@ -99,9 +99,12 @@
 
   <script type="text/javascript">
       $(document).ready(function(){
-          $('table tr').click(function(){
+          $('tr').click(function(){
+            var x = $(this).attr('href');
+            if(x.value!= ""){
               window.location = $(this).attr('href');
               return false;
+            }
           });
       });
   </script>

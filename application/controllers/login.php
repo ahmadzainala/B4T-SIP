@@ -16,12 +16,15 @@ class Login extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	public function error_login()
+	public function error_login($data = NULL)
 	{
+		$temp = array(
+            'data' => $data
+        );
 		$this->load->view('header');
-		$this->load->view('notification');
 		$this->load->view('main');
 		$this->load->view('footer');
+		$this->load->view('notification',$temp);
 	}
 
 	public function main_page()
@@ -88,11 +91,12 @@ class Login extends CI_Controller {
 				$name_dp = $this->User_akun_model->get_name_div_pos($this->session->userdata('id_user'));
 				//print_r($data);
 				$data = array(
-		            'name_dp' => $name_dp
+		            'name_dp' => $name_dp,
+		            'data' => 3
 		        );
 				$this->load->view('header_login');
 				$this->load->view('Edit_profile',$data);
-				$this->load->view('notification');
+				$this->load->view('notification',$data);
 				//$this->load->view('footer');
 			}
 		}else{
@@ -300,7 +304,7 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'required');
 	    $this->form_validation->set_rules('password', 'Password', 'required');
 	    if ($this->form_validation->run() == FALSE) {
-			redirect('Login/error_login');
+			redirect('Login/error_login/1');
 	    } else {
 	    	$user = $this->input->post('username');
     		$pass = md5($this->input->post('password'));
@@ -309,7 +313,7 @@ class Login extends CI_Controller {
 			if($valid_user == FALSE)
 			{
 				//$this->session->set_flashdata('error','Wrong Username / Password!');
-				redirect('Login/error_login');
+				redirect('Login/error_login/2');
 				//echo ">>$user----$pass";
 			} else {
 				// if the username and password is a match

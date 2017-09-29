@@ -4,8 +4,8 @@
       <div class="card">
         <h4 class="card-header">Form Daftar Pemesanan Barang / Jasa</h4>
           <div class="card-body">
-            <form action='<?php echo base_url(); ?>/Login/edit_item' id='edit_item' method='POST'></form>
-            <form action='<?php echo base_url(); ?>/Login/add_form' method='POST'>
+            <form action='<?php echo base_url(); ?>Login/edit_item' id='edit_item' method='POST'></form>
+            <form action='<?php echo base_url(); ?>Login/add_form' method='POST'>
               <table class="table borderless">
                 <tr>
                   <td width="20%">Kepada</td>
@@ -117,7 +117,7 @@
             </form>
           </div>
           <hr>
-          <form action='<?php echo base_url(); ?>/Login/submit_form' method='POST'>
+          <form action='<?php echo base_url(); ?>Login/submit_form' method='POST'>
           <div class="form-group">
             <label for="keterangan">Keterangan</label>
             <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>" required><?php echo $form_data->information;?></textarea>

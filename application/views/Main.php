@@ -7,7 +7,7 @@
           <div class="col-md-1">        
           </div>
           <div class="col-md-3" style="padding-top: 20px">          
-            <form action="<?php echo base_url(); ?>/Login/validation" method="POST">
+            <form action="<?php echo base_url(); ?>Login/validation" method="POST">
               <table border=0>
                 <th><h3>Login</h3></th>
                 <tr height="50px">

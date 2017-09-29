@@ -27,9 +27,9 @@
         <div class="dropdown">
           <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 13px">account_circle</i><?php echo " ".$this->session->userdata('username'); ?></button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="<?php echo base_url() ?>/login/edit_profile">Edit Profile</a>
+            <a class="dropdown-item" href="<?php echo base_url() ?>Login/edit_profile">Edit Profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" style="color: red; font-weight: bold" href="<?php echo base_url() ?>/login/logout">Logout</a>
+            <a class="dropdown-item" style="color: red; font-weight: bold" href="<?php echo base_url() ?>Login/logout">Logout</a>
           </div>
         </div>       
       </div>

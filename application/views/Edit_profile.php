@@ -2,7 +2,7 @@
       <div class="card">
         <h4 class="card-header"><i class="material-icons">person</i> Edit Profile</h4>
         <div class="card-body">
-          <form action='<?php echo base_url(); ?>/Login/submit_profile' method='POST'>
+          <form action='<?php echo base_url(); ?>Login/submit_profile' method='POST'>
             <table class="table borderless">
               <tr>
                 <td width="15%">Username</td>
