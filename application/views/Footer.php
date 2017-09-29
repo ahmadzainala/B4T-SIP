@@ -4,9 +4,9 @@
       <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <footer>
-          <p>&copy; 2017 Balai Besar Bahan dan Barang Teknik. All Rights Reserved</p>
-        </footer>
+        <div class="col-md-12">
+          <p>Ini Adalah Website Sistem Informasi Untuk Memudahkan Tracking Berkas Pengadaan Barang dan Jasa Pada Balai Besar Bahan dan Barang Teknik (B4T).</p>
+        </div>
       </div>
 
       <hr>

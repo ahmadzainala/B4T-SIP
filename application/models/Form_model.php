@@ -42,7 +42,7 @@ class Form_model extends CI_Model
 
     function get_by_user_div($id)
     {
-        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` ON `form`.`id_user` = `user_akun`.`id_user` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `date` DESC')->result();
+        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` ON `form`.`id_user` = `user_akun`.`id_user` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `read_status_Ketua` ASC, `date` DESC')->result();
     }
 
     //get by id user

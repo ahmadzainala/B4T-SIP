@@ -15,6 +15,7 @@
 
     <!-- Custom styles for this template -->    
     <link href="<?php echo base_url() ?>template/user/css/material-icons.css" rel="stylesheet">
+    
     <link href="<?php echo base_url() ?>template/user/css/dashboard.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>template/user/css/main.css" rel="stylesheet">
   </head>

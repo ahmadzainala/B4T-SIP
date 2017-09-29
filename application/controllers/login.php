@@ -56,6 +56,7 @@ class Login extends CI_Controller {
             'name_dp' => $name_dp
         );
 		$this->load->view('header_login');
+		//$this->load->view('edit_profile_ranggi');
 		$this->load->view('Edit_profile',$data);
 		//$this->load->view('footer');
 	}

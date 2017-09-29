@@ -27,7 +27,7 @@
                 <tr>
                   <td>Diperlukan Tanggal</td>
                   <td>
-                    <select name='date_needs' class='selectpicker' onchange="getinput(this);">
+                    <select class="custom-select" name='date_needs' class='selectpicker' onchange="getinput(this);">
                       <?php 
                         if($form_data->date_needs == "Segera"){
                       ?>
