@@ -125,7 +125,7 @@
                          echo "<tr href='$link' style='font-weight:italic'>";
                       }
                           echo "<td>".$temp." ".$d->first_name." ".$d->last_name."</td>";
-                          echo "<td>".$d->information."</td>";
+                          echo "<td>".$d->that."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td>".$d->description."</td>";
                         echo "</tr>";
@@ -141,7 +141,7 @@
                       }
                        echo "<tr href='$link'>";
                           echo "<td>".$temp."".$d->first_name." ".$d->last_name."</td>";
-                          echo "<td>".$d->information."</td>";
+                          echo "<td>".$d->that."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td>".$d->description."</td>";
                         echo "</tr>";
