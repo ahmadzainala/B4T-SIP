@@ -22,7 +22,22 @@ class Items_category_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
-    // get data by id
+    function get_by_name($name)
+    {
+        $this->db->where('name_category', $name);
+        return $this->db->get($this->table)->row();
+    }
+
+    function get_like($term){
+        
+        return $this->db->query("SELECT id_category,name_category FROM items_category WHERE name_category LIKE '".$term."%'")->result();
+    }
+
+    function get_id_category_by_item_name($item){
+        return $this->db->query("SELECT * FROM items_category a, items_detail b WHERE a.id_category = b.id_category and b.name_items LIKE '".$item."%'")->row();
+    }
+
+    // get data by id->result()
     function get_by_id($id)
     {
         $this->db->where($this->id, $id);
@@ -32,8 +47,8 @@ class Items_category_model extends CI_Model
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id_category', $q);
-	$this->db->or_like('name_category', $q);
-	$this->db->from($this->table);
+    $this->db->or_like('name_category', $q);
+    $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
@@ -41,8 +56,8 @@ class Items_category_model extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_category', $q);
-	$this->db->or_like('name_category', $q);
-	$this->db->limit($limit, $start);
+    $this->db->or_like('name_category', $q);
+    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
 

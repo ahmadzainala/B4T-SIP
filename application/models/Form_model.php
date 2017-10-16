@@ -30,27 +30,43 @@ class Form_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
+        return $this->db->query('select * from form b, tracking c, status_tracking d where c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and b.id_form ='.$id)->row();
+    }
+
+    function get_by_id_new($id)
+    {
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
 
+
     //get by id user
     function get_by_user($id)
     {
-        return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user and b.status_submit=1 and b.id_user ='.$id.' ORDER BY `date` DESC')->result();
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and b.id_user ='.$id.' ORDER BY `date` DESC')->result();
     }
 
     function get_by_user_div($id)
     {
-        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` ON `form`.`id_user` = `user_akun`.`id_user` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `read_status_Ketua` ASC, `date` DESC')->result();
+        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` JOIN `tracking` JOIN `status_tracking` ON `form`.`id_user` = `user_akun`.`id_user` and `tracking`.`id_form` = `form`.`id_form` and `tracking`.`id_status_tracking` = `status_tracking`.`id_status_tracking` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `read_status_Ketua` ASC, `date` DESC')->result();
+    }
+
+    function get_by_user_acc_TU()
+    {
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_catalog e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and e.id_tracking=c.id_tracking and (c.id_status_tracking =1 or c.id_status_tracking =11 or c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or e.id_user_acc=5) GROUP BY date ORDER BY `date` DESC')->result();
+    }
+
+    function get_by_user_acc_PPK()
+    {
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_catalog e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or e.id_user_acc=6) GROUP BY date ORDER BY `date` DESC')->result();
     }
 
     //get by id user
-    function get_by_user_now($id,$date)
+    function get_by_user_now($id)
     {
         $this->db->where('id_user', $id);
-        $this->db->where('date', $date);
         $this->db->order_by('id_form','desc');
+        $this->db->limit(1);
         return $this->db->get($this->table)->row();
     }
     

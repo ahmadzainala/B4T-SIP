@@ -41,6 +41,10 @@
     <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?php echo base_url() ?>template/user/css/autocomplete.css" />
+    <script src="<?php echo base_url() ?>template/user/js/autocomplete-jquery-1.8.3.js"></script>
+    <script src="<?php echo base_url() ?>template/user/js/autocomplete-jquery-ui.js"></script>
+    
   </body>
 </html>
 

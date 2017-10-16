@@ -1,11 +1,45 @@
+    <script>
+    $(function() {
+      var temp = $('#linkforauto').val();
+      var temp2 = $('#linkforauto2').val();
+      var kategori = "";
+      var item = "";
+        
+        $( "#category" ).autocomplete({
+         source: temp,  
+           minLength:1, 
+        });
 
+        $( "#category" ).change(function() {
+          kategori = $('#category').val();
+          $( "#item_complete" ).autocomplete({
+           source: temp2+"/"+kategori,  
+             minLength:1, 
+          });
+        });
+
+        $( "#item_complete" ).autocomplete({
+         source: temp2+"/"+kategori,  
+           minLength:1, 
+        });
+
+        $( "#item_complete" ).change(function() {
+          item = $('#item_complete').val();
+          
+          $( "#category" ).autocomplete({
+           source: temp+"2/"+item,  
+             minLength:1, 
+          });
+        });
+    });
+    </script>
 
     <div class="container" style="padding-top: 70px">
       <div class="card">
         <h4 class="card-header">Form Daftar Pemesanan Barang / Jasa</h4>
           <div class="card-body">
-            <form action='<?php echo base_url(); ?>Login/edit_item' id='edit_item' method='POST'></form>
-            <form action='<?php echo base_url(); ?>Login/add_form' method='POST'>
+            <form action='<?php echo base_url(); ?>Form/edit_item' id='edit_item' method='POST'></form>
+            <form action='<?php echo base_url(); ?>Form/add_form' method='POST'>
               <table class="table borderless">
                 <tr>
                   <td width="20%">Kepada</td>
@@ -67,7 +101,7 @@
                   if($item_list != ""){
                     echo "<input type='hidden' form='edit_item' name='qty_val' id='val_qty_edit' value=''><input type='hidden' form='edit_item' name='unit_val' id='val_unit_edit' value=''><input type='hidden' form='edit_item' name='id_item_val' id='id_item_edit' value=''>";
                     foreach ($item_list as $il) {
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td><input type='number' form='edit_item' name='qty' id='qty_edit[$i]' style='text-align: right;' value=$il->quantity readonly></td><td><input type='text' form='edit_item' id='unit_edit[$i]' name='unit' style='text-align: left;' value=$il->unit readonly></td><td><button class='btn btn-danger btn-sm' value='$il->id_form_content' form='edit_item' name='delete' type='submit'><i class='material-icons'>delete_forever</i></button></td><td><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button><button class='btn btn-warning btn-sm' type='button' id='update_this[$i]' style='display:none;' form='edit_item' value='$i' name='update' onclick='setInput(this)'><i class='material-icons'>done</i></button></td></tr><input type='hidden' form='edit_item' name='id_item' id='id_item[$i]' value='$il->id_form_content'>";
+                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td><input class='form-control' type='number' form='edit_item' name='qty' id='qty_edit[$i]' style='text-align: right;' value=$il->quantity min='1' readonly></td><td><input class='form-control' type='text' form='edit_item' id='unit_edit[$i]' name='unit' style='text-align: left;' value=$il->unit readonly></td><td><div class='row'><div class='col-sm-6'><button class='btn btn-danger btn-sm' value='$il->id_form_content' form='edit_item' name='delete' type='submit'><i class='material-icons'>delete_forever</i></button></div><div class='col-sm-6'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button><button class='btn btn-warning btn-sm' type='button' id='update_this[$i]' style='display:none;' form='edit_item' value='$i' name='update' onclick='setInput(this)'><i class='material-icons'>done</i></button></div></div></td></tr><input type='hidden' form='edit_item' name='id_item' id='id_item[$i]' value='$il->id_form_content'>";
                       $i++;
                     }
                   }else{
@@ -78,38 +112,19 @@
                   <tr style="">
                     <td></td>
                     <td>
-
-                      <select name='kategori' class='selectpicker' onchange="this.form.submit()" required>
-                      <?php 
-                        
-                        foreach ($data_kategori as $d){
-                          if($d->id_category == $this->session->userdata('category_item')){
-                            echo "<option value='$d->id_category' selected='selected'>";
-                          }else{
-                            echo "<option value='$d->id_category'>";
-                          }
-                              echo $d->name_category;
-                            echo "</option>";
-                        }
-                      ?>
-                      </select>
-                      <input type="hidden" id"kategorinew" placeholder="Kategori baru" value="" required>
+                      <div class="ui-widget">
+                        <input class="form-control" type="hidden" id="linkforauto" value="<?php echo base_url(); ?>Form/autocompleteCat">
+                        <input class="form-control" name="kategori" placeholder="Kategori item" id="category"  required/>
+                      </div>
                     </td>
                     <td>
-                      <select name='item' class='selectpicker' required>
-                      <?php 
-                        
-                        foreach ($data_item as $d){
-                         echo "<option value='$d->id_items_detail' selected='selected'>";
-                            echo $d->name_items;
-                          echo "</option>";
-                        }
-                      ?>
-                      </select>
-                      <input type="hidden" id"itemnew" placeholder="Item baru" value="" required>
+                      <div class="ui-widget">
+                        <input class="form-control" type="hidden" id="linkforauto2" value="<?php echo base_url(); ?>Form/autocompleteItems">
+                        <input class="form-control" name="item" placeholder="item" id="item_complete"  required />
+                      </div>
                     </td>
-                    <td><input class="form-control" type="number" min="0"  name="quantity" required></td>
-                    <td><input class="form-control" type="text" name="unit" required></td>
+                    <td><input class="form-control" type="number" min="1"  name="quantity" required></td>
+                    <td><input class="form-control" type="text" colspan="2" name="unit" required></td>
                     <td><button class="btn btn-info" type="submit" colspan="2" name="add" value ="1">Tambahkan</button></td>
                   </tr>    
                 </tbody>
@@ -117,9 +132,9 @@
             </form>
           </div>
           <hr>
-          <form action='<?php echo base_url(); ?>Login/submit_form' method='POST'>
+          <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'>
           <div class="form-group">
-            <label for="keterangan">Keterangan</label>
+            <label for="keterangan">Keterangan / Sumber Anggaran</label>
             <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>" required><?php echo $form_data->information;?></textarea>
           </div>
         </div>

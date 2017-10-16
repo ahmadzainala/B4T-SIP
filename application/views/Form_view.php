@@ -32,7 +32,7 @@
                   <th>No.</th>
                   <th width="17%">Kategori</th>
                   <th>Nama dan Spesifikasi Barang / Jasa</th>
-                  <th width="20%">Banyaknya</th>
+                  <th width="20%" colspan="2" style='text-align: center;'>Banyaknya</th>
                   <th>Acc</th>
                 </tr>
               </thead>
@@ -41,7 +41,13 @@
                   $i = 1;
                   if($item_list != ""){
                     foreach ($item_list as $il) {
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td>$il->quantity $il->unit</td><td></td></tr>";
+                      if($il->status_acc == 1){
+                        $stat = "<i class='material-icons' style='color:green;'>done</i>";
+                      }else{
+
+                        $stat = "<i class='material-icons' style='color:red;'>clear</i>";
+                      }
+                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td style='text-align: right;'>$il->quantity_origin $il->unit -> </td><td>$il->quantity $il->unit</td><td>$stat</td></tr>";
                       $i++;
                     }
                   }else{
@@ -52,26 +58,32 @@
             </table>
           </div>
           <hr>
-          <label for="keterangan">Keterangan</label>
+          <label for="keterangan">Keterangan / Sumber Anggaran</label>
           <div class="card">
             <div class="card-body"><?php echo $form_data->information;?></div>
+            <div class="card-body"><?php if($form_data->information_kabid!=''){ echo 'tambahan kabid: '.$form_data->information_kabid;}?></div>
           </div>
           <hr>
+          <?php if($form_data->read_status_TU != 0 && $form_data->information_TU != ""){ ?>
           <table>
             <tr>
               <td><b>Permintaan diterima oleh Ka.Bag Tata Usaha :</b></td>
-              <td>NULL</td>
+              <td><?php echo $form_acc->date_acc;?></td>
             </tr>
           </table>
           <label for="keterangan"><b>Rekomendasi / Catatan Ka.Bag Tata Usaha</b></label>
           <div class="card">
-            <div class="card-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+            <div class="card-body"><?php echo $form_data->information_TU;?></div>
           </div>
           <hr>
+          <?php }
+                if($form_data->read_status_PPK != 0 && $form_data->information_PPK != ""){
+          ?>
           <label for="keterangan"><b>Perintah / Catatan Pejabat Pembuat Komitmen</b></label>
           <div class="card">
-            <div class="card-body">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. </div>
-          </div>  
+            <div class="card-body"><?php echo $form_data->information_PPK;?></div>
+          </div>
+          <?php }?>  
         </div>        
       </div>
       <br>
