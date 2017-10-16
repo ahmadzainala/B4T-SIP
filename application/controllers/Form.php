@@ -547,20 +547,22 @@ class Form extends CI_Controller
             }
         }
 
-        if($stat == 1){
-            foreach ($item_list as $item) {
-                if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
-                    $data = array(
-                        'quantity' => $_POST['qty'.$item->id_items_detail],
-                        'status_acc' => 1,
-                        );
-                    $this->Form_content_model->update($item->id_form_content,$data);
-                }else{
-                     $data = array(
-                        'quantity' => 0,
-                        'status_acc' => 0,
-                        );
-                    $this->Form_content_model->update($item->id_form_content,$data);
+        if($stat == 1 || $_POST['status_acc'] == 2){
+            if($_POST['status_acc'] != 2){
+                foreach ($item_list as $item) {
+                    if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
+                        $data = array(
+                            'quantity' => $_POST['qty'.$item->id_items_detail],
+                            'status_acc' => 1,
+                            );
+                        $this->Form_content_model->update($item->id_form_content,$data);
+                    }else{
+                         $data = array(
+                            'quantity' => 0,
+                            'status_acc' => 0,
+                            );
+                        $this->Form_content_model->update($item->id_form_content,$data);
+                    }
                 }
             }
             
@@ -569,6 +571,10 @@ class Form extends CI_Controller
                 if($_POST['status_acc'] == 1){
                     $data = array(
                         'id_status_tracking' => 1
+                    );
+                }else if($_POST['status_acc'] == 2){
+                    $data = array(
+                        'id_status_tracking' => 6
                     );
                 }else{
                     $data = array(
@@ -594,6 +600,10 @@ class Form extends CI_Controller
                 if($_POST['status_acc'] == 1){
                     $data = array(
                         'id_status_tracking' => 2
+                    );
+                }else if($_POST['status_acc'] == 2){
+                    $data = array(
+                        'id_status_tracking' => 6
                     );
                 }else{
                     $data = array(
@@ -621,6 +631,10 @@ class Form extends CI_Controller
                     $data = array(
                         'id_status_tracking' => 3
                     );
+                }else if($_POST['status_acc'] == 2){
+                    $data = array(
+                        'id_status_tracking' => 6
+                    );
                 }else{
                     $data = array(
                         'id_status_tracking' => 4
@@ -647,6 +661,105 @@ class Form extends CI_Controller
         }else{
             redirect('Form/Form_acc/'.$_POST['id_form']);
         }
+    }
+
+    public function edit_form($id_form = NULL){
+        $this->session->set_userdata('id_form',$id_form);
+        $that = "";
+        $date_needs = "";
+        $kategori = "";
+        $items = "";
+        $item_list = "";
+
+        if(isset($_POST['add'])){
+
+            $this->load->model('Items_category_model');
+            $kategorinew = $this->Items_category_model->get_by_name($_POST['kategori']);
+            if($kategorinew == NULL){
+                $data = array(
+                    'name_category' => $_POST['kategori'],
+                    );
+                $this->Items_category_model->insert($data);
+                $kategorinew = $this->Items_category_model->get_by_name($_POST['kategori']);
+            }
+
+            $this->load->model('Items_detail_model');
+            $itemnew = $this->Items_detail_model->get_by_name($_POST['item']);
+            if($itemnew == NULL){
+                $data = array(
+                    'name_items' => $_POST['item'],
+                    'id_category' => $kategorinew->id_category,
+                    );
+                $this->Items_detail_model->insert($data);
+                $itemnew = $this->Items_detail_model->get_by_name($_POST['item']);
+            }
+            $this->load->model('Form_content_model');
+            $cek = $this->Form_content_model->get_by_item_form($itemnew->id_items_detail,$this->session->userdata('id_form'));
+            if($cek == 0){
+                $data = array(
+                    'id_user' => $this->session->userdata('id_user'),
+                    'date' => date("Y-m-d"),
+                    'information' => "",
+                    'date_needs' => $_POST['date_needs'],
+                    'that' => $_POST['that'],
+                    );
+                $this->Form_model->update($this->session->userdata('id_form'),$data);
+
+                $data = array(
+                    'id_form' => $this->session->userdata('id_form'),
+                    'id_items_detail' => $itemnew->id_items_detail,
+                    'quantity' => $_POST['quantity'],
+                    'quantity_origin' => $_POST['quantity'],
+                    'unit' => $_POST['unit']
+                    );
+                
+                $this->Form_content_model->insert($data);
+                $this->session->set_userdata('category_item',NULL);
+            }
+        }
+
+        $this->load->model('Form_content_model');
+        $item_list = $this->Form_content_model->get_all_detail_by_form($this->session->userdata('id_form'));
+
+        if(isset($_POST["kategori"]) && $_POST['kategori'] != NULL){
+            $data = array(
+                'id_user' => $this->session->userdata('id_user'),
+                'information' => "",
+                'date_needs' => $_POST['date_needs'],
+                'that' => $_POST['that'],
+                );
+
+            $this->Form_model->update($this->session->userdata('id_form'),$data);
+            $this->session->set_userdata('category_item',$_POST['kategori']);
+            $form_data = $this->Form_model->get_by_user_now($this->session->userdata('id_user'));
+        }
+
+        $this->load->model('Items_category_model');
+        $kategori = $this->Items_category_model->get_all();
+        
+        if($this->session->userdata('category_item') == NULL){  
+            $items = "";
+        }else{
+            $this->load->model('Items_detail_model');
+            $items = $this->Items_detail_model->get_by_category($this->session->userdata('category_item'));
+        }
+        
+        $this->load->model('Division_model');
+        $divisi = $this->Division_model->get_by_id($this->session->userdata('id_division'));
+        $form_data = $this->Form_model->get_by_id_new($this->session->userdata('id_form'));
+        $data = array(
+            'data_kategori' => $kategori,
+            'data_item' => $items,
+            'divisi' => $divisi,
+            'form_data' => $form_data,
+            'item_list' => $item_list
+        );
+
+       //echo $this->session->userdata('id_form');
+        
+        $this->load->view('header_login');
+        $this->load->view('Form_submit',$data);
+        $this->load->view('footer');
     }
 
     public function autocompleteCat(){

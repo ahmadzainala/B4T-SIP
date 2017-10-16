@@ -109,13 +109,13 @@
                           } 
                            $link = base_url()."Form/form_acc/".$d->id_form;
                         }else{
+                          $link = base_url()."Form/detail_form/".$d->id_form;
                           if($d->id_status_tracking==4){
                             $temp = "<i class='material-icons' style='color:red;'>clear</i>";
                           }else{
                             $temp = "<i class='material-icons' style='color:green;'>check_circle</i>";
                           }
 
-                          $link = base_url()."Form/detail_form/".$d->id_form;
                         }
                       }
                       
@@ -134,8 +134,13 @@
                       foreach ($form_data as $d){
                         //print_r($d);
                         $link = base_url()."Form/detail_form/".$d->id_form;
+                        $temp ="";
+                       if($d->id_status_tracking == 6){
+                        $temp = "<i class='material-icons' style='color:black;'>assignment_late</i>";
+                        $link = base_url()."Form/edit_form/".$d->id_form;
+                      }
                        echo "<tr href='$link'>";
-                          echo "<td>".$d->first_name." ".$d->last_name."</td>";
+                          echo "<td>".$temp."".$d->first_name." ".$d->last_name."</td>";
                           echo "<td>".$d->information."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td><i class='material-icons' style='font-size: 20px'>timelapse</i><i class='material-icons' style='font-size: 20px'>assignment_ind</i><i class='material-icons' style='font-size: 20px'>assignment_returned</i><i class='material-icons' style='font-size: 20px'>assignment_late</i><i class='material-icons' style='font-size: 20px'>assignment</i><i class='material-icons' style='font-size: 20px'>assignment_turned_in</i></td>";
