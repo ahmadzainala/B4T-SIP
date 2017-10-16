@@ -112,13 +112,13 @@
                   <tr style="">
                     <td></td>
                     <td>
-                      <div class="ui-widget">
+                      <div class="form-group">
                         <input class="form-control" type="hidden" id="linkforauto" value="<?php echo base_url(); ?>Form/autocompleteCat">
                         <input class="form-control" name="kategori" placeholder="Kategori item" id="category"  required/>
                       </div>
                     </td>
                     <td>
-                      <div class="ui-widget">
+                      <div class="form-group">
                         <input class="form-control" type="hidden" id="linkforauto2" value="<?php echo base_url(); ?>Form/autocompleteItems">
                         <input class="form-control" name="item" placeholder="item" id="item_complete"  required />
                       </div>
