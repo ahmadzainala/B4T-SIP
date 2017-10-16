@@ -137,6 +137,11 @@
             <label for="keterangan">Keterangan / Sumber Anggaran</label>
             <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>" required><?php echo $form_data->information;?></textarea>
           </div>
+          <hr>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Lampiran</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>          
         </div>
         <div class="card-footer">
           <table border=0>
