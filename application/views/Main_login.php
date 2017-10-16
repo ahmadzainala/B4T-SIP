@@ -1,38 +1,29 @@
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="container">
       <section class="row text-center placeholders">
-        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-          <div class="row">
-            <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujui; ?>.</h1>.
-            <h4>Menunggu Disetujui</h4>
-          </div>
-          <div class="row">
-            <div class="col-sm-2">
-              <p><?php echo $jmlmenunggudisetujuiKD; ?></p>
-              <p>Kabid</p>
-            </div>
-            <div class="col-sm-2">
-              <p><?php echo $jmlmenunggudisetujuiTU; ?></p>
-              <p>TU</p>
-            </div>
-            <div class="col-sm-2">
-              <p><?php echo $jmlmenunggudisetujuiPPK; ?></p>
-              <p>PPK</p>
-            </div>
-          </div>
+        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <b>Menunggu Disetujui Kabid</b>
         </div>
-        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-          <h1><i class="material-icons" style="font-size: 28px">shopping_cart</i> <?php echo $jmlprosespengadaan; ?>.</h1>
-          <h4>Proses Pengadaan</h4>
+        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">assignment_ind</i> <?php echo $jmlprosespengadaan; ?></h1>
+          <b>Menunggu Disetujui TU</b>
         </div>
-        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-          <h1><i class="material-icons" style="font-size: 28px">speaker_notes_off</i> <?php echo $jmltidakdisetujui; ?>.</h1>
-          <h4>Tidak Disetujui</h4>
+        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">assignment_returned</i> <?php echo $jmltidakdisetujui; ?></h1>
+          <b>Menunggu Disetujui PPK</b>
         </div>
-        <div class="col-6 col-sm-3 placeholder" style="padding-top: 70px">
-          <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmlselesaipengadaan; ?>.</h1>
-          <h4>Selesai Pengadaan</h4>
+        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">assignment_late</i> <?php echo $jmlselesaipengadaan; ?></h1>
+          <b>Revisi</b>
+        </div>
+        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">assignment</i> <?php echo $jmlselesaipengadaan; ?></h1>
+          <b>Verifikasi Pengadaan</b>
+        </div>
+        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+          <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmlselesaipengadaan; ?></h1>
+          <b>Selesai Pengadaan</b>
         </div>
       </section>
 
@@ -155,7 +146,29 @@
               </tbody>
             </table>
           </div>
-        </div>
+          <hr>
+          <div>
+            <nav aria-label="paging">
+              <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>  
+          </div>
+          </div>
       <br>
       <br>
       <br>
