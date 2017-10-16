@@ -30,7 +30,7 @@ class Form_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        return $this->db->query('select * from form b, tracking c, status_tracking d where c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and b.id_form ='.$id)->row();
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and b.id_form ='.$id)->row();
     }
 
     function get_by_id_new($id)

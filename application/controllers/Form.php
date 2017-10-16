@@ -452,8 +452,8 @@ class Form extends CI_Controller
         $this->load->model('Form_content_model');
         $item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
         $this->load->model('Division_model');
-        $divisi = $this->Division_model->get_by_id($this->session->userdata('id_division'));
         $form_data = $this->Form_model->get_by_id($id_form);
+        $divisi = $this->Division_model->get_by_id($form_data->id_division);
         $this->load->model('Tracking_model');
         $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
 
@@ -539,104 +539,114 @@ class Form extends CI_Controller
         $this->load->model('Tracking_catalog_model');
         $this->load->model('Form_content_model');
         $item_list = $this->Form_content_model->get_all_detail_by_form($_POST['id_form']); 
+        $stat = 0;
+
         foreach ($item_list as $item) {
             if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
-                echo $_POST['qty'.$item->id_items_detail];
-                $data = array(
-                    'quantity' => $_POST['qty'.$item->id_items_detail],
-                    'status_acc' => 1,
+                $stat = 1;
+            }
+        }
+
+        if($stat == 1){
+            foreach ($item_list as $item) {
+                if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
+                    $data = array(
+                        'quantity' => $_POST['qty'.$item->id_items_detail],
+                        'status_acc' => 1,
+                        );
+                    $this->Form_content_model->update($item->id_form_content,$data);
+                }else{
+                     $data = array(
+                        'quantity' => 0,
+                        'status_acc' => 0,
+                        );
+                    $this->Form_content_model->update($item->id_form_content,$data);
+                }
+            }
+            
+            if($this->session->userdata('id_position') == 3){
+                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                if($_POST['status_acc'] == 1){
+                    $data = array(
+                        'id_status_tracking' => 1
                     );
-                $this->Form_content_model->update($item->id_form_content,$data);
-            }else{
-                 $data = array(
-                    'status_acc' => 0,
+                }else{
+                    $data = array(
+                        'id_status_tracking' => 4
                     );
-                $this->Form_content_model->update($item->id_form_content,$data);
+                }
+                $this->Tracking_model->update($id_track->id_tracking,$data);
+
+                $data2 = array(
+                    'id_tracking' => $id_track->id_tracking,
+                    'id_user_acc' => $this->session->userdata('id_position'),
+                    'date_acc' => date('Y-m-d'),
+                    'acc' => $_POST['status_acc'],
+                );
+                $this->Tracking_catalog_model->insert($data2);
+
+                $data3 = array(
+                    'information_kabid' => $_POST['keterangan']
+                );
+                $this->Form_model->update($_POST['id_form'],$data3);
+            }else if($this->session->userdata('id_position') == 5){
+                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                if($_POST['status_acc'] == 1){
+                    $data = array(
+                        'id_status_tracking' => 2
+                    );
+                }else{
+                    $data = array(
+                        'id_status_tracking' => 4
+                    );
+                }
+                $this->Tracking_model->update($id_track->id_tracking,$data);
+
+                $data2 = array(
+                    'id_tracking' => $id_track->id_tracking,
+                    'id_user_acc' => $this->session->userdata('id_position'),
+                    'date_acc' => date('Y-m-d'),
+                    'acc' => $_POST['status_acc'],
+                );
+                $this->Tracking_catalog_model->insert($data2);
+
+                $data3 = array(
+                    'information_TU' => $_POST['keterangan']
+                );
+                $this->Form_model->update($_POST['id_form'],$data3);
             }
-            echo "</br>";
+            else if($this->session->userdata('id_position') == 6){
+                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                if($_POST['status_acc'] == 1){
+                    $data = array(
+                        'id_status_tracking' => 3
+                    );
+                }else{
+                    $data = array(
+                        'id_status_tracking' => 4
+                    );
+                }
+                $this->Tracking_model->update($id_track->id_tracking,$data);
+
+                $data2 = array(
+                    'id_tracking' => $id_track->id_tracking,
+                    'id_user_acc' => $this->session->userdata('id_position'),
+                    'date_acc' => date('Y-m-d'),
+                    'acc' => $_POST['status_acc'],
+                );
+                $this->Tracking_catalog_model->insert($data2);
+
+                $data3 = array(
+                    'information_PPK' => $_POST['keterangan']
+                );
+                $this->Form_model->update($_POST['id_form'],$data3);
+            }
+            $this->session->set_flashdata('error','Anda berhasil menyetujui pengadaan barang.');
+            $this->load->view('Notification');
+            redirect('Main');
+        }else{
+            redirect('Form/Form_acc/'.$_POST['id_form']);
         }
-        
-        if($this->session->userdata('id_position') == 3){
-            $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
-            if($_POST['status_acc'] == 1){
-                $data = array(
-                    'id_status_tracking' => 1
-                );
-            }else{
-                $data = array(
-                    'id_status_tracking' => 4
-                );
-            }
-            $this->Tracking_model->update($id_track->id_tracking,$data);
-
-            $data2 = array(
-                'id_tracking' => $id_track->id_tracking,
-                'id_user_acc' => $this->session->userdata('id_position'),
-                'date_acc' => date('Y-m-d'),
-                'acc' => $_POST['status_acc'],
-            );
-            $this->Tracking_catalog_model->insert($data2);
-
-            $data3 = array(
-                'information_kabid' => $_POST['keterangan']
-            );
-            $this->Form_model->update($_POST['id_form'],$data3);
-        }else if($this->session->userdata('id_position') == 5){
-            $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
-            if($_POST['status_acc'] == 1){
-                $data = array(
-                    'id_status_tracking' => 2
-                );
-            }else{
-                $data = array(
-                    'id_status_tracking' => 4
-                );
-            }
-            $this->Tracking_model->update($id_track->id_tracking,$data);
-
-            $data2 = array(
-                'id_tracking' => $id_track->id_tracking,
-                'id_user_acc' => $this->session->userdata('id_position'),
-                'date_acc' => date('Y-m-d'),
-                'acc' => $_POST['status_acc'],
-            );
-            $this->Tracking_catalog_model->insert($data2);
-
-            $data3 = array(
-                'information_TU' => $_POST['keterangan']
-            );
-            $this->Form_model->update($_POST['id_form'],$data3);
-        }
-        else if($this->session->userdata('id_position') == 6){
-            $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
-            if($_POST['status_acc'] == 1){
-                $data = array(
-                    'id_status_tracking' => 3
-                );
-            }else{
-                $data = array(
-                    'id_status_tracking' => 4
-                );
-            }
-            $this->Tracking_model->update($id_track->id_tracking,$data);
-
-            $data2 = array(
-                'id_tracking' => $id_track->id_tracking,
-                'id_user_acc' => $this->session->userdata('id_position'),
-                'date_acc' => date('Y-m-d'),
-                'acc' => $_POST['status_acc'],
-            );
-            $this->Tracking_catalog_model->insert($data2);
-
-            $data3 = array(
-                'information_PPK' => $_POST['keterangan']
-            );
-            $this->Form_model->update($_POST['id_form'],$data3);
-        }
-        $this->session->set_flashdata('error','Anda berhasil menyetujui pengadaan barang.');
-        $this->load->view('Notification');
-        redirect('Main');
-        
     }
 
     public function autocompleteCat(){

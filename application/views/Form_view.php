@@ -10,7 +10,7 @@
             </tr>
             <tr>
               <td>Dari</td>
-              <td colspan="2"><?php echo $this->session->userdata('first_name').' '. $this->session->userdata('last_name').' ('.$divisi->name_division.')'; ?></td>
+              <td colspan="2"><?php echo $form_data->first_name.' '. $form_data->last_name.' ('.$divisi->name_division.')'; ?></td>
               <td width="30%"></td>
             </tr>
             <tr>
