@@ -1,8 +1,20 @@
     <div class="container" style="padding-top: 70px">
       <div class="card">
-        <h4 class="card-header">Daftar Pemesanan Barang / Jasa</h4>
+        <div class="row card-header" style="margin: 0px 0.5px 0px 0.5px;padding-bottom: 1px;">
+          <div class="col-md-6">
+            <h4>Form Daftar Pemesanan Barang / Jasa</h4> 
+          </div>
+          <div class="col-md-6" style="text-align: right;">
+            <p>Tanggal Diajukan :</p>
+          </div> 
+        </div> 
         <div class="card-body">
           <table class="table borderless">
+            <tr>
+              <td width="20%">Nama Kegiatan</td>
+              <td colspan="2">MAD GANTI</td>
+              <td width="30%"></td>
+            </tr>            
             <tr>
               <td width="20%">Kepada</td>
               <td colspan="2">Kepala B4T,u.p. Kepala Bagian Tata Usaha</td>

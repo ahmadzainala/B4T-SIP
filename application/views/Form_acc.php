@@ -1,6 +1,13 @@
  <div class="container" style="padding-top: 70px">
       <div class="card">
-        <h4 class="card-header">Form Daftar Pemesanan Barang / Jasa</h4>
+        <div class="row">
+          <div class="colmd-6">
+            <h4 class="card-header">Form Daftar Pemesanan Barang / Jasa</h4> 
+          </div>
+          <div class="colmd-6">
+            Tanggal
+          </div> 
+        </div>        
         <div class="card-body">
           <form action='<?php echo base_url(); ?>Form/acc' method='POST'>
             <table class="table borderless">

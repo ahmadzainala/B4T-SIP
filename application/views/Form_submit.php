@@ -42,6 +42,11 @@
             <form action='<?php echo base_url(); ?>Form/add_form' method='POST'>
               <table class="table borderless">
                 <tr>
+                  <td width="20%">Nama Kegiatan</td>
+                  <td colspan="2"><input class="form-control" type="text" name="kegiatan"></td>
+                  <td width="30%"></td>
+                </tr>
+                <tr>
                   <td width="20%">Kepada</td>
                   <td colspan="2"><input class="form-control" type="text" name="kepada" placeholder="Kepala B4T,u.p. Kepala Bagian Tata Usaha" readonly></td>
                   <td width="30%"></td>
