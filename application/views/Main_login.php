@@ -127,7 +127,7 @@
                           echo "<td>".$temp." ".$d->first_name." ".$d->last_name."</td>";
                           echo "<td>".$d->that."</td>";
                           echo "<td>".$d->date."</td>";
-                          echo "<td><i class='material-icons' style='font-size: 20px'>timelapse</i><i class='material-icons' style='font-size: 20px'>assignment_ind</i><i class='material-icons' style='font-size: 20px'>assignment_returned</i><i class='material-icons' style='font-size: 20px'>assignment_late</i><i class='material-icons' style='font-size: 20px'>assignment</i><i class='material-icons' style='font-size: 20px'>assignment_turned_in</i></td>";
+                          echo "<td><i class='material-icons' style='font-size: 20px'>timelapse</i><i class='material-icons' style='font-size: 20px'>assignment_ind</i><i class='material-icons' style='font-size: 20px'>assignment_returned</i><i class='material-icons' style='font-size: 20px'>assignment_late</i><i class='material-icons' style='font-size: 20px'>assignment</i><i class='material-icons' style='font-size: 20px'>assignment_turned_in</i>".$d->description."</td>";
                           //echo "<td>".$d->description."</td>";
                         echo "</tr>";
                       }
@@ -144,7 +144,7 @@
                           echo "<td>".$temp."".$d->first_name." ".$d->last_name."</td>";
                           echo "<td>".$d->that."</td>";
                           echo "<td>".$d->date."</td>";
-                          echo "<td><i class='material-icons' style='font-size: 20px'>timelapse</i><i class='material-icons' style='font-size: 20px'>assignment_ind</i><i class='material-icons' style='font-size: 20px'>assignment_returned</i><i class='material-icons' style='font-size: 20px'>assignment_late</i><i class='material-icons' style='font-size: 20px'>assignment</i><i class='material-icons' style='font-size: 20px'>assignment_turned_in</i></td>";
+                          echo "<td><i class='material-icons' style='font-size: 20px'>timelapse</i><i class='material-icons' style='font-size: 20px'>assignment_ind</i><i class='material-icons' style='font-size: 20px'>assignment_returned</i><i class='material-icons' style='font-size: 20px'>assignment_late</i><i class='material-icons' style='font-size: 20px'>assignment</i><i class='material-icons' style='font-size: 20px'>assignment_turned_in</i>".$d->description."</td>";
                           // echo "<td>".$d->description."</td>";
                         echo "</tr>";
                       }
