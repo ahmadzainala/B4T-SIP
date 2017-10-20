@@ -44,7 +44,7 @@
                   <th>No.</th>
                   <th width="17%">Kategori</th>
                   <th>Nama dan Spesifikasi Barang / Jasa</th>
-                  <th width="20%" colspan="2" style='text-align: center;'>Banyaknya</th>
+                  <th width="20%" style='text-align: center;'>Banyaknya</th>
                   <th>Acc</th>
                 </tr>
               </thead>
@@ -59,7 +59,7 @@
 
                         $stat = "<i class='material-icons' style='color:red;'>clear</i>";
                       }
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td style='text-align: right;'>$il->quantity_origin $il->unit -> </td><td>$il->quantity $il->unit</td><td>$stat</td></tr>";
+                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td style='text-align:center;' title='usulan awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td>$stat</td></tr>";
                       $i++;
                     }
                   }else{
