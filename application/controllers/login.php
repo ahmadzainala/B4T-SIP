@@ -77,9 +77,12 @@ class Login extends CI_Controller {
 	{
 		//jika awalnya user membuat form namun tidak di submit
 		if($this->session->userdata('id_form') != NULL){
-			$this->load->model('Form_content_model');
-			$this->Form_content_model->delete_by_form($this->session->userdata('id_form'));
-			$this->Form_model->delete($this->session->userdata('id_form'));
+			$temp = $this->Form_model->get_by_id($this->session->userdata('id_form'));
+			if($temp->status_submit == 0){
+				$this->load->model('Form_content_model');
+				$this->Form_content_model->delete_by_form($this->session->userdata('id_form'));
+				$this->Form_model->delete($this->session->userdata('id_form'));
+			}
 		}
 		$this->session->sess_destroy();
 		redirect('Login');
