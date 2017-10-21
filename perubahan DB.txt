@@ -1,9 +1,0 @@
-yang dirubah :
-1. Nambah tabel source_budget (sumber anggaran)
-2. id_divison => id_division pada tabel division
-3. Pada Tabel form ditambah :
-	id_budget references dari tabel source_budget
-	name_activity untuk nama kegiatan
-4. alamat => address di tabel supplier
-5. tabel tracking_catalog => tracking_history
-6. field last_name di hapus
