@@ -6,18 +6,16 @@ if (!defined('BASEPATH'))
 class User_akun extends CI_Controller
 {
     
+        
     function __construct()
     {
         parent::__construct();
         $this->load->model('User_akun_model');
-        
     }
-
-    // 1) Untuk Admin
 
     public function index()
     {
-        $user_akun = $this->User_akun_model->get_all_detail();
+        $user_akun = $this->User_akun_model->get_all();
 
         $data = array(
             'user_akun_data' => $user_akun
@@ -31,14 +29,13 @@ class User_akun extends CI_Controller
         $row = $this->User_akun_model->get_by_id($id);
         if ($row) {
             $data = array(
-    		'id_user' => $row->id_user,
-    		'username' => $row->username,
-    		'password' => $row->password,
-    		'first_name' => $row->first_name,
-    		'last_name' => $row->last_name,
-    		'id_position' => $row->id_position,
-    		'id_division' => $row->id_division,
-    	    );
+		'id_user' => $row->id_user,
+		'username' => $row->username,
+		'password' => $row->password,
+		'name' => $row->name,
+		'id_position' => $row->id_position,
+		'id_division' => $row->id_division,
+	    );
             $this->template->load('template','user_akun_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -49,16 +46,15 @@ class User_akun extends CI_Controller
     public function create() 
     {
         $data = array(
-        'button' => 'Create',
-        'action' => site_url('user_akun/create_action'),
+            'button' => 'Create',
+            'action' => site_url('user_akun/create_action'),
 	    'id_user' => set_value('id_user'),
 	    'username' => set_value('username'),
 	    'password' => set_value('password'),
-	    'first_name' => set_value('first_name'),
-	    'last_name' => set_value('last_name'),
+	    'name' => set_value('name'),
 	    'id_position' => set_value('id_position'),
 	    'id_division' => set_value('id_division'),
-	    );
+	);
         $this->template->load('template','user_akun_form', $data);
     }
     
@@ -70,13 +66,12 @@ class User_akun extends CI_Controller
             $this->create();
         } else {
             $data = array(
-    		'username' => $this->input->post('username',TRUE),
-    		'password' => md5($this->input->post('password',TRUE)),
-    		'first_name' => $this->input->post('first_name',TRUE),
-    		'last_name' => $this->input->post('last_name',TRUE),
-    		'id_position' => $this->input->post('id_position',TRUE),
-    		'id_division' => $this->input->post('id_division',TRUE),
-    	    );
+		'username' => $this->input->post('username',TRUE),
+		'password' => $this->input->post('password',TRUE),
+		'name' => $this->input->post('name',TRUE),
+		'id_position' => $this->input->post('id_position',TRUE),
+		'id_division' => $this->input->post('id_division',TRUE),
+	    );
 
             $this->User_akun_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -90,16 +85,15 @@ class User_akun extends CI_Controller
 
         if ($row) {
             $data = array(
-            'button' => 'Update',
-            'action' => site_url('user_akun/update_action'),
-    		'id_user' => set_value('id_user', $row->id_user),
-    		'username' => set_value('username', $row->username),
-    		'password' => set_value('password', $row->password),
-    		'first_name' => set_value('first_name', $row->first_name),
-    		'last_name' => set_value('last_name', $row->last_name),
-    		'id_position' => set_value('id_position', $row->id_position),
-    		'id_division' => set_value('id_division', $row->id_division),
-    	    );
+                'button' => 'Update',
+                'action' => site_url('user_akun/update_action'),
+		'id_user' => set_value('id_user', $row->id_user),
+		'username' => set_value('username', $row->username),
+		'password' => set_value('password', $row->password),
+		'name' => set_value('name', $row->name),
+		'id_position' => set_value('id_position', $row->id_position),
+		'id_division' => set_value('id_division', $row->id_division),
+	    );
             $this->template->load('template','user_akun_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -115,13 +109,12 @@ class User_akun extends CI_Controller
             $this->update($this->input->post('id_user', TRUE));
         } else {
             $data = array(
-    		'username' => $this->input->post('username',TRUE),
-    		'password' => $this->input->post('password',TRUE),
-    		'first_name' => $this->input->post('first_name',TRUE),
-    		'last_name' => $this->input->post('last_name',TRUE),
-    		'id_position' => $this->input->post('id_position',TRUE),
-    		'id_division' => $this->input->post('id_division',TRUE),
-    	    );
+		'username' => $this->input->post('username',TRUE),
+		'password' => $this->input->post('password',TRUE),
+		'name' => $this->input->post('name',TRUE),
+		'id_position' => $this->input->post('id_position',TRUE),
+		'id_division' => $this->input->post('id_division',TRUE),
+	    );
 
             $this->User_akun_model->update($this->input->post('id_user', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -145,15 +138,14 @@ class User_akun extends CI_Controller
 
     public function _rules() 
     {
-    	$this->form_validation->set_rules('username', 'username', 'trim|required');
-    	$this->form_validation->set_rules('password', 'password', 'trim|required');
-    	$this->form_validation->set_rules('first_name', 'first name', 'trim|required');
-    	$this->form_validation->set_rules('last_name', 'last name', 'trim|required');
-    	$this->form_validation->set_rules('id_position', 'id position', 'trim|required');
-    	$this->form_validation->set_rules('id_division', 'id division', 'trim|required');
+	$this->form_validation->set_rules('username', 'username', 'trim|required');
+	$this->form_validation->set_rules('password', 'password', 'trim|required');
+	$this->form_validation->set_rules('name', 'name', 'trim|required');
+	$this->form_validation->set_rules('id_position', 'id position', 'trim|required');
+	$this->form_validation->set_rules('id_division', 'id division', 'trim|required');
 
-    	$this->form_validation->set_rules('id_user', 'id_user', 'trim');
-    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+	$this->form_validation->set_rules('id_user', 'id_user', 'trim');
+	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
@@ -178,26 +170,24 @@ class User_akun extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Username");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Password");
-    	xlsWriteLabel($tablehead, $kolomhead++, "First Name");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Last Name");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Id Position");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Id Division");
+	xlsWriteLabel($tablehead, $kolomhead++, "Username");
+	xlsWriteLabel($tablehead, $kolomhead++, "Password");
+	xlsWriteLabel($tablehead, $kolomhead++, "Name");
+	xlsWriteLabel($tablehead, $kolomhead++, "Id Position");
+	xlsWriteLabel($tablehead, $kolomhead++, "Id Division");
 
-    	foreach ($this->User_akun_model->get_all() as $data) {
+	foreach ($this->User_akun_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->username);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->password);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->first_name);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->last_name);
-    	    xlsWriteNumber($tablebody, $kolombody++, $data->id_position);
-    	    xlsWriteNumber($tablebody, $kolombody++, $data->id_division);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->username);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->password);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->name);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->id_position);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->id_division);
 
-    	    $tablebody++;
+	    $tablebody++;
             $nourut++;
         }
 
@@ -217,9 +207,23 @@ class User_akun extends CI_Controller
         
         $this->load->view('user_akun_doc',$data);
     }
-    // END Untuk Admin
 
-    // 2) Untuk User
+    function pdf()
+    {
+        $data = array(
+            'user_akun_data' => $this->User_akun_model->get_all(),
+            'start' => 0
+        );
+        
+        ini_set('memory_limit', '32M');
+        $html = $this->load->view('user_akun_pdf', $data, true);
+        $this->load->library('pdf');
+        $pdf = $this->pdf->load();
+        $pdf->WriteHTML($html);
+        $pdf->Output('user_akun.pdf', 'D'); 
+    }
+
+     // 2) Untuk User
     public function edit_profile()
     {
         $name_dp = $this->User_akun_model->get_name_div_pos($this->session->userdata('id_user'));
@@ -235,27 +239,27 @@ class User_akun extends CI_Controller
 
     public function submit_profile()
     {
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
+        $name = $_POST['name'];
+        $name = $_POST['name'];
         $p1 = $_POST['ps1'];
         $p2 = $_POST['ps2'];
-        if($first_name == ""){
-            $first_name = $this->session->userdata('first_name');
+        if($name == ""){
+            $name = $this->session->userdata('name');
         }else{
-            $this->session->set_userdata('first_name',$first_name);
+            $this->session->set_userdata('name',$name);
         }
-        if($last_name == ""){
-            $last_name = $this->session->userdata('last_name');
+        if($name == ""){
+            $name = $this->session->userdata('name');
         }else{
-            $this->session->set_userdata('last_name',$last_name);
+            $this->session->set_userdata('name',$name);
         }
 
         if($p1 != ""){
             if($p1 == $p2){
                 $pass = md5($p1);
                 $data = array(
-                    'first_name' => $first_name,
-                    'last_name' => $last_name,
+                    'name' => $name,
+                    'name' => $name,
                     'password' => $pass,
                 );
                 $this->User_akun_model->update($this->session->userdata('id_user'),$data);
@@ -274,8 +278,8 @@ class User_akun extends CI_Controller
             }
         }else{
             $data = array(
-                'first_name' => $first_name,
-                'last_name' => $last_name,
+                'name' => $name,
+                'name' => $name,
             );
             $this->User_akun_model->update($this->session->userdata('id_user'),$data);
             redirect('User_akun/edit_profile');
@@ -287,5 +291,5 @@ class User_akun extends CI_Controller
 /* End of file User_akun.php */
 /* Location: ./application/controllers/User_akun.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2017-09-17 10:10:18 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2017-10-22 00:47:45 */
 /* http://harviacode.com */

@@ -56,8 +56,7 @@ class Login extends CI_Controller {
 				// Data user disimpan di session
 				$this->session->set_userdata('id_user', $valid_user->id_user);
 				$this->session->set_userdata('username', $valid_user->username);
-				$this->session->set_userdata('first_name', $valid_user->first_name);
-				$this->session->set_userdata('last_name', $valid_user->last_name);
+				$this->session->set_userdata('name', $valid_user->name);
 				$this->session->set_userdata('id_position', $valid_user->id_position);
 				$this->session->set_userdata('id_division', $valid_user->id_division);
 				

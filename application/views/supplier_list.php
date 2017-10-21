@@ -16,7 +16,7 @@
                 <tr>
                     <th width="80px">No</th>
 		    <th>Name Supplier</th>
-		    <th>Alamat</th>
+		    <th>Address</th>
 		    <th>Action</th>
                 </tr>
             </thead>
@@ -29,7 +29,7 @@
                 <tr>
 		    <td><?php echo ++$start ?></td>
 		    <td><?php echo $supplier->name_supplier ?></td>
-		    <td><?php echo $supplier->alamat ?></td>
+		    <td><?php echo $supplier->address ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('supplier/read/'.$supplier->id_supplier),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 

@@ -22,8 +22,7 @@
                 <th>No</th>
 		<th>Username</th>
 		<th>Password</th>
-		<th>First Name</th>
-		<th>Last Name</th>
+		<th>Name</th>
 		<th>Id Position</th>
 		<th>Id Division</th>
 		
@@ -35,8 +34,7 @@
 		      <td><?php echo ++$start ?></td>
 		      <td><?php echo $user_akun->username ?></td>
 		      <td><?php echo $user_akun->password ?></td>
-		      <td><?php echo $user_akun->first_name ?></td>
-		      <td><?php echo $user_akun->last_name ?></td>
+		      <td><?php echo $user_akun->name ?></td>
 		      <td><?php echo $user_akun->id_position ?></td>
 		      <td><?php echo $user_akun->id_division ?></td>	
                 </tr>

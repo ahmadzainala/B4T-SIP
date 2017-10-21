@@ -21,6 +21,7 @@
 		    <th>Quantity</th>
 		    <th>Status Acc</th>
 		    <th>Unit</th>
+		    <th>Quantity Origin</th>
 		    <th>Action</th>
                 </tr>
             </thead>
@@ -38,6 +39,7 @@
 		    <td><?php echo $form_content->quantity ?></td>
 		    <td><?php echo $form_content->status_acc ?></td>
 		    <td><?php echo $form_content->unit ?></td>
+		    <td><?php echo $form_content->quantity_origin ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('form_content/read/'.$form_content->id_form_content),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 

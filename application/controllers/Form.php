@@ -5,15 +5,13 @@ if (!defined('BASEPATH'))
 
 class Form extends CI_Controller
 {
+    
         
     function __construct()
     {
         parent::__construct();
         $this->load->model('Form_model');
-        $this->load->library('form_validation');
     }
-
-    // 1) Untuk Admin
 
     public function index()
     {
@@ -31,17 +29,22 @@ class Form extends CI_Controller
         $row = $this->Form_model->get_by_id($id);
         if ($row) {
             $data = array(
-    		'id_form' => $row->id_form,
-    		'id_user' => $row->id_user,
-    		'date' => $row->date,
-    		'information' => $row->information,
-    		'date_needs' => $row->date_needs,
-    		'that' => $row->that,
-    		'read_status_Ketua' => $row->read_status_Ketua,
-    		'read_status_TU' => $row->read_status_TU,
-    		'read_status_PPK' => $row->read_status_PPK,
-    		'status_submit' => $row->status_submit,
-    	    );
+		'id_form' => $row->id_form,
+		'id_user' => $row->id_user,
+		'date' => $row->date,
+		'information' => $row->information,
+		'information_kabid' => $row->information_kabid,
+		'information_TU' => $row->information_TU,
+		'information_PPK' => $row->information_PPK,
+		'date_needs' => $row->date_needs,
+		'that' => $row->that,
+		'read_status_Ketua' => $row->read_status_Ketua,
+		'read_status_TU' => $row->read_status_TU,
+		'read_status_PPK' => $row->read_status_PPK,
+		'status_submit' => $row->status_submit,
+		'id_budget' => $row->id_budget,
+		'name_activity' => $row->name_activity,
+	    );
             $this->template->load('template','form_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -54,17 +57,22 @@ class Form extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('form/create_action'),
-    	    'id_form' => set_value('id_form'),
-    	    'id_user' => set_value('id_user'),
-    	    'date' => set_value('date'),
-    	    'information' => set_value('information'),
-    	    'date_needs' => set_value('date_needs'),
-    	    'that' => set_value('that'),
-    	    'read_status_Ketua' => set_value('read_status_Ketua'),
-    	    'read_status_TU' => set_value('read_status_TU'),
-    	    'read_status_PPK' => set_value('read_status_PPK'),
-    	    'status_submit' => set_value('status_submit'),
-    	);
+	    'id_form' => set_value('id_form'),
+	    'id_user' => set_value('id_user'),
+	    'date' => set_value('date'),
+	    'information' => set_value('information'),
+	    'information_kabid' => set_value('information_kabid'),
+	    'information_TU' => set_value('information_TU'),
+	    'information_PPK' => set_value('information_PPK'),
+	    'date_needs' => set_value('date_needs'),
+	    'that' => set_value('that'),
+	    'read_status_Ketua' => set_value('read_status_Ketua'),
+	    'read_status_TU' => set_value('read_status_TU'),
+	    'read_status_PPK' => set_value('read_status_PPK'),
+	    'status_submit' => set_value('status_submit'),
+	    'id_budget' => set_value('id_budget'),
+	    'name_activity' => set_value('name_activity'),
+	);
         $this->template->load('template','form_form', $data);
     }
     
@@ -76,16 +84,21 @@ class Form extends CI_Controller
             $this->create();
         } else {
             $data = array(
-    		'id_user' => $this->input->post('id_user',TRUE),
-    		'date' => $this->input->post('date',TRUE),
-    		'information' => $this->input->post('information',TRUE),
-    		'date_needs' => $this->input->post('date_needs',TRUE),
-    		'that' => $this->input->post('that',TRUE),
-    		'read_status_Ketua' => $this->input->post('read_status_Ketua',TRUE),
-    		'read_status_TU' => $this->input->post('read_status_TU',TRUE),
-    		'read_status_PPK' => $this->input->post('read_status_PPK',TRUE),
-    		'status_submit' => $this->input->post('status_submit',TRUE),
-    	    );
+		'id_user' => $this->input->post('id_user',TRUE),
+		'date' => $this->input->post('date',TRUE),
+		'information' => $this->input->post('information',TRUE),
+		'information_kabid' => $this->input->post('information_kabid',TRUE),
+		'information_TU' => $this->input->post('information_TU',TRUE),
+		'information_PPK' => $this->input->post('information_PPK',TRUE),
+		'date_needs' => $this->input->post('date_needs',TRUE),
+		'that' => $this->input->post('that',TRUE),
+		'read_status_Ketua' => $this->input->post('read_status_Ketua',TRUE),
+		'read_status_TU' => $this->input->post('read_status_TU',TRUE),
+		'read_status_PPK' => $this->input->post('read_status_PPK',TRUE),
+		'status_submit' => $this->input->post('status_submit',TRUE),
+		'id_budget' => $this->input->post('id_budget',TRUE),
+		'name_activity' => $this->input->post('name_activity',TRUE),
+	    );
 
             $this->Form_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -99,19 +112,24 @@ class Form extends CI_Controller
 
         if ($row) {
             $data = array(
-            'button' => 'Update',
-            'action' => site_url('form/update_action'),
-    		'id_form' => set_value('id_form', $row->id_form),
-    		'id_user' => set_value('id_user', $row->id_user),
-    		'date' => set_value('date', $row->date),
-    		'information' => set_value('information', $row->information),
-    		'date_needs' => set_value('date_needs', $row->date_needs),
-    		'that' => set_value('that', $row->that),
-    		'read_status_Ketua' => set_value('read_status_Ketua', $row->read_status_Ketua),
-    		'read_status_TU' => set_value('read_status_TU', $row->read_status_TU),
-    		'read_status_PPK' => set_value('read_status_PPK', $row->read_status_PPK),
-    		'status_submit' => set_value('status_submit', $row->status_submit),
-    	    );
+                'button' => 'Update',
+                'action' => site_url('form/update_action'),
+		'id_form' => set_value('id_form', $row->id_form),
+		'id_user' => set_value('id_user', $row->id_user),
+		'date' => set_value('date', $row->date),
+		'information' => set_value('information', $row->information),
+		'information_kabid' => set_value('information_kabid', $row->information_kabid),
+		'information_TU' => set_value('information_TU', $row->information_TU),
+		'information_PPK' => set_value('information_PPK', $row->information_PPK),
+		'date_needs' => set_value('date_needs', $row->date_needs),
+		'that' => set_value('that', $row->that),
+		'read_status_Ketua' => set_value('read_status_Ketua', $row->read_status_Ketua),
+		'read_status_TU' => set_value('read_status_TU', $row->read_status_TU),
+		'read_status_PPK' => set_value('read_status_PPK', $row->read_status_PPK),
+		'status_submit' => set_value('status_submit', $row->status_submit),
+		'id_budget' => set_value('id_budget', $row->id_budget),
+		'name_activity' => set_value('name_activity', $row->name_activity),
+	    );
             $this->template->load('template','form_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -127,16 +145,21 @@ class Form extends CI_Controller
             $this->update($this->input->post('id_form', TRUE));
         } else {
             $data = array(
-    		'id_user' => $this->input->post('id_user',TRUE),
-    		'date' => $this->input->post('date',TRUE),
-    		'information' => $this->input->post('information',TRUE),
-    		'date_needs' => $this->input->post('date_needs',TRUE),
-    		'that' => $this->input->post('that',TRUE),
-    		'read_status_Ketua' => $this->input->post('read_status_Ketua',TRUE),
-    		'read_status_TU' => $this->input->post('read_status_TU',TRUE),
-    		'read_status_PPK' => $this->input->post('read_status_PPK',TRUE),
-    		'status_submit' => $this->input->post('status_submit',TRUE),
-    	    );
+		'id_user' => $this->input->post('id_user',TRUE),
+		'date' => $this->input->post('date',TRUE),
+		'information' => $this->input->post('information',TRUE),
+		'information_kabid' => $this->input->post('information_kabid',TRUE),
+		'information_TU' => $this->input->post('information_TU',TRUE),
+		'information_PPK' => $this->input->post('information_PPK',TRUE),
+		'date_needs' => $this->input->post('date_needs',TRUE),
+		'that' => $this->input->post('that',TRUE),
+		'read_status_Ketua' => $this->input->post('read_status_Ketua',TRUE),
+		'read_status_TU' => $this->input->post('read_status_TU',TRUE),
+		'read_status_PPK' => $this->input->post('read_status_PPK',TRUE),
+		'status_submit' => $this->input->post('status_submit',TRUE),
+		'id_budget' => $this->input->post('id_budget',TRUE),
+		'name_activity' => $this->input->post('name_activity',TRUE),
+	    );
 
             $this->Form_model->update($this->input->post('id_form', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -163,12 +186,17 @@ class Form extends CI_Controller
 	$this->form_validation->set_rules('id_user', 'id user', 'trim|required');
 	$this->form_validation->set_rules('date', 'date', 'trim|required');
 	$this->form_validation->set_rules('information', 'information', 'trim|required');
+	$this->form_validation->set_rules('information_kabid', 'information kabid', 'trim|required');
+	$this->form_validation->set_rules('information_TU', 'information tu', 'trim|required');
+	$this->form_validation->set_rules('information_PPK', 'information ppk', 'trim|required');
 	$this->form_validation->set_rules('date_needs', 'date needs', 'trim|required');
 	$this->form_validation->set_rules('that', 'that', 'trim|required');
 	$this->form_validation->set_rules('read_status_Ketua', 'read status ketua', 'trim|required');
 	$this->form_validation->set_rules('read_status_TU', 'read status tu', 'trim|required');
 	$this->form_validation->set_rules('read_status_PPK', 'read status ppk', 'trim|required');
 	$this->form_validation->set_rules('status_submit', 'status submit', 'trim|required');
+	$this->form_validation->set_rules('id_budget', 'id budget', 'trim|required');
+	$this->form_validation->set_rules('name_activity', 'name activity', 'trim|required');
 
 	$this->form_validation->set_rules('id_form', 'id_form', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -196,32 +224,42 @@ class Form extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-        xlsWriteLabel($tablehead, $kolomhead++, "Id User");
-        xlsWriteLabel($tablehead, $kolomhead++, "Date");
-        xlsWriteLabel($tablehead, $kolomhead++, "Information");
-        xlsWriteLabel($tablehead, $kolomhead++, "Date Needs");
-        xlsWriteLabel($tablehead, $kolomhead++, "That");
-        xlsWriteLabel($tablehead, $kolomhead++, "Read Status Ketua");
-        xlsWriteLabel($tablehead, $kolomhead++, "Read Status TU");
-        xlsWriteLabel($tablehead, $kolomhead++, "Read Status PPK");
-        xlsWriteLabel($tablehead, $kolomhead++, "Status Submit");
+	xlsWriteLabel($tablehead, $kolomhead++, "Id User");
+	xlsWriteLabel($tablehead, $kolomhead++, "Date");
+	xlsWriteLabel($tablehead, $kolomhead++, "Information");
+	xlsWriteLabel($tablehead, $kolomhead++, "Information Kabid");
+	xlsWriteLabel($tablehead, $kolomhead++, "Information TU");
+	xlsWriteLabel($tablehead, $kolomhead++, "Information PPK");
+	xlsWriteLabel($tablehead, $kolomhead++, "Date Needs");
+	xlsWriteLabel($tablehead, $kolomhead++, "That");
+	xlsWriteLabel($tablehead, $kolomhead++, "Read Status Ketua");
+	xlsWriteLabel($tablehead, $kolomhead++, "Read Status TU");
+	xlsWriteLabel($tablehead, $kolomhead++, "Read Status PPK");
+	xlsWriteLabel($tablehead, $kolomhead++, "Status Submit");
+	xlsWriteLabel($tablehead, $kolomhead++, "Id Budget");
+	xlsWriteLabel($tablehead, $kolomhead++, "Name Activity");
 
-    	foreach ($this->Form_model->get_all() as $data) {
+	foreach ($this->Form_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-    	    xlsWriteNumber($tablebody, $kolombody++, $data->id_user);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->date);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->information);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->date_needs);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->that);
-    	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_Ketua);
-    	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_TU);
-    	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_PPK);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->status_submit);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->id_user);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->date);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->information);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->information_kabid);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->information_TU);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->information_PPK);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->date_needs);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->that);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_Ketua);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_TU);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_PPK);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->status_submit);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->id_budget);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->name_activity);
 
-    	    $tablebody++;
+	    $tablebody++;
             $nourut++;
         }
 
@@ -240,6 +278,21 @@ class Form extends CI_Controller
         );
         
         $this->load->view('form_doc',$data);
+    }
+
+    function pdf()
+    {
+        $data = array(
+            'form_data' => $this->Form_model->get_all(),
+            'start' => 0
+        );
+        
+        ini_set('memory_limit', '32M');
+        $html = $this->load->view('form_pdf', $data, true);
+        $this->load->library('pdf');
+        $pdf = $this->pdf->load();
+        $pdf->WriteHTML($html);
+        $pdf->Output('form.pdf', 'D'); 
     }
 
     public function edit_item(){
@@ -398,7 +451,7 @@ class Form extends CI_Controller
                 redirect('Form/add_form');
             }else{
                 $this->load->model('Tracking_model');
-                $this->load->model('Tracking_catalog_model');
+                $this->load->model('Tracking_history_model');
                 $data = array(
                     'status_submit' => 1
                 );
@@ -424,7 +477,7 @@ class Form extends CI_Controller
                         'date_acc' => date('Y-m-d'),
                         'acc' => 1,
                     );
-                    $this->Tracking_catalog_model->insert($data3);
+                    $this->Tracking_history_model->insert($data3);
                 }else{
                     $data2 = array(
                         'id_status_tracking' => 0,
@@ -536,7 +589,7 @@ class Form extends CI_Controller
 
     public function acc(){
         $this->load->model('Tracking_model');
-        $this->load->model('Tracking_catalog_model');
+        $this->load->model('Tracking_history_model');
         $this->load->model('Form_content_model');
         $item_list = $this->Form_content_model->get_all_detail_by_form($_POST['id_form']); 
         $stat = 0;
@@ -589,7 +642,7 @@ class Form extends CI_Controller
                     'date_acc' => date('Y-m-d'),
                     'acc' => $_POST['status_acc'],
                 );
-                $this->Tracking_catalog_model->insert($data2);
+                $this->Tracking_history_model->insert($data2);
 
                 $data3 = array(
                     'information_kabid' => $_POST['keterangan']
@@ -618,7 +671,7 @@ class Form extends CI_Controller
                     'date_acc' => date('Y-m-d'),
                     'acc' => $_POST['status_acc'],
                 );
-                $this->Tracking_catalog_model->insert($data2);
+                $this->Tracking_history_model->insert($data2);
 
                 $data3 = array(
                     'information_TU' => $_POST['keterangan']
@@ -648,7 +701,7 @@ class Form extends CI_Controller
                     'date_acc' => date('Y-m-d'),
                     'acc' => $_POST['status_acc'],
                 );
-                $this->Tracking_catalog_model->insert($data2);
+                $this->Tracking_history_model->insert($data2);
 
                 $data3 = array(
                     'information_PPK' => $_POST['keterangan']
@@ -815,11 +868,10 @@ class Form extends CI_Controller
             $this->autocompleteCat();
         }
     }
-
 }
 
 /* End of file Form.php */
 /* Location: ./application/controllers/Form.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2017-09-27 09:48:51 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2017-10-22 00:47:45 */
 /* http://harviacode.com */

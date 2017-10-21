@@ -21,7 +21,7 @@
             <tr>
                 <th>No</th>
 		<th>Name Supplier</th>
-		<th>Alamat</th>
+		<th>Address</th>
 		
             </tr><?php
             foreach ($supplier_data as $supplier)
@@ -30,7 +30,7 @@
                 <tr>
 		      <td><?php echo ++$start ?></td>
 		      <td><?php echo $supplier->name_supplier ?></td>
-		      <td><?php echo $supplier->alamat ?></td>	
+		      <td><?php echo $supplier->address ?></td>	
                 </tr>
                 <?php
             }

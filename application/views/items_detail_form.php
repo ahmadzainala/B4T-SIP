@@ -9,11 +9,7 @@
                       <div class='box box-primary'>
         <form action="<?php echo $action; ?>" method="post"><table class='table table-bordered'>
 	    <tr><td>Id Category <?php echo form_error('id_category') ?></td>
-            <td>
-              <?php echo cmb_dinamis('id_category', 'items_category', 'name_category', 'id_category', $id_category); ?>
-              <!--
-              <input type="text" class="form-control" name="id_category" id="id_category" placeholder="Id Category" value="<?php echo $id_category; ?>" />
-        !-->
+            <td><input type="text" class="form-control" name="id_category" id="id_category" placeholder="Id Category" value="<?php echo $id_category; ?>" />
         </td>
 	    <tr><td>Name Items <?php echo form_error('name_items') ?></td>
             <td><input type="text" class="form-control" name="name_items" id="name_items" placeholder="Name Items" value="<?php echo $name_items; ?>" />

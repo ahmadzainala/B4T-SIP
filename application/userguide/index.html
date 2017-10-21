@@ -305,8 +305,8 @@ Documentation
 		$password = '12345678';
 		$email = 'ben.edmunds@gmail.com';
 		$additional_data = array(
-								'first_name' => 'Ben',
-								'last_name' => 'Edmunds',
+								'name' => 'Ben',
+								'name' => 'Edmunds',
 								);
 		$group = array('1'); // Sets user to admin.
 
@@ -338,8 +338,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					'password' => '123456789',
 					 );
 		$this->ion_auth->update($id, $data)
@@ -581,8 +581,8 @@ Documentation
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
 		$additional_data = array(
-								'first_name' => $this->input->post('first_name'),
-								'last_name' => $this->input->post('last_name'),
+								'name' => $this->input->post('name'),
+								'name' => $this->input->post('name'),
 								);
 		if (!$this->ion_auth->username_check($username))
 		{
@@ -613,8 +613,8 @@ Documentation
 		$password = $this->input->post('password');
 		$email = $this->input->post('email');
 		$additional_data = array(
-								'first_name' => $this->input->post('first_name'),
-								'last_name' => $this->input->post('last_name'),
+								'name' => $this->input->post('name'),
+								'name' => $this->input->post('name'),
 								);
 		if (!$this->ion_auth->email_check($email))
 		{
@@ -644,8 +644,8 @@ Documentation
 		$user = $this->ion_auth->user();
 		$data = array(
 					'identity' => $this->input->post('identity'),
-					'first_name' => $this->input->post('first_name'),
-					'last_name' => $this->input->post('last_name'),
+					'name' => $this->input->post('name'),
+					'name' => $this->input->post('name'),
 					 );
 		if ($data['identity'] === $user->username || $data['identity'] === $user->email || $this->ion_auth->identity_check($data['identity']) === FALSE)
 		{
@@ -767,8 +767,8 @@ Documentation
 				[created_on] => 1268889823
 				[last_login] => 1279464628
 				[active] => 0
-				[first_name] => Admin
-				[last_name] => Account
+				[name] => Admin
+				[name] => Account
 				[company] => Some Corporation
 				[phone] => (123)456-7890
 			)
@@ -886,8 +886,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					 );
 		if ($this->ion_auth->update_user($id, $data))
 		{
@@ -920,8 +920,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					 );
 		if ($this->ion_auth->update_user($id, $data))
 		{
@@ -1140,8 +1140,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					 );
 		if ($this->ion_auth->update_user($id, $data))
 		{
@@ -1171,8 +1171,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					 );
 		if ($this->ion_auth->update_user($id, $data))
 		{
@@ -1205,8 +1205,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					 );
 		if ($this->ion_auth->update_user($id, $data))
 		{
@@ -1241,8 +1241,8 @@ Documentation
 	<pre>
 		$id = 12;
 		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
+					'name' => 'Ben',
+					'name' => 'Edmunds',
 					 );
 		if ($this->ion_auth->update_user($id, $data))
 		{

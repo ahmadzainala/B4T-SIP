@@ -26,6 +26,7 @@
 		<th>Quantity</th>
 		<th>Status Acc</th>
 		<th>Unit</th>
+		<th>Quantity Origin</th>
 		
             </tr><?php
             foreach ($form_content_data as $form_content)
@@ -38,7 +39,8 @@
 		      <td><?php echo $form_content->id_supplier ?></td>
 		      <td><?php echo $form_content->quantity ?></td>
 		      <td><?php echo $form_content->status_acc ?></td>
-		      <td><?php echo $form_content->unit ?></td>	
+		      <td><?php echo $form_content->unit ?></td>
+		      <td><?php echo $form_content->quantity_origin ?></td>	
                 </tr>
                 <?php
             }

@@ -11,8 +11,8 @@
 	    <tr><td>Name Supplier <?php echo form_error('name_supplier') ?></td>
             <td><input type="text" class="form-control" name="name_supplier" id="name_supplier" placeholder="Name Supplier" value="<?php echo $name_supplier; ?>" />
         </td>
-	    <tr><td>Alamat <?php echo form_error('alamat') ?></td>
-            <td><textarea class="form-control" rows="3" name="alamat" id="alamat" placeholder="Alamat"><?php echo $alamat; ?></textarea>
+	    <tr><td>Address <?php echo form_error('address') ?></td>
+            <td><textarea class="form-control" rows="3" name="address" id="address" placeholder="Address"><?php echo $address; ?></textarea>
         </td></tr>
 	    <input type="hidden" name="id_supplier" value="<?php echo $id_supplier; ?>" /> 
 	    <tr><td colspan='2'><button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

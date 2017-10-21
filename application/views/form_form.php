@@ -9,32 +9,29 @@
                       <div class='box box-primary'>
         <form action="<?php echo $action; ?>" method="post"><table class='table table-bordered'>
 	    <tr><td>Id User <?php echo form_error('id_user') ?></td>
-            <td>
-              <?php echo cmb_dinamis('id_user', 'user_akun', 'username', 'id_user', $id_user); ?>
-              <!--
-              <input type="text" class="form-control" name="id_user" id="id_user" placeholder="Id User" value="<?php echo $id_user; ?>" />
-            !-->
+            <td><input type="text" class="form-control" name="id_user" id="id_user" placeholder="Id User" value="<?php echo $id_user; ?>" />
         </td>
-      <tr><td>Date <?php echo form_error('date') ?></td>
-            <td><input type="date" class="form-control" name="date" id="date" value="<?php echo date("Y-m-d"); ?>" readonly />
+	    <tr><td>Date <?php echo form_error('date') ?></td>
+            <td><input type="text" class="form-control" name="date" id="date" placeholder="Date" value="<?php echo $date; ?>" />
         </td>
-      <tr><td>That <?php echo form_error('that') ?></td>
-            <td><input type="text" class="form-control" name="that" id="that" placeholder="Agar" value="<?php echo $that; ?>" />
+	    <tr><td>Information <?php echo form_error('information') ?></td>
+            <td><textarea class="form-control" rows="3" name="information" id="information" placeholder="Information"><?php echo $information; ?></textarea>
+        </td></tr>
+	    <tr><td>Information Kabid <?php echo form_error('information_kabid') ?></td>
+            <td><textarea class="form-control" rows="3" name="information_kabid" id="information_kabid" placeholder="Information Kabid"><?php echo $information_kabid; ?></textarea>
+        </td></tr>
+	    <tr><td>Information TU <?php echo form_error('information_TU') ?></td>
+            <td><textarea class="form-control" rows="3" name="information_TU" id="information_TU" placeholder="Information TU"><?php echo $information_TU; ?></textarea>
+        </td></tr>
+	    <tr><td>Information PPK <?php echo form_error('information_PPK') ?></td>
+            <td><textarea class="form-control" rows="3" name="information_PPK" id="information_PPK" placeholder="Information PPK"><?php echo $information_PPK; ?></textarea>
+        </td></tr>
+	    <tr><td>Date Needs <?php echo form_error('date_needs') ?></td>
+            <td><input type="text" class="form-control" name="date_needs" id="date_needs" placeholder="Date Needs" value="<?php echo $date_needs; ?>" />
         </td>
-      <tr><td>Date Needs <?php echo form_error('date_needs') ?></td>
-            <td>
-              <select name='date_needs' id="date_needs" class='selectpicker' onchange="getinput(this);">
-                <option value='Segera'>Segera</option>
-                <option value='Date' id='cek'>Date</option>
-              </select>
-              <input class="form-control" type="hidden" placeholder="YYYY-MM-DD" id="tes" onchange="setvalue(this);">
-              <!--
-              <input type="date" placeholder="YYYY-MM-DD" class="form-control" name="date_needs" id="date_needs" placeholder="Tanggal dibutuhkan" value="<?php echo $date_needs; ?>" />
-              !-->
-        </td>
-      <tr><td>Information <?php echo form_error('information') ?></td>
-          <td><textarea class="form-control" rows="3" name="information" id="information" placeholder="Keterangan"><?php echo $information; ?></textarea>
-      </td></tr>
+	    <tr><td>That <?php echo form_error('that') ?></td>
+            <td><textarea class="form-control" rows="3" name="that" id="that" placeholder="That"><?php echo $that; ?></textarea>
+        </td></tr>
 	    <tr><td>Read Status Ketua <?php echo form_error('read_status_Ketua') ?></td>
             <td><input type="text" class="form-control" name="read_status_Ketua" id="read_status_Ketua" placeholder="Read Status Ketua" value="<?php echo $read_status_Ketua; ?>" />
         </td>
@@ -47,6 +44,12 @@
 	    <tr><td>Status Submit <?php echo form_error('status_submit') ?></td>
             <td><input type="text" class="form-control" name="status_submit" id="status_submit" placeholder="Status Submit" value="<?php echo $status_submit; ?>" />
         </td>
+	    <tr><td>Id Budget <?php echo form_error('id_budget') ?></td>
+            <td><input type="text" class="form-control" name="id_budget" id="id_budget" placeholder="Id Budget" value="<?php echo $id_budget; ?>" />
+        </td>
+	    <tr><td>Name Activity <?php echo form_error('name_activity') ?></td>
+            <td><input type="text" class="form-control" name="name_activity" id="name_activity" placeholder="Name Activity" value="<?php echo $name_activity; ?>" />
+        </td>
 	    <input type="hidden" name="id_form" value="<?php echo $id_form; ?>" /> 
 	    <tr><td colspan='2'><button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
 	    <a href="<?php echo site_url('form') ?>" class="btn btn-default">Cancel</a></td></tr>
@@ -57,23 +60,3 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
-
-         <script type="text/javascript">
-      
-
-      function getinput(data){
-        if(data.value == "Date"){
-          document.getElementById("tes").type = "date";
-          document.getElementById("tes").required = true;
-          
-            //document.body.appendChild(x);
-        }else{
-          document.getElementById("tes").type = "hidden";
-        }
-      }
-      function setvalue(data){
-        document.getElementById("cek").value = data.value;
-        //var x = document.getElementById("cek").value;
-        //alert(x);
-      }
-    </script>

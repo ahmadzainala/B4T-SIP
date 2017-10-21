@@ -17,10 +17,9 @@
                     <th width="80px">No</th>
 		    <th>Username</th>
 		    <th>Password</th>
-		    <th>First Name</th>
-		    <th>Last Name</th>
-		    <th>Position</th>
-		    <th>Division</th>
+		    <th>Name</th>
+		    <th>Id Position</th>
+		    <th>Id Division</th>
 		    <th>Action</th>
                 </tr>
             </thead>
@@ -34,10 +33,9 @@
 		    <td><?php echo ++$start ?></td>
 		    <td><?php echo $user_akun->username ?></td>
 		    <td><?php echo $user_akun->password ?></td>
-		    <td><?php echo $user_akun->first_name ?></td>
-		    <td><?php echo $user_akun->last_name ?></td>
-		    <td><?php echo $user_akun->name_position ?></td>
-		    <td><?php echo $user_akun->name_division ?></td>
+		    <td><?php echo $user_akun->name ?></td>
+		    <td><?php echo $user_akun->id_position ?></td>
+		    <td><?php echo $user_akun->id_division ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('user_akun/read/'.$user_akun->id_user),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 
