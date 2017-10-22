@@ -124,7 +124,7 @@
                       }else{
                          echo "<tr href='$link' style='font-weight:italic'>";
                       }
-                          echo "<td>".$temp." ".$d->name." ".$d->name."</td>";
+                          echo "<td>".$temp." ".$d->name."</td>";
                           echo "<td>".$d->that."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td title='$d->description'>";
@@ -189,7 +189,7 @@
                         $link = base_url()."Form/edit_form/".$d->id_form;
                       }
                        echo "<tr href='$link'>";
-                          echo "<td>".$temp."".$d->name." ".$d->name."</td>";
+                          echo "<td>".$temp."".$d->name."</td>";
                           echo "<td>".$d->that."</td>";
                           echo "<td>".$d->date."</td>";
                           echo "<td title='$d->description'>";
