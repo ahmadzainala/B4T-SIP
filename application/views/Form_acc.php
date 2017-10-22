@@ -1,11 +1,11 @@
  <div class="container" style="padding-top: 70px">
       <div class="card">
-        <div class="row">
-          <div class="colmd-6">
-            <h4 class="card-header">Form Daftar Pemesanan Barang / Jasa</h4> 
+        <div class="row card-header" style="margin: 0px 0.5px 0px 0.5px;padding-bottom: 1px;">
+          <div class="col-md-6">
+            <h4>Form Daftar Pemesanan Barang / Jasa</h4> 
           </div>
-          <div class="colmd-6">
-            Tanggal
+          <div class="col-md-6" style="text-align: right;">
+            <p>Tanggal Diajukan :</p>
           </div> 
         </div>        
         <div class="card-body">
@@ -75,13 +75,7 @@
                     <input class="form-check-input" type="radio" name="status_acc" id="exampleRadios1" value="1" checked>
                     <b>Setuju</b> dengan pengadaan barang / jasa yang saya tandai
                   </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="status_acc" id="exampleRadios2" value="2">
-                    <b>Setuju bersyarat</b> (revisi)
-                  </label>
-                </div>            
+                </div>           
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="radio" name="status_acc" id="exampleRadios2" value="0">

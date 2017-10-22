@@ -12,7 +12,7 @@
           <table class="table borderless">
             <tr>
               <td width="20%">Nama Kegiatan</td>
-              <td colspan="2">MAD GANTI</td>
+              <td colspan="2"><?php echo $form_data->name_activity;?></td>
               <td width="30%"></td>
             </tr>            
             <tr>
@@ -22,7 +22,7 @@
             </tr>
             <tr>
               <td>Dari</td>
-              <td colspan="2"><?php echo $form_data->name.' '. $form_data->name.' ('.$divisi->name_division.')'; ?></td>
+              <td colspan="2"><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
               <td width="30%"></td>
             </tr>
             <tr>

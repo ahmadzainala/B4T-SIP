@@ -22,7 +22,7 @@
               </tr>
               <tr>
                 <td>Nama</td>
-                <td><input class="form-control" type="text" name="name" placeholder="<?php echo $this->session->userdata('first_name'); ?>"></td>
+                <td><input class="form-control" type="text" name="name" placeholder="<?php echo $this->session->userdata('name'); ?>"></td>
                 <td></td>                
               </tr>
               <tr>

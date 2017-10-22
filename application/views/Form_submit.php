@@ -53,7 +53,7 @@
                 </tr>
                 <tr>
                   <td>Dari</td>
-                  <td colspan="2"><input class="form-control" type="text" name="dari" placeholder="<?php echo $this->session->userdata('name').' '. $this->session->userdata('name').' ('.$divisi->name_division.')'; ?>" data-toggle="popover" title="" data-content="Sesuai ID Login Anda" readonly></td>
+                  <td colspan="2"><input class="form-control" type="text" name="dari" placeholder="<?php echo $this->session->userdata('name').' ('.$divisi->name_division.')'; ?>" data-toggle="popover" title="" data-content="Sesuai ID Login Anda" readonly></td>
                   <td width="30%"></td>
                 </tr>
                 <tr>
