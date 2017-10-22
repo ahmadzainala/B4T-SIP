@@ -59,7 +59,7 @@
 
                         $stat = "<i class='material-icons' style='color:red;'>clear</i>";
                       }
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td style='text-align:center;' title='usulan awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td>$stat</td></tr>";
+                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>$il->name_items</td><td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td>$stat</td></tr>";
                       $i++;
                     }
                   }else{
