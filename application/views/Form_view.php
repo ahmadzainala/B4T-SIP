@@ -11,6 +11,13 @@
         <div class="card-body">
           <table class="table borderless">
             <tr>
+              <td rowspan="5">
+                <div class="card">
+                  <div class="card-body" style="margin-right: -23px;">
+                    <img src="<?php echo base_url() ?>template/user/img/default_profile.jpg" class="rounded" height="100px" width="100px">
+                  </div>
+                </div>
+              </td>
               <td width="20%">Nama Kegiatan</td>
               <td colspan="2"><?php echo $form_data->name_activity;?></td>
               <td width="30%"></td>

@@ -71,7 +71,7 @@
                         if($form_data->date_needs == "Segera"){
                       ?>
                           <option value='Segera' selected='selected'>Segera</option>
-                          <option value='Date' id='cek'>Date</option>
+                          <option value='Date' id='cek'>Tanggal</option>
                       <?php
                         }else{
                       ?>
@@ -81,10 +81,9 @@
                       <?php
                         }
                       ?>
-                    </select>
-                    
+                    </select>                    
                   </td>
-                  <td width="50%"><input class="form-control" type="hidden" placeholder="YYYY-MM-DD" id="tes" onchange="setvalue(this);"></td>
+                  <td width=""><input class="form-control" type="hidden" placeholder="YYYY-MM-DD" id="tes" onchange="setvalue(this);"></td>
                   <td width="30%"></td>
                 </tr>                   
               </table>
