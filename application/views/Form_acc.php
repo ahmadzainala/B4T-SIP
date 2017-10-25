@@ -17,13 +17,29 @@
               <td width="30%"></td>
             </tr> 
             <tr>
+              <td rowspan="5">
+                <div class="card">
+                  <div class="card-body" style="margin-right: -23px;">
+                    <img src="<?php echo base_url() ?>template/user/img/default_profile.jpg" class="rounded" height="100px" width="100px">
+                  </div>
+                </div>
+              </td>
+              <td width="20%">Nama Kegiatan</td>
+              <td colspan="2"><?php echo $form_data->name_activity;?></td>
+              <td width="30%"></td>
+            </tr>            
+            <tr>
               <td width="20%">Kepada</td>
               <td colspan="2">Kepala B4T,u.p. Kepala Bagian Tata Usaha</td>
-              <td width="30%"><input name="id_form" type="hidden" value = "<?php echo $id_form;?>" /></td>
+              <td width="30%"></td>
             </tr>
             <tr>
               <td>Dari</td>
+<<<<<<< HEAD
               <td colspan="2"><?php echo $user_data->name.' ('.$divisi->name_division.')'; ?></td>
+=======
+              <td colspan="2"><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
+>>>>>>> 3ecb1933a34259fff08c8da2300d9a907a35be5b
               <td width="30%"></td>
             </tr>
             <tr>
