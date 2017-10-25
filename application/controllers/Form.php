@@ -324,6 +324,7 @@ class Form extends CI_Controller
         $kategori = "";
         $items = "";
         $item_list = "";
+        $source_budget = "";
 
         if(isset($_POST['add'])){
 
@@ -354,6 +355,7 @@ class Form extends CI_Controller
                     'id_user' => $this->session->userdata('id_user'),
                     'date' => date("Y-m-d"),
                     'information' => "",
+                    'name_activity' => $_POST['kegiatan'],
                     'date_needs' => $_POST['date_needs'],
                     'that' => $_POST['that'],
                     );
@@ -377,6 +379,8 @@ class Form extends CI_Controller
             $data = array(
                 'id_user' => $this->session->userdata('id_user'),
                 'information' => "",
+                'name_activity' => "",
+                'id_budget' => "0",
                 'date_needs' => "Segera",
                 'that' => "",
                 );
@@ -384,15 +388,17 @@ class Form extends CI_Controller
             $this->Form_model->insert($data);
             $form_data = $this->Form_model->get_by_user_now($this->session->userdata('id_user'));
             $this->session->set_userdata('id_form',$form_data->id_form);
+
         }else{
             $this->load->model('Form_content_model');
             $item_list = $this->Form_content_model->get_all_detail_by_form($this->session->userdata('id_form'));
+         
         }
 
         if(isset($_POST["kategori"]) && $_POST['kategori'] != NULL){
             $data = array(
                 'id_user' => $this->session->userdata('id_user'),
-                'information' => "",
+                'name_activity' => $_POST['kegiatan'],
                 'date_needs' => $_POST['date_needs'],
                 'that' => $_POST['that'],
                 );
@@ -401,7 +407,8 @@ class Form extends CI_Controller
             $this->session->set_userdata('category_item',$_POST['kategori']);
             $form_data = $this->Form_model->get_by_user_now($this->session->userdata('id_user'));
         }
-
+        $this->load->model('Source_budget_model');
+        $source_budget = $this->Source_budget_model->get_all();
         $this->load->model('Items_category_model');
         $kategori = $this->Items_category_model->get_all();
         
@@ -420,7 +427,8 @@ class Form extends CI_Controller
             'data_item' => $items,
             'divisi' => $divisi,
             'form_data' => $form_data,
-            'item_list' => $item_list
+            'item_list' => $item_list,
+            'source_budget' => $source_budget
         );
 
        //echo $this->session->userdata('id_form');
@@ -438,7 +446,8 @@ class Form extends CI_Controller
 
         $data = array(
             'id_user' => $this->session->userdata('id_user'),
-            'information' => $_POST['information']
+            'information' => $_POST['information'],
+            'id_budget' => $_POST['budget']
         );
         $this->Form_model->update($this->session->userdata('id_form'),$data);
 
@@ -484,6 +493,14 @@ class Form extends CI_Controller
                         'id_form' => $this->session->userdata('id_form'),
                     );
                     $this->Tracking_model->insert($data2);
+                    $id_track = $this->Tracking_model->get_by_id_form($this->session->userdata('id_form'));
+                    $data3 = array(
+                        'id_tracking' => $id_track,
+                        'id_user_acc' => 0,
+                        'date_acc' => date('Y-m-d'),
+                        'acc' => 0,
+                    );
+                    $this->Tracking_history_model->insert($data3);
                 }
                 
                 $this->session->set_userdata('id_form',NULL);
@@ -594,9 +611,13 @@ class Form extends CI_Controller
         $item_list = $this->Form_content_model->get_all_detail_by_form($_POST['id_form']); 
         $stat = 0;
 
-        foreach ($item_list as $item) {
-            if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
-                $stat = 1;
+        if($_POST['status_acc'] == 0){
+            $stat = 1;
+        }else{
+            foreach ($item_list as $item) {
+                if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
+                    $stat = 1;
+                }
             }
         }
 
@@ -660,7 +681,7 @@ class Form extends CI_Controller
                     );
                 }else{
                     $data = array(
-                        'id_status_tracking' => 4
+                        'id_status_tracking' => 13
                     );
                 }
                 $this->Tracking_model->update($id_track->id_tracking,$data);
@@ -690,7 +711,7 @@ class Form extends CI_Controller
                     );
                 }else{
                     $data = array(
-                        'id_status_tracking' => 4
+                        'id_status_tracking' => 14
                     );
                 }
                 $this->Tracking_model->update($id_track->id_tracking,$data);

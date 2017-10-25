@@ -43,7 +43,7 @@
               <table class="table borderless">
                 <tr>
                   <td width="20%">Nama Kegiatan</td>
-                  <td colspan="2"><input class="form-control" type="text" name="kegiatan"></td>
+                  <td colspan="2"><input class="form-control" type="text" name="kegiatan" value="<?php echo $form_data->name_activity; ?>"></td>
                   <td width="30%"></td>
                 </tr>
                 <tr>
@@ -139,7 +139,26 @@
           <hr>
           <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'>
           <div class="form-group">
-            <label for="keterangan">Keterangan / Sumber Anggaran</label>
+            <label for="budget">Sumber Anggaran</label>
+            <?php
+              foreach ($source_budget as $sb) {
+            ?>
+            <div class="form-check">
+              <label class="form-check-label">
+                <?php if($form_data->id_budget == $sb->id_budget){?>
+                <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>" checked>
+                <?php }else{ ?>
+                <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>">
+                <?php } ?>
+                <b><?php echo $sb->name_source;?></b>
+              </label>
+            </div> 
+            <?php
+              }
+            ?>          
+          </div>
+          <div class="form-group">
+            <label for="keterangan">Keterangan</label>
             <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>" required><?php echo $form_data->information;?></textarea>
           </div>
           <hr>

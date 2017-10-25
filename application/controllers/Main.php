@@ -13,12 +13,6 @@ class Main extends CI_Controller {
 		//main page
 		$this->load->Model('Tracking_model');
 		$this->load->Model('Status_tracking_model');
-		$menungguKabid = $this->Status_tracking_model->get_by_id("0");
-		$menungguTU = $this->Status_tracking_model->get_by_id("1");
-		$menungguPPK = $this->Status_tracking_model->get_by_id("2");
-		$prosesPengadaan = $this->Status_tracking_model->get_by_id("3");
-		$selesai = $this->Status_tracking_model->get_by_id("5");
-		$revisi = $this->Status_tracking_model->get_by_id("6");
 		$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui();
 		$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD();
 		$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU();
@@ -46,13 +40,7 @@ class Main extends CI_Controller {
             'jmlprosespengadaan'=> $jmlprosespengadaan,
             'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
             'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
-            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD,
-			'menungguKabid'=> $menungguKabid,
-			'menungguTU'=> $menungguTU,
-			'menungguPPK'=> $menungguPPK,
-			'prosesPengadaan'=> $prosesPengadaan,
-			'selesai'=> $selesai,
-			'revisi'=> $revisi
+            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
         );
 		
 		//print_r($data);
