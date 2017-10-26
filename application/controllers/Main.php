@@ -13,14 +13,14 @@ class Main extends CI_Controller {
 		//main page
 		$this->load->Model('Tracking_model');
 		$this->load->Model('Status_tracking_model');
-		$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui();
-		$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD();
-		$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU();
-		$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK();
-		$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan();
-		$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui();
-		$jmlverifikasi = $this->Tracking_model->get_total_verifikasi();
-		$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan();
+		$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui($this->session->userdata('id_user'));
+		$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD($this->session->userdata('id_user'));
+		$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU($this->session->userdata('id_user'));
+		$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK($this->session->userdata('id_user'));
+		$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan($this->session->userdata('id_user'));
+		$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui($this->session->userdata('id_user'));
+		$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
+		$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
 		if($this->session->userdata('id_position') == 1){ //posisi admin
 			$form = $this->Form_model->get_all_detail();	
 		}else if($this->session->userdata('id_position') == 3){ //posisi Kepala Bidang
