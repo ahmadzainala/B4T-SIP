@@ -124,11 +124,11 @@
                     <td>
                       <div class="form-group">
                         <input class="form-control" type="hidden" id="linkforauto2" value="<?php echo base_url(); ?>Form/autocompleteItems">
-                        <input class="form-control" name="item" placeholder="item" id="item_complete"  required />
+                        <input class="form-control" name="item" placeholder="Item" id="item_complete"  required />
                       </div>
                     </td>
                     <td><input class="form-control" type="number" min="1"  name="quantity" required></td>
-                    <td><input class="form-control" type="text" colspan="2" name="unit" required></td>
+                    <td><input class="form-control" type="text" colspan="2" name="unit" placeholder="Satuan" required></td>
                     <td><button class="btn btn-info" type="submit" colspan="2" name="add" value ="1">Tambahkan</button></td>
                   </tr>    
                 </tbody>
