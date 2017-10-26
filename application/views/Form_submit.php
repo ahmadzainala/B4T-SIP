@@ -229,7 +229,7 @@
       }
 
       function getinput(data){
-        if(data.value == "Date"){
+        if(data.value != "Segera"){
           document.getElementById("tes").type = "date";
           document.getElementById("tes").required = true;
           

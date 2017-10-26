@@ -348,11 +348,25 @@
                     </a>
                   </li>
                     <?php
+                    }else{
+                      ?>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                      <?php
                     }
                     $total_page = count($form_data);
                     $page = $total_page/10;
                     if($page%10 !=0){
                       $page++;
+                    }
+                    if($total_page < 10){
+                      ?>
+                      <li class="page-item active"><a class="page-link" href="#" aria-label="">1</a></li>
+                      <?php
                     }
                     for ($i=1; $i <= $page; $i++) {
                   ?>
@@ -368,6 +382,15 @@
                     </a>
                   </li>
                   <?php
+                    }else{
+                      ?>
+                      <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                      <?php
                     }
                   ?>
                 </ul>
