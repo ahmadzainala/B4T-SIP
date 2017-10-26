@@ -13,7 +13,8 @@
             <table class="table borderless">
               <tr>
               <td width="20%">Nama Kegiatan</td>
-              <td colspan="2"><?php echo $form_data->name_activity;?></td>
+              <td colspan="2"><?php echo $form_data->name_activity;?><input name="id_form" type="hidden" value = "<?php echo $id_form;?>" /></td>
+            
               <td width="30%"></td>
             </tr> 
             <tr>
