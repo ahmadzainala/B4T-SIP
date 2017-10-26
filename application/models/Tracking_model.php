@@ -98,7 +98,8 @@ class Tracking_model extends CI_Model
     }
 
     function get_total_menunggudisetujuiPPK(){
-        $this->db->where("(id_status_tracking='2' OR id_status_tracking='12')", NULL, FALSE);
+        $this->db->where("id_status_tracking",2);
+        $this->db->or_where('id_status_tracking', 12);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -111,6 +112,8 @@ class Tracking_model extends CI_Model
 
     function get_total_tidakdisetujui(){
         $this->db->where('id_status_tracking', 4);
+        $this->db->or_where('id_status_tracking', 13);
+        $this->db->or_where('id_status_tracking', 14);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }

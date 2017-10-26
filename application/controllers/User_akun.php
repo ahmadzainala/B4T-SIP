@@ -67,7 +67,7 @@ class User_akun extends CI_Controller
         } else {
             $data = array(
 		'username' => $this->input->post('username',TRUE),
-		'password' => $this->input->post('password',TRUE),
+		'password' => md5($this->input->post('password',TRUE)),
 		'name' => $this->input->post('name',TRUE),
 		'id_position' => $this->input->post('id_position',TRUE),
 		'id_division' => $this->input->post('id_division',TRUE),
@@ -110,7 +110,7 @@ class User_akun extends CI_Controller
         } else {
             $data = array(
 		'username' => $this->input->post('username',TRUE),
-		'password' => $this->input->post('password',TRUE),
+		'password' => md5($this->input->post('password',TRUE)),
 		'name' => $this->input->post('name',TRUE),
 		'id_position' => $this->input->post('id_position',TRUE),
 		'id_division' => $this->input->post('id_division',TRUE),

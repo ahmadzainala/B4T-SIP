@@ -27,7 +27,13 @@ class Main extends CI_Controller {
 		}else if($this->session->userdata('id_position') == 5){ //posisi Kepala Bagian TU
 			$form = $this->Form_model->get_by_user_acc_TU();	
 		}else if($this->session->userdata('id_position') == 6){ //posisi Kepala PPK
-			$form = $this->Form_model->get_by_user_acc_PPK();	
+			if($this->session->userdata('id_division') == 3){
+				$form = $this->Form_model->get_by_user_acc_PPKRM();	
+			}else{
+				$form = $this->Form_model->get_by_user_acc_PPKBLU();	
+			}
+		}else if($this->session->userdata('id_division') == 5){
+			$form = $this->Form_model->get_by_user_pengadaan();	
 		}else{ //posisi selain kepala
 			$form = $this->Form_model->get_by_user($this->session->userdata('id_user'));	
 		}
