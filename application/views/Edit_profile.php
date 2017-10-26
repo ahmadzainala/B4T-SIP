@@ -12,7 +12,7 @@
                     <div class="card-body">
                       <img src="<?php echo base_url() ?>template/user/img/default_profile.jpg" class="rounded" height="200" width="200">
                       <hr>
-                      <input class="btn btn-sm" type="file" style="margin-right: -80px;"> 
+                      <input class="btn btn-sm" type="file" style="width: 98%"> 
                     </div>
                   </div>
                 </td>
