@@ -82,8 +82,8 @@
             <div class="card-body"><?php echo $form_data->information;?></div>
             <div class="card-body"><?php if($form_data->information_kabid!=''){ echo 'tambahan kabid: '.$form_data->information_kabid;}?></div>
           </div>
-          <hr>
           <?php if($form_data->read_status_TU != 0 && $form_data->information_TU != ""){ ?>
+          <hr>
           <table>
             <tr>
               <td><b>Permintaan diterima oleh Ka.Bag Tata Usaha :</b></td>
@@ -94,10 +94,10 @@
           <div class="card">
             <div class="card-body"><?php echo $form_data->information_TU;?></div>
           </div>
-          <hr>
           <?php }
                 if($form_data->read_status_PPK != 0 && $form_data->information_PPK != ""){
-          ?>
+          ?>          
+          <hr>
           <label for="keterangan"><b>Perintah / Catatan Pejabat Pembuat Komitmen</b></label>
           <div class="card">
             <div class="card-body"><?php echo $form_data->information_PPK;?></div>
