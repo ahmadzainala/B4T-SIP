@@ -24,7 +24,7 @@
           <b>Proses Pengadaan</b>
         </div>
         <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
-          <h1><i class="material-icons" style="font-size: 28px">assignment_late</i> <?php echo $jmlverifikas; ?></h1>
+          <h1><i class="material-icons" style="font-size: 28px">assignment_late</i> <?php echo $jmlverifikasi; ?></h1>
           <b>Verifikasi Pengadaan</b>
         </div>
         <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
