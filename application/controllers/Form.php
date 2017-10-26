@@ -468,6 +468,11 @@ class Form extends CI_Controller
                 $this->Form_model->update($this->session->userdata('id_form'),$data);
 
                 if($this->session->userdata('id_position') == 3){
+                    $data4 = array(
+                        'status_acc' => 1
+                    );
+                    $this->Form_content_model->update_by_form($this->session->userdata('id_form'),$data4);
+
                     $data = array(
                         'read_status_Ketua' => 1
                     );
@@ -519,20 +524,46 @@ class Form extends CI_Controller
 
     public function detail_form($id_form = NULL){
         
-        $this->load->model('Form_content_model');
-        $item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
-        $this->load->model('Division_model');
-        $form_data = $this->Form_model->get_by_id($id_form);
-        $divisi = $this->Division_model->get_by_id($form_data->id_division);
-        $this->load->model('Tracking_model');
-        $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+        if(isset($_POST['tersedia'])){
+            $this->load->model('Form_content_model');
+            $data = array(
+                'ready' => 1,
+            );
+            $this->Form_content_model->update($_POST['tersedia'],$data);
+        }
 
-        $data = array(
-            'divisi' => $divisi,
-            'form_data' => $form_data,
-            'item_list' => $item_list,
-            'form_acc' => $form_acc
-        );
+        if($this->session->userdata('id_division')!= 5){
+            $this->load->model('Form_content_model');
+            $item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
+            $this->load->model('Division_model');
+            $form_data = $this->Form_model->get_by_id($id_form);
+            $divisi = $this->Division_model->get_by_id($form_data->id_division);
+            $this->load->model('Tracking_model');
+            $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+
+            $data = array(
+                'divisi' => $divisi,
+                'form_data' => $form_data,
+                'item_list' => $item_list,
+                'form_acc' => $form_acc
+            );
+        }else{
+            $this->load->model('Form_content_model');
+            $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
+            $this->load->model('Division_model');
+            $form_data = $this->Form_model->get_by_id($id_form);
+            $divisi = $this->Division_model->get_by_id($form_data->id_division);
+            $this->load->model('Tracking_model');
+            $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+
+            $data = array(
+                'divisi' => $divisi,
+                'form_data' => $form_data,
+                'item_list' => $item_list,
+                'form_acc' => $form_acc,
+                'id_form' => $id_form
+            );
+        }
 
         $this->load->view('header_login');
         $this->load->view('Form_view',$data);
@@ -834,6 +865,90 @@ class Form extends CI_Controller
         $this->load->view('header_login');
         $this->load->view('Form_submit',$data);
         $this->load->view('footer');
+    }
+
+    function pengadaan(){
+        $this->load->model('Tracking_model');
+        $this->load->model('Tracking_history_model');
+        echo "</br></br></br></br></br>aaaaaa";
+        if(isset($_POST['submit'])){
+            $this->load->model('User_akun_model');
+            $pass = md5($_POST['password']);
+            $valid_user = $this->User_akun_model->get_data_user($this->session->userdata('username'),$pass);
+
+            if($valid_user != FALSE){
+                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                
+                $data = array(
+                    'id_status_tracking' => 6
+                );
+                $this->Tracking_model->update($id_track->id_tracking,$data);
+
+                $data2 = array(
+                    'id_tracking' => $id_track->id_tracking,
+                    'id_user_acc' => $this->session->userdata('id_position'),
+                    'date_acc' => date('Y-m-d'),
+                    'acc' => 1,
+                );
+                $this->Tracking_history_model->insert($data2);
+                redirect('Main');
+            }
+        }
+    }
+
+    function acc_item($id_form = NULL){
+        if(isset($_POST['penerimaan'])){
+            $this->load->model('Form_content_model');
+            $data = array(
+                'acc_user' => 1,
+            );
+            $this->Form_content_model->update($_POST['penerimaan'],$data);
+        }
+        $this->load->model('Form_content_model');
+        $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
+        $this->load->model('Division_model');
+        $form_data = $this->Form_model->get_by_id($id_form);
+        $divisi = $this->Division_model->get_by_id($form_data->id_division);
+        $this->load->model('Tracking_model');
+        $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+
+        $data = array(
+            'divisi' => $divisi,
+            'form_data' => $form_data,
+            'item_list' => $item_list,
+            'form_acc' => $form_acc,
+            'id_form' => $id_form
+        );
+         $this->load->view('header_login');
+        $this->load->view('Form_acc_user',$data);
+    }
+
+    function done(){
+        $this->load->model('Tracking_model');
+        $this->load->model('Tracking_history_model');
+        if(isset($_POST['submit'])){
+            $this->load->model('User_akun_model');
+            $pass = md5($_POST['password']);
+            $valid_user = $this->User_akun_model->get_data_user($this->session->userdata('username'),$pass);
+
+            if($valid_user != FALSE){
+                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                
+                $data = array(
+                    'id_status_tracking' => 5
+                );
+                $this->Tracking_model->update($id_track->id_tracking,$data);
+
+                $data2 = array(
+                    'id_tracking' => $id_track->id_tracking,
+                    'id_user_acc' => $this->session->userdata('id_position'),
+                    'date_acc' => date('Y-m-d'),
+                    'acc' => 1,
+                );
+                $this->Tracking_history_model->insert($data2);
+                redirect('Main');
+            }
+        }
     }
 
     public function autocompleteCat(){

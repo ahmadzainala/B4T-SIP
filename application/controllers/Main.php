@@ -19,6 +19,7 @@ class Main extends CI_Controller {
 		$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK();
 		$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan();
 		$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui();
+		$jmlverifikasi = $this->Tracking_model->get_total_verifikasi();
 		$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan();
 		if($this->session->userdata('id_position') == 1){ //posisi admin
 			$form = $this->Form_model->get_all_detail();	
@@ -46,6 +47,7 @@ class Main extends CI_Controller {
             'jmlprosespengadaan'=> $jmlprosespengadaan,
             'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
             'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
+            'jmlverifikasi'=> $jmlverifikasi,
             'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
         );
 		

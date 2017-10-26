@@ -52,37 +52,24 @@
                   <th width="17%">Kategori</th>
                   <th>Nama dan Spesifikasi Barang / Jasa</th>
                   <th width="20%" style='text-align: center;'>Banyaknya</th>
-                  <?php if($this->session->userdata('id_division')!=5){?>
-                  <th>Acc</th>
-                  <?php }else{ ?>
-                  <th>Pengadaan</th>
-                  <form action='<?php echo base_url(); ?>Form/detail_form/<?php echo $id_form ?>' id='form_pengadaan' method='POST'></form>
-                  
-                  <?php } ?>
+                  <th>Penerimaan</th>
                 </tr>
               </thead>
               <tbody>   
+                <form action='<?php echo base_url(); ?>Form/acc_item/<?php echo $id_form;?>' id='acc_item' method='POST'></form>
                 <?php
                   $i = 1;
                   $j = 0;
                   $k = 0;
                   if($item_list != ""){
                     foreach ($item_list as $il) {
-                      if($il->status_acc == 1){
-                        $stat = "<i class='material-icons' style='color:green;'>done</i>";
-                      }else{
-
-                        $stat = "<i class='material-icons' style='color:red;'>clear</i>";
-                      }
                       echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>";
                       echo $il->name_items;
                       echo "</td><td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td>";
-                      if($this->session->userdata('id_division')!=5){
-                         echo $stat;
-                      }else{
+                     
                         $k++;
-                        if($il->ready == 0){
-                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' class='btn btn-success'>Tersedia</button>";
+                        if($il->acc_user == 0){
+                          echo "<button type='submit' value='$il->id_form_content' name='penerimaan' form='acc_item' class='btn btn-success'>Diterima</button>";
                         }else{
                           echo "<i class='material-icons' style='color:green;'>done</i>";
                           $j++;
@@ -91,14 +78,10 @@
                       echo "</td></tr>";
                       $i++;
                     }
-                  }else{
-                    echo "<tr style=''><td></td><td></td><td>Belum ada item yang akan dipesan</td><td></td><td></td></tr>";
-                  }
                 ?>   
               </tbody>
             </table>
           </div>
-          <?php if($this->session->userdata('id_division')!=5){?>
             <hr>
             <label for="keterangan">Keterangan / Sumber Anggaran</label>
             <div class="card">
@@ -124,14 +107,13 @@
             <label for="keterangan"><b>Perintah / Catatan Pejabat Pembuat Komitmen</b></label>
             <div class="card">
               <div class="card-body"><?php echo $form_data->information_PPK;?></div>
-            </div>
-            <?php }?>  
-      <?php }else{
+            </div> 
+      <?php 
         if($j == $k){
           ?>
-          <form action='<?php echo base_url(); ?>Form/pengadaan' id='pengadaan' method='POST'>
+          <form action='<?php echo base_url(); ?>Form/done' id='done' method='POST'>
         <div class="card-footer">
-          <p align="center">Semua item telah tersedia dan siap dikirim</p>
+          <p align="center">Semua item telah diterima</p>
         </div>
         <div class="card-footer">
           <table border=0>
@@ -140,11 +122,11 @@
                 Masukan Kembali Password Akun Anda
               </td>
               <td style="padding-right: 20px">
-                <input class="form-control" type="password" form='pengadaan' name="password" required>
-                <input class="form-control" type="hidden" form='pengadaan' name="id_form" value='<?php echo $id_form;?>' required>
+                <input class="form-control" type="password" name="password" required>
+                <input class="form-control" type="hidden" name="id_form" value='<?php echo $id_form;?>' required>
               </td>
               <td>            
-                <button type="submit" name="submit" form='pengadaan' class="btn btn-success">Kirim</button>
+                <button type="submit" name="submit" class="btn btn-success">Selesai</button>
               </td>
             </tr>
           </table>

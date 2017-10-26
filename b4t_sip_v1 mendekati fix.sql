@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2017 at 05:16 AM
+-- Generation Time: Oct 26, 2017 at 10:23 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `form` (
   `status_submit` int(11) NOT NULL,
   `id_budget` int(11) NOT NULL,
   `name_activity` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `form`
@@ -85,7 +85,10 @@ INSERT INTO `form` (`id_form`, `id_user`, `date`, `information`, `information_ka
 (52, 5, '2017-10-26 00:42:52', 'today today', 'ac dikurangi loba teuing', 'aweuaweuaweu', '', 'Segera', 'today', 1, 1, 1, 1, 1, 'template'),
 (53, 5, '2017-10-26 00:42:52', 'asjdhakj', '', '', '', 'Segera', 'kjasdhkaj', 0, 0, 0, 1, 1, 'template'),
 (59, 5, '2017-10-25 07:45:37', 'Apaajalah yph', 'next', 'stop here', '', 'Segera', 'dipenuhi untuk kegiatan baru', 1, 1, 0, 1, 2, 'Test baru'),
-(60, 5, '2017-10-26 03:04:29', 'asdasdsda', '', '', '', 'Segera', 'asdad', 1, 0, 0, 1, 1, 'asdasd');
+(60, 5, '2017-10-26 03:30:47', 'asdasdsda', 'asdsad', '', '', 'Segera', 'asdad', 1, 0, 0, 1, 1, 'asdasd'),
+(64, 7, '2017-10-26 04:19:25', 'asdadasd', '', 'bosaaaa', '', '2017-10-04', 'sssssss', 1, 1, 0, 1, 2, 'sdssssssssssss'),
+(65, 7, '2017-10-26 04:18:48', 'asadsda', '', '', '', 'Segera', '2asdads', 1, 0, 0, 1, 2, 'asdasd'),
+(66, 7, '2017-10-25 17:00:00', '', '', '', '', 'Segera', 'aw', 0, 0, 0, 0, 0, 'ssssss');
 
 -- --------------------------------------------------------
 
@@ -101,49 +104,56 @@ CREATE TABLE IF NOT EXISTS `form_content` (
   `quantity` int(11) NOT NULL,
   `status_acc` int(11) NOT NULL,
   `unit` varchar(255) NOT NULL,
-  `quantity_origin` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=latin1;
+  `quantity_origin` int(11) NOT NULL,
+  `id_item_by_pengadaan` int(11) NOT NULL,
+  `ready` int(11) NOT NULL,
+  `acc_user` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `form_content`
 --
 
-INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id_supplier`, `quantity`, `status_acc`, `unit`, `quantity_origin`) VALUES
-(70, 28, 1, NULL, 2, 1, 'buku', 1),
-(71, 28, 10, NULL, 10, 0, 'unit', 10),
-(72, 28, 2, NULL, 10, 0, 'pensil', 10),
-(73, 29, 11, NULL, 10, 0, 'unit', 10),
-(76, 30, 1, NULL, 100, 0, 'unit', 100),
-(77, 30, 5, NULL, 1, 0, 'unit', 1),
-(78, 30, 9, NULL, 2, 0, 'unit', 2),
-(79, 30, 11, NULL, 100, 0, 'unit', 100),
-(80, 31, 9, NULL, 100, 0, 'unit', 100),
-(83, 43, 11, NULL, 1, 1, 'unit', 1),
-(84, 43, 1, NULL, 2, 1, '3s', 2),
-(85, 43, 9, NULL, 1, 1, 'unit', 1),
-(86, 43, 3, NULL, 2, 1, 's', 2),
-(87, 43, 7, NULL, 2, 1, '3as', 2),
-(88, 45, 12, NULL, 1, 0, 'paket', 1),
-(89, 45, 13, NULL, 2, 0, 'unit', 2),
-(90, 46, 14, NULL, 0, 0, 'unit', 3),
-(91, 46, 9, NULL, 0, 0, 'unit', 3),
-(92, 46, 5, NULL, 0, 0, 'unit', 4),
-(93, 47, 1, NULL, 500, 1, 'unit', 500),
-(94, 47, 11, NULL, 500, 1, 'set', 500),
-(95, 47, 2, NULL, 500, 1, 'set', 500),
-(96, 47, 4, NULL, 500, 1, 'set', 500),
-(97, 47, 5, NULL, 2, 1, 'unit', 2),
-(98, 48, 12, NULL, 100, 0, '2as', 100),
-(99, 48, 2, NULL, 232, 0, 'sdad', 232),
-(100, 49, 12, NULL, 23, 1, 'as', 23),
-(101, 49, 5, NULL, 110, 0, 'ss', 110),
-(102, 50, 12, NULL, 10, 1, 'aa', 231),
-(103, 52, 15, NULL, 1, 0, 'pasang', 0),
-(104, 52, 5, NULL, 1, 1, 'unit', 0),
-(105, 53, 1, NULL, 10, 0, 'Pak', 10),
-(106, 59, 12, NULL, 0, 0, 'paket', 1),
-(107, 59, 1, NULL, 0, 0, 'paket', 2),
-(108, 60, 12, NULL, 2, 0, '231', 2);
+INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id_supplier`, `quantity`, `status_acc`, `unit`, `quantity_origin`, `id_item_by_pengadaan`, `ready`, `acc_user`) VALUES
+(70, 28, 1, NULL, 2, 1, 'buku', 1, 0, 0, 0),
+(71, 28, 10, NULL, 10, 0, 'unit', 10, 0, 0, 0),
+(72, 28, 2, NULL, 10, 0, 'pensil', 10, 0, 0, 0),
+(73, 29, 11, NULL, 10, 0, 'unit', 10, 0, 0, 0),
+(76, 30, 1, NULL, 100, 0, 'unit', 100, 0, 0, 0),
+(77, 30, 5, NULL, 1, 0, 'unit', 1, 0, 0, 0),
+(78, 30, 9, NULL, 2, 0, 'unit', 2, 0, 0, 0),
+(79, 30, 11, NULL, 100, 0, 'unit', 100, 0, 0, 0),
+(80, 31, 9, NULL, 100, 0, 'unit', 100, 0, 0, 0),
+(83, 43, 11, NULL, 1, 1, 'unit', 1, 0, 0, 0),
+(84, 43, 1, NULL, 2, 1, '3s', 2, 0, 0, 0),
+(85, 43, 9, NULL, 1, 1, 'unit', 1, 0, 0, 0),
+(86, 43, 3, NULL, 2, 1, 's', 2, 0, 0, 0),
+(87, 43, 7, NULL, 2, 1, '3as', 2, 0, 0, 0),
+(88, 45, 12, NULL, 1, 0, 'paket', 1, 0, 0, 0),
+(89, 45, 13, NULL, 2, 0, 'unit', 2, 0, 0, 0),
+(90, 46, 14, NULL, 0, 0, 'unit', 3, 0, 0, 0),
+(91, 46, 9, NULL, 0, 0, 'unit', 3, 0, 0, 0),
+(92, 46, 5, NULL, 0, 0, 'unit', 4, 0, 0, 0),
+(93, 47, 1, NULL, 500, 1, 'unit', 500, 0, 1, 1),
+(94, 47, 11, NULL, 500, 1, 'set', 500, 0, 1, 1),
+(95, 47, 2, NULL, 500, 1, 'set', 500, 0, 1, 1),
+(96, 47, 4, NULL, 500, 1, 'set', 500, 0, 1, 1),
+(97, 47, 5, NULL, 2, 1, 'unit', 2, 0, 1, 1),
+(98, 48, 12, NULL, 100, 0, '2as', 100, 0, 0, 0),
+(99, 48, 2, NULL, 232, 0, 'sdad', 232, 0, 0, 0),
+(100, 49, 12, NULL, 23, 1, 'as', 23, 0, 0, 0),
+(101, 49, 5, NULL, 110, 0, 'ss', 110, 0, 0, 0),
+(102, 50, 12, NULL, 10, 1, 'aa', 231, 0, 0, 0),
+(103, 52, 15, NULL, 1, 0, 'pasang', 0, 0, 0, 0),
+(104, 52, 5, NULL, 1, 1, 'unit', 0, 0, 0, 0),
+(105, 53, 1, NULL, 10, 0, 'Pak', 10, 0, 0, 0),
+(106, 59, 12, NULL, 0, 0, 'paket', 1, 0, 0, 0),
+(107, 59, 1, NULL, 0, 0, 'paket', 2, 0, 0, 0),
+(108, 60, 12, NULL, 2, 1, '231', 2, 0, 0, 0),
+(112, 64, 12, NULL, 1, 1, '23s', 1, 0, 0, 0),
+(113, 65, 1, NULL, 1, 1, '1dd', 1, 0, 0, 0),
+(114, 66, 12, NULL, 1, 0, 'asd', 1, 0, 0, 0),
+(115, 66, 1, NULL, 1, 0, 'asd', 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -354,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `tracking` (
 `id_tracking` int(11) NOT NULL,
   `id_status_tracking` int(11) NOT NULL,
   `id_form` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tracking`
@@ -368,14 +378,15 @@ INSERT INTO `tracking` (`id_tracking`, `id_status_tracking`, `id_form`) VALUES
 (8, 4, 43),
 (10, 4, 45),
 (11, 14, 46),
-(12, 3, 47),
+(12, 5, 47),
 (13, 4, 48),
 (14, 3, 49),
 (15, 11, 50),
 (16, 12, 52),
 (17, 0, 53),
 (18, 13, 59),
-(19, 10, 60);
+(25, 2, 64),
+(26, 1, 65);
 
 -- --------------------------------------------------------
 
@@ -389,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `tracking_history` (
   `id_user_acc` int(11) NOT NULL,
   `date_acc` date NOT NULL,
   `acc` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tracking_history`
@@ -421,7 +432,12 @@ INSERT INTO `tracking_history` (`id_catalog`, `id_tracking`, `id_user_acc`, `dat
 (28, 18, 5, '2017-10-25', 0),
 (29, 11, 3, '2017-10-25', 1),
 (30, 11, 5, '2017-10-25', 1),
-(31, 11, 6, '2017-10-25', 0);
+(31, 11, 6, '2017-10-25', 0),
+(34, 25, 3, '2017-10-26', 1),
+(35, 26, 3, '2017-10-26', 1),
+(36, 25, 5, '2017-10-26', 1),
+(37, 12, 7, '2017-10-26', 1),
+(38, 12, 2, '2017-10-26', 1);
 
 -- --------------------------------------------------------
 
@@ -554,12 +570,12 @@ MODIFY `id_division` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `form`
 --
 ALTER TABLE `form`
-MODIFY `id_form` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
+MODIFY `id_form` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `form_content`
 --
 ALTER TABLE `form_content`
-MODIFY `id_form_content` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=109;
+MODIFY `id_form_content` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=116;
 --
 -- AUTO_INCREMENT for table `items_category`
 --
@@ -599,12 +615,12 @@ MODIFY `id_supplier_category` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `tracking`
 --
 ALTER TABLE `tracking`
-MODIFY `id_tracking` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `id_tracking` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `tracking_history`
 --
 ALTER TABLE `tracking_history`
-MODIFY `id_catalog` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+MODIFY `id_catalog` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `user_akun`
 --

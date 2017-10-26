@@ -86,13 +86,15 @@ class Tracking_model extends CI_Model
     }
 
     function get_total_menunggudisetujuiKD(){
-        $this->db->where("(id_status_tracking='0' OR id_status_tracking='10')", NULL, FALSE);
+        $this->db->where("id_status_tracking",0);
+        $this->db->or_where('id_status_tracking', 10);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     function get_total_menunggudisetujuiTU(){
-        $this->db->where("(id_status_tracking='1' OR id_status_tracking='11')", NULL, FALSE);
+        $this->db->where("id_status_tracking",1);
+        $this->db->or_where('id_status_tracking', 11);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -114,6 +116,12 @@ class Tracking_model extends CI_Model
         $this->db->where('id_status_tracking', 4);
         $this->db->or_where('id_status_tracking', 13);
         $this->db->or_where('id_status_tracking', 14);
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
+    }
+
+    function get_total_verifikasi(){
+        $this->db->where('id_status_tracking', 6);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
