@@ -1,0 +1,5 @@
+- Dasboard belum per user login statusnya
+- Page number harusnya "< 1 2 3 4 >"
+- Bug pick segera - tanggal - segera - tanggal tidak muncul lg
+- Edit nama pesanan masih belum
+- Upload foto belum bisa
