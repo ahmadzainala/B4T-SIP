@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2017 at 09:57 AM
+-- Generation Time: Oct 26, 2017 at 05:16 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `division` (
 `id_division` int(11) NOT NULL,
   `name_division` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `division`
@@ -39,7 +39,8 @@ INSERT INTO `division` (`id_division`, `name_division`) VALUES
 (1, 'IT'),
 (2, 'Tata Usaha'),
 (3, 'PPK RM'),
-(4, 'PPK BLU');
+(4, 'PPK BLU'),
+(5, 'Pengadaan');
 
 -- --------------------------------------------------------
 
@@ -70,21 +71,21 @@ CREATE TABLE IF NOT EXISTS `form` (
 --
 
 INSERT INTO `form` (`id_form`, `id_user`, `date`, `information`, `information_kabid`, `information_TU`, `information_PPK`, `date_needs`, `that`, `read_status_Ketua`, `read_status_TU`, `read_status_PPK`, `status_submit`, `id_budget`, `name_activity`) VALUES
-(28, 6, '2017-10-15 06:02:52', 'Sumber dana dari: apawelah', '', '', '', '2017-10-17', 'coba versi baru', 1, 0, 0, 1, 0, ''),
-(29, 5, '2017-10-15 10:41:14', 'sumber dana dari mana aja', 'asdasdsa', 'asdasasd', '', 'Segera', 'coba lagi', 1, 1, 0, 1, 0, ''),
-(30, 5, '2017-10-15 10:27:58', 'dana dari dompet sendiri, untuk ...', 'Tvnya kebanyakan, untuk tv di tolak', 'ntaps', 'ntaps lanjutan', 'Segera', 'segera dipenuhi -.-', 1, 1, 1, 1, 0, ''),
-(31, 5, '2017-10-15 06:19:17', 'tolak weh', 'loba teuing', '', '', 'Segera', 'aw', 1, 0, 0, 1, 0, ''),
-(43, 5, '2017-10-15 10:36:24', 'asd', 'asda', '', '', 'Segera', 'apa weh', 1, 0, 0, 1, 0, ''),
-(45, 5, '2017-10-15 10:39:07', 'ssssss', 'cacccc', '', '', 'Segera', 'ssss', 1, 0, 0, 1, 0, ''),
-(46, 5, '2017-10-25 07:55:12', 'sdasdasss', 'next to PPK', 'go to PPK', 'stop PPK', 'Segera', 'aaa', 1, 1, 1, 1, 0, ''),
-(47, 5, '2017-10-15 11:28:03', 'dana dari sana sini', 'mohon di adakan', 'semoga lancar', 'next', 'Segera', 'aaaaaaaaaaaaaaaaaa', 1, 1, 1, 1, 0, ''),
-(48, 5, '2017-10-15 11:30:43', 'asdads', 'aaaaaaaaaaaa', 'ada weh', 'lol', 'Segera', 'testes', 1, 1, 1, 1, 0, ''),
-(49, 5, '2017-10-15 10:47:33', 'asdas', 'next', 'more', 'pengadaan', 'Segera', 'aaweeyu', 1, 1, 1, 1, 0, ''),
-(50, 5, '2017-10-16 04:25:25', 'asdasd', 'kebanyakan jadi di ubah banyaknya', '', '', 'Segera', 'wait', 1, 1, 0, 1, 0, ''),
-(52, 5, '2017-10-16 04:32:56', 'today today', 'ac dikurangi loba teuing', 'aweuaweuaweu', '', 'Segera', 'today', 1, 1, 1, 1, 0, ''),
-(53, 5, '2017-10-16 07:32:38', 'asjdhakj', '', '', '', 'Segera', 'kjasdhkaj', 0, 0, 0, 1, 0, ''),
+(28, 6, '2017-10-26 00:42:52', 'Sumber dana dari: apawelah', '', '', '', '2017-10-17', 'coba versi baru', 1, 0, 0, 1, 1, 'template'),
+(29, 5, '2017-10-26 00:42:52', 'sumber dana dari mana aja', 'asdasdsa', 'asdasasd', '', 'Segera', 'coba lagi', 1, 1, 0, 1, 1, 'template'),
+(30, 5, '2017-10-26 00:42:52', 'dana dari dompet sendiri, untuk ...', 'Tvnya kebanyakan, untuk tv di tolak', 'ntaps', 'ntaps lanjutan', 'Segera', 'segera dipenuhi -.-', 1, 1, 1, 1, 1, 'template'),
+(31, 5, '2017-10-26 00:42:52', 'tolak weh', 'loba teuing', '', '', 'Segera', 'aw', 1, 0, 0, 1, 1, 'template'),
+(43, 5, '2017-10-26 00:42:52', 'asd', 'asda', '', '', 'Segera', 'apa weh', 1, 0, 0, 1, 1, 'template'),
+(45, 5, '2017-10-26 00:42:52', 'ssssss', 'cacccc', '', '', 'Segera', 'ssss', 1, 0, 0, 1, 1, 'template'),
+(46, 5, '2017-10-26 00:42:52', 'sdasdasss', 'next to PPK', 'go to PPK', 'stop PPK', 'Segera', 'aaa', 1, 1, 1, 1, 1, 'template'),
+(47, 5, '2017-10-26 00:42:52', 'dana dari sana sini', 'mohon di adakan', 'semoga lancar', 'next', 'Segera', 'aaaaaaaaaaaaaaaaaa', 1, 1, 1, 1, 1, 'template'),
+(48, 5, '2017-10-26 00:42:52', 'asdads', 'aaaaaaaaaaaa', 'ada weh', 'lol', 'Segera', 'testes', 1, 1, 1, 1, 1, 'template'),
+(49, 5, '2017-10-26 00:42:52', 'asdas', 'next', 'more', 'pengadaan', 'Segera', 'aaweeyu', 1, 1, 1, 1, 1, 'template'),
+(50, 5, '2017-10-26 00:42:52', 'asdasd', 'kebanyakan jadi di ubah banyaknya', '', '', 'Segera', 'wait', 1, 1, 0, 1, 1, 'template'),
+(52, 5, '2017-10-26 00:42:52', 'today today', 'ac dikurangi loba teuing', 'aweuaweuaweu', '', 'Segera', 'today', 1, 1, 1, 1, 1, 'template'),
+(53, 5, '2017-10-26 00:42:52', 'asjdhakj', '', '', '', 'Segera', 'kjasdhkaj', 0, 0, 0, 1, 1, 'template'),
 (59, 5, '2017-10-25 07:45:37', 'Apaajalah yph', 'next', 'stop here', '', 'Segera', 'dipenuhi untuk kegiatan baru', 1, 1, 0, 1, 2, 'Test baru'),
-(60, 5, '2017-10-24 08:23:18', 'asdasdsda', '', '', '', 'Segera', 'asdad', 0, 0, 0, 1, 1, 'asdasd');
+(60, 5, '2017-10-26 03:04:29', 'asdasdsda', '', '', '', 'Segera', 'asdad', 1, 0, 0, 1, 1, 'asdasd');
 
 -- --------------------------------------------------------
 
@@ -241,7 +242,7 @@ INSERT INTO `menu_admin` (`id`, `name`, `link`, `icon`, `is_active`, `is_parent`
 CREATE TABLE IF NOT EXISTS `position` (
 `id_position` int(11) NOT NULL,
   `name_position` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `position`
@@ -253,7 +254,8 @@ INSERT INTO `position` (`id_position`, `name_position`) VALUES
 (3, 'Kepala Divisi'),
 (4, 'Sekertaris'),
 (5, 'Kepala Bagian'),
-(6, 'Kepala PPK');
+(6, 'Kepala PPK'),
+(7, 'Staff');
 
 -- --------------------------------------------------------
 
@@ -290,16 +292,16 @@ CREATE TABLE IF NOT EXISTS `status_tracking` (
 --
 
 INSERT INTO `status_tracking` (`id_status_tracking`, `description`) VALUES
-(0, 'Usulan dalam antrian'),
-(1, 'Sudah di Acc Kepala Bidang, Usulan dalam antrian Acc Ketua Bagian TU'),
-(2, 'Sudah di Acc TU, Usulan dalam antrian Acc PPK'),
-(3, 'Sudah di Acc PPK, Usulan dalam proses pengadaan'),
+(0, 'Menunggu Acc Kepala Bidang'),
+(1, 'Menunggu Acc TU'),
+(2, 'Menunggu Acc PPK'),
+(3, 'Dalam Proses Pengadaan'),
 (4, 'Tidak di Acc Kepala Bidang'),
 (5, 'Selesai'),
-(6, 'Revisi'),
-(10, 'Belum di Acc Kepala Bidang'),
-(11, 'Belum di Acc Kepala Bagian TU'),
-(12, 'Belum di Acc Kepala PPK'),
+(6, 'Menunggu Validasi Pengadaan oleh Peminta'),
+(10, 'Menunggu Acc Kepala Bidang'),
+(11, 'Menunggu Acc TU'),
+(12, 'Menunggu Acc PPK'),
 (13, 'Tidak di Acc TU'),
 (14, 'Tidak di Acc PPK');
 
@@ -373,7 +375,7 @@ INSERT INTO `tracking` (`id_tracking`, `id_status_tracking`, `id_form`) VALUES
 (16, 12, 52),
 (17, 0, 53),
 (18, 13, 59),
-(19, 0, 60);
+(19, 10, 60);
 
 -- --------------------------------------------------------
 
@@ -434,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `user_akun` (
   `name` varchar(255) NOT NULL,
   `id_position` int(11) NOT NULL,
   `id_division` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_akun`
@@ -447,7 +449,9 @@ INSERT INTO `user_akun` (`id_user`, `username`, `password`, `name`, `id_position
 (7, 'Bos', '15fc4a53992beba40ae91e5244e79dff', 'My', 3, 1),
 (8, 'Wiwi', '38f2f8bb5145c0b899542570b91153f6', 'Wiwi', 4, 2),
 (9, 'bosTU', '0706855e2208fd7a331ea6df9c3137fc', 'TU', 5, 2),
-(10, 'bosPPK', 'f953c25b1fb8a7fe361e8936e90f6188', 'PPK', 6, 3);
+(10, 'bosPPKRM', '7eae5baa4df6a4862b743ed33b56c958', 'PPK', 6, 3),
+(11, 'bosPPKBLU', 'dcf63529fd6f44575ad6e06623390a9d', 'Kepala PPK BLU', 6, 4),
+(12, 'staffpengadaan', '52d10135dc497f0d0ce46ec74a14f3fe', 'staff aja', 7, 5);
 
 --
 -- Indexes for dumped tables
@@ -545,7 +549,7 @@ ALTER TABLE `user_akun`
 -- AUTO_INCREMENT for table `division`
 --
 ALTER TABLE `division`
-MODIFY `id_division` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_division` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `form`
 --
@@ -575,7 +579,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-MODIFY `id_position` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_position` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `source_budget`
 --
@@ -605,7 +609,7 @@ MODIFY `id_catalog` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 -- AUTO_INCREMENT for table `user_akun`
 --
 ALTER TABLE `user_akun`
-MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- Constraints for dumped tables
 --
