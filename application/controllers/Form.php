@@ -481,7 +481,7 @@ class Form extends CI_Controller
 
                     $id_track = $this->Tracking_model->get_by_id_form($this->session->userdata('id_form'));
                     $data3 = array(
-                        'id_tracking' => $id_track,
+                        'id_tracking' => $id_track->id_tracking,
                         'id_user_acc' => $this->session->userdata('id_position'),
                         'date_acc' => date('Y-m-d'),
                         'acc' => 1,
@@ -495,7 +495,7 @@ class Form extends CI_Controller
                     $this->Tracking_model->insert($data2);
                     $id_track = $this->Tracking_model->get_by_id_form($this->session->userdata('id_form'));
                     $data3 = array(
-                        'id_tracking' => $id_track,
+                        'id_tracking' => $id_track->id_tracking,
                         'id_user_acc' => 0,
                         'date_acc' => date('Y-m-d'),
                         'acc' => 0,

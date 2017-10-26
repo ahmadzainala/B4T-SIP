@@ -71,58 +71,7 @@ class Tracking_history_model extends CI_Model
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
-     function get_by_id_form($id)
-    {
-        $this->db->where('id_form', $id);
-        return $this->db->get($this->table)->row();
-    }
-    
-
-    function get_by_id_tracking_TU($id_track){
-        return $this->db->query('select * from Tracking_history b, tracking c where c.id_tracking = b.id_tracking and b.id_user_acc =5')->row();
-    }
-
-    function get_total_menunggudisetujui(){
-        $this->db->where("(id_status_tracking!='5' AND id_status_tracking!='3' AND id_status_tracking!='4')", NULL, FALSE);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    function get_total_menunggudisetujuiKD(){
-        $this->db->where("(id_status_tracking='0' OR id_status_tracking='10')", NULL, FALSE);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    function get_total_menunggudisetujuiTU(){
-        $this->db->where("(id_status_tracking='1' OR id_status_tracking='11')", NULL, FALSE);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    function get_total_menunggudisetujuiPPK(){
-        $this->db->where("(id_status_tracking='2' OR id_status_tracking='12')", NULL, FALSE);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    function get_total_prosespengadaan(){
-        $this->db->where('id_status_tracking', 3);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    function get_total_tidakdisetujui(){
-        $this->db->where('id_status_tracking', 4);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
-
-    function get_total_selesaipengadaan(){
-        $this->db->where('id_status_tracking', 5);
-        $this->db->from($this->table);
-        return $this->db->count_all_results();
-    }
+     
 
 }
 
