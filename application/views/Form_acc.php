@@ -5,7 +5,7 @@
             <h4>Form Daftar Pemesanan Barang / Jasa</h4> 
           </div>
           <div class="col-md-6" style="text-align: right;">
-            <p>Tanggal Diajukan :<?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
+            <p>Tanggal Diajukan : <?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
           </div> 
         </div>        
         <div class="card-body">
