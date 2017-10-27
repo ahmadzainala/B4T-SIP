@@ -636,133 +636,141 @@ class Form extends CI_Controller
     }
 
     public function acc(){
-        $this->load->model('Tracking_model');
-        $this->load->model('Tracking_history_model');
-        $this->load->model('Form_content_model');
-        $item_list = $this->Form_content_model->get_all_detail_by_form($_POST['id_form']); 
-        $stat = 0;
+        $this->load->model('User_akun_model');
+        $pass= md5($_POST['password']);
+        $valid_user = $this->User_akun_model->get_data_user($this->session->userdata('username'),$pass);
 
-        if($_POST['status_acc'] == 0){
-            $stat = 1;
-        }else{
-            foreach ($item_list as $item) {
-                if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
-                    $stat = 1;
-                }
-            }
-        }
+        if($valid_user != FALSE){
+            $this->load->model('Tracking_model');
+            $this->load->model('Tracking_history_model');
+            $this->load->model('Form_content_model');
+            $item_list = $this->Form_content_model->get_all_detail_by_form($_POST['id_form']); 
+            $stat = 0;
 
-        if($stat == 1 || $_POST['status_acc'] == 2){
-            if($_POST['status_acc'] != 2){
+            if($_POST['status_acc'] == 0){
+                $stat = 1;
+            }else{
                 foreach ($item_list as $item) {
                     if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
-                        $data = array(
-                            'quantity' => $_POST['qty'.$item->id_items_detail],
-                            'status_acc' => 1,
-                            );
-                        $this->Form_content_model->update($item->id_form_content,$data);
-                    }else{
-                         $data = array(
-                            'quantity' => 0,
-                            'status_acc' => 0,
-                            );
-                        $this->Form_content_model->update($item->id_form_content,$data);
+                        $stat = 1;
                     }
                 }
             }
-            
-            if($this->session->userdata('id_position') == 3){
-                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
-                if($_POST['status_acc'] == 1){
-                    $data = array(
-                        'id_status_tracking' => 1
-                    );
-                }else if($_POST['status_acc'] == 2){
-                    $data = array(
-                        'id_status_tracking' => 6
-                    );
-                }else{
-                    $data = array(
-                        'id_status_tracking' => 4
-                    );
+
+            if($stat == 1 || $_POST['status_acc'] == 2){
+                if($_POST['status_acc'] != 2){
+                    foreach ($item_list as $item) {
+                        if(isset($_POST["$item->id_items_detail"]) && $_POST['status_acc'] == 1){
+                            $data = array(
+                                'quantity' => $_POST['qty'.$item->id_items_detail],
+                                'status_acc' => 1,
+                                );
+                            $this->Form_content_model->update($item->id_form_content,$data);
+                        }else{
+                             $data = array(
+                                'quantity' => 0,
+                                'status_acc' => 0,
+                                );
+                            $this->Form_content_model->update($item->id_form_content,$data);
+                        }
+                    }
                 }
-                $this->Tracking_model->update($id_track->id_tracking,$data);
+                
+                if($this->session->userdata('id_position') == 3){
+                    $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                    if($_POST['status_acc'] == 1){
+                        $data = array(
+                            'id_status_tracking' => 1
+                        );
+                    }else if($_POST['status_acc'] == 2){
+                        $data = array(
+                            'id_status_tracking' => 6
+                        );
+                    }else{
+                        $data = array(
+                            'id_status_tracking' => 4
+                        );
+                    }
+                    $this->Tracking_model->update($id_track->id_tracking,$data);
 
-                $data2 = array(
-                    'id_tracking' => $id_track->id_tracking,
-                    'id_user_acc' => $this->session->userdata('id_position'),
-                    'date_acc' => date('Y-m-d'),
-                    'acc' => $_POST['status_acc'],
-                );
-                $this->Tracking_history_model->insert($data2);
+                    $data2 = array(
+                        'id_tracking' => $id_track->id_tracking,
+                        'id_user_acc' => $this->session->userdata('id_position'),
+                        'date_acc' => date('Y-m-d'),
+                        'acc' => $_POST['status_acc'],
+                    );
+                    $this->Tracking_history_model->insert($data2);
 
-                $data3 = array(
-                    'information_kabid' => $_POST['keterangan']
-                );
-                $this->Form_model->update($_POST['id_form'],$data3);
-            }else if($this->session->userdata('id_position') == 5){
-                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
-                if($_POST['status_acc'] == 1){
-                    $data = array(
-                        'id_status_tracking' => 2
+                    $data3 = array(
+                        'information_kabid' => $_POST['keterangan']
                     );
-                }else if($_POST['status_acc'] == 2){
-                    $data = array(
-                        'id_status_tracking' => 6
+                    $this->Form_model->update($_POST['id_form'],$data3);
+                }else if($this->session->userdata('id_position') == 5){
+                    $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                    if($_POST['status_acc'] == 1){
+                        $data = array(
+                            'id_status_tracking' => 2
+                        );
+                    }else if($_POST['status_acc'] == 2){
+                        $data = array(
+                            'id_status_tracking' => 6
+                        );
+                    }else{
+                        $data = array(
+                            'id_status_tracking' => 13
+                        );
+                    }
+                    $this->Tracking_model->update($id_track->id_tracking,$data);
+
+                    $data2 = array(
+                        'id_tracking' => $id_track->id_tracking,
+                        'id_user_acc' => $this->session->userdata('id_position'),
+                        'date_acc' => date('Y-m-d'),
+                        'acc' => $_POST['status_acc'],
                     );
-                }else{
-                    $data = array(
-                        'id_status_tracking' => 13
+                    $this->Tracking_history_model->insert($data2);
+
+                    $data3 = array(
+                        'information_TU' => $_POST['keterangan']
                     );
+                    $this->Form_model->update($_POST['id_form'],$data3);
                 }
-                $this->Tracking_model->update($id_track->id_tracking,$data);
+                else if($this->session->userdata('id_position') == 6){
+                    $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
+                    if($_POST['status_acc'] == 1){
+                        $data = array(
+                            'id_status_tracking' => 3
+                        );
+                    }else if($_POST['status_acc'] == 2){
+                        $data = array(
+                            'id_status_tracking' => 6
+                        );
+                    }else{
+                        $data = array(
+                            'id_status_tracking' => 14
+                        );
+                    }
+                    $this->Tracking_model->update($id_track->id_tracking,$data);
 
-                $data2 = array(
-                    'id_tracking' => $id_track->id_tracking,
-                    'id_user_acc' => $this->session->userdata('id_position'),
-                    'date_acc' => date('Y-m-d'),
-                    'acc' => $_POST['status_acc'],
-                );
-                $this->Tracking_history_model->insert($data2);
+                    $data2 = array(
+                        'id_tracking' => $id_track->id_tracking,
+                        'id_user_acc' => $this->session->userdata('id_position'),
+                        'date_acc' => date('Y-m-d'),
+                        'acc' => $_POST['status_acc'],
+                    );
+                    $this->Tracking_history_model->insert($data2);
 
-                $data3 = array(
-                    'information_TU' => $_POST['keterangan']
-                );
-                $this->Form_model->update($_POST['id_form'],$data3);
+                    $data3 = array(
+                        'information_PPK' => $_POST['keterangan']
+                    );
+                    $this->Form_model->update($_POST['id_form'],$data3);
+                }
+                $this->session->set_flashdata('error','Anda berhasil menyetujui pengadaan barang.');
+                $this->load->view('Notification');
+                redirect('Main');
+            }else{
+            redirect('Form/Form_acc/'.$_POST['id_form']);
             }
-            else if($this->session->userdata('id_position') == 6){
-                $id_track = $this->Tracking_model->get_by_id_form($_POST['id_form']);
-                if($_POST['status_acc'] == 1){
-                    $data = array(
-                        'id_status_tracking' => 3
-                    );
-                }else if($_POST['status_acc'] == 2){
-                    $data = array(
-                        'id_status_tracking' => 6
-                    );
-                }else{
-                    $data = array(
-                        'id_status_tracking' => 14
-                    );
-                }
-                $this->Tracking_model->update($id_track->id_tracking,$data);
-
-                $data2 = array(
-                    'id_tracking' => $id_track->id_tracking,
-                    'id_user_acc' => $this->session->userdata('id_position'),
-                    'date_acc' => date('Y-m-d'),
-                    'acc' => $_POST['status_acc'],
-                );
-                $this->Tracking_history_model->insert($data2);
-
-                $data3 = array(
-                    'information_PPK' => $_POST['keterangan']
-                );
-                $this->Form_model->update($_POST['id_form'],$data3);
-            }
-            $this->session->set_flashdata('error','Anda berhasil menyetujui pengadaan barang.');
-            $this->load->view('Notification');
-            redirect('Main');
         }else{
             redirect('Form/Form_acc/'.$_POST['id_form']);
         }

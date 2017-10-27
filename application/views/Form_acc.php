@@ -37,7 +37,6 @@
             <tr>
               <td>Dari</td>
               <td colspan="2"><?php echo $user_data->name.' ('.$divisi->name_division.')'; ?></td>
-              <td colspan="2"><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
               <td width="30%"></td>
             </tr>
             <tr>
