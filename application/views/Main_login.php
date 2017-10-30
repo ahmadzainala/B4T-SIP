@@ -167,7 +167,7 @@
                             }else if($d->id_status_tracking == 3){
                               echo "<i class='material-icons' style='font-size: 20px; color:#59e540;'>timelapse</i>
                               <i class='material-icons' style='font-size: 20px; color:#59e540;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment_returned</i>
+                              <i class='material-icons' style='font-size: 20px; color:#59e540;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment</i>
                               <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment_turned_in</i>";
@@ -279,7 +279,7 @@
                           }else if($d->id_status_tracking == 3){
                             echo "<i class='material-icons' style='font-size: 20px; color:#59e540;'>timelapse</i>
                             <i class='material-icons' style='font-size: 20px; color:#59e540;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment_returned</i>
+                            <i class='material-icons' style='font-size: 20px; color:#59e540;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment</i>
                             <i class='material-icons' style='font-size: 20px; color:#b5bab4;'>assignment_turned_in</i>";
