@@ -125,8 +125,11 @@
             <div class="card">
               <div class="card-body"><?php echo $form_data->information_PPK;?></div>
             </div>
-            <?php }?>  
-      <?php }else{
+            <?php }?>
+            <!--TOMBOL EXPORT FILE-->
+            <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>">Export to Word</a> || 
+            <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>">Export to PDF</a>
+              <?php }else{
         if($j == $k){
           ?>
           <form action='<?php echo base_url(); ?>Form/pengadaan' id='pengadaan' method='POST'>
