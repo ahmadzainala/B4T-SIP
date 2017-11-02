@@ -117,14 +117,18 @@
             }
         ?>
 
-        <table width="100%" height="30%">
+        <table width="100%">
             <tr>
-                <td align="center">Pemohon Pengajuan Barang</td>
-                <td align="center">Ketua Bidang</td>
+                <td align="center" width="50
+                %" heignt="30%">Pemohon Pengajuan Barang</td>
+                <td align="center" width="50
+                %" heignt="30%">Ketua Bidang</td>
             </tr>
             <tr>
-                <td align="center">Kabag. Tata Usaha</td>
-                <td align="center">Ketua PPK</td>
+                <td align="center" width="50
+                %" heignt="30%">Kabag. Tata Usaha</td>
+                <td align="center" width="50
+                %" heignt="30%">Ketua PPK</td>
             </tr>
         </table>
 </body>

@@ -176,6 +176,21 @@ class Division extends CI_Controller
         $this->load->view('division_doc',$data);
     }
 
+    function pdf()
+    {
+         $data = array(
+            'division_data' => $this->Division_model->get_all(),
+            'start' => 0
+        );
+        
+        ini_set('memory_limit', '32M');
+        $html = $this->load->view('division_pdf', $data, true);
+        $this->load->library('pdf');
+        $pdf = $this->pdf->load();
+        $pdf->WriteHTML($html);
+        $pdf->Output('division.pdf', 'D'); 
+    }
+
 }
 
 /* End of file Division.php */
