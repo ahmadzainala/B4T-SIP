@@ -17,7 +17,12 @@
     </head>
     <body>
         <h3><p align="center">Lembar Pengajuan Barang dan Jasa</p></h3>
-        <p align="right"> <?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
+        <p align="right"> 
+            <?php 
+                $date = explode(" ",$form_data->date); 
+                echo date('d F Y', strtotime($date[0]));
+            ?>
+        </p>
         <table>
             <tr>
                 <td>Nama Kegiatan</td>
@@ -51,7 +56,8 @@
                 <th>No</th>     
                 <th>Kategori Barang</th>     
                 <th>Barang atau Jasa</th>     
-                <th>Qty</th>		
+                <th>Qty</th>        
+                <th>Keterangan</th>		
             </tr>
             <!--Isi nama barang-->
             <tbody>   
@@ -59,11 +65,20 @@
                   $no = 1;
                   if($item_list != ""){
                     foreach ($item_list as $barang) {
+                        if ($barang->status_acc == 1) {
+                            $status = "Acc.";
+                        }else{
+                            $status = "Tidak di Acc.";
+                        }
+                        //show tabel items
                         echo "<tr>";
-                            echo "<td>$no</td>";
+                            echo "<td align='center'>$no</td>";
                             echo "<td>$barang->name_category</td>";
-                            echo "<td> $barang->name_items </td>";
-                            echo "<td> $barang->quantity $barang->unit</td>";
+                            echo "<td>$barang->name_items </td>";
+                            echo "<td align='center'>$barang->quantity $barang->unit</td>";
+                            if ($this->session->userdata('id_division') != 5) {
+                                echo "<td align='center'>$status</td>";
+                            }
                         echo "</tr>";
                         $no++;
                     }
@@ -101,5 +116,16 @@
         <?php
             }
         ?>
+
+        <table width="100%" height="30%">
+            <tr>
+                <td align="center">Pemohon Pengajuan Barang</td>
+                <td align="center">Ketua Bidang</td>
+            </tr>
+            <tr>
+                <td align="center">Kabag. Tata Usaha</td>
+                <td align="center">Ketua PPK</td>
+            </tr>
+        </table>
 </body>
 </html>
