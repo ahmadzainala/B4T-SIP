@@ -297,13 +297,13 @@ class Form extends CI_Controller
         $pdfFilePath = "Form.pdf";
 
         //load mPDF library
-        $this->load->library('m_pdf');
+        $this->load->library('pdf');
 
-        //generate the PDF from the given html
-        $this->m_pdf->pdf->WriteHTML($html);
-
+        $pdf = $this->pdf->load();
+        $pdf->WriteHTML($html);
+        
         //download it.
-        $this->m_pdf->pdf->Output($pdfFilePath, "D"); 
+        $pdf->Output('form.pdf', 'D');
     }
 
     public function edit_item(){
@@ -579,6 +579,7 @@ class Form extends CI_Controller
 
         $this->load->view('header_login');
         $this->load->view('Form_view',$data);
+        $this->load->view('footer');
     }
 
     public function form_acc($id_form = NULL){
