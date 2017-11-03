@@ -147,12 +147,6 @@
             </div>
             <?php }?>
             <br>
-<<<<<<< HEAD
-            <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary"><i class="material-icons">file_download</i> Save to Word</button></a> 
-            <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary"><i class="material-icons">file_download</i> Save to PDF</button></a>
-=======
-                        
->>>>>>> a603e71535aa47d74caa0afa7ac6cbb3b2d03274
               <?php }else{
         if($j == $k){
           ?>
