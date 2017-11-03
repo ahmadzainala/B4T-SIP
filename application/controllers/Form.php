@@ -11,6 +11,7 @@ class Form extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Form_model');
+        $this->load->driver('session');
     }
 
     public function index()
@@ -287,12 +288,22 @@ class Form extends CI_Controller
             'start' => 0
         );
         
-        ini_set('memory_limit', '32M');
+         ini_set('memory_limit', '32M');
+
+        //load the view and saved it into $html variabel
         $html = $this->load->view('form_pdf', $data, true);
-        $this->load->library('pdf');
-        $pdf = $this->pdf->load();
-        $pdf->WriteHTML($html);
-        $pdf->Output('form.pdf', 'D'); 
+
+        //this the PDF file name that user will get download
+        $pdfFilePath = "Form.pdf";
+
+        //load mPDF library
+        $this->load->library('m_pdf');
+
+        //generate the PDF from the given html
+        $this->m_pdf->pdf->WriteHTML($html);
+
+        //download it.
+        $this->m_pdf->pdf->Output($pdfFilePath, "D"); 
     }
 
     public function edit_item(){

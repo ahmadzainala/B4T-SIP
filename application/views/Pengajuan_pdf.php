@@ -17,7 +17,12 @@
     </head>
     <body>
         <h3><p align="center">Lembar Pengajuan Barang dan Jasa</p></h3>
-        <p align="right"> <?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
+        <p align="right"> 
+            <?php 
+                $date = explode(" ",$form_data->date); 
+                echo date('d F Y', strtotime($date[0]));
+            ?>
+        </p>
         <table>
             <tr>
                 <td>Nama Kegiatan</td>
@@ -59,11 +64,19 @@
                   $no = 1;
                   if($item_list != ""){
                     foreach ($item_list as $barang) {
+                        if ($barang->status_acc == 1) {
+                            $status = "Acc.";
+                        }else{
+                            $status = "Tidak di Acc.";
+                        }
                         echo "<tr>";
                             echo "<td>$no</td>";
                             echo "<td>$barang->name_category</td>";
                             echo "<td> $barang->name_items </td>";
                             echo "<td> $barang->quantity $barang->unit</td>";
+                            if ($this->session->userdata('id_division') != 5) {
+                                echo "<td align='center'>$status</td>";
+                            }
                         echo "</tr>";
                         $no++;
                     }

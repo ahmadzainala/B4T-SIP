@@ -127,8 +127,9 @@
             </div>
             <?php }?>
             <!--TOMBOL EXPORT FILE-->
-            <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>">Export to Word</a> || 
-            <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>">Export to PDF</a>
+            <br>
+            <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to Word</button></a> 
+            <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to PDF</button></a>
               <?php }else{
         if($j == $k){
           ?>
