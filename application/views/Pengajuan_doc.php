@@ -4,6 +4,10 @@
         <title>harviacode.com - codeigniter crud generator</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <style>
+            .word-data {
+                padding: 7px 7px;
+            }
+
             .word-table {
                 border:1px solid black !important; 
                 border-collapse: collapse !important;
@@ -17,13 +21,7 @@
     </head>
     <body>
         <h3><p align="center">Lembar Pengajuan Barang dan Jasa</p></h3>
-        <p align="right"> 
-            <?php 
-                $date = explode(" ",$form_data->date); 
-                echo date('d F Y', strtotime($date[0]));
-            ?>
-        </p>
-        <table>
+        <table class="word-data">
             <tr>
                 <td>Nama Kegiatan</td>
                 <td>:</td>
@@ -39,6 +37,11 @@
                 <td>:</td>
                 <td><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
             </tr>
+            <tr>
+                <td>Tanggal Diajukan</td>
+                <td>:</td>
+                <td><?php $date = explode(" ",$form_data->date); echo date('d F Y', strtotime($date[0]));?></td>
+            </tr>           
             <tr>
                 <td>Agar</td>
                 <td>:</td>

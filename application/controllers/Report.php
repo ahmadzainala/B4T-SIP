@@ -31,9 +31,12 @@ class Report extends CI_Controller
             'item_list' => $item_list,
             'form_acc' => $form_acc
         );
+
+        $date = explode(" ",$form_data->date);
+        $docFilePath = $date[0]." ".$form_data->name." ".$form_data->id_form.".doc";
         
         header("Content-type: application/vnd.ms-word");
-        header("Content-Disposition: attachment;Filename=lembar pengajuan.doc");
+        header("Content-Disposition: attachment;Filename=$docFilePath");
 
         
         $this->load->view('Pengajuan_doc',$data);
@@ -62,7 +65,8 @@ class Report extends CI_Controller
         $html = $this->load->view('Pengajuan_PDF', $data, true);
 
         //this the PDF file name that user will get download
-        $pdfFilePath = "Lembar Pengajuan.pdf";
+        $date = explode(" ",$form_data->date);
+        $pdfFilePath = $date[0]." ".$form_data->name." ".$form_data->id_form.".pdf";
 
         //load mPDF library
         $this->load->library('m_pdf');
