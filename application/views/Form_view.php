@@ -55,9 +55,9 @@
                   <?php if($this->session->userdata('id_division')!=5){?>
                   <th>Acc</th>
                   <?php }else{ ?>
-                  <th>Pengadaan</th>
+                  <th style="text-align:center;" colspan='2'>Pengadaan</th>
                   <form action='<?php echo base_url(); ?>Form/detail_form/<?php echo $id_form ?>' id='form_pengadaan' method='POST'></form>
-                  
+                  <form action='<?php echo base_url(); ?>Form/edit_item_pengadaan' id='edit_item_pengadaan' method='POST'></form>
                   <?php } ?>
                 </tr>
               </thead>
@@ -74,15 +74,15 @@
 
                         $stat = "<i class='material-icons' style='color:red;'>clear</i>";
                       }
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td><td>";
-                      echo $il->name_items;
-                      echo "</td><td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td>";
+                      echo "<tr style=''><td>$i</td><td>$il->name_category</td>";
+                      echo "<td style='text-align:center;' title='yang diadakan pengadaan :$il->name_items'>".$il->name_items."</td>";
+                      echo "<td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td align='right'>";
                       if($this->session->userdata('id_division')!=5){
                          echo $stat;
                       }else{
                         $k++;
                         if($il->ready == 0){
-                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' class='btn btn-success'>Tersedia</button>";
+                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' class='btn btn-success'>Tersedia</button></td><td align='left'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button></td>";
                         }else{
                           echo "<i class='material-icons' style='color:green;'>done</i>";
                           $j++;

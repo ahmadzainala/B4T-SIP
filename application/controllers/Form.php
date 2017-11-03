@@ -364,6 +364,7 @@ class Form extends CI_Controller
                 $data = array(
                     'id_form' => $this->session->userdata('id_form'),
                     'id_items_detail' => $itemnew->id_items_detail,
+                    'id_item_by_pengadaan' => $itemnew->id_items_detail,
                     'quantity' => $_POST['quantity'],
                     'quantity_origin' => $_POST['quantity'],
                     'unit' => $_POST['unit']
@@ -552,7 +553,7 @@ class Form extends CI_Controller
             $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
             $this->load->model('Division_model');
             $form_data = $this->Form_model->get_by_id($id_form);
-            $divisi = $this->fDivision_model->get_by_id($form_data->id_division);
+            $divisi = $this->Division_model->get_by_id($form_data->id_division);
             $this->load->model('Tracking_model');
             $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
 
@@ -821,6 +822,7 @@ class Form extends CI_Controller
                 $data = array(
                     'id_form' => $this->session->userdata('id_form'),
                     'id_items_detail' => $itemnew->id_items_detail,
+                    'id_item_by_pengadaan' => $itemnew->id_items_detail,
                     'quantity' => $_POST['quantity'],
                     'quantity_origin' => $_POST['quantity'],
                     'unit' => $_POST['unit']
