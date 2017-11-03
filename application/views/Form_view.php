@@ -1,3 +1,18 @@
+  <script>
+
+    function complete(i){
+      var x = i.value;
+      var temp2 = $('#linkforauto2').val();
+      var kategori = document.getElementById("cat_edit["+x+"]").value;
+      //alert(temp2+"/"+kategori);
+      $("#item_edit["+x+"]").autocomplete({
+         source: temp2+"/"+kategori,  
+           minLength:0, 
+        });
+    }
+
+    
+    </script>
     <div class="container" style="padding-top: 70px">
       <div class="card">
         <div class="row card-header" style="margin: 0px 0.5px 0px 0.5px;padding-bottom: 1px;">
@@ -5,7 +20,9 @@
             <h4>Form Daftar Pemesanan Barang / Jasa</h4> 
           </div>
           <div class="col-md-6" style="text-align: right;">
-            <p>Tanggal Diajukan : <?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
+            <p>Tanggal Diajukan : <?php $date = explode(" ",$form_data->date); echo $date[0];?>
+              <?php //print_r($tracking);?>
+            </p>
           </div> 
         </div> 
         <div class="card-body">
@@ -61,7 +78,8 @@
                   <?php } ?>
                 </tr>
               </thead>
-              <tbody>   
+              <tbody>
+              <input class="form-control" type="hidden" id="linkforauto2" value="<?php echo base_url(); ?>Form/autocompleteItems">
                 <?php
                   $i = 1;
                   $j = 0;
@@ -74,15 +92,17 @@
 
                         $stat = "<i class='material-icons' style='color:red;'>clear</i>";
                       }
-                      echo "<tr style=''><td>$i</td><td>$il->name_category</td>";
-                      echo "<td style='text-align:center;' title='yang diadakan pengadaan :$il->name_items'>".$il->name_items."</td>";
+                      echo "<tr style=''><td>$i</td><td><input class='form-control' type='text' form='edit_item' name='kategori' id='cat_edit[$i]' style='text-align: left;' value=$il->name_category readonly/></td>";
+                      echo "<td style='text-align:center;' title='yang diadakan pengadaan :$il->name_items'><input class='form-control' type='text' form='edit_item' name='item' id='item_edit[$i]' style='text-align: left;' placeholder=$il->name_items onkeypress='completeX(this.id)' readonly />";
+                      echo "</td>";
                       echo "<td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td align='right'>";
                       if($this->session->userdata('id_division')!=5){
                          echo $stat;
                       }else{
                         $k++;
                         if($il->ready == 0){
-                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' class='btn btn-success'>Tersedia</button></td><td align='left'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button></td>";
+
+                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' class='btn btn-success'>Tersedia</button></td><td align='left'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button><button class='btn btn-warning btn-sm' type='button' id='update_this[$i]' style='display:none;' form='edit_item' value='$i' name='update' onclick='setInput(this)'><i class='material-icons'>done</i></button></td>";
                         }else{
                           echo "<i class='material-icons' style='color:green;'>done</i>";
                           $j++;
@@ -126,10 +146,13 @@
               <div class="card-body"><?php echo $form_data->information_PPK;?></div>
             </div>
             <?php }?>
-            <!--TOMBOL EXPORT FILE-->
             <br>
+<<<<<<< HEAD
             <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary"><i class="material-icons">file_download</i> Save to Word</button></a> 
             <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary"><i class="material-icons">file_download</i> Save to PDF</button></a>
+=======
+                        
+>>>>>>> a603e71535aa47d74caa0afa7ac6cbb3b2d03274
               <?php }else{
         if($j == $k){
           ?>
@@ -157,6 +180,14 @@
           <?php
         }
       }?>
+      <?php
+            if ($tracking->id_status_tracking == 5) {
+      ?>
+          <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary" >Save to Word</button></a> 
+          <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to PDF</button></a>
+      <?php
+            }
+      ?>
         </div>        
       </div>
       <br>
@@ -183,9 +214,31 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     
-    <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script> 
-    <script src="js/popper.min.js" type="text/javascript"></script> 
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
+    <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
+    <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
+    <script>
+    function changeText(data){
+        //alert(data.value);
+        var x = data.value;
+        document.getElementById("item_edit["+x+"]").readOnly = false;
+          document.getElementById("update_this["+x+"]").style.display = "block";
+          document.getElementById("edit_this["+x+"]").style.display = "none";
+          complete(data);
+      }
 
+
+      function completeX(i){
+        var n = i;
+        var x = n.substring(10,n.length-1);
+        var temp2 = $('#linkforauto2').val();
+        var kategori = document.getElementById("cat_edit["+x+"]").value;
+        //alert(temp2+"/"+kategori);
+        $("#item_edit["+x+"]").autocomplete({
+           source: temp2+"/"+kategori,  
+             minLength:1, 
+        });
+      }
+    </script>
   </body>
 </html>
