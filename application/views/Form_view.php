@@ -20,7 +20,9 @@
             <h4>Form Daftar Pemesanan Barang / Jasa</h4> 
           </div>
           <div class="col-md-6" style="text-align: right;">
-            <p>Tanggal Diajukan : <?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
+            <p>Tanggal Diajukan : <?php $date = explode(" ",$form_data->date); echo $date[0];?>
+              <?php //print_r($tracking);?>
+            </p>
           </div> 
         </div> 
         <div class="card-body">
@@ -144,10 +146,8 @@
               <div class="card-body"><?php echo $form_data->information_PPK;?></div>
             </div>
             <?php }?>
-            <!--TOMBOL EXPORT FILE-->
             <br>
-            <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to Word</button></a> 
-            <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to PDF</button></a>
+                        
               <?php }else{
         if($j == $k){
           ?>
@@ -175,6 +175,14 @@
           <?php
         }
       }?>
+      <?php
+            if ($tracking->id_status_tracking == 5) {
+      ?>
+          <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary" >Save to Word</button></a> 
+          <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to PDF</button></a>
+      <?php
+            }
+      ?>
         </div>        
       </div>
       <br>

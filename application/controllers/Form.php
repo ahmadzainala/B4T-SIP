@@ -283,14 +283,13 @@ class Form extends CI_Controller
 
     function pdf()
     {
+        
         $data = array(
             'form_data' => $this->Form_model->get_all(),
             'start' => 0
         );
         
-         ini_set('memory_limit', '32M');
-
-        //load the view and saved it into $html variabel
+        ini_set('memory_limit', '32M');
         $html = $this->load->view('form_pdf', $data, true);
 
         //this the PDF file name that user will get download
@@ -303,8 +302,8 @@ class Form extends CI_Controller
         $pdf->WriteHTML($html);
         
         //download it.
-        $pdf->Output('form.pdf', 'D');
-    }
+        $pdf->Output('form.pdf', 'D'); 
+}
 
     public function edit_item(){
         
@@ -552,12 +551,14 @@ class Form extends CI_Controller
             $divisi = $this->Division_model->get_by_id($form_data->id_division);
             $this->load->model('Tracking_model');
             $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+            $tracking = $this->Tracking_model->get_by_id_form($id_form);
 
             $data = array(
                 'divisi' => $divisi,
                 'form_data' => $form_data,
                 'item_list' => $item_list,
-                'form_acc' => $form_acc
+                'form_acc' => $form_acc,
+                'tracking' => $tracking
             );
         }else{
             $this->load->model('Form_content_model');
@@ -567,13 +568,15 @@ class Form extends CI_Controller
             $divisi = $this->Division_model->get_by_id($form_data->id_division);
             $this->load->model('Tracking_model');
             $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+            $tracking = $this->Tracking_model->get_by_id_form($form_data->id_tracking);
 
             $data = array(
                 'divisi' => $divisi,
                 'form_data' => $form_data,
                 'item_list' => $item_list,
                 'form_acc' => $form_acc,
-                'id_form' => $id_form
+                'id_form' => $id_form,
+                'tracking' => $tracking
             );
         }
 
