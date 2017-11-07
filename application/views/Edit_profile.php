@@ -8,7 +8,7 @@
                 <td rowspan="5" width="10%">
                   <div class="card">
                     <div class="card-body">
-                      <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user');?>.jpg?dummy=8484744" class="rounded" height="200" width="200">
+                      <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user');?>.jpg?dummy=8484744" class="rounded" height="200" width="200" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                       <hr>
                       <input class="btn btn-sm" type="file" name="userfile" style="width: 98%"> 
                     </div>
