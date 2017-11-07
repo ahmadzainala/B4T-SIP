@@ -8,46 +8,31 @@
             <p>Tanggal Diajukan : <?php $date = explode(" ",$form_data->date); echo $date[0];?></p>
           </div> 
         </div>        
-        <div class="card-body">
-          <form action='<?php echo base_url(); ?>Form/acc' method='POST'>
-            <table class="table borderless">
-              <tr>
-              <td width="20%">Nama Kegiatan</td>
-              <td colspan="2"><?php echo $form_data->name_activity;?><input name="id_form" type="hidden" value = "<?php echo $id_form;?>" /></td>
-            
-              <td width="30%"></td>
-            </tr> 
-            <tr>
-              <td rowspan="5">
-                <div class="card">
-                  <div class="card-body" style="margin-right: -23px;">
-                    <img src="<?php echo base_url() ?>template/user/img/default_profile.jpg" class="rounded" height="100px" width="100px">
-                  </div>
-                </div>
-              </td>
+         <div class="card-body">
+          <table class="table borderless">
+            <tr>              
               <td width="20%">Nama Kegiatan</td>
               <td colspan="2"><?php echo $form_data->name_activity;?></td>
-              <td width="30%"></td>
+              <td rowspan="5">
+                  <img src="<?php echo base_url() ?>uploads/profile/<?php echo $form_data->id_user;?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right">
+                </div>
+              </td>
             </tr>            
             <tr>
-              <td width="20%">Kepada</td>
+              <td>Kepada</td>
               <td colspan="2">Kepala B4T,u.p. Kepala Bagian Tata Usaha</td>
-              <td width="30%"></td>
             </tr>
             <tr>
               <td>Dari</td>
-              <td colspan="2"><?php echo $user_data->name.' ('.$divisi->name_division.')'; ?></td>
-              <td width="30%"></td>
+              <td colspan="2"><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
             </tr>
             <tr>
               <td>Agar</td>
               <td colspan="2"><?php echo $form_data->that;?></td>
-              <td width="30%"></td>
             </tr>
             <tr>
               <td>Diperlukan Tanggal</td>
               <td colspan="2"><?php echo $form_data->date_needs;?></td>
-              <td width="30%"></td>
             </tr>                   
           </table>
           <hr>
