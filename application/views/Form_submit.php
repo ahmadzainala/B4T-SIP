@@ -156,6 +156,7 @@
               }
             ?>          
           </div>
+          <hr>
           <div class="form-group">
             <label for="keterangan">Keterangan</label>
             <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>" required><?php echo $form_data->information;?></textarea>

@@ -1,0 +1,14 @@
+# Incomplete Task / Bug :
+
+A. Important !!
+- Page number biru nya pas dilokasi sekarang aja bukan semua
+- Upload foto masih dalam modul terpisah
+- main.css not loaded
+- Acc status aligment
+- Ganti radio ke dropdown salah pemilihan dana
+
+B. Side Fix
+- Bug pick segera - tanggal - segera - tanggal tidak muncul lg
+- Edit nama pesanan masih belum
+- REMOVE CODE YANG TIDAK BERGUNA (MODAL, TOAST DLL)
+

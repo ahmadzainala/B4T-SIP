@@ -1,6 +1,0 @@
-Incomplete Task / Bug :
-- Dasboard belum per user login statusnya
-- Page number biru nya pas dilokasi sekarang aja bukan semua
-- Bug pick segera - tanggal - segera - tanggal tidak muncul lg
-- Edit nama pesanan masih belum
-- Upload foto masih dalam modul terpisah

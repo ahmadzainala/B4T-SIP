@@ -28,9 +28,17 @@
         <div class="dropdown">
           <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 13px">account_circle</i><?php echo " ".$this->session->userdata('username'); ?></button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="<?php echo base_url() ?>User_akun/edit_profile">Edit Profile</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" style="color: red; font-weight: bold" href="<?php echo base_url() ?>Login/logout">Logout</a>
+            <table>
+              <tr>
+                <td rowspan="2">
+                   <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->id_user;?>.jpg?dummy=8484744" class="rounded" height="50px" width="50px" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg" style="margin: 0px 0px 0px 20px;">
+                </td>
+                <td>
+                  <a class="dropdown-item" href="<?php echo base_url() ?>User_akun/edit_profile">Edit Profile</a>
+                  <a class="dropdown-item" style="color: red; font-weight: bold" href="<?php echo base_url() ?>Login/logout">Logout</a>
+                </td>
+              </tr>
+            </table>           
           </div>
         </div>       
       </div>

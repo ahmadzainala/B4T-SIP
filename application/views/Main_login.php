@@ -380,7 +380,7 @@
                     }
                     for ($i=1; $i <= $page; $i++) {
                   ?>
-                      <li class="page-item active"><a class="page-link" href="<?php echo base_url(); ?>Main?no_bot=<?php echo $i*10-10;?>&no_up=<?php echo $i*10;?>" aria-label=""><?php echo $i?></a></li>
+                      <li class="page-item"><a class="page-link" href="<?php echo base_url(); ?>Main?no_bot=<?php echo $i*10-10;?>&no_up=<?php echo $i*10;?>" aria-label=""><?php echo $i?></a></li>
                       <?php
                       
                     }if($max < ($page-1)*10){
