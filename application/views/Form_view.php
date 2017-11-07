@@ -31,7 +31,7 @@
               <td width="20%">Nama Kegiatan</td>
               <td colspan="2"><?php echo $form_data->name_activity;?></td>
               <td rowspan="5">
-                  <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user');?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right">
+                  <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user');?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                 </div>
               </td>
             </tr>            
