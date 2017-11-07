@@ -3,42 +3,43 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Upload extends CI_Controller
-{
+class Upload extends CI_Controller {
 
+        public function __construct()
+        {
+                parent::__construct();
+                $this->load->helper(array('form', 'url'));
+        }
 
-    function __construct()
-    {
-        parent::__construct();        
-    }
+        public function index()
+        {
+                $this->load->view('upload_form', array('error' => ' ' ));
+        }
 
-    public function upload_profile(){
-    	//Check if the file is well uploaded
-		if($_FILES['file']['error'] > 0) { echo 'Error during uploading, try again'; }
-		
-		//We won't use $_FILES['file']['type'] to check the file extension for security purpose
-		
-		//Set up valid image extensions
-		$extsAllowed = array( 'jpg', 'jpeg', 'png', 'gif' );
-		
-		//Extract extention from uploaded file
-			//substr return ".jpg"
-			//Strrchr return "jpg"
-			
-		$extUpload = strtolower( substr( strrchr($_FILES['file']['name'], '.') ,1) ) ;
+        public function upload_profile()
+        {
+                $config['upload_path']          = './uploads/profile';
+                $config['allowed_types']        = 'jpg';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+                $config['file_name']            = $this->session->userdata('username');
+                $config['overwrite']            = true;
 
-		//Check if the uploaded file extension is allowed
-		
-		if (in_array($extUpload, $extsAllowed) ) { 
-		
-		//Upload the file on the server
-		
-		$name = "<?php echo base_url() ?>img/profile/{$_FILES['file']['name']}";
-		$result = move_uploaded_file($_FILES['file']['tmp_name'], $name);
-		
-		if($result){echo "<img src='$name'/>";}
-			
-		} else { echo 'File is not valid. Please try again'; }
-    }	
+                $this->load->library('upload', $config);
 
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+
+                        $this->load->view('upload_form', $error);
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+
+                        $this->load->view('upload_success', $data);
+                }
+        }
 }
+?>

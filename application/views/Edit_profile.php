@@ -1,18 +1,16 @@
 <div class="container" style="padding-top: 70px">
       <div class="card">
         <h4 class="card-header"><i class="material-icons">person</i> Edit Profile</h4>
-        <div class="card-body">
-          <form action='<?php echo base_url(); ?>upload/upload_profile' method='POST' id="profile_photo">
-          </form>
+        <div class="card-body">         
           <form action='<?php echo base_url(); ?>User_akun/submit_profile' method='POST'>
             <table class="table borderless">
               <tr>
                 <td rowspan="5" width="10%">
                   <div class="card">
                     <div class="card-body">
-                      <img src="<?php echo base_url() ?>template/user/img/default_profile.jpg" class="rounded" height="200" width="200">
+                      <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('username');?>.jpg?dummy=8484744" class="rounded" height="200" width="200">
                       <hr>
-                      <input class="btn btn-sm" type="file" style="width: 98%"> 
+                      <input class="btn btn-sm" type="file" name="userfile" style="width: 98%"> 
                     </div>
                   </div>
                 </td>
