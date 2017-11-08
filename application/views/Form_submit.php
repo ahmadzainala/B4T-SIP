@@ -138,23 +138,31 @@
           <hr>
           <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'>
           <div class="form-group">
-            <label for="budget">Sumber Anggaran</label>
-            <?php
-              foreach ($source_budget as $sb) {
-            ?>
-            <div class="form-check">
-              <label class="form-check-label">
-                <?php if($form_data->id_budget == $sb->id_budget){?>
-                <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>" checked>
-                <?php }else{ ?>
-                <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>">
-                <?php } ?>
-                <b><?php echo $sb->name_source;?></b>
-              </label>
-            </div> 
-            <?php
-              }
-            ?>          
+            <table class="table borderless">
+              <tr>
+                <td width="20%">
+                  <label for="budget">Sumber Anggaran</label>
+                </td>
+                <td>
+                  <?php
+                    foreach ($source_budget as $sb) {
+                  ?>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <?php if($form_data->id_budget == $sb->id_budget){?>
+                      <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>" checked>
+                      <?php }else{ ?>
+                      <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>">
+                      <?php } ?>
+                      <b><?php echo $sb->name_source;?></b>
+                    </label>
+                  </div> 
+                  <?php
+                    }
+                  ?>
+                </td>
+              </tr>    
+            </table>          
           </div>
           <hr>
           <div class="form-group">

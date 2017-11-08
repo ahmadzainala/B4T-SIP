@@ -4,11 +4,18 @@ A. Important !!
 - Page number biru nya pas dilokasi sekarang aja bukan semua
 - Upload foto masih dalam modul terpisah
 - main.css not loaded
-- Acc status aligment
+- Acc status aligment, Acc status tidak disetujui padahal baru mengajukan harusnya null kan
 - Ganti radio ke dropdown salah pemilihan dana
+- Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
 
 B. Side Fix
+- Auto Complete Stuck di ATK ketika masukan "Perbaikan AC" dan hapus masukan category tidak bisa
 - Bug pick segera - tanggal - segera - tanggal tidak muncul lg
 - Edit nama pesanan masih belum
-- REMOVE CODE YANG TIDAK BERGUNA (MODAL, TOAST DLL)
+- REMOVE CODE YANG TIDAK BERGUNA 
+  - MODAL
+  - TOAST
+  - FONT
+  - ICON
+  - CSS Bootstrap double (migrate ke normal bootstrap jgn yg min.)
 
