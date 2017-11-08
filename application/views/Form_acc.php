@@ -12,6 +12,7 @@
           <table class="table borderless">
             <tr>              
               <td width="20%">Nama Kegiatan</td>
+              <td width="20px">:</td>
               <td colspan="2"><?php echo $form_data->name_activity;?></td>
               <td rowspan="5">
                   <img src="<?php echo base_url() ?>uploads/profile/<?php echo $form_data->id_user;?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
@@ -20,18 +21,22 @@
             </tr>            
             <tr>
               <td>Kepada</td>
+              <td>:</td>
               <td colspan="2">Kepala B4T,u.p. Kepala Bagian Tata Usaha</td>
             </tr>
             <tr>
               <td>Dari</td>
+              <td>:</td>
               <td colspan="2"><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
             </tr>
             <tr>
               <td>Agar</td>
+              <td>:</td>
               <td colspan="2"><?php echo $form_data->that;?></td>
             </tr>
             <tr>
               <td>Diperlukan Tanggal</td>
+              <td>:</td>
               <td colspan="2"><?php echo $form_data->date_needs;?></td>
             </tr>                   
           </table>
@@ -40,10 +45,10 @@
             <table border="0" class="table">
               <thead class="thead-default">
                 <tr>
-                  <th>No.</th>
-                  <th width="17%">Kategori</th>
+                  <th width="5%">No.</th>
+                  <th width="15%">Kategori</th>
                   <th>Nama dan Spesifikasi Barang / Jasa</th>
-                  <th width="20%" colspan="2" style="text-align:center;">Banyaknya</th>
+                  <th width="10%" colspan="2">Banyaknya</th>
                   <th><input type="checkbox" onClick="toggle(this)" id="all"> All</th>
                 </tr>
               </thead>
@@ -64,12 +69,23 @@
               </table>
             </div>
             <hr>
-            <label for="keterangan">Keterangan / Sumber Anggaran</label>
+            <table class="table borderless">
+              <tr>
+                <td width="20%">
+                  <label for="budget">Sumber Anggaran</label>
+                </td>
+                <td width="20px">:</td>
+                <td>
+                  <?php echo $form_data->id_budget;?>                    
+                </td>
+              </tr>
+            </table>    
+            <hr>
+            <label for="keterangan">Keterangan</label>
             <div class="card">
               <div class="card-body"><?php echo $form_data->information; ?></div>
             </div>
             <hr>
-
             <div class="card">
               <h5 class="card-header">Form Pernyataan</h5>              
                 <div class="card-body">

@@ -95,7 +95,7 @@
                     <th width="5%">No.</th>
                     <th width="15%">Kategori</th>
                     <th>Nama dan Spesifikasi Barang / Jasa</th>
-                    <th width="18%" colspan="2" style="text-align: center;">Banyaknya</th>
+                    <th width="18%" colspan="2">Banyaknya</th>
                     <th width="5%" colspan="2"></th>
                   </tr>
                 </thead>
