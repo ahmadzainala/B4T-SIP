@@ -124,7 +124,7 @@
                 </td>
                 <td width="20px">:</td>
                 <td>
-                  <?php echo $form_data->id_budget;?>                  
+                  <?php echo $form_data->id_budget;?>                    
                 </td>
               </tr>
             </table>    
