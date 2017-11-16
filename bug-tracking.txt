@@ -3,15 +3,17 @@
 A. Important !!
 - Page number biru nya pas dilokasi sekarang aja bukan semua
 - Upload foto masih dalam modul terpisah
-- main.css not loaded
+- main.css not loaded ( modul bordeless kemungkinan di file lain !!)
 - Acc status aligment, Acc status tidak disetujui padahal baru mengajukan harusnya null kan
 - Ganti radio ke dropdown salah pemilihan dana
 - Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
+- Buat Pesanan kadang terisi sendiri dengan data yang sudah ada !
 
 B. Side Fix
 - Auto Complete Stuck di ATK ketika masukan "Perbaikan AC" dan hapus masukan category tidak bisa
 - Bug pick segera - tanggal - segera - tanggal tidak muncul lg
 - Edit nama pesanan masih belum
+- Ada Dialog saat hapus barang di submit form "Anda yakin untuk hapus barang ini ?"
 - REMOVE CODE YANG TIDAK BERGUNA 
   - MODAL
   - TOAST

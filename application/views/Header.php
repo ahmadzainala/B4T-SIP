@@ -36,6 +36,6 @@
     <div class="fixed-bg"></div>  
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#"><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>        
+        <a class="navbar-brand" href=""><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>        
       </div>
     </nav>
