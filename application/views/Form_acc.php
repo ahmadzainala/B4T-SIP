@@ -142,11 +142,7 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-      // modal
-      $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-      })
-
+      
       // Acc All
       function toggle(source) {
         if(source.checked == true){

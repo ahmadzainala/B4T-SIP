@@ -139,7 +139,7 @@
                            echo "<tr href='$link' style='font-weight:italic'>";
                         }
                             echo "<td>".$temp." ".$d->name."</td>";
-                            echo "<td>".$d->that."</td>";
+                            echo "<td>".$d->name_activity."</td>";
                             echo "<td>".$date[0]."</td>";
                             echo "<td title='$d->description'>";
                             if($d->id_status_tracking == 0 || $d->id_status_tracking == 10){
@@ -252,7 +252,7 @@
                           }
                             echo "<tr href='$link'>";
                             echo "<td>".$temp."".$d->name."</td>";
-                            echo "<td>".$d->that."</td>";
+                            echo "<td>".$d->name_activity."</td>";
                             echo "<td>".$date[0]."</td>";
                             echo "<td title='$d->description'>";
                             if($d->id_status_tracking == 0 || $d->id_status_tracking == 10){
