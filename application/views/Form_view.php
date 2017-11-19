@@ -90,7 +90,7 @@
                         $k++;
                         if($il->ready == 0){
 
-                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' id='tersedia[$i]' class='btn btn-success'>Tersedia</button></td><td align='left'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button><button class='btn btn-warning btn-sm' type='button' id='update_this[$i]' style='display:none;' form='edit_item' value='$i' name='update' onclick='setInput(this)'><i class='material-icons'>done</i></button></td>";
+                          echo "<button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' id='tersedia[$i]' class='btn btn-success'>Tersedia</button></td><td align='left'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button></td>";
                         }else{
                           echo "<i class='material-icons' style='color:green; '>done</i>";
                           $j++;
@@ -110,12 +110,12 @@
                     </td>
                     <td>
                       <div class="form-group">
-                        <input class="form-control" type="hidden" id="linkforauto2" value="<?php echo base_url(); ?>Form/autocompleteItems">
+                        <input class="form-control" type="hidden" id="linkforauto2" value="<?php echo base_url(); ?>Form/autocompleteItems" />
                         <input type="hidden" class="form-control" name="item_edit" placeholder="Item" form='edit_item' id="item_complete"  required />
                       </div>
                     </td>
                     <td></td>
-                    <td align="right"><button class='btn btn-danger btn-sm' form='edit_item' name='cancel' id='cancel' style='display:none;' type='button' onclick='cancel()'><i class='material-icons'>delete_forever</i></button></td>
+                    <td align="right"><button class='btn btn-danger btn-sm' type='button' name='cancel' id='cancel' style='display:none;' onclick='cancel()'><i class='material-icons'>delete_forever</i></button></td>
                     <td><button class='btn btn-warning btn-sm' type='submit' id='update' style='display:none;' form='edit_item' name='update' onclick='setInput(this)'><i class='material-icons'>done</i></button></td>
                   </tr>
                     <?php
@@ -232,6 +232,7 @@
     <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
     <script>
+    
     function cancel(){
        var items = document.getElementsByName("kategori");
          //alert(items.length);
@@ -243,8 +244,12 @@
 
           document.getElementById("item_edit["+i+"]").type = "text";
           document.getElementById("cat_edit["+i+"]").type = "text";
-          document.getElementById("edit_this["+i+"]").style.display = "block";
-          document.getElementById("tersedia["+i+"]").style.display = "block";
+          var cek = document.getElementById("edit_this["+i+"]");
+           //alert(cek);
+          if(cek!=null){
+            document.getElementById("edit_this["+i+"]").style.display = "block";
+            document.getElementById("tersedia["+i+"]").style.display = "block";
+          }
          }
     }
 
@@ -257,8 +262,12 @@
 
           document.getElementById("item_edit["+i+"]").type = "text";
           document.getElementById("cat_edit["+i+"]").type = "text";
-          document.getElementById("edit_this["+i+"]").style.display = "block";
-          document.getElementById("tersedia["+i+"]").style.display = "block";
+          var cek = document.getElementById("edit_this["+i+"]");
+        
+          if(cek!=null){
+            document.getElementById("edit_this["+i+"]").style.display = "block";
+            document.getElementById("tersedia["+i+"]").style.display = "block";
+          }
          }
 
         var x = data.value;
