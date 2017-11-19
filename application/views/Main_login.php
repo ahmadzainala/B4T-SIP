@@ -211,7 +211,7 @@
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
-                            <i class='material-icons' style='font-size: 22px; color:yellow;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:orange;'>assignment</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else{
@@ -324,7 +324,7 @@
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
-                            <i class='material-icons' style='font-size: 22px; color:yellow;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:orange;'>assignment</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else{
