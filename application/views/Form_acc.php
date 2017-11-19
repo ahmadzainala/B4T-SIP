@@ -118,7 +118,7 @@
                 <input class="form-control" type="password" name="password" required>
               </td>
               <td>            
-                <button class="btn btn-success" type="submit" name="submit" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                <button class="btn btn-success" type="submit" name="submit">Submit</button>
               </td>
             </tr>
             </form>
@@ -139,11 +139,7 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-      // modal
-      $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-      })
-
+      
       // Acc All
       function toggle(source) {
         if(source.checked == true){
