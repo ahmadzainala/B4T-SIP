@@ -72,14 +72,16 @@
                     foreach ($item_list as $il) {
                       if($il->status_acc == 1){
                         $stat = "<i class='material-icons' style='color:green;'>done</i>";
-                      }else{
+                      }else if(isset($tracking) && $tracking->id_status_tracking != 0 && $tracking->id_status_tracking != 10){
 
                         $stat = "<i class='material-icons' style='color:red;'>clear</i>";
+                      }else{
+                        $stat = "";
                       }
                       echo "<tr style=''><td>$i</td><td><input class='form-control' type='text' form='edit_item' name='kategori' id='cat_edit[$i]' style='text-align: left;' value=$il->name_category readonly/></td>";
                       echo "<td style='text-align:center;' title='yang diadakan pengadaan :".
                         $item_list_pengadaan[$n]->name_items
-                      ."'><input class='form-control' type='text' form='edit_item' name='item' id='item_edit[$i]' style='text-align: left;' placeholder=$il->name_items value=$il->name_items onkeypress='completeX(this.id)' readonly />";
+                      ."'><input class='form-control' type='text' form='edit_item' name='item' id='item_edit[$i]' style='text-align: left;' placeholder=$il->name_items value=$il->name_items readonly />";
                       echo "</td>";
                       echo "<td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td align='right'>";
                       if($this->session->userdata('id_division')!=5){

@@ -3,7 +3,7 @@
 A. Important !!
 - Upload foto masih dalam modul terpisah
 - main.css not loaded ( modul bordeless kemungkinan di file lain !!)
-- Acc status aligment, Acc status tidak disetujui padahal baru mengajukan harusnya null kan
+- Acc status aligment, Acc status tidak disetujui padahal baru mengajukan harusnya null kan ################ done
 - Ganti radio ke dropdown salah pemilihan dana
 - Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
 - Buat Pesanan kadang terisi sendiri dengan data yang sudah ada !
