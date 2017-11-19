@@ -53,7 +53,7 @@
                   <th>Nama dan Spesifikasi Barang / Jasa</th>
                   <th width="20%" style='text-align: center;'>Banyaknya</th>
                   <?php if($this->session->userdata('id_division')!=5){?>
-                  <th colspan="2">Acc</th>
+                  <th>Acc</th>
                   <?php }else{ ?>
                   <th style="text-align:center;" colspan='2'>Pengadaan</th>
                   <form action='<?php echo base_url(); ?>Form/detail_form/<?php echo $id_form ?>' id='form_pengadaan' method='POST'></form>
@@ -83,7 +83,7 @@
                         $item_list_pengadaan[$n]->name_items
                       ."'><input class='form-control' type='text' form='edit_item' name='item' id='item_edit[$i]' style='text-align: left;' placeholder=$il->name_items value=$il->name_items readonly />";
                       echo "</td>";
-                      echo "<td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td colspan='2' align=''>";
+                      echo "<td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td><td align='right'>";
                       if($this->session->userdata('id_division')!=5){
                          echo $stat;
                       }else{
