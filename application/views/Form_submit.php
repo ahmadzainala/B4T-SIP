@@ -136,7 +136,7 @@
             </form>
           </div>
           <hr>
-          <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'>
+        <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'>
           <div class="form-group">
             <table class="table borderless">
               <tr>
@@ -145,7 +145,7 @@
                 </td>
                 <td>
                   <?php
-                    foreach ($source_budget as $sb) {
+                    foreach ($source_budget as $sb){
                   ?>
                   <div class="form-check">
                     <label class="form-check-label">
@@ -191,7 +191,7 @@
           </table>
         </div>
       </form>
-        
+      
       </div>
       <br>
       <br>

@@ -9,11 +9,14 @@
           </div> 
         </div>        
          <div class="card-body">
+          <form action='<?php echo base_url(); ?>Form/acc' method='POST'>
+          
+            
           <table class="table borderless">
             <tr>              
               <td width="20%">Nama Kegiatan</td>
               <td width="20px">:</td>
-              <td colspan="2"><?php echo $form_data->name_activity;?></td>
+              <td colspan="2"><?php echo $form_data->name_activity;?><input name="id_form" type="hidden" value = "<?php echo $id_form;?>" /></td>
               <td rowspan="5">
                   <img src="<?php echo base_url() ?>uploads/profile/<?php echo $form_data->id_user;?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                 </div>
@@ -118,7 +121,7 @@
                 <input class="form-control" type="password" name="password" required>
               </td>
               <td>            
-                <button class="btn btn-success" type="submit" name="submit" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                <button class="btn btn-success" type="submit" name="submit">Submit</button>
               </td>
             </tr>
             </form>

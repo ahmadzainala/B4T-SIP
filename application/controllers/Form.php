@@ -399,7 +399,7 @@ class Form extends CI_Controller
         $this->load->view('header_login');
         $this->load->view('Form_view',$data);
         $this->load->view('footer');
-       echo "$id_form_content</br>$kategori</br>$item";
+       //echo "$id_form_content</br>$kategori</br>$item";
     }
     // End Untuk Admin
     
