@@ -45,7 +45,7 @@
           </table>
           <hr>
           <div class="table-responsive">
-            <table border="0" class="table">
+            <table border="1" class="table">
               <thead class="thead-default">
                 <tr>
                   <th>No.</th>
@@ -55,7 +55,7 @@
                   <?php if($this->session->userdata('id_division')!=5){?>
                   <th>Acc</th>
                   <?php }else{ ?>
-                  <th style="text-align:center;" colspan='2'>Pengadaan</th>
+                  <th colspan='2'>Pengadaan</th>
                   <form action='<?php echo base_url(); ?>Form/detail_form/<?php echo $id_form ?>' id='form_pengadaan' method='POST'></form>
                   <form action='<?php echo base_url(); ?>Form/edit_item_pengadaan/<?php echo $id_form ?>' id='edit_item' method='POST'></form>
                   <?php } ?>
