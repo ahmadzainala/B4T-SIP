@@ -50,7 +50,7 @@
                       <input class="form-control" type="text" placeholder="Cari Berkas" size="100%" aria-label="Search">
                     </th>
                     <th>
-                      <button class="btn btn-primary" type="submit"><i class="material-icons" style="font-size: 13px">search</i></button>
+                      <button class="btn btn-primary" type="submit"><i class="material-icons" style="font-size: 22px">search</i></button>
                     </th>
                   </form>
                 </div>              

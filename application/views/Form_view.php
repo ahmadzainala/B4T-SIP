@@ -45,7 +45,7 @@
           </table>
           <hr>
           <div class="table-responsive">
-            <table border="1" class="table">
+            <table border="0" class="table">
               <thead class="thead-default">
                 <tr>
                   <th>No.</th>
@@ -55,7 +55,7 @@
                   <?php if($this->session->userdata('id_division')!=5){?>
                   <th colspan='2'>Acc</th>
                   <?php }else{ ?>
-                  <th colspan='2' style='text-align:center'>Pengadaan</th>
+                  <th colspan='2'>Pengadaan</th>
                   <form action='<?php echo base_url(); ?>Form/detail_form/<?php echo $id_form ?>' id='form_pengadaan' method='POST'></form>
                   <form action='<?php echo base_url(); ?>Form/edit_item_pengadaan/<?php echo $id_form ?>' id='edit_item' method='POST'></form>
                   <?php } ?>
@@ -71,10 +71,10 @@
                   if($item_list != ""){
                     foreach ($item_list as $il) {
                       if($il->status_acc == 1){
-                        $stat = "<td align='center' colspan='2'><i class='material-icons' style='color:green;'>done</i></td>";
+                        $stat = "<td colspan='2'><i class='material-icons' style='color:green;'>done</i></td>";
                       }else if(isset($tracking) && $tracking->id_status_tracking != 0 && $tracking->id_status_tracking != 10){
 
-                        $stat = "<td align='center' colspan='2'><i class='material-icons' style='color:red;'>clear</i></td>";
+                        $stat = "<td colspan='2'><i class='material-icons' style='color:red;'>clear</i></td>";
                       }else{
                         $stat = "";
                       }
@@ -90,9 +90,9 @@
                         $k++;
                         if($il->ready == 0){
 
-                          echo "<td align='right'><button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' id='tersedia[$i]' class='btn btn-success'>Tersedia</button></td><td align='left'><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button></td>";
+                          echo "<td><button type='submit' value='$il->id_form_content' name='tersedia' form='form_pengadaan' id='tersedia[$i]' class='btn btn-success'>Tersedia</button></td><td><button class='btn btn-warning btn-sm' id='edit_this[$i]' type='button'  style='display:block;' form='edit_item' name='edit' value='$i' onclick='changeText(this)'><i class='material-icons'>edit</i></button></td>";
                         }else{
-                          echo "<td align='center' colspan='2'><i class='material-icons' style='color:green; '>done</i>";
+                          echo "<td align='left' colspan='2'><i class='material-icons' style='color:green; '>done</i>";
                           $j++;
                         }
                       }

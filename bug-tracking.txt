@@ -3,15 +3,13 @@
 A. Important !!
 - Upload foto masih dalam modul terpisah
 - main.css not loaded ( modul bordeless kemungkinan di file lain !!)
-- Acc status aligment, Acc status tidak disetujui padahal baru mengajukan harusnya null kan ################ done
-- Ganti radio ke dropdown salah pemilihan dana
 - Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
-- Buat Pesanan kadang terisi sendiri dengan data yang sudah ada !
-- Dasboard monitor warna hijau nya kurang gelap 
+- arti dari "Semua item telah diterima" dan coba simulasikan
 
 B. Side Fix
 - Auto Complete Stuck di ATK ketika masukan "Perbaikan AC" dan hapus masukan category tidak bisa
 - Ada Dialog saat hapus barang di submit form "Anda yakin untuk hapus barang ini ?"
+- Ganti radio ke dropdown salah pemilihan dana
 - REMOVE CODE YANG TIDAK BERGUNA 
   - MODAL
   - TOAST
