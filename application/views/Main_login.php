@@ -4,6 +4,7 @@
         $no = 0;
         $min = 0;
         $max = 10;
+        $this_page = 1;
     ?>
     <div class="container">
       <section class="row text-center placeholders">
@@ -74,6 +75,7 @@
                       if(isset($_GET['no_up'])){
                         $min = $_GET['no_bot'];
                         $max = $_GET['no_up'];
+                        $this_page = intval($max/10);
                       }
                       foreach ($form_data as $d) if ($no++ < $max){
                          if($no > $min){
@@ -228,6 +230,7 @@
                       if(isset($_GET['no_up'])){
                         $min = $_GET['no_bot'];
                         $max = $_GET['no_up'];
+                        $this_page = intval($max/10);
                       }
                       foreach ($form_data as $d) if ($no++ < $max){
                         //print_r($d);
@@ -369,21 +372,29 @@
                       <?php
                     }
                     $total_page = count($form_data);
-                    $page = $total_page/10;
-                    if($page%10 !=0){
+                    $page = intval($total_page/10);
+                    if($total_page%10 !=0){
                       $page++;
                     }
-                    if($total_page < 10){
+                    //echo "$page";
+                    if($page == 1){
                       ?>
                       <li class="page-item active"><a class="page-link" href="#" aria-label="">1</a></li>
                       <?php
+                    }else{
+                      for ($i=1; $i <= $page; $i++) {
+                        if($i == $this_page){
+                    ?>  
+                        <li class="page-item active"><a class="page-link" href="#" aria-label=""><?php echo $i?></a></li>
+                        <?php
+                        }else{
+                          ?>
+                          <li class="page-item"><a class="page-link" href="<?php echo base_url(); ?>Main?no_bot=<?php echo $i*10-10;?>&no_up=<?php echo $i*10;?>" aria-label=""><?php echo $i?></a></li>
+                          <?php
+                        }
+                      }
                     }
-                    for ($i=1; $i <= $page; $i++) {
-                  ?>
-                      <li class="page-item"><a class="page-link" href="<?php echo base_url(); ?>Main?no_bot=<?php echo $i*10-10;?>&no_up=<?php echo $i*10;?>" aria-label=""><?php echo $i?></a></li>
-                      <?php
-                      
-                    }if($max < ($page-1)*10){
+                    if($this_page < $page){
                   ?>
                   <li class="page-item">
                     <a class="page-link" href="<?php echo base_url(); ?>Main?no_bot=<?php echo $min+10;?>&no_up=<?php echo $max+10;?>" aria-label="Next">

@@ -94,9 +94,19 @@ class Form_content_model extends CI_Model
         return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_items_detail and e.id_form = '.$id)->result();
     }
 
+    function get_all_detail_by_form_pengadaan($id)
+    {
+        return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_item_by_pengadaan and e.id_form = '.$id)->result();
+    }
+
     function get_all_detail_by_form_only_acc($id)
     {
         return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_items_detail and e.status_acc=1 and e.id_form = '.$id)->result();
+    }
+
+    function get_all_detail_by_form_pengadaan_only_acc($id)
+    {
+        return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_item_by_pengadaan and e.status_acc=1 and e.id_form = '.$id)->result();
     }
 
     function get_all_detail_by_form_acc($id)

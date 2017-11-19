@@ -324,6 +324,83 @@ class Form extends CI_Controller
         }
         redirect('Form/add_form');
     }
+
+    function edit_item_pengadaan($id_form = NULL){
+       $id_form_content = $_POST['form_content_edit'];
+       $kategori = $_POST['kategori_edit'];
+       $item = $_POST['item_edit'];
+
+       $this->load->model('Items_category_model');
+        $kategorinew = $this->Items_category_model->get_by_name($kategori);
+            
+
+        $this->load->model('Items_detail_model');
+        $itemnew = $this->Items_detail_model->get_by_name($item);
+        if($itemnew == NULL){
+            $data = array(
+                'name_items' => $item,
+                'id_category' => $kategorinew->id_category,
+                );
+            $this->Items_detail_model->insert($data);
+            $itemnew = $this->Items_detail_model->get_by_name($item);
+        }
+        
+        $this->load->model('Form_content_model');
+
+        $data = array(
+            'id_item_by_pengadaan' => $itemnew->id_items_detail,
+            );
+        
+        $this->Form_content_model->update($id_form_content,$data);
+
+        if($this->session->userdata('id_division')!= 5){
+            $this->load->model('Form_content_model');
+            $item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
+            $item_list_pengadaan = $this->Form_content_model->get_all_detail_by_form_pengadaan($id_form);
+            $this->load->model('Division_model');
+            $form_data = $this->Form_model->get_by_id($id_form);
+            $divisi = $this->Division_model->get_by_id($form_data->id_division);
+            $this->load->model('Tracking_model');
+            $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+            $tracking = $this->Tracking_model->get_by_id_form($id_form);
+
+            $data = array(
+                'divisi' => $divisi,
+                'form_data' => $form_data,
+                'item_list' => $item_list,
+                'item_list_pengadaan' => $item_list_pengadaan,
+                'form_acc' => $form_acc,
+                'tracking' => $tracking
+            );
+        }else{
+            $this->load->model('Form_content_model');
+            $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
+            $item_list_pengadaan = $this->Form_content_model->get_all_detail_by_form_pengadaan_only_acc($id_form);
+            $this->load->model('Division_model');
+            $form_data = $this->Form_model->get_by_id($id_form);
+            $divisi = $this->Division_model->get_by_id($form_data->id_division);
+            $this->load->model('Tracking_model');
+            $form_acc = $this->Tracking_model->get_by_id_tracking_TU($form_data->id_tracking);
+            $tracking = $this->Tracking_model->get_by_id_form($form_data->id_tracking);
+
+            $data = array(
+                'divisi' => $divisi,
+                'form_data' => $form_data,
+                'item_list' => $item_list,
+                'item_list_pengadaan' => $item_list_pengadaan,
+                'form_acc' => $form_acc,
+                'id_form' => $id_form,
+                'tracking' => $tracking
+            );
+        }
+
+        //echo $item_list[0]->name_items;
+
+        $this->load->view('header_login');
+        $this->load->view('Form_view',$data);
+        $this->load->view('footer');
+       echo "$id_form_content</br>$kategori</br>$item";
+    }
     // End Untuk Admin
     
 
@@ -546,6 +623,7 @@ class Form extends CI_Controller
         if($this->session->userdata('id_division')!= 5){
             $this->load->model('Form_content_model');
             $item_list = $this->Form_content_model->get_all_detail_by_form($id_form);
+            $item_list_pengadaan = $this->Form_content_model->get_all_detail_by_form_pengadaan($id_form);
             $this->load->model('Division_model');
             $form_data = $this->Form_model->get_by_id($id_form);
             $divisi = $this->Division_model->get_by_id($form_data->id_division);
@@ -557,12 +635,14 @@ class Form extends CI_Controller
                 'divisi' => $divisi,
                 'form_data' => $form_data,
                 'item_list' => $item_list,
+                'item_list_pengadaan' => $item_list_pengadaan,
                 'form_acc' => $form_acc,
                 'tracking' => $tracking
             );
         }else{
             $this->load->model('Form_content_model');
             $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
+            $item_list_pengadaan = $this->Form_content_model->get_all_detail_by_form_pengadaan_only_acc($id_form);
             $this->load->model('Division_model');
             $form_data = $this->Form_model->get_by_id($id_form);
             $divisi = $this->Division_model->get_by_id($form_data->id_division);
@@ -574,6 +654,7 @@ class Form extends CI_Controller
                 'divisi' => $divisi,
                 'form_data' => $form_data,
                 'item_list' => $item_list,
+                'item_list_pengadaan' => $item_list_pengadaan,
                 'form_acc' => $form_acc,
                 'id_form' => $id_form,
                 'tracking' => $tracking
