@@ -6,6 +6,16 @@
             <?php echo form_open_multipart('User_akun/submit_profile');?>
             <table class="table borderless">
               <tr>
+                <td colspan="4">
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Foto profile anda dapat diganti dengan file berformat .jpg dengan max ukuran 100Kb
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
                 <td rowspan="5" width="10%">
                   <div class="card">
                     <div class="card-body">
