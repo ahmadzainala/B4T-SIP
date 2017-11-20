@@ -1,11 +1,13 @@
-@ INCOMPLETE TASK / BUG : B4T SIP
+@ INCOMPLETE TASK AND BUG : B4T SIP
 --------------------------------------------------------------------------------------------------
-  Note : ! for important (need to fix ASAP)
+  Note : # near parent of code
+  		 ! for important (need to fix ASAP)
          . for side fix
 --------------------------------------------------------------------------------------------------
 
 # All
-! main.css not loaded ( modul bordeless kemungkinan di file lain !!)
+! Main.css not loaded ( modul bordeless kemungkinan di file lain !!)
+! Date Format "DD-Mmm-YYYY"
 . REMOVE CODE YANG TIDAK BERGUNA 
   - modal
   - toast
@@ -21,7 +23,7 @@
 . Ada Dialog saat hapus barang di submit form "Anda yakin untuk hapus barang ini ?"
 
 # Pengadaan
-! arti dari "Semua item telah diterima" dan coba simulasikan
+! Arti dari "Semua item telah diterima" dan coba simulasikan
 ! Tambahkan keterangan edit nama barang pengadaan
 
 # Dasboard Page
@@ -29,8 +31,11 @@
 
 # Admin Page
 ! Bug admin edit user malah error (password ke generate padahal tidak diedit)
+! Tampilan Dasboard pada admin error
 ! Tampilan admin di side panel blm update dengan contain db baru
 
 # Login Page
 . Lupa password tampilkan alert "Hubungi admin untuk reset kembali password akun anda"
 
+# Panduan Page
+! Create when all done

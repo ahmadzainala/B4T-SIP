@@ -39,7 +39,7 @@
               <thead>
                 <div>
                   <?php if($this->session->userdata('id_position') != 5 && $this->session->userdata('id_position') != 6){?>
-                  <th>
+                  <th width="170px">
                     <form action="<?php echo base_url(); ?>Form/add_form" method="POST">
                       <button class="btn btn-success" type="submit"><i class="material-icons" style="font-size: 22px">add</i> Buat Pesanan</button>
                     </form>
@@ -47,10 +47,12 @@
                   <?php }?>              
                   <form class="form-inline">
                     <th>
-                      <input class="form-control" type="text" placeholder="Cari Berkas" size="100%" aria-label="Search">
-                    </th>
-                    <th>
-                      <button class="btn btn-primary" type="submit"><i class="material-icons" style="font-size: 22px">search</i></button>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Cari Berkas..." aria-label="Cari Berkas...">
+                        <span class="input-group-btn">
+                          <button class="btn btn-primary" type="submit"><i class="material-icons" style="font-size: 22px">search</i></button>
+                        </span>
+                      </div>                      
                     </th>
                   </form>
                 </div>              
@@ -63,7 +65,7 @@
               <thead class="thead-inverse">
                 <tr>
                   <th>Pemesan</th>
-                  <th>Deskripsi Pesanan</th>
+                  <th>Nama Kegiatan</th>
                   <th>Tanggal</th>
                   <th>Monitor</th>
                 </tr>
