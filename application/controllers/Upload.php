@@ -42,7 +42,7 @@ class Upload extends CI_Controller {
 
                         
                     print_r($this->upload->data());
-//                  $this->load->view('upload_success', $data);
+                  $this->load->view('upload_success', $data);
                 }
         }
 }

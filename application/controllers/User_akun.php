@@ -276,6 +276,8 @@ class User_akun extends CI_Controller
             $this->session->set_userdata('name',$name);
         }
 
+        $this->delete_cache(base_url());
+
         if($p1 != ""){
             if($p1 == $p2){
                 $pass = md5($p1);
@@ -306,6 +308,23 @@ class User_akun extends CI_Controller
             $this->User_akun_model->update($this->session->userdata('id_user'),$data);
             redirect('User_akun/edit_profile');
         }
+    }
+
+    function delete_cache($uri_string=null)
+    {
+        $CI =& get_instance();
+        $path = $CI->config->item('cache_path');
+        $path = rtrim($path, DIRECTORY_SEPARATOR);
+
+        $cache_path = ($path == '') ? APPPATH.'cache/' : $path;
+
+        $uri =  $CI->config->item('base_url').
+                $CI->config->item('index_page').
+                $uri_string;
+
+        $cache_path .= md5($uri);
+
+        return unlink($cache_path);
     }
 }
 
