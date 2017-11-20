@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Okt 2017 pada 10.08
--- Versi Server: 10.1.10-MariaDB
--- PHP Version: 7.0.4
+-- Generation Time: Nov 20, 2017 at 04:17 PM
+-- Server version: 10.1.8-MariaDB
+-- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `division`
+-- Table structure for table `division`
 --
 
 CREATE TABLE `division` (
@@ -32,19 +32,20 @@ CREATE TABLE `division` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `division`
+-- Dumping data for table `division`
 --
 
 INSERT INTO `division` (`id_division`, `name_division`) VALUES
 (1, 'IT'),
 (2, 'Tata Usaha'),
 (3, 'PPK RM'),
-(4, 'PPK BLU');
+(4, 'PPK BLU'),
+(5, 'Pengadaan');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `form`
+-- Table structure for table `form`
 --
 
 CREATE TABLE `form` (
@@ -66,29 +67,48 @@ CREATE TABLE `form` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `form`
+-- Dumping data for table `form`
 --
 
 INSERT INTO `form` (`id_form`, `id_user`, `date`, `information`, `information_kabid`, `information_TU`, `information_PPK`, `date_needs`, `that`, `read_status_Ketua`, `read_status_TU`, `read_status_PPK`, `status_submit`, `id_budget`, `name_activity`) VALUES
-(28, 6, '2017-10-15 06:02:52', 'Sumber dana dari: apawelah', '', '', '', '2017-10-17', 'coba versi baru', 1, 0, 0, 1, 0, ''),
-(29, 5, '2017-10-15 10:41:14', 'sumber dana dari mana aja', 'asdasdsa', 'asdasasd', '', 'Segera', 'coba lagi', 1, 1, 0, 1, 0, ''),
-(30, 5, '2017-10-15 10:27:58', 'dana dari dompet sendiri, untuk ...', 'Tvnya kebanyakan, untuk tv di tolak', 'ntaps', 'ntaps lanjutan', 'Segera', 'segera dipenuhi -.-', 1, 1, 1, 1, 0, ''),
-(31, 5, '2017-10-15 06:19:17', 'tolak weh', 'loba teuing', '', '', 'Segera', 'aw', 1, 0, 0, 1, 0, ''),
-(43, 5, '2017-10-15 10:36:24', 'asd', 'asda', '', '', 'Segera', 'apa weh', 1, 0, 0, 1, 0, ''),
-(45, 5, '2017-10-15 10:39:07', 'ssssss', 'cacccc', '', '', 'Segera', 'ssss', 1, 0, 0, 1, 0, ''),
-(46, 5, '2017-10-15 10:15:26', 'sdasdasss', '', '', '', 'Segera', 'aaa', 0, 0, 0, 1, 0, ''),
-(47, 5, '2017-10-15 11:28:03', 'dana dari sana sini', 'mohon di adakan', 'semoga lancar', 'next', 'Segera', 'aaaaaaaaaaaaaaaaaa', 1, 1, 1, 1, 0, ''),
-(48, 5, '2017-10-15 11:30:43', 'asdads', 'aaaaaaaaaaaa', 'ada weh', 'lol', 'Segera', 'testes', 1, 1, 1, 1, 0, ''),
-(49, 5, '2017-10-15 10:47:33', 'asdas', 'next', 'more', 'pengadaan', 'Segera', 'aaweeyu', 1, 1, 1, 1, 0, ''),
-(50, 5, '2017-10-16 04:25:25', 'asdasd', 'kebanyakan jadi di ubah banyaknya', '', '', 'Segera', 'wait', 1, 1, 0, 1, 0, ''),
-(52, 5, '2017-10-16 04:32:56', 'today today', 'ac dikurangi loba teuing', 'aweuaweuaweu', '', 'Segera', 'today', 1, 1, 1, 1, 0, ''),
-(53, 5, '2017-10-16 07:32:38', 'asjdhakj', '', '', '', 'Segera', 'kjasdhkaj', 0, 0, 0, 1, 0, ''),
-(55, 5, '2017-10-16 08:06:22', '', '', '', '', 'Segera', '', 0, 0, 0, 0, 0, '');
+(28, 6, '2017-10-26 00:42:52', 'Sumber dana dari: apawelah', '', '', '', '2017-10-17', 'coba versi baru', 1, 0, 0, 1, 1, 'template'),
+(29, 5, '2017-10-26 00:42:52', 'sumber dana dari mana aja', 'asdasdsa', 'asdasasd', '', 'Segera', 'coba lagi', 1, 1, 0, 1, 1, 'template'),
+(30, 5, '2017-10-26 00:42:52', 'dana dari dompet sendiri, untuk ...', 'Tvnya kebanyakan, untuk tv di tolak', 'ntaps', 'ntaps lanjutan', 'Segera', 'segera dipenuhi -.-', 1, 1, 1, 1, 1, 'template'),
+(31, 5, '2017-10-26 00:42:52', 'tolak weh', 'loba teuing', '', '', 'Segera', 'aw', 1, 0, 0, 1, 1, 'template'),
+(43, 5, '2017-10-26 00:42:52', 'asd', 'asda', '', '', 'Segera', 'apa weh', 1, 0, 0, 1, 1, 'template'),
+(45, 5, '2017-10-26 00:42:52', 'ssssss', 'cacccc', '', '', 'Segera', 'ssss', 1, 0, 0, 1, 1, 'template'),
+(46, 5, '2017-10-26 00:42:52', 'sdasdasss', 'next to PPK', 'go to PPK', 'stop PPK', 'Segera', 'aaa', 1, 1, 1, 1, 1, 'template'),
+(47, 5, '2017-10-26 00:42:52', 'dana dari sana sini', 'mohon di adakan', 'semoga lancar', 'next', 'Segera', 'aaaaaaaaaaaaaaaaaa', 1, 1, 1, 1, 1, 'template'),
+(48, 5, '2017-10-26 00:42:52', 'asdads', 'aaaaaaaaaaaa', 'ada weh', 'lol', 'Segera', 'testes', 1, 1, 1, 1, 1, 'template'),
+(49, 5, '2017-10-26 00:42:52', 'asdas', 'next', 'more', 'pengadaan', 'Segera', 'aaweeyu', 1, 1, 1, 1, 1, 'template'),
+(50, 5, '2017-10-26 00:42:52', 'asdasd', 'kebanyakan jadi di ubah banyaknya', '', '', 'Segera', 'wait', 1, 1, 0, 1, 1, 'template'),
+(52, 5, '2017-10-26 00:42:52', 'today today', 'ac dikurangi loba teuing', 'aweuaweuaweu', '', 'Segera', 'today', 1, 1, 1, 1, 1, 'template'),
+(53, 5, '2017-10-26 00:42:52', 'asjdhakj', '', '', '', 'Segera', 'kjasdhkaj', 0, 0, 0, 1, 1, 'template'),
+(59, 5, '2017-10-25 07:45:37', 'Apaajalah yph', 'next', 'stop here', '', 'Segera', 'dipenuhi untuk kegiatan baru', 1, 1, 0, 1, 2, 'Test baru'),
+(60, 5, '2017-10-26 03:30:47', 'asdasdsda', 'asdsad', '', '', 'Segera', 'asdad', 1, 0, 0, 1, 1, 'asdasd'),
+(64, 7, '2017-10-26 04:19:25', 'asdadasd', '', 'bosaaaa', '', '2017-10-04', 'sssssss', 1, 1, 0, 1, 2, 'sdssssssssssss'),
+(65, 7, '2017-10-26 04:18:48', 'asadsda', '', '', '', 'Segera', '2asdads', 1, 0, 0, 1, 2, 'asdasd'),
+(67, 5, '2017-10-27 07:20:00', 'aweu', 'stop', '', '', 'Segera', 'Stop di Kabid', 1, 0, 0, 1, 2, 'Stop di Kabid'),
+(68, 5, '2017-10-27 07:51:09', 'aweu', 'gogo', 'stop here', '', '2017-10-28', 'Stop di Kabag', 1, 1, 0, 1, 2, 'Stop di Kabag'),
+(69, 5, '2017-10-27 07:52:22', 'stop', 'next', 'next', 'stop here', 'Segera', 'Stop di PPK RM', 1, 1, 1, 1, 2, 'Stop di PPK RM'),
+(70, 5, '2017-10-27 07:58:13', 'blu', 'next', 'sdasdad', 'stop here', 'Segera', 'Stop di PPK BLU', 1, 1, 1, 1, 1, 'Stop di PPK BLU'),
+(71, 5, '2017-10-27 07:53:11', 'lolos', 'next', 'next', 'coret tv', 'Segera', 'Lolos PPK RM', 1, 1, 1, 1, 2, 'Lolos PPK RM'),
+(72, 5, '2017-10-27 08:03:55', 'lolos blu', 'next', 'next', 'nextnext', '2017-11-04', 'Lolos PPK BLU', 1, 1, 1, 1, 1, 'Lolos PPK BLU'),
+(73, 5, '2017-10-27 07:21:42', 'unread', '', '', '', 'Segera', 'Unread Kabid', 1, 0, 0, 1, 2, 'Unread Kabid'),
+(74, 5, '2017-10-27 07:50:51', 'unread', 'next', '', '', 'Segera', 'unread TU', 1, 1, 0, 1, 1, 'unread TU'),
+(75, 6, '2017-11-19 13:06:54', 'tes yang edit pengadaan', 'adasda', '', '', 'Segera', 'dipenuhi', 1, 0, 0, 1, 2, 'newlagi'),
+(76, 5, '2017-11-19 08:08:17', 'asdadasd', '', '', '', 'Segera', 'ssssss', 0, 0, 0, 1, 2, 'aaaaaaa'),
+(77, 5, '2017-11-19 08:10:34', 'sssssss', '', '', '', 'Segera', 'sssssssssssssssssss', 0, 0, 0, 1, 1, 'asdasdadsa'),
+(78, 5, '2017-11-19 08:17:30', 'ssssssssssssssss', '', '', '', 'Segera', 'xccccccccc', 0, 0, 0, 1, 2, 'asdaxxx'),
+(79, 5, '2017-11-19 14:07:22', 'aaaaaaaaaaaaaa', 'aaaaaaa', 'next', 'next', 'Segera', 'cekcek', 1, 1, 1, 1, 2, 'cek sampai pengadaan'),
+(80, 6, '2017-11-20 15:11:30', '', '', '', '', 'Segera', 'Mobil Dinas Kembali Berjalan', 0, 0, 0, 1, 1, 'Perbaikan Mobil Dinas'),
+(81, 6, '2017-11-20 15:13:22', '', '', '', '', 'Segera', 'aa', 0, 0, 0, 1, 1, 'aa'),
+(82, 6, '2017-11-20 15:14:48', '', '', '', '', 'Segera', '', 0, 0, 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `form_content`
+-- Table structure for table `form_content`
 --
 
 CREATE TABLE `form_content` (
@@ -99,51 +119,43 @@ CREATE TABLE `form_content` (
   `quantity` int(11) NOT NULL,
   `status_acc` int(11) NOT NULL,
   `unit` varchar(255) NOT NULL,
-  `quantity_origin` int(11) NOT NULL
+  `quantity_origin` int(11) NOT NULL,
+  `id_item_by_pengadaan` int(11) NOT NULL,
+  `ready` int(11) NOT NULL,
+  `acc_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `form_content`
+-- Dumping data for table `form_content`
 --
 
-INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id_supplier`, `quantity`, `status_acc`, `unit`, `quantity_origin`) VALUES
-(70, 28, 1, NULL, 2, 1, 'buku', 1),
-(71, 28, 10, NULL, 10, 0, 'unit', 10),
-(72, 28, 2, NULL, 10, 0, 'pensil', 10),
-(73, 29, 11, NULL, 10, 0, 'unit', 10),
-(76, 30, 1, NULL, 100, 0, 'unit', 100),
-(77, 30, 5, NULL, 1, 0, 'unit', 1),
-(78, 30, 9, NULL, 2, 0, 'unit', 2),
-(79, 30, 11, NULL, 100, 0, 'unit', 100),
-(80, 31, 9, NULL, 100, 0, 'unit', 100),
-(83, 43, 11, NULL, 1, 1, 'unit', 1),
-(84, 43, 1, NULL, 2, 1, '3s', 2),
-(85, 43, 9, NULL, 1, 1, 'unit', 1),
-(86, 43, 3, NULL, 2, 1, 's', 2),
-(87, 43, 7, NULL, 2, 1, '3as', 2),
-(88, 45, 12, NULL, 1, 0, 'paket', 1),
-(89, 45, 13, NULL, 2, 0, 'unit', 2),
-(90, 46, 14, NULL, 3, 0, 'unit', 3),
-(91, 46, 9, NULL, 3, 0, 'unit', 3),
-(92, 46, 5, NULL, 4, 0, 'unit', 4),
-(93, 47, 1, NULL, 500, 1, 'unit', 500),
-(94, 47, 11, NULL, 500, 1, 'set', 500),
-(95, 47, 2, NULL, 500, 1, 'set', 500),
-(96, 47, 4, NULL, 500, 1, 'set', 500),
-(97, 47, 5, NULL, 2, 1, 'unit', 2),
-(98, 48, 12, NULL, 100, 0, '2as', 100),
-(99, 48, 2, NULL, 232, 0, 'sdad', 232),
-(100, 49, 12, NULL, 23, 1, 'as', 23),
-(101, 49, 5, NULL, 110, 0, 'ss', 110),
-(102, 50, 12, NULL, 10, 1, 'aa', 231),
-(103, 52, 15, NULL, 1, 0, 'pasang', 0),
-(104, 52, 5, NULL, 1, 1, 'unit', 0),
-(105, 53, 1, NULL, 10, 0, 'Pak', 10);
+INSERT INTO `form_content` (`id_form_content`, `id_form`, `id_items_detail`, `id_supplier`, `quantity`, `status_acc`, `unit`, `quantity_origin`, `id_item_by_pengadaan`, `ready`, `acc_user`) VALUES
+(116, 67, 12, NULL, 0, 0, 'paket', 1, 12, 0, 0),
+(117, 67, 1, NULL, 0, 0, 'pack', 2, 1, 0, 0),
+(118, 68, 12, NULL, 0, 0, 'paket', 1, 12, 0, 0),
+(119, 69, 12, NULL, 0, 0, 'paket', 1, 12, 0, 0),
+(120, 70, 12, NULL, 0, 0, 'paket', 1, 12, 0, 0),
+(121, 71, 12, NULL, 0, 0, 'paket', 1, 12, 0, 0),
+(122, 71, 5, NULL, 1, 1, 'set', 1, 5, 1, 0),
+(123, 72, 9, NULL, 1, 1, 'set', 1, 17, 1, 0),
+(124, 72, 16, NULL, 1, 1, 'Set', 2, 16, 1, 0),
+(125, 73, 12, NULL, 1, 0, 'paket', 1, 12, 0, 0),
+(126, 74, 12, NULL, 1, 1, 'paket', 1, 12, 0, 0),
+(127, 75, 5, NULL, 1, 1, 'set', 1, 5, 0, 0),
+(128, 75, 1, NULL, 1, 1, 'paket', 1, 1, 0, 0),
+(129, 76, 5, NULL, 1, 0, 'set', 1, 5, 0, 0),
+(130, 77, 13, NULL, 1, 0, 'paket', 1, 13, 0, 0),
+(131, 78, 13, NULL, 1, 0, 'set', 1, 13, 0, 0),
+(132, 79, 18, NULL, 1, 1, 'Staff', 1, 18, 0, 0),
+(133, 79, 19, NULL, 1, 1, 'Ruang', 1, 19, 0, 0),
+(134, 79, 5, NULL, 1, 1, 'Unit', 1, 5, 1, 0),
+(135, 80, 21, NULL, 1, 0, 'Kali', 1, 21, 0, 0),
+(136, 81, 22, NULL, 1, 0, 'aa', 1, 22, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `items_category`
+-- Table structure for table `items_category`
 --
 
 CREATE TABLE `items_category` (
@@ -152,7 +164,7 @@ CREATE TABLE `items_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `items_category`
+-- Dumping data for table `items_category`
 --
 
 INSERT INTO `items_category` (`id_category`, `name_category`) VALUES
@@ -160,12 +172,15 @@ INSERT INTO `items_category` (`id_category`, `name_category`) VALUES
 (2, 'Cek'),
 (3, 'Elektronik'),
 (4, 'Furnitur'),
-(5, 'baru');
+(5, 'baru'),
+(6, 'Uncategories'),
+(7, 'Kendaraan'),
+(8, 'aa');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `items_detail`
+-- Table structure for table `items_detail`
 --
 
 CREATE TABLE `items_detail` (
@@ -175,7 +190,7 @@ CREATE TABLE `items_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `items_detail`
+-- Dumping data for table `items_detail`
 --
 
 INSERT INTO `items_detail` (`id_items_detail`, `id_category`, `name_items`) VALUES
@@ -192,12 +207,19 @@ INSERT INTO `items_detail` (`id_items_detail`, `id_category`, `name_items`) VALU
 (12, 1, 'alat tulis'),
 (13, 1, 'tipek'),
 (14, 3, 'HP'),
-(15, 5, 'sepatu');
+(15, 5, 'sepatu'),
+(16, 3, 'Infocus'),
+(17, 3, 'Televisi'),
+(18, 6, 'perbaikan AC'),
+(19, 6, 'perbaikan Ruangan'),
+(20, 6, 'tembok'),
+(21, 7, 'Mobil'),
+(22, 8, 'aa');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu_admin`
+-- Table structure for table `menu_admin`
 --
 
 CREATE TABLE `menu_admin` (
@@ -210,7 +232,7 @@ CREATE TABLE `menu_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `menu_admin`
+-- Dumping data for table `menu_admin`
 --
 
 INSERT INTO `menu_admin` (`id`, `name`, `link`, `icon`, `is_active`, `is_parent`) VALUES
@@ -231,7 +253,7 @@ INSERT INTO `menu_admin` (`id`, `name`, `link`, `icon`, `is_active`, `is_parent`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `position`
+-- Table structure for table `position`
 --
 
 CREATE TABLE `position` (
@@ -240,7 +262,7 @@ CREATE TABLE `position` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `position`
+-- Dumping data for table `position`
 --
 
 INSERT INTO `position` (`id_position`, `name_position`) VALUES
@@ -249,12 +271,13 @@ INSERT INTO `position` (`id_position`, `name_position`) VALUES
 (3, 'Kepala Divisi'),
 (4, 'Sekertaris'),
 (5, 'Kepala Bagian'),
-(6, 'Kepala PPK');
+(6, 'Kepala PPK'),
+(7, 'Staff');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `source_budget`
+-- Table structure for table `source_budget`
 --
 
 CREATE TABLE `source_budget` (
@@ -262,10 +285,18 @@ CREATE TABLE `source_budget` (
   `name_source` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `source_budget`
+--
+
+INSERT INTO `source_budget` (`id_budget`, `name_source`) VALUES
+(1, 'BLU'),
+(2, 'RM');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `status_tracking`
+-- Table structure for table `status_tracking`
 --
 
 CREATE TABLE `status_tracking` (
@@ -274,25 +305,27 @@ CREATE TABLE `status_tracking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `status_tracking`
+-- Dumping data for table `status_tracking`
 --
 
 INSERT INTO `status_tracking` (`id_status_tracking`, `description`) VALUES
-(0, 'Usulan dalam antrian'),
-(1, 'Sudah di Acc Kepala Bidang, Usulan dalam antrian Acc Ketua Bagian TU'),
-(2, 'Sudah di Acc TU, Usulan dalam antrian Acc PPK'),
-(3, 'Sudah di Acc PPK, Usulan dalam proses pengadaan'),
-(4, 'Tidak di Acc'),
+(0, 'Menunggu Acc Kepala Bidang'),
+(1, 'Menunggu Acc TU'),
+(2, 'Menunggu Acc PPK'),
+(3, 'Dalam Proses Pengadaan'),
+(4, 'Tidak di Acc Kepala Bidang'),
 (5, 'Selesai'),
-(6, 'Revisi'),
-(10, 'Belum di Acc Kepala Bidang'),
-(11, 'Belum di Acc Kepala Bagian TU'),
-(12, 'Belum di Acc Kepala PPK');
+(6, 'Menunggu Validasi Pengadaan oleh Peminta'),
+(10, 'Menunggu Acc Kepala Bidang'),
+(11, 'Menunggu Acc TU'),
+(12, 'Menunggu Acc PPK'),
+(13, 'Tidak di Acc TU'),
+(14, 'Tidak di Acc PPK');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -302,7 +335,7 @@ CREATE TABLE `supplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supplier`
+-- Dumping data for table `supplier`
 --
 
 INSERT INTO `supplier` (`id_supplier`, `name_supplier`, `address`) VALUES
@@ -311,7 +344,7 @@ INSERT INTO `supplier` (`id_supplier`, `name_supplier`, `address`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier_category`
+-- Table structure for table `supplier_category`
 --
 
 CREATE TABLE `supplier_category` (
@@ -321,7 +354,7 @@ CREATE TABLE `supplier_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supplier_category`
+-- Dumping data for table `supplier_category`
 --
 
 INSERT INTO `supplier_category` (`id_supplier_category`, `id_category`, `id_supplier`) VALUES
@@ -331,7 +364,7 @@ INSERT INTO `supplier_category` (`id_supplier_category`, `id_category`, `id_supp
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tracking`
+-- Table structure for table `tracking`
 --
 
 CREATE TABLE `tracking` (
@@ -341,28 +374,30 @@ CREATE TABLE `tracking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tracking`
+-- Dumping data for table `tracking`
 --
 
 INSERT INTO `tracking` (`id_tracking`, `id_status_tracking`, `id_form`) VALUES
-(4, 10, 28),
-(5, 4, 29),
-(6, 3, 30),
-(7, 4, 31),
-(8, 4, 43),
-(10, 4, 45),
-(11, 0, 46),
-(12, 3, 47),
-(13, 4, 48),
-(14, 3, 49),
-(15, 11, 50),
-(16, 12, 52),
-(17, 0, 53);
+(27, 4, 67),
+(28, 13, 68),
+(29, 14, 69),
+(30, 14, 70),
+(31, 6, 71),
+(32, 3, 72),
+(33, 10, 73),
+(34, 11, 74),
+(35, 1, 75),
+(36, 0, 76),
+(37, 0, 77),
+(38, 0, 78),
+(39, 3, 79),
+(40, 0, 80),
+(41, 0, 81);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tracking_history`
+-- Table structure for table `tracking_history`
 --
 
 CREATE TABLE `tracking_history` (
@@ -374,59 +409,82 @@ CREATE TABLE `tracking_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tracking_history`
+-- Dumping data for table `tracking_history`
 --
 
 INSERT INTO `tracking_history` (`id_catalog`, `id_tracking`, `id_user_acc`, `date_acc`, `acc`) VALUES
 (6, 5, 3, '2017-10-15', 1),
-(7, 7, 3, '2017-10-15', 0),
 (8, 5, 3, '2017-10-15', 1),
 (9, 6, 3, '2017-10-15', 1),
 (10, 6, 5, '2017-10-15', 1),
 (11, 6, 6, '2017-10-15', 1),
-(12, 8, 3, '2017-10-15', 0),
-(13, 10, 3, '2017-10-15', 0),
 (14, 5, 5, '2017-10-15', 0),
-(15, 14, 3, '2017-10-15', 1),
-(16, 14, 5, '2017-10-15', 1),
-(17, 14, 6, '2017-10-15', 1),
-(18, 12, 3, '2017-10-15', 1),
-(19, 12, 5, '2017-10-15', 1),
-(20, 13, 3, '2017-10-15', 1),
-(21, 13, 5, '2017-10-15', 1),
-(22, 12, 6, '2017-10-15', 1),
-(23, 13, 6, '2017-10-15', 0),
-(24, 15, 3, '2017-10-16', 1),
-(25, 16, 3, '2017-10-16', 1),
-(26, 16, 5, '2017-10-16', 1);
+(39, 27, 0, '2017-10-27', 0),
+(40, 28, 0, '2017-10-27', 0),
+(41, 29, 0, '2017-10-27', 0),
+(42, 30, 0, '2017-10-27', 0),
+(43, 31, 0, '2017-10-27', 0),
+(44, 32, 0, '2017-10-27', 0),
+(45, 27, 3, '2017-10-27', 0),
+(46, 33, 0, '2017-10-27', 0),
+(47, 34, 0, '2017-10-27', 0),
+(48, 34, 3, '2017-10-27', 1),
+(49, 28, 3, '2017-10-27', 1),
+(50, 29, 3, '2017-10-27', 1),
+(51, 30, 3, '2017-10-27', 1),
+(52, 31, 3, '2017-10-27', 1),
+(53, 32, 3, '2017-10-27', 1),
+(54, 28, 5, '2017-10-27', 0),
+(55, 29, 5, '2017-10-27', 1),
+(56, 31, 5, '2017-10-27', 1),
+(57, 29, 6, '2017-10-27', 0),
+(58, 31, 6, '2017-10-27', 1),
+(59, 30, 5, '2017-10-27', 1),
+(60, 32, 5, '2017-10-27', 1),
+(61, 30, 6, '2017-10-27', 0),
+(62, 32, 6, '2017-10-27', 1),
+(63, 31, 7, '2017-10-27', 1),
+(64, 35, 0, '2017-11-19', 0),
+(65, 36, 0, '2017-11-19', 0),
+(66, 37, 0, '2017-11-19', 0),
+(67, 38, 0, '2017-11-19', 0),
+(68, 35, 3, '2017-11-19', 1),
+(69, 39, 0, '2017-11-19', 0),
+(70, 39, 3, '2017-11-19', 1),
+(71, 39, 5, '2017-11-19', 1),
+(72, 39, 6, '2017-11-19', 1),
+(73, 40, 0, '2017-11-20', 0),
+(74, 41, 0, '2017-11-20', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_akun`
+-- Table structure for table `user_akun`
 --
 
 CREATE TABLE `user_akun` (
   `id_user` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `id_position` int(11) NOT NULL,
   `id_division` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_akun`
+-- Dumping data for table `user_akun`
 --
 
-INSERT INTO `user_akun` (`id_user`, `username`, `password`, `first_name`, `id_position`, `id_division`) VALUES
-(2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Justin', 1, 1),
-(5, 'ahmad', '61243c7b9a4022cb3f8dc3106767ed12', 'ahmad', 2, 1),
-(6, 'ranggi', '9a36f4e5a98824ef2bbbecd7c324ba47', 'ranggi', 2, 1),
-(7, 'Bos', '15fc4a53992beba40ae91e5244e79dff', 'My', 3, 1),
-(8, 'Wiwi', '38f2f8bb5145c0b899542570b91153f6', 'Wiwi', 4, 2),
-(9, 'bosTU', '0706855e2208fd7a331ea6df9c3137fc', 'TU', 5, 2),
-(10, 'bosPPK', 'f953c25b1fb8a7fe361e8936e90f6188', 'PPK', 6, 3);
+INSERT INTO `user_akun` (`id_user`, `username`, `password`, `name`, `id_position`, `id_division`) VALUES
+(2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1, 1),
+(5, 'ahmad', '61243c7b9a4022cb3f8dc3106767ed12', 'Ahmad Zainal A.', 2, 1),
+(6, 'ranggi', '9a36f4e5a98824ef2bbbecd7c324ba47', 'Ranggi Rahman', 2, 1),
+(7, 'kabid', '6d6827e38b382572cc5be098158174d3', 'Bpk. Kepala Bidang', 3, 1),
+(8, 'wiwi', '38f2f8bb5145c0b899542570b91153f6', 'Wiwi Juwita', 4, 2),
+(9, 'tu', 'b6b4ce6df035dcfaa26f3bc32fb89e6a', 'Bpk. TU', 5, 2),
+(10, 'ppkrm', 'b8edd6573cf55071657bb7d425866afc', 'Bpk. PPK RM', 6, 3),
+(11, 'ppkblu', '582a9487a34db2fbbadd91382db4a702', 'Bpk. PPK BLU', 6, 4),
+(12, 'staffpengadaan', '52d10135dc497f0d0ce46ec74a14f3fe', 'Bpk. Staff Pengadaan', 7, 5);
 
 --
 -- Indexes for dumped tables
@@ -522,7 +580,8 @@ ALTER TABLE `tracking_history`
 -- Indexes for table `user_akun`
 --
 ALTER TABLE `user_akun`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -532,27 +591,27 @@ ALTER TABLE `user_akun`
 -- AUTO_INCREMENT for table `division`
 --
 ALTER TABLE `division`
-  MODIFY `id_division` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_division` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `form`
 --
 ALTER TABLE `form`
-  MODIFY `id_form` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_form` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
 -- AUTO_INCREMENT for table `form_content`
 --
 ALTER TABLE `form_content`
-  MODIFY `id_form_content` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id_form_content` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 --
 -- AUTO_INCREMENT for table `items_category`
 --
 ALTER TABLE `items_category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `items_detail`
 --
 ALTER TABLE `items_detail`
-  MODIFY `id_items_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_items_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `menu_admin`
 --
@@ -562,12 +621,12 @@ ALTER TABLE `menu_admin`
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `id_position` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_position` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `source_budget`
 --
 ALTER TABLE `source_budget`
-  MODIFY `id_budget` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_budget` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `supplier`
 --
@@ -582,29 +641,29 @@ ALTER TABLE `supplier_category`
 -- AUTO_INCREMENT for table `tracking`
 --
 ALTER TABLE `tracking`
-  MODIFY `id_tracking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_tracking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `tracking_history`
 --
 ALTER TABLE `tracking_history`
-  MODIFY `id_catalog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_catalog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 --
 -- AUTO_INCREMENT for table `user_akun`
 --
 ALTER TABLE `user_akun`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `form`
+-- Constraints for table `form`
 --
 ALTER TABLE `form`
   ADD CONSTRAINT `form_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user_akun` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `form_content`
+-- Constraints for table `form_content`
 --
 ALTER TABLE `form_content`
   ADD CONSTRAINT `form_content_ibfk_1` FOREIGN KEY (`id_form`) REFERENCES `form` (`id_form`),
@@ -612,19 +671,19 @@ ALTER TABLE `form_content`
   ADD CONSTRAINT `form_content_ibfk_3` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
 
 --
--- Ketidakleluasaan untuk tabel `items_detail`
+-- Constraints for table `items_detail`
 --
 ALTER TABLE `items_detail`
   ADD CONSTRAINT `items_detail_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `items_category` (`id_category`);
 
 --
--- Ketidakleluasaan untuk tabel `supplier_category`
+-- Constraints for table `supplier_category`
 --
 ALTER TABLE `supplier_category`
   ADD CONSTRAINT `supplier_category_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `items_category` (`id_category`);
 
 --
--- Ketidakleluasaan untuk tabel `tracking`
+-- Constraints for table `tracking`
 --
 ALTER TABLE `tracking`
   ADD CONSTRAINT `tracking_ibfk_2` FOREIGN KEY (`id_form`) REFERENCES `form` (`id_form`),

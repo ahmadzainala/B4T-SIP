@@ -43,7 +43,7 @@
               <table class="table borderless">
                 <tr>
                   <td width="20%">Nama Kegiatan</td>
-                  <td colspan="2"><input class="form-control" type="text" name="kegiatan" value="<?php echo $form_data->name_activity; ?>"></td>
+                  <td colspan="2"><input class="form-control" type="text" name="kegiatan" value="<?php echo $form_data->name_activity; ?>" required></td>
                   <td width="30%"></td>
                 </tr>
                 <tr>
@@ -168,12 +168,12 @@
           <hr>
           <div class="form-group">
             <label for="keterangan">Keterangan</label>
-            <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>" required><?php echo $form_data->information;?></textarea>
+            <textarea class="form-control" rows="5" id="keterangan" name="information" value="<?php echo $form_data->information;?>"><?php echo $form_data->information;?></textarea>
           </div>
           <hr>
           <div class="form-group">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              File lampiran harus berformat .zip dengan max ukuran 2MB
+              File lampiran harus berformat <strong>.zip</strong> dengan max ukuran <strong>2MB</strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

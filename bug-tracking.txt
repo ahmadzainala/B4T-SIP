@@ -1,20 +1,35 @@
-# Incomplete Task / Bug :
+@ INCOMPLETE TASK / BUG : B4T SIP
+--------------------------------------------------------------------------------------------------
+  Note : ! for important (need to fix ASAP)
+         . for side fix
+--------------------------------------------------------------------------------------------------
 
-A. Important !!
-- Upload foto masih dalam modul terpisah
-- Lampiran belum jalan
-- main.css not loaded ( modul bordeless kemungkinan di file lain !!)
-- Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
-- arti dari "Semua item telah diterima" dan coba simulasikan
+# All
+! main.css not loaded ( modul bordeless kemungkinan di file lain !!)
+. REMOVE CODE YANG TIDAK BERGUNA 
+  - modal
+  - toast
+  - font
+  - icon
+  - css bootstrap double (migrate ke normal bootstrap jgn yg min.)
 
-B. Side Fix
-- Auto Complete Stuck di ATK ketika masukan "Perbaikan AC" dan hapus masukan category tidak bisa
-- Ada Dialog saat hapus barang di submit form "Anda yakin untuk hapus barang ini ?"
-- Ganti radio ke dropdown salah pemilihan dana
-- REMOVE CODE YANG TIDAK BERGUNA 
-  - MODAL
-  - TOAST
-  - FONT
-  - ICON
-  - CSS Bootstrap double (migrate ke normal bootstrap jgn yg min.)
+# Submit Form
+! Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
+! Tambahkan reqiured pada sumber anggaran (kalau dikosongkan setelah submit formview tidak dapat dilihat)
+! Bug input data form kalau ga disubmit tetep ada di form walau udh direload
+. Auto Complete Stuck di ATK ketika masukan "Perbaikan AC" dan hapus masukan category tidak bisa
+. Ada Dialog saat hapus barang di submit form "Anda yakin untuk hapus barang ini ?"
+
+# Pengadaan
+! arti dari "Semua item telah diterima" dan coba simulasikan
+! Tambahkan keterangan edit nama barang pengadaan
+
+# Dasboard
+! Cari berkas belum jalan
+
+# Admin Page
+! Bug admin edit user malah error (password ke generate padahal tidak diedit)
+! Tampilan admin di side panel blm update dengan contain db baru
+
+
 
