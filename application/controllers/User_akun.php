@@ -306,6 +306,7 @@ class User_akun extends CI_Controller
                 'name' => $name,
             );
             $this->User_akun_model->update($this->session->userdata('id_user'),$data);
+            
             redirect('User_akun/edit_profile');
         }
     }

@@ -136,7 +136,8 @@
             </form>
           </div>
           <hr>
-        <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'>
+        <!-- <form action='<?php echo base_url(); ?>Form/submit_form' method='POST'> -->
+          <?php echo form_open_multipart('Form/submit_form');?>
           <div class="form-group">
             <table class="table borderless">
               <tr>

@@ -43,8 +43,7 @@
           </div>
              <div class="card-footer">                  
                 <center><input class="btn btn-success" type="submit" name="submit" value="Simpan"></center>
-              </div>      
-          </form>          
+              </div>                
         </div>
        
       </div>
