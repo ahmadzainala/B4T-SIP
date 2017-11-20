@@ -24,12 +24,13 @@
 ! arti dari "Semua item telah diterima" dan coba simulasikan
 ! Tambahkan keterangan edit nama barang pengadaan
 
-# Dasboard
+# Dasboard Page
 ! Cari berkas belum jalan
 
 # Admin Page
 ! Bug admin edit user malah error (password ke generate padahal tidak diedit)
 ! Tampilan admin di side panel blm update dengan contain db baru
 
-
+# Login Page
+. Lupa password tampilkan alert "Hubungi admin untuk reset kembali password akun anda"
 
