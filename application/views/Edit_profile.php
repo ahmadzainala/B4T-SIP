@@ -2,7 +2,8 @@
       <div class="card">
         <h4 class="card-header"><i class="material-icons">person</i> Edit Profile</h4>
         <div class="card-body">         
-          <form action='<?php echo base_url(); ?>User_akun/submit_profile' method='POST'>
+          <!-- <form action='<?php echo base_url(); ?>User_akun/submit_profile' method='POST'> -->
+            <?php echo form_open_multipart('User_akun/submit_profile');?>
             <table class="table borderless">
               <tr>
                 <td rowspan="5" width="10%">

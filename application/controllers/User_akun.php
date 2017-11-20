@@ -241,6 +241,26 @@ class User_akun extends CI_Controller
 
     public function submit_profile()
     {
+        $config['upload_path']          = './uploads/profile';
+        $config['allowed_types']        = 'jpg';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['file_name']            = $this->session->userdata('id_user');
+        $config['overwrite']            = true;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+                $data_upload_eror = array('error' => $this->upload->display_errors());
+
+        }
+        else
+        {
+                $data_upload = array('upload_data' => $this->upload->data());
+        }
+
         $name = $_POST['name'];
         $name = $_POST['name'];
         $p1 = $_POST['ps1'];
@@ -287,7 +307,6 @@ class User_akun extends CI_Controller
             redirect('User_akun/edit_profile');
         }
     }
-
 }
 
 /* End of file User_akun.php */
