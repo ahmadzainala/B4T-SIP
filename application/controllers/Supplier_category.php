@@ -15,13 +15,15 @@ class Supplier_category extends CI_Controller
 
     public function index()
     {
-        $supplier_category = $this->Supplier_category_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $supplier_category = $this->Supplier_category_model->get_all();
 
-        $data = array(
-            'supplier_category_data' => $supplier_category
-        );
+            $data = array(
+                'supplier_category_data' => $supplier_category
+            );
 
-        $this->template->load('template','supplier_category_list', $data);
+            $this->template->load('template','supplier_category_list', $data);
+        }
     }
 
     public function read($id) 

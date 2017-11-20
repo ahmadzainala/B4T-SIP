@@ -15,13 +15,15 @@ class Division extends CI_Controller
 
     public function index()
     {
-        $division = $this->Division_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $division = $this->Division_model->get_all();
 
-        $data = array(
-            'division_data' => $division
-        );
+            $data = array(
+                'division_data' => $division
+            );
 
-        $this->template->load('template','division_list', $data);
+            $this->template->load('template','division_list', $data);
+        }
     }
 
     public function read($id) 

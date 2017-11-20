@@ -15,13 +15,15 @@ class Items_category extends CI_Controller
 
     public function index()
     {
-        $items_category = $this->Items_category_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $items_category = $this->Items_category_model->get_all();
 
-        $data = array(
-            'items_category_data' => $items_category
-        );
+            $data = array(
+                'items_category_data' => $items_category
+            );
 
-        $this->template->load('template','items_category_list', $data);
+            $this->template->load('template','items_category_list', $data);
+        }
     }
 
     public function read($id) 

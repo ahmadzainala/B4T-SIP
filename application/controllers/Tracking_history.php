@@ -15,13 +15,15 @@ class Tracking_history extends CI_Controller
 
     public function index()
     {
-        $tracking_history = $this->Tracking_history_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $tracking_history = $this->Tracking_history_model->get_all();
 
-        $data = array(
-            'tracking_history_data' => $tracking_history
-        );
+            $data = array(
+                'tracking_history_data' => $tracking_history
+            );
 
-        $this->template->load('template','tracking_history_list', $data);
+            $this->template->load('template','tracking_history_list', $data);
+        }
     }
 
     public function read($id) 

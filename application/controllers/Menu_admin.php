@@ -15,13 +15,15 @@ class Menu_admin extends CI_Controller
 
     public function index()
     {
-        $menu_admin = $this->Menu_admin_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $menu_admin = $this->Menu_admin_model->get_all();
 
-        $data = array(
-            'menu_admin_data' => $menu_admin
-        );
+            $data = array(
+                'menu_admin_data' => $menu_admin
+            );
 
-        $this->template->load('template','menu_admin_list', $data);
+            $this->template->load('template','menu_admin_list', $data);
+        }
     }
 
     public function read($id) 

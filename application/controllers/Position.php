@@ -15,13 +15,15 @@ class Position extends CI_Controller
 
     public function index()
     {
-        $position = $this->Position_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $position = $this->Position_model->get_all();
 
-        $data = array(
-            'position_data' => $position
-        );
+            $data = array(
+                'position_data' => $position
+            );
 
-        $this->template->load('template','position_list', $data);
+            $this->template->load('template','position_list', $data);
+        }
     }
 
     public function read($id) 

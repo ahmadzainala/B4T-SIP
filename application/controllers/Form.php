@@ -16,13 +16,15 @@ class Form extends CI_Controller
 
     public function index()
     {
-        $form = $this->Form_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $form = $this->Form_model->get_all();
 
-        $data = array(
-            'form_data' => $form
-        );
+            $data = array(
+                'form_data' => $form
+            );
 
-        $this->template->load('template','form_list', $data);
+            $this->template->load('template','form_list', $data);
+        }
     }
 
     public function read($id) 

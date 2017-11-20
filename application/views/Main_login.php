@@ -240,7 +240,7 @@
                           $temp ="";
                           if($this->session->userdata('id_division')!= 5){
                             if($d->id_status_tracking == 6){
-                              $temp = "<i class='material-icons' style='color:black;'>assignment_late</i>";
+                              $temp = "<i class='material-icons' style='color:orange;'>error</i>";
                               $link = base_url()."Form/acc_item/".$d->id_form;
                             }
                           }else{

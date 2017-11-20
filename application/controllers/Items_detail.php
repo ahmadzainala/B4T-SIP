@@ -15,13 +15,15 @@ class Items_detail extends CI_Controller
 
     public function index()
     {
-        $items_detail = $this->Items_detail_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $items_detail = $this->Items_detail_model->get_all();
 
-        $data = array(
-            'items_detail_data' => $items_detail
-        );
+            $data = array(
+                'items_detail_data' => $items_detail
+            );
 
-        $this->template->load('template','items_detail_list', $data);
+            $this->template->load('template','items_detail_list', $data);
+        }
     }
 
     public function read($id) 

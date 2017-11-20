@@ -15,13 +15,15 @@ class Tracking extends CI_Controller
 
     public function index()
     {
-        $tracking = $this->Tracking_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $tracking = $this->Tracking_model->get_all();
 
-        $data = array(
-            'tracking_data' => $tracking
-        );
+            $data = array(
+                'tracking_data' => $tracking
+            );
 
-        $this->template->load('template','tracking_list', $data);
+            $this->template->load('template','tracking_list', $data);
+        }
     }
 
     public function read($id) 

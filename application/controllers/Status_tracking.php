@@ -16,13 +16,15 @@ class Status_tracking extends CI_Controller
 
     public function index()
     {
-        $status_tracking = $this->Status_tracking_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $status_tracking = $this->Status_tracking_model->get_all();
 
-        $data = array(
-            'status_tracking_data' => $status_tracking
-        );
+            $data = array(
+                'status_tracking_data' => $status_tracking
+            );
 
-        $this->template->load('template','status_tracking_list', $data);
+            $this->template->load('template','status_tracking_list', $data);
+        }
     }
 
     public function read($id) 

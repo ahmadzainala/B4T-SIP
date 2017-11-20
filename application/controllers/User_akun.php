@@ -15,13 +15,15 @@ class User_akun extends CI_Controller
 
     public function index()
     {
-        $user_akun = $this->User_akun_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $user_akun = $this->User_akun_model->get_all();
 
-        $data = array(
-            'user_akun_data' => $user_akun
-        );
+            $data = array(
+                'user_akun_data' => $user_akun
+            );
 
-        $this->template->load('template','user_akun_list', $data);
+            $this->template->load('template','user_akun_list', $data);
+        }
     }
 
     public function read($id) 

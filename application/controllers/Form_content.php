@@ -15,13 +15,15 @@ class Form_content extends CI_Controller
 
     public function index()
     {
-        $form_content = $this->Form_content_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){
+            $form_content = $this->Form_content_model->get_all();
 
-        $data = array(
-            'form_content_data' => $form_content
-        );
+            $data = array(
+                'form_content_data' => $form_content
+            );
 
-        $this->template->load('template','form_content_list', $data);
+            $this->template->load('template','form_content_list', $data);
+        }
     }
 
     public function read($id) 

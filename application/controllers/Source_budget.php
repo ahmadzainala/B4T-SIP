@@ -15,13 +15,15 @@ class Source_budget extends CI_Controller
 
     public function index()
     {
-        $source_budget = $this->Source_budget_model->get_all();
+        if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
+            $source_budget = $this->Source_budget_model->get_all();
 
-        $data = array(
-            'source_budget_data' => $source_budget
-        );
+            $data = array(
+                'source_budget_data' => $source_budget
+            );
 
-        $this->template->load('template','source_budget_list', $data);
+            $this->template->load('template','source_budget_list', $data);
+        }
     }
 
     public function read($id) 
