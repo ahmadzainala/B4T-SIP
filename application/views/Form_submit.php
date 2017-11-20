@@ -172,6 +172,12 @@
           </div>
           <hr>
           <div class="form-group">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              File lampiran harus berformat .zip dengan max ukuran 2MB
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <label for="exampleFormControlFile1">Lampiran</label>
             <input class="btn btn-sm" type="file" name="userfile">
           </div>          

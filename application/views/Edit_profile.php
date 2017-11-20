@@ -8,7 +8,7 @@
               <tr>
                 <td colspan="4">
                   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    Foto profile anda dapat diganti dengan file berformat .jpg dengan max ukuran 100Kb
+                    Foto profile anda dapat diganti dengan file berformat .jpg dengan max ukuran 100KB
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
