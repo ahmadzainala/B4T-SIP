@@ -88,7 +88,7 @@
               <div class="card-body"><?php echo $form_data->information;?></div>              
             </div>
             <hr>
-            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-primary" form="nothing"><i class="material-icons">attach_file</i>Unduh Lampiran</button></a> 
+            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-success" form="nothing"><i class="material-icons">attach_file</i>Unduh Lampiran</button></a> 
             <?php if($form_data->information_kabid!=''){ ?>
             <hr>
             <label for="keterangan"><b>Tambahan Kabid</b></label>
@@ -120,7 +120,7 @@
         if($j == $k){
           ?>
           <form action='<?php echo base_url(); ?>Form/done' id='done' method='POST'>
-        <div class="card-footer">
+        <div class="alert alert-success" role="alert">
           <p align="center">Semua item telah diterima</p>
         </div>
         <div class="card-footer">

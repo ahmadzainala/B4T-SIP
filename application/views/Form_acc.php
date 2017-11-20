@@ -89,7 +89,7 @@
               <div class="card-body"><?php echo $form_data->information; ?></div>
             </div>
             <hr>
-            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-primary" form="nothing"><i class="material-icons">attach_file</i>Unduh Lampiran</button></a> 
+            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-success" form="nothing"><i class="material-icons">attach_file</i>Unduh Lampiran</button></a> 
             <hr>
             <div class="card">
               <h5 class="card-header">Form Pernyataan</h5>              
@@ -108,7 +108,7 @@
                 </div>
                 <hr>
                 <label for="keterangan">Rekomendasi / Catatan</label>
-                <textarea class="form-control" name="keterangan" rows="5" id="keterangan" required></textarea>
+                <textarea class="form-control" name="keterangan" rows="5" id="keterangan"></textarea>
               </div>
             </div>
           <!--</form>!-->          

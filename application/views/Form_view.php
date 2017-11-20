@@ -117,7 +117,7 @@
                       </div>
                     </td>
                     <td></td>
-                    <td align="right"><button class='btn btn-danger btn-sm' type='button' name='cancel' id='cancel' style='display:none;' onclick='cancel()'><i class='material-icons'>delete_forever</i></button></td>
+                    <td align="right"><button class='btn btn-danger btn-sm' type='button' name='cancel' id='cancel' style='display:none;' onclick='cancel()'><i class='material-icons'>close</i></button></td>
                     <td><button class='btn btn-warning btn-sm' type='submit' id='update' style='display:none;' form='edit_item' name='update' onclick='setInput(this)'><i class='material-icons'>done</i></button></td>
                   </tr>
                     <?php
@@ -147,7 +147,7 @@
               <div class="card-body"><?php echo $form_data->information;?></div>              
             </div>
             <hr>
-            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-primary" form="nothing"><i class="material-icons">attach_file</i>Unduh Lampiran</button></a>             
+            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-success" form="nothing"><i class="material-icons">attach_file</i>Unduh Lampiran</button></a>             
             <?php if($form_data->information_kabid!=''){ ?>
             <hr>
             <label for="keterangan"><b>Tambahan Kabid</b></label>
@@ -181,7 +181,7 @@
         if($j == $k){
           ?>
           <form action='<?php echo base_url(); ?>Form/pengadaan' id='pengadaan' method='POST'>
-        <div class="card-footer">
+        <div class="alert alert-success" role="alert">
           <p align="center">Semua item telah tersedia dan siap dikirim</p>
         </div>
         <div class="card-footer">
@@ -207,8 +207,10 @@
       <?php
             if (isset($tracking) && $tracking->id_status_tracking == 5) {
       ?>
-          <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary" >Save to Word</button></a> 
-          <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary">Save to PDF</button></a>
+        </div>
+        <div class="card-footer" align="center">          
+          <a href="<?php echo base_url('Report/wordDokumen/'.$form_data->id_form);?>"><button class="btn btn-primary" ><i class="material-icons">insert_drive_file</i> Save to Word</button></a> 
+          <a href="<?php echo base_url('Report/PDFDokumen/'.$form_data->id_form);?>"><button class="btn btn-danger"><i class="material-icons">insert_drive_file</i> Save to PDF</button></a>      
       <?php
             }
       ?>

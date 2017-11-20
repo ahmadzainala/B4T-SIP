@@ -17,11 +17,11 @@
           <b>Menunggu Disetujui TU</b>
         </div>
         <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
-          <h1><i class="material-icons" style="font-size: 28px">assignment_returned</i> <?php echo $jmlmenunggudisetujuiPPK; ?></h1>
+          <h1><i class="material-icons" style="font-size: 28px">assignment</i> <?php echo $jmlmenunggudisetujuiPPK; ?></h1>
           <b>Menunggu Disetujui PPK</b>
         </div>
         <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
-          <h1><i class="material-icons" style="font-size: 28px">assignment</i> <?php echo $jmlprosespengadaan; ?></h1>
+          <h1><i class="material-icons" style="font-size: 28px">assignment_returned</i> <?php echo $jmlprosespengadaan; ?></h1>
           <b>Proses Pengadaan</b>
         </div>
         <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
@@ -147,81 +147,81 @@
                             if($d->id_status_tracking == 0 || $d->id_status_tracking == 10){
                               echo "<i class='material-icons' style='font-size: 22px; color:#b5bab4;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";
                             }else if($d->id_status_tracking == 1 || $d->id_status_tracking == 11){
                               echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";  
                             }else if($d->id_status_tracking == 2 || $d->id_status_tracking == 12){
                               echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";  
                             }else if($d->id_status_tracking == 3){
                               echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
+                              <i class='material-icons' style='font-size: 22px; color:green;'>assignment</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";  
                             }else if($d->id_status_tracking == 5){
                               echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:green;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:green;'>assignment_turned_in</i>";
                               echo "</td>";  
                             }else if($d->id_status_tracking == 4){
                               echo "<i class='material-icons' style='font-size: 22px; color:red;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";
                             }else if($d->id_status_tracking == 13){
                               echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:red;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";
                             }else if($d->id_status_tracking == 14){
                               echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:red;'>assignment_returned</i>
+                              <i class='material-icons' style='font-size: 22px; color:red;'>assignment</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";
                             }else if($d->id_status_tracking == 6){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
+                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
-                            <i class='material-icons' style='font-size: 22px; color:orange;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:orange;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else{
                                echo "<i class='material-icons' style='font-size: 22px; color:#b5bab4;'>timelapse</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                              <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                               <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                               echo "</td>";
                             }// echo "<td>".$d->description."</td>";
@@ -260,81 +260,81 @@
                             if($d->id_status_tracking == 0 || $d->id_status_tracking == 10){
                             echo "<i class='material-icons' style='font-size: 22px; color:#b5bab4;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else if($d->id_status_tracking == 1 || $d->id_status_tracking == 11){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";  
                           }else if($d->id_status_tracking == 2 || $d->id_status_tracking == 12){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";  
                           }else if($d->id_status_tracking == 3){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
+                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";  
                           }else if($d->id_status_tracking == 5){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_turned_in</i>";
                             echo "</td>";  
                           }else if($d->id_status_tracking == 4){
                             echo "<i class='material-icons' style='font-size: 22px; color:red;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else if($d->id_status_tracking == 13){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:red;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else if($d->id_status_tracking == 14){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:red;'>assignment_returned</i>
+                            <i class='material-icons' style='font-size: 22px; color:red;'>assignment</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else if($d->id_status_tracking == 6){
                             echo "<i class='material-icons' style='font-size: 22px; color:green;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment_returned</i>
+                            <i class='material-icons' style='font-size: 22px; color:green;'>assignment</i>
                             <i class='material-icons' style='font-size: 22px; color:green;'>assignment_late</i>
-                            <i class='material-icons' style='font-size: 22px; color:orange;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:orange;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }else{
                              echo "<i class='material-icons' style='font-size: 22px; color:#b5bab4;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
-                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_late</i>
+                            <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_returned</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_turned_in</i>";
                             echo "</td>";
                           }// echo "<td>".$d->description."</td>";
