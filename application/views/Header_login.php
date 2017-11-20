@@ -35,7 +35,7 @@
                 </td>
                 <td>
                   <a class="dropdown-item" href="<?php echo base_url() ?>User_akun/edit_profile">Edit Profile</a>
-                  <a class="dropdown-item" style="color: red; font-weight: bold" href="<?php echo base_url() ?>Login/logout">Logout</a>
+                  <a class="dropdown-item" style="color: red;" href="<?php echo base_url() ?>Login/logout">Logout</a>
                 </td>
               </tr>
             </table>           

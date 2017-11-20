@@ -13,7 +13,9 @@ class Upload extends CI_Controller {
 
         public function index()
         {
+                $this->load->view('header_login');
                 $this->load->view('upload_form', array('error' => ' ' ));
+                $this->load->view('footer');
         }
 
         public function upload_profile()
