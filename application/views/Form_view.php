@@ -18,7 +18,7 @@
               <td width="20px">:</td>
               <td colspan="2"><?php echo $form_data->name_activity;?></td>
               <td rowspan="5">
-                  <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user');?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
+                  <img src="<?php echo base_url() ?>uploads/profile/<?php echo $form_data->id_user;?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                 </div>
               </td>
             </tr>            
@@ -143,7 +143,7 @@
             <label for="keterangan">Keterangan</label>
             <div class="card">
               <div class="card-body"><?php echo $form_data->information;?></div>
-              <div class="card-body"><?php if($form_data->information_kabid!=''){ echo 'tambahan kabid: '.$form_data->information_kabid;}?></div>
+              <div class="card-body"><?php if($form_data->information_kabid!=''){ echo 'Tambahan Kabid: '.$form_data->information_kabid;}?></div>
             </div>
             <?php if($form_data->read_status_TU != 0 && $form_data->information_TU != ""){ ?>
             <hr>

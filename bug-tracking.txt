@@ -2,6 +2,7 @@
 
 A. Important !!
 - Upload foto masih dalam modul terpisah
+- Lampiran belum jalan
 - main.css not loaded ( modul bordeless kemungkinan di file lain !!)
 - Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
 - arti dari "Semua item telah diterima" dan coba simulasikan
