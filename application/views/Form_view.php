@@ -1,4 +1,6 @@
- 
+<?php
+  $id_form = $form_data->id_form;
+?> 
     <div class="container" style="padding-top: 70px">
       <div class="card">
         <div class="row card-header" style="margin: 0px 0.5px 0px 0.5px;padding-bottom: 1px;">
