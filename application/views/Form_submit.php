@@ -173,7 +173,7 @@
           <hr>
           <div class="form-group">
             <label for="exampleFormControlFile1">Lampiran</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input class="btn btn-sm" type="file" name="userfile">
           </div>          
         </div>
         <div class="card-footer">

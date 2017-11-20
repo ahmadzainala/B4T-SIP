@@ -530,6 +530,25 @@ class Form extends CI_Controller
 
 
     public function submit_form(){
+        
+        $config['upload_path']          = './uploads/lampiran';
+        $config['allowed_types']        = 'doc|docx|pdf|jpg|png|rar|zip';
+        $config['max_size']             = 2000;
+        $config['file_name']            = $this->session->userdata('id_form');
+        $config['overwrite']            = true;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+                $data_upload_eror = array('error' => $this->upload->display_errors());
+
+        }
+        else
+        {
+                $data_upload = array('upload_data' => $this->upload->data());
+        }
+
         $this->load->model('User_akun_model');
         $pass = md5($_POST['password']);
         $valid_user = $this->User_akun_model->get_data_user($this->session->userdata('username'),$pass);
@@ -1112,6 +1131,7 @@ class Form extends CI_Controller
             $this->autocompleteCat();
         }
     }
+
 }
 
 /* End of file Form.php */

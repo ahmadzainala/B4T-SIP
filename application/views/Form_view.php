@@ -144,6 +144,8 @@
             <div class="card">
               <div class="card-body"><?php echo $form_data->information;?></div>              
             </div>
+            <a href="<?php echo base_url()."uploads/lampiran/".$form_data->id_form.".docx";?>"><button class="btn btn-primary" >lampiran</button></a> 
+            
             <?php if($form_data->information_kabid!=''){ ?>
             <hr>
             <label for="keterangan"><b>Tambahan Kabid</b></label>
