@@ -532,7 +532,7 @@ class Form extends CI_Controller
     public function submit_form(){
         
         $config['upload_path']          = './uploads/lampiran';
-        $config['allowed_types']        = 'doc|docx|pdf|jpg|png|rar|zip';
+        $config['allowed_types']        = 'zip';
         $config['max_size']             = 2000;
         $config['file_name']            = $this->session->userdata('id_form');
         $config['overwrite']            = true;

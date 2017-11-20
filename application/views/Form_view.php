@@ -144,7 +144,7 @@
             <div class="card">
               <div class="card-body"><?php echo $form_data->information;?></div>              
             </div>
-            <a href="<?php echo base_url()."uploads/lampiran/".$form_data->id_form.".docx";?>"><button class="btn btn-primary" >lampiran</button></a> 
+            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-primary" form="nothing">lampiran</button></a> 
             
             <?php if($form_data->information_kabid!=''){ ?>
             <hr>

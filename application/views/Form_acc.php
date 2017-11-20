@@ -88,6 +88,7 @@
             <div class="card">
               <div class="card-body"><?php echo $form_data->information; ?></div>
             </div>
+            <a target="_blank" href="<?php echo base_url()."uploads/lampiran/".$id_form.".zip";?>"><button class="btn btn-primary" form="nothing">lampiran</button></a>
             <hr>
             <div class="card">
               <h5 class="card-header">Form Pernyataan</h5>              
