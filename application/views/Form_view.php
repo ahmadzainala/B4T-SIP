@@ -180,9 +180,10 @@
               <?php }else{
         if($j == $k){
           ?>
-          <form action='<?php echo base_url(); ?>Form/pengadaan' id='pengadaan' method='POST'>
-        <div class="alert alert-success" role="alert">
-          <p align="center">Semua item telah tersedia dan siap dikirim</p>
+          <form action='<?php echo base_url(); ?>Form/pengadaan' id='pengadaan' method='POST'> 
+          <div class="alert alert-success" role="alert">
+            <p align="center">Semua item telah tersedia dan siap dikirim</p>
+          </div>
         </div>
         <div class="card-footer">
           <table border=0>
@@ -199,7 +200,6 @@
               </td>
             </tr>
           </table>
-        </div>
           </form>
           <?php
         }
@@ -221,20 +221,6 @@
       <br>
       <br>
     </div> <!-- /container -->
-
-    <!-- Modal -->
-    <div class="modal fade" style="padding-top: 200px" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Form Belum Disi Dengan Benar </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     <!-- Bootstrap core JavaScript

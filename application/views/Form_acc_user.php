@@ -10,38 +10,35 @@
         </div> 
         <div class="card-body">
           <table class="table borderless">
-            <tr>
+            <tr>              
+              <td width="20%">Nama Kegiatan</td>
+              <td width="20px">:</td>
+              <td colspan="2"><?php echo $form_data->name_activity;?></td>
               <td rowspan="5">
-                <div class="card">
-                  <div class="card-body" style="margin-right: -23px;">
-                    <img src="<?php echo base_url() ?>template/user/img/default_profile.jpg" class="rounded" height="100px" width="100px">
-                  </div>
+                  <img src="<?php echo base_url() ?>uploads/profile/<?php echo $form_data->id_user;?>.jpg?dummy=8484744" class="rounded" height="200px" width="200px" align="right" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                 </div>
               </td>
-              <td width="20%">Nama Kegiatan</td>
-              <td colspan="2"><?php echo $form_data->name_activity;?></td>
-              <td width="30%"></td>
             </tr>            
             <tr>
-              <td width="20%">Kepada</td>
+              <td>Kepada</td>
+              <td>:</td>
               <td colspan="2">Kepala B4T,u.p. Kepala Bagian Tata Usaha</td>
-              <td width="30%"></td>
             </tr>
             <tr>
               <td>Dari</td>
+              <td>:</td>
               <td colspan="2"><?php echo $form_data->name.' ('.$divisi->name_division.')'; ?></td>
-              <td width="30%"></td>
             </tr>
             <tr>
               <td>Agar</td>
+              <td>:</td>
               <td colspan="2"><?php echo $form_data->that;?></td>
-              <td width="30%"></td>
             </tr>
             <tr>
               <td>Diperlukan Tanggal</td>
+              <td>:</td>
               <td colspan="2"><?php echo $form_data->date_needs;?></td>
-              <td width="30%"></td>
-            </tr>                   
+            </tr>                                
           </table>
           <hr>
           <div class="table-responsive">
@@ -120,8 +117,10 @@
         if($j == $k){
           ?>
           <form action='<?php echo base_url(); ?>Form/done' id='done' method='POST'>
-        <div class="alert alert-success" role="alert">
-          <p align="center">Semua item telah diterima</p>
+          <br>
+          <div class="alert alert-success" role="alert">
+            <p align="center">Semua item telah diterima</p>
+          </div>        
         </div>
         <div class="card-footer">
           <table border=0>
@@ -138,7 +137,6 @@
               </td>
             </tr>
           </table>
-        </div>
           </form>
           <?php
         }
