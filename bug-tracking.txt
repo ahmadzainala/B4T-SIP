@@ -28,6 +28,7 @@ $ REMOVE CODE YANG TIDAK BERGUNA
 
 # Dasboard Page
 ! Cari berkas belum jalan
+! Dasboard untuk pejabat ga berjalan mau dihilangkan apa direvisi 
 
 # Admin Page
 ! Bug admin edit user malah error (password ke generate padahal tidak diedit)
