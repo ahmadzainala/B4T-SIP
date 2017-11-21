@@ -46,3 +46,5 @@ $ Create when all done (saran berupa F.A.Q jangan video)
 ! Tidak muncul sumber anggaran 
 ! Di form "Diperlukan Tanggal" sedangkan dilaporan "Tanggal Diperlukan" (samakan "Diperlukan Tanggal")
 ! Layout mulai dari sumber anggaran kebawah dibikin tabel aja sampe catatan2 pejabat 
+! Tanggal diajukan pindahkan ke form sejajar dengan nama kegiatan
+! bootstrap error ketika buka docx
