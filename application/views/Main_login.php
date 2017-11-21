@@ -64,6 +64,7 @@
             <table class="table table-hover">
               <thead class="thead-inverse">
                 <tr>
+                  <th></th>
                   <th>Pemesan</th>
                   <th>Nama Kegiatan</th>
                   <th>Tanggal</th>
@@ -92,7 +93,7 @@
                              $link = base_url()."Form/form_acc/".$d->id_form;
                           }else{
                             if($d->id_status_tracking==4){
-                              $temp = "<i class='material-icons' style='color:red;'>clear</i>";
+                              $temp = "<i class='material-icons' style='color:red;'>cancel</i>";
                             }else{
                               $temp = "<i class='material-icons' style='color:green;'>check_circle</i>";
                             }
@@ -109,7 +110,7 @@
                              $link = base_url()."Form/form_acc/".$d->id_form;
                           }else{
                             if($d->id_status_tracking==13){
-                              $temp = "<i class='material-icons' style='color:red;'>clear</i>";
+                              $temp = "<i class='material-icons' style='color:red;'>cancel</i>";
                             }else{
                               $temp = "<i class='material-icons' style='color:green;'>check_circle</i>";
                             }
@@ -127,7 +128,7 @@
                           }else{
                             $link = base_url()."Form/detail_form/".$d->id_form;
                             if($d->id_status_tracking==14){
-                              $temp = "<i class='material-icons' style='color:red;'>clear</i>";
+                              $temp = "<i class='material-icons' style='color:red;'>cancel</i>";
                             }else{
                               $temp = "<i class='material-icons' style='color:green;'>check_circle</i>";
                             }
@@ -140,7 +141,8 @@
                         }else{
                            echo "<tr href='$link' style='font-weight:italic'>";
                         }
-                            echo "<td>".$temp." ".$d->name."</td>";
+                            echo "<td width=45px>".$temp."</td>"; 
+                            echo "<td>".$d->name."</td>";
                             echo "<td>".$d->name_activity."</td>";
                             echo "<td>".$date[0]."</td>";
                             echo "<td title='$d->description'>";
@@ -253,7 +255,8 @@
                             }
                           }
                             echo "<tr href='$link'>";
-                            echo "<td>".$temp."".$d->name."</td>";
+                            echo "<td width=45px>".$temp."</td>";
+                            echo "<td>".$d->name."</td>";
                             echo "<td>".$d->name_activity."</td>";
                             echo "<td>".$date[0]."</td>";
                             echo "<td title='$d->description'>";
