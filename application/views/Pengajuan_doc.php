@@ -48,7 +48,7 @@
                 <td><?php echo $form_data->that;?></td>
             </tr>
             <tr>
-                <td>Tanggal Diperlukan</td>
+                <td>Diperlukan Tanggal</td>
                 <td>:</td>
                 <td><?php echo $form_data->date_needs;?></td>
             </tr>
@@ -93,7 +93,7 @@
         </table>
 
         <br>
-        <p>Sumber Anggaran : <?php $form_data->name_source; ?> </p>
+        <p>Sumber Anggaran : <?php echo $form_data->name_source;?> </p>
         <p>Keterangan : </p>
         <p><?php echo $form_data->information;?></p>
         <p>
