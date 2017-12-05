@@ -36,8 +36,6 @@ class Report extends CI_Controller
         $docFilePath = $date[0]." ".$form_data->name." ".$form_data->id_form.".doc";
         
         header("Content-type: application/vnd.ms-word");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
         header("Content-Disposition: attachment;Filename=$docFilePath");
 
         
