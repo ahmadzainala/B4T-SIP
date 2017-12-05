@@ -26,7 +26,7 @@
       <div class="container">
         <a class="navbar-brand" href="<?php echo base_url(); ?>Main"><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <a href="" class="btn btn-warning" role="button"><i class="material-icons" style="font-size: 22px">book</i> Panduan</a>
+          <a href="<?php echo base_url() ?>Main/panduan" class="btn btn-warning" role="button"><i class="material-icons" style="font-size: 22px">book</i> Panduan</a>
 
           <div class="btn-group" role="group">
             <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
