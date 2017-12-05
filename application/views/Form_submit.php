@@ -151,9 +151,9 @@
                   <div class="form-check">
                     <label class="form-check-label">
                       <?php if($form_data->id_budget == $sb->id_budget){?>
-                      <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>" checked>
+                      <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" required value="<?php echo $sb->id_budget?>" checked>
                       <?php }else{ ?>
-                      <input class="form-check-input" type="radio" name="budget" id="exampleRadios1" value="<?php echo $sb->id_budget?>">
+                      <input class="form-check-input" type="radio" name="budget" required id="exampleRadios1" value="<?php echo $sb->id_budget?>">
                       <?php } ?>
                       <b><?php echo $sb->name_source;?></b>
                     </label>

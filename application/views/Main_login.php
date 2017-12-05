@@ -45,10 +45,10 @@
                     </form>
                   </th>    
                   <?php }?>              
-                  <form class="form-inline">
+                  <form class="form-inline" action="<?php echo base_url(); ?>Form/search_form" method="POST">
                     <th>
                       <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Cari Berkas..." aria-label="Cari Berkas...">
+                        <input name="search" type="search" class="form-control" placeholder="Cari Berkas..." aria-label="Cari Berkas..." required>
                         <span class="input-group-btn">
                           <button class="btn btn-primary" type="submit"><i class="material-icons" style="font-size: 22px">search</i></button>
                         </span>
@@ -434,6 +434,7 @@
  <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
+    
 
   <script type="text/javascript">
       $(document).ready(function(){

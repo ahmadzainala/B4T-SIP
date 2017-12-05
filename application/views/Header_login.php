@@ -53,3 +53,4 @@
 <script src="<?php echo base_url() ?>template/user/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/popper.min.js" type="text/javascript"></script> 
     <script src="<?php echo base_url() ?>template/user/js/bootstrap.min.js" type="text/javascript"></script>
+    
