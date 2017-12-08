@@ -57,22 +57,23 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo base_url()?>template/dist/img/Pacman.png" class="user-image" alt="User Image">
+                                    
+                                    <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user'); ?>.jpg?dummy=8484744" class="user-image" alt="User Image" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                                     <span class="hidden-xs">Admin</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="<?php echo base_url()?>template/dist/img/Pacman.png" class="img-circle" alt="User Image">
+                                        <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->userdata('id_user'); ?>.jpg?dummy=8484744" class="img-circle" alt="User Image" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg">
                                         <p>
                                             Admin
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-right">
+                                        <div class="pull-left">
                                             <?php
-                                            echo anchor('login/logout','Sing out',array('class'=>'btn btn-default btn-flat'));
+                                            echo anchor('login/logout','Sing out',array('class'=>'btn btn-warning'));
                                             ?>
                                             
                                         </div>
