@@ -72,7 +72,6 @@
                   $n = 0;
                   if($item_list != ""){
                     foreach ($item_list as $il) {
-                      //$il->name_items = preg_replace('/\s+/','-',$il->name_items);
                       if($il->status_acc == 1){
                         $stat = "<td colspan='2'><i class='material-icons' style='color:green;'>done</i></td>";
                       }else if(isset($tracking) && $tracking->id_status_tracking != 0 && $tracking->id_status_tracking != 10){
@@ -84,8 +83,7 @@
                       echo "<tr style=''><td>$i</td><td><input class='form-control' type='text' form='edit_item' name='kategori' id='cat_edit[$i]' style='text-align: left;' value=$il->name_category readonly/></td>";
                       echo "<td style='text-align:center;' title='yang diadakan pengadaan :".
                         $item_list_pengadaan[$n]->name_items
-                      ."'>";?><input class='form-control' type='text' form='edit_item' name='item' id='item_edit[$i]' style='text-align: left;' placeholder="<?=$il->name_items?>" value="<?=$il->name_items?>" readonly />
-                      <?php
+                      ."'><input class='form-control' type='text' form='edit_item' name='item' id='item_edit[$i]' style='text-align: left;' placeholder=$il->name_items value=$il->name_items readonly />";
                       echo "</td>";
                       echo "<td style='text-align:center;' title='Usulan Awal : $il->quantity_origin $il->unit'>$il->quantity $il->unit</td>";
                       if($this->session->userdata('id_division')!=5){
