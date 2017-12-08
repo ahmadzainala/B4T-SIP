@@ -11,7 +11,7 @@
 		<?php echo anchor(site_url('form/pdf'), '<i class="fa fa-file-pdf-o"></i> PDF', 'class="btn btn-primary btn-sm"'); ?></h3>
                 </div><!-- /.box-header -->
                 <div class='box-body'>
-        <table class="table table-bordered table-striped" id="mytable">
+        <table class="table-responsive table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="80px">No</th>
