@@ -4,7 +4,7 @@
           <div class='row'>
             <div class='col-xs-12'>
               <div class='box'>
-                <div class='box-header'>
+                <div class='table-responsive'>
                 <h3 class='box-title'>Tracking Read</h3>
         <table class="table table-bordered">
 	    <tr><td>Id Status Tracking</td><td><?php echo $id_status_tracking; ?></td></tr>

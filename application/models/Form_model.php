@@ -21,6 +21,7 @@ class Form_model extends CI_Model
         $this->db->order_by($this->id, $this->order);
         return $this->db->get($this->table)->result();
     }
+
     
     // get total rows
     function total_rows($q = NULL) {
@@ -87,7 +88,7 @@ class Form_model extends CI_Model
 
      function get_all_detail()
     {
-        return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user ORDER BY `date` DESC')->result();
+        return $this->db->query('select * from user_akun a, form b, source_budget c where a.id_user = b.id_user and c.id_budget = b.id_budget ORDER BY `date` DESC')->result();
     }
 
     function get_all_detail_like($like)
@@ -99,6 +100,11 @@ class Form_model extends CI_Model
     function get_by_id($id)
     {
         return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, source_budget e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and b.id_budget=e.id_budget and b.id_form ='.$id)->row();
+    }
+
+    function get_by_id_admin($id)
+    {
+        return $this->db->query('select * from user_akun a, form b, source_budget c where a.id_user = b.id_user and c.id_budget = b.id_budget and b.id_form='.$id)->row();
     }
 
     function get_by_id_new($id)

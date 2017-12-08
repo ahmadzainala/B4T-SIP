@@ -4,7 +4,7 @@
           <div class='row'>
             <div class='col-xs-12'>
               <div class='box'>
-                <div class='box-header'>
+                <div class='table-responsive'>
                 <h3 class='box-title'>Form_content Read</h3>
         <table class="table table-bordered">
 	    <tr><td>Id Form</td><td><?php echo $id_form; ?></td></tr>

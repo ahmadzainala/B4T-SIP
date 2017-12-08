@@ -17,7 +17,7 @@ class Form extends CI_Controller
     public function index()
     {
         if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
-            $form = $this->Form_model->get_all();
+            $form = $this->Form_model->get_all_detail();
 
             $data = array(
                 'form_data' => $form
@@ -33,7 +33,7 @@ class Form extends CI_Controller
         if ($row) {
             $data = array(
 		'id_form' => $row->id_form,
-		'id_user' => $row->id_user,
+		'name' => $row->name,
 		'date' => $row->date,
 		'information' => $row->information,
 		'information_kabid' => $row->information_kabid,
@@ -45,7 +45,7 @@ class Form extends CI_Controller
 		'read_status_TU' => $row->read_status_TU,
 		'read_status_PPK' => $row->read_status_PPK,
 		'status_submit' => $row->status_submit,
-		'id_budget' => $row->id_budget,
+		'name_source' => $row->name_source,
 		'name_activity' => $row->name_activity,
 	    );
             $this->template->load('template','form_read', $data);
@@ -54,121 +54,7 @@ class Form extends CI_Controller
             redirect(site_url('form'));
         }
     }
-
-    public function create() 
-    {
-        $data = array(
-            'button' => 'Create',
-            'action' => site_url('form/create_action'),
-	    'id_form' => set_value('id_form'),
-	    'id_user' => set_value('id_user'),
-	    'date' => set_value('date'),
-	    'information' => set_value('information'),
-	    'information_kabid' => set_value('information_kabid'),
-	    'information_TU' => set_value('information_TU'),
-	    'information_PPK' => set_value('information_PPK'),
-	    'date_needs' => set_value('date_needs'),
-	    'that' => set_value('that'),
-	    'read_status_Ketua' => set_value('read_status_Ketua'),
-	    'read_status_TU' => set_value('read_status_TU'),
-	    'read_status_PPK' => set_value('read_status_PPK'),
-	    'status_submit' => set_value('status_submit'),
-	    'id_budget' => set_value('id_budget'),
-	    'name_activity' => set_value('name_activity'),
-	);
-        $this->template->load('template','form_form', $data);
-    }
     
-    public function create_action() 
-    {
-        $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
-        } else {
-            $data = array(
-		'id_user' => $this->input->post('id_user',TRUE),
-		'date' => $this->input->post('date',TRUE),
-		'information' => $this->input->post('information',TRUE),
-		'information_kabid' => $this->input->post('information_kabid',TRUE),
-		'information_TU' => $this->input->post('information_TU',TRUE),
-		'information_PPK' => $this->input->post('information_PPK',TRUE),
-		'date_needs' => $this->input->post('date_needs',TRUE),
-		'that' => $this->input->post('that',TRUE),
-		'read_status_Ketua' => $this->input->post('read_status_Ketua',TRUE),
-		'read_status_TU' => $this->input->post('read_status_TU',TRUE),
-		'read_status_PPK' => $this->input->post('read_status_PPK',TRUE),
-		'status_submit' => $this->input->post('status_submit',TRUE),
-		'id_budget' => $this->input->post('id_budget',TRUE),
-		'name_activity' => $this->input->post('name_activity',TRUE),
-	    );
-
-            $this->Form_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('form'));
-        }
-    }
-    
-    public function update($id) 
-    {
-        $row = $this->Form_model->get_by_id($id);
-
-        if ($row) {
-            $data = array(
-                'button' => 'Update',
-                'action' => site_url('form/update_action'),
-		'id_form' => set_value('id_form', $row->id_form),
-		'id_user' => set_value('id_user', $row->id_user),
-		'date' => set_value('date', $row->date),
-		'information' => set_value('information', $row->information),
-		'information_kabid' => set_value('information_kabid', $row->information_kabid),
-		'information_TU' => set_value('information_TU', $row->information_TU),
-		'information_PPK' => set_value('information_PPK', $row->information_PPK),
-		'date_needs' => set_value('date_needs', $row->date_needs),
-		'that' => set_value('that', $row->that),
-		'read_status_Ketua' => set_value('read_status_Ketua', $row->read_status_Ketua),
-		'read_status_TU' => set_value('read_status_TU', $row->read_status_TU),
-		'read_status_PPK' => set_value('read_status_PPK', $row->read_status_PPK),
-		'status_submit' => set_value('status_submit', $row->status_submit),
-		'id_budget' => set_value('id_budget', $row->id_budget),
-		'name_activity' => set_value('name_activity', $row->name_activity),
-	    );
-            $this->template->load('template','form_form', $data);
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('form'));
-        }
-    }
-    
-    public function update_action() 
-    {
-        $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('id_form', TRUE));
-        } else {
-            $data = array(
-		'id_user' => $this->input->post('id_user',TRUE),
-		'date' => $this->input->post('date',TRUE),
-		'information' => $this->input->post('information',TRUE),
-		'information_kabid' => $this->input->post('information_kabid',TRUE),
-		'information_TU' => $this->input->post('information_TU',TRUE),
-		'information_PPK' => $this->input->post('information_PPK',TRUE),
-		'date_needs' => $this->input->post('date_needs',TRUE),
-		'that' => $this->input->post('that',TRUE),
-		'read_status_Ketua' => $this->input->post('read_status_Ketua',TRUE),
-		'read_status_TU' => $this->input->post('read_status_TU',TRUE),
-		'read_status_PPK' => $this->input->post('read_status_PPK',TRUE),
-		'status_submit' => $this->input->post('status_submit',TRUE),
-		'id_budget' => $this->input->post('id_budget',TRUE),
-		'name_activity' => $this->input->post('name_activity',TRUE),
-	    );
-
-            $this->Form_model->update($this->input->post('id_form', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('form'));
-        }
-    }
     
     public function delete($id) 
     {
@@ -242,12 +128,12 @@ class Form extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Id Budget");
 	xlsWriteLabel($tablehead, $kolomhead++, "Name Activity");
 
-	foreach ($this->Form_model->get_all() as $data) {
+	foreach ($this->Form_model->get_all_detail() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_user);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->name);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->date);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->information);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->information_kabid);
@@ -259,7 +145,7 @@ class Form extends CI_Controller
 	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_TU);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_PPK);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->status_submit);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->id_budget);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->name_source);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->name_activity);
 
 	    $tablebody++;
@@ -276,35 +162,11 @@ class Form extends CI_Controller
         header("Content-Disposition: attachment;Filename=form.doc");
 
         $data = array(
-            'form_data' => $this->Form_model->get_all(),
+            'form_data' => $this->Form_model->get_all_detail(),
             'start' => 0
         );
         
         $this->load->view('form_doc',$data);
-    }
-
-    function pdf()
-    {
-        
-        $data = array(
-            'form_data' => $this->Form_model->get_all(),
-            'start' => 0
-        );
-        
-        ini_set('memory_limit', '32M');
-        $html = $this->load->view('form_pdf', $data, true);
-
-        //this the PDF file name that user will get download
-        $pdfFilePath = "Form.pdf";
-
-        //load mPDF library
-        $this->load->library('pdf');
-
-        $pdf = $this->pdf->load();
-        $pdf->WriteHTML($html);
-        
-        //download it.
-        $pdf->Output('form.pdf', 'D'); 
     }
 
     public function search_form(){

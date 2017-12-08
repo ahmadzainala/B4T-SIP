@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>harviacode.com - codeigniter crud generator</title>
+        <title>Tabel-Admin</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <style>
             .word-table {
@@ -41,7 +41,7 @@
                 ?>
                 <tr>
 		      <td><?php echo ++$start ?></td>
-		      <td><?php echo $form->id_user ?></td>
+		      <td><?php echo $form->name ?></td>
 		      <td><?php echo $form->date ?></td>
 		      <td><?php echo $form->information ?></td>
 		      <td><?php echo $form->information_kabid ?></td>
@@ -53,7 +53,7 @@
 		      <td><?php echo $form->read_status_TU ?></td>
 		      <td><?php echo $form->read_status_PPK ?></td>
 		      <td><?php echo $form->status_submit ?></td>
-		      <td><?php echo $form->id_budget ?></td>
+		      <td><?php echo $form->name_source ?></td>
 		      <td><?php echo $form->name_activity ?></td>	
                 </tr>
                 <?php

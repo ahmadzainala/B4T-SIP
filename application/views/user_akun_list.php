@@ -4,14 +4,14 @@
           <div class='row'>
             <div class='col-xs-12'>
               <div class='box'>
-                <div class='box-header'>
+                <div class='table-responsive'>
                   <h3 class='box-title'>USER_AKUN LIST <?php echo anchor('user_akun/create/','Create',array('class'=>'btn btn-danger btn-sm'));?>
 		<?php echo anchor(site_url('user_akun/excel'), ' <i class="fa fa-file-excel-o"></i> Excel', 'class="btn btn-primary btn-sm"'); ?>
 		<?php echo anchor(site_url('user_akun/word'), '<i class="fa fa-file-word-o"></i> Word', 'class="btn btn-primary btn-sm"'); ?>
-		<?php echo anchor(site_url('user_akun/pdf'), '<i class="fa fa-file-pdf-o"></i> PDF', 'class="btn btn-primary btn-sm"'); ?></h3>
+		 </h3>
                 </div><!-- /.box-header -->
-                <div class='box-body'>
-        <table class="table table-bordered table-striped" id="mytable">
+                 <div class='table-responsive'>
+        <table class="table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="80px">No</th>

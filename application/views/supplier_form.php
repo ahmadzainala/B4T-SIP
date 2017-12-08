@@ -3,7 +3,7 @@
           <div class='row'>
             <div class='col-xs-12'>
               <div class='box'>
-                <div class='box-header'>
+                <div class='table-responsive'>
                 
                   <h3 class='box-title'>SUPPLIER</h3>
                       <div class='box box-primary'>

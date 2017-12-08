@@ -4,13 +4,13 @@
           <div class='row'>
             <div class='col-xs-12'>
               <div class='box'>
-                <div class='box-header'>
+                <div class='table-responsive'>
                   <h3 class='box-title'>FORM_CONTENT LIST <?php echo anchor('form_content/create/','Create',array('class'=>'btn btn-danger btn-sm'));?>
 		<?php echo anchor(site_url('form_content/excel'), ' <i class="fa fa-file-excel-o"></i> Excel', 'class="btn btn-primary btn-sm"'); ?>
 		<?php echo anchor(site_url('form_content/word'), '<i class="fa fa-file-word-o"></i> Word', 'class="btn btn-primary btn-sm"'); ?>
-		<?php echo anchor(site_url('form_content/pdf'), '<i class="fa fa-file-pdf-o"></i> PDF', 'class="btn btn-primary btn-sm"'); ?></h3>
+		 </h3>
                 </div><!-- /.box-header -->
-                <div class='box-body'>
+                 <div class='table-responsive'>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
