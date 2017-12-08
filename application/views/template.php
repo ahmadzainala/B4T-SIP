@@ -54,8 +54,6 @@
                         <ul class="nav navbar-nav">
 
 
-
-
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -85,45 +83,56 @@
                     </div>
                 </nav>
             </header>
-            <!-- Left side column. contains the logo and sidebar -->
+
             <div class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
-                    <!-- Sidebar user panel -->
-                    
+                  <!-- Sidebar user panel -->
+                  
+                  <!-- /.search form -->
                   <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
+                  <ul class="sidebar-menu" data-widget="tree">
+                    <li>
+                        <a href="<?php echo base_url(); ?>Main">
+                            <i class="fa fa-laptop"></i> <span>DASHBOARD (user view)</span>
+                        </a>
+                    </li>
 
-                        <li>
-                            <a href="<?php echo base_url(); ?>Main">
-                                <i class="fa fa-laptop"></i> <span>DASHBOARD (user view)</span>
-                            </a>
-                        </li>
-                        <?php
+                    <?php
                         $menu = $this->db->get_where('menu_admin', array('is_parent' => 0,'is_active'=>1));
                         foreach ($menu->result() as $m) {
                             // chek ada sub menu
                             $submenu = $this->db->get_where('menu_admin',array('is_parent'=>$m->id,'is_active'=>1));
                             if($submenu->num_rows()>0){
                                 // tampilkan submenu
-                                echo "<li class='treeview'>
-                                    ".anchor('#',  "<i class='$m->icon'></i>".strtoupper($m->name).' <i class="fa fa-angle-left pull-right"></i>')."
-                                        <ul class='treeview-menu'>";
+                                ?>
+                                <li class="treeview">
+                                    <a href="#">
+                                    <i class="<?php echo $m->icon; ?>"></i> <span><?php echo strtoupper($m->name); ?></span>
+                                    <span class="pull-right-container">
+                                      <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                  </a>
+                                  <ul class="treeview-menu">
+                                  <?php
                                 foreach ($submenu->result() as $s){
-                                     echo "<li>" . anchor($s->link, "<i class='$s->icon'></i> <span>" . strtoupper($s->name)) . "</span></li>";
+                                    ?>
+                                    <li><a href="<?php echo $s->link; ?>"><i class="<?php echo $s->icon; ?>"></i> <?php echo strtoupper($s->name); ?></a></li>
+                                    <?php
                                 }
-                                   echo"</ul>
-                                    </li>";
+                                  ?>
+                                  </ul>
+                              </li>
+                                <?php
+                                
                             }else{
                                 echo "<li>" . anchor($m->link, "<i class='$m->icon'></i> <span>" . strtoupper($m->name)) . "</span></li>";
                             }
                             
                         }
                         ?>
-
-                    </ul>
-                </section>
-                <!-- /.sidebar -->
+                  </ul>
+              </section>
             </div>
 
             <!-- Content Wrapper. Contains page content -->
