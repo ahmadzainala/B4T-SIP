@@ -16,7 +16,7 @@ class User_akun extends CI_Controller
     public function index()
     {
         if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
-            $user_akun = $this->User_akun_model->get_all();
+            $user_akun = $this->User_akun_model->get_all_detail();
 
             $data = array(
                 'user_akun_data' => $user_akun
@@ -28,15 +28,19 @@ class User_akun extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->User_akun_model->get_by_id($id);
+        $row = $this->User_akun_model->get_by_id_detail($id);
         if ($row) {
             $data = array(
 		'id_user' => $row->id_user,
 		'username' => $row->username,
 		'password' => $row->password,
 		'name' => $row->name,
-		'id_position' => $row->id_position,
-		'id_division' => $row->id_division,
+        'id_position' => $row->id_position,
+		'name_position' => $row->name_position,
+        'id_division' => $row->id_division,
+        'name_division' => $row->name_division,
+        'date_create' => $row->date_create,
+		'date_expired' => $row->date_expired,
 	    );
             $this->template->load('template','user_akun_read', $data);
         } else {
@@ -55,7 +59,8 @@ class User_akun extends CI_Controller
 	    'password' => set_value('password'),
 	    'name' => set_value('name'),
 	    'id_position' => set_value('id_position'),
-	    'id_division' => set_value('id_division'),
+        'id_division' => set_value('id_division'),
+	    'date_expired' => set_value(date("Y-m-d")),
 	);
         $this->template->load('template','user_akun_form', $data);
     }
@@ -72,7 +77,9 @@ class User_akun extends CI_Controller
 		'password' => md5($this->input->post('password',TRUE)),
 		'name' => $this->input->post('name',TRUE),
 		'id_position' => $this->input->post('id_position',TRUE),
-		'id_division' => $this->input->post('id_division',TRUE),
+        'id_division' => $this->input->post('id_division',TRUE),
+        'date_create' => date("Y-m-d"),
+		'date_expired' => $this->input->post('date_expired',TRUE),
 	    );
 
             $this->User_akun_model->insert($data);
@@ -91,10 +98,11 @@ class User_akun extends CI_Controller
                 'action' => site_url('user_akun/update_action'),
 		'id_user' => set_value('id_user', $row->id_user),
 		'username' => set_value('username', $row->username),
-		'password' => set_value('password', $row->password),
+		'password' => set_value('password', 'retype password'),
 		'name' => set_value('name', $row->name),
 		'id_position' => set_value('id_position', $row->id_position),
-		'id_division' => set_value('id_division', $row->id_division),
+        'id_division' => set_value('id_division', $row->id_division),
+		'date_expired' => set_value('date_expired', $row->date_expired),
 	    );
             $this->template->load('template','user_akun_form', $data);
         } else {
@@ -115,7 +123,8 @@ class User_akun extends CI_Controller
 		'password' => md5($this->input->post('password',TRUE)),
 		'name' => $this->input->post('name',TRUE),
 		'id_position' => $this->input->post('id_position',TRUE),
-		'id_division' => $this->input->post('id_division',TRUE),
+        'id_division' => $this->input->post('id_division',TRUE),
+		'date_expired' => $this->input->post('date_expired',TRUE),
 	    );
 
             $this->User_akun_model->update($this->input->post('id_user', TRUE), $data);
@@ -144,7 +153,8 @@ class User_akun extends CI_Controller
 	$this->form_validation->set_rules('password', 'password', 'trim|required');
 	$this->form_validation->set_rules('name', 'name', 'trim|required');
 	$this->form_validation->set_rules('id_position', 'id position', 'trim|required');
-	$this->form_validation->set_rules('id_division', 'id division', 'trim|required');
+    $this->form_validation->set_rules('id_division', 'id division', 'trim|required');
+	$this->form_validation->set_rules('date_expired', 'date expired', 'trim|required');
 
 	$this->form_validation->set_rules('id_user', 'id_user', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -176,7 +186,9 @@ class User_akun extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Password");
 	xlsWriteLabel($tablehead, $kolomhead++, "Name");
 	xlsWriteLabel($tablehead, $kolomhead++, "Id Position");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Division");
+    xlsWriteLabel($tablehead, $kolomhead++, "Id Division");
+    xlsWriteLabel($tablehead, $kolomhead++, "Date Create");
+	xlsWriteLabel($tablehead, $kolomhead++, "Date Expired");
 
 	foreach ($this->User_akun_model->get_all() as $data) {
             $kolombody = 0;
@@ -188,6 +200,8 @@ class User_akun extends CI_Controller
 	    xlsWriteLabel($tablebody, $kolombody++, $data->name);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->id_position);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->id_division);
+        xlsWriteLabel($tablebody, $kolombody++, $data->date_create);
+            xlsWriteLabel($tablebody, $kolombody++, $data->date_expired);
 
 	    $tablebody++;
             $nourut++;
@@ -203,26 +217,11 @@ class User_akun extends CI_Controller
         header("Content-Disposition: attachment;Filename=user_akun.doc");
 
         $data = array(
-            'user_akun_data' => $this->User_akun_model->get_all(),
+            'user_akun_data' => $this->User_akun_model->get_all_detail(),
             'start' => 0
         );
         
         $this->load->view('user_akun_doc',$data);
-    }
-
-    function pdf()
-    {
-        $data = array(
-            'user_akun_data' => $this->User_akun_model->get_all(),
-            'start' => 0
-        );
-        
-        ini_set('memory_limit', '32M');
-        $html = $this->load->view('user_akun_pdf', $data, true);
-        $this->load->library('pdf');
-        $pdf = $this->pdf->load();
-        $pdf->WriteHTML($html);
-        $pdf->Output('user_akun.pdf', 'D'); 
     }
 
      // 2) Untuk User
@@ -328,9 +327,3 @@ class User_akun extends CI_Controller
         return unlink($cache_path);
     }
 }
-
-/* End of file User_akun.php */
-/* Location: ./application/controllers/User_akun.php */
-/* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2017-10-22 00:47:45 */
-/* http://harviacode.com */

@@ -28,14 +28,17 @@
             $start = 0;
             foreach ($menu_admin_data as $menu_admin)
             {
+                $active = $menu_admin->is_active==1?'AKTIF':'TIDAK AKTIF';
+                $parent = $menu_admin->is_parent>1?'MAINMENU':'SUBMENU'
+                
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
 		    <td><?php echo $menu_admin->name ?></td>
 		    <td><?php echo $menu_admin->link ?></td>
-		    <td><?php echo $menu_admin->icon ?></td>
-		    <td><?php echo $menu_admin->is_active ?></td>
-		    <td><?php echo $menu_admin->is_parent ?></td>
+		    <td><i class='<?php echo $menu_admin->icon ?>'></td>
+		    <td><?php echo $active ?></td>
+            <td><?php echo $parent ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('menu_admin/read/'.$menu_admin->id),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 

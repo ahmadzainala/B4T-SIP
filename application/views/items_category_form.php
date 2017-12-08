@@ -13,7 +13,7 @@
         </td>
 	    <input type="hidden" name="id_category" value="<?php echo $id_category; ?>" /> 
 	    <tr><td colspan='2'><button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('items_category') ?>" class="btn btn-default">Cancel</a></td></tr>
+	    <a href="<?php echo site_url('items_category') ?>" class="btn btn-default">Back</a></td></tr>
 	
     </table></form>
     </div><!-- /.box-body -->

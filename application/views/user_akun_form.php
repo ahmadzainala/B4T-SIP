@@ -17,15 +17,21 @@
 	    <tr><td>Name <?php echo form_error('name') ?></td>
             <td><input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $name; ?>" />
         </td>
-	    <tr><td>Id Position <?php echo form_error('id_position') ?></td>
-            <td><input type="text" class="form-control" name="id_position" id="id_position" placeholder="Id Position" value="<?php echo $id_position; ?>" />
+	    <tr><td>Position <?php echo form_error('id_position') ?></td>
+        <td>
+        <?php echo get_select_other_field_from_key('position','name_position','id_position',$id_position)?>
         </td>
-	    <tr><td>Id Division <?php echo form_error('id_division') ?></td>
-            <td><input type="text" class="form-control" name="id_division" id="id_division" placeholder="Id Division" value="<?php echo $id_division; ?>" />
+      <tr><td>Division <?php echo form_error('id_division') ?></td>
+          <td>
+          <?php echo get_select_other_field_from_key('division','name_division','id_division',$id_division)?>
+             
+        </td>
+      <tr><td>Date Expired <?php echo form_error('date_expired') ?></td>
+            <td><input type="date" class="form-control" name="date_expired" id="date_expired" placeholder="Expired..." value="<?php echo $date_expired; ?>" />
         </td>
 	    <input type="hidden" name="id_user" value="<?php echo $id_user; ?>" /> 
 	    <tr><td colspan='2'><button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('user_akun') ?>" class="btn btn-default">Cancel</a></td></tr>
+	    <a href="<?php echo site_url('user_akun') ?>" class="btn btn-default">Back</a></td></tr>
 	
     </table></form>
     </div><!-- /.box-body -->

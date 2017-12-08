@@ -68,6 +68,16 @@ class Items_detail_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    function get_all_detail()
+    {
+        return $this->db->query('select * from items_detail a, items_category b where a.id_category = b.id_category')->result();
+    }
+
+    function get_by_id_detail($id)
+    {
+        return $this->db->query('select * from items_detail a, items_category b where a.id_category = b.id_category and a.id_items_detail ='.$id)->row();
+    }
+
     function get_by_category($id)
     {
         $this->db->where('id_category', $id);

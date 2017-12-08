@@ -86,7 +86,12 @@ class Form_content_model extends CI_Model
 
     function get_all_detail()
     {
-        return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_items_detail')->result();
+        return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e, supplier f where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_items_detail and e.id_supplier = f.id_supplier')->result();
+    }
+
+    function get_by_id_detail($id)
+    {
+        return $this->db->query('select * from form a, items_detail b, items_category c, user_akun d, form_content e, supplier f where a.id_user = d.id_user and a.id_form = e.id_form and b.id_category = c.id_category and b.id_items_detail = e.id_items_detail and e.id_supplier = f.id_supplier and e.id_form_content='.$id)->row();
     }
 
 

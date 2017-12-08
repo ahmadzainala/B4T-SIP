@@ -77,8 +77,10 @@ class User_akun_model extends CI_Model
     ////get data by username and pass
     public function get_data_user($user, $pass)
     {
+        $now = date("Y-m-d");
         $hasil = $this->db->where('username', $user)
                           ->where('password', $pass)
+                          ->where('date_expired >=', $now)
                           ->limit(1)
                           ->get($this->table);
         
@@ -92,6 +94,11 @@ class User_akun_model extends CI_Model
     function get_all_detail()
     {
         return $this->db->query('select * from user_akun a, position b, division c where a.id_position = b.id_position and c.id_division = a.id_division')->result();
+    }
+
+    function get_by_id_detail($id)
+    {
+        return $this->db->query('select * from user_akun a, position b, division c where a.id_position = b.id_position and c.id_division = a.id_division and a.id_user='.$id)->row();
     }
 
     function get_name_div_pos($id)

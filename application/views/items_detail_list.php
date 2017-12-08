@@ -28,7 +28,7 @@
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
-		    <td><?php echo $items_detail->id_category ?></td>
+		    <td><?php echo $items_detail->name_category ?></td>
 		    <td><?php echo $items_detail->name_items ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 

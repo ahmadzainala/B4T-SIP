@@ -5,7 +5,7 @@
             <div class='col-xs-12'>
               <div class='box'>
                 <div class='table-responsive'>
-                  <h3 class='box-title'>TRACKING LIST <?php echo anchor('tracking/create/','Create',array('class'=>'btn btn-danger btn-sm'));?>
+                  <h3 class='box-title'>TRACKING LIST 
 		<?php echo anchor(site_url('tracking/excel'), ' <i class="fa fa-file-excel-o"></i> Excel', 'class="btn btn-primary btn-sm"'); ?>
 		<?php echo anchor(site_url('tracking/word'), '<i class="fa fa-file-word-o"></i> Word', 'class="btn btn-primary btn-sm"'); ?>
 		 </h3>
@@ -33,9 +33,7 @@
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('tracking/read/'.$tracking->id_tracking),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 
-			echo '  '; 
-			echo anchor(site_url('tracking/update/'.$tracking->id_tracking),'<i class="fa fa-pencil-square-o"></i>',array('title'=>'edit','class'=>'btn btn-danger btn-sm')); 
-			echo '  '; 
+			echo '  ';
 			echo anchor(site_url('tracking/delete/'.$tracking->id_tracking),'<i class="fa fa-trash-o"></i>','title="delete" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 			?>
 		    </td>

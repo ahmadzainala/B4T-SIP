@@ -102,10 +102,6 @@ class Form_model extends CI_Model
         return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, source_budget e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and b.id_budget=e.id_budget and b.id_form ='.$id)->row();
     }
 
-    function get_by_id_admin($id)
-    {
-        return $this->db->query('select * from user_akun a, form b, source_budget c where a.id_user = b.id_user and c.id_budget = b.id_budget and b.id_form='.$id)->row();
-    }
 
     function get_by_id_new($id)
     {

@@ -16,7 +16,7 @@ class Items_detail extends CI_Controller
     public function index()
     {
         if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){        
-            $items_detail = $this->Items_detail_model->get_all();
+            $items_detail = $this->Items_detail_model->get_all_detail();
 
             $data = array(
                 'items_detail_data' => $items_detail
@@ -28,11 +28,11 @@ class Items_detail extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->Items_detail_model->get_by_id($id);
+        $row = $this->Items_detail_model->get_by_id_detail($id);
         if ($row) {
             $data = array(
 		'id_items_detail' => $row->id_items_detail,
-		'id_category' => $row->id_category,
+		'name_category' => $row->name_category,
 		'name_items' => $row->name_items,
 	    );
             $this->template->load('template','items_detail_read', $data);
@@ -157,7 +157,7 @@ class Items_detail extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Id Category");
 	xlsWriteLabel($tablehead, $kolomhead++, "Name Items");
 
-	foreach ($this->Items_detail_model->get_all() as $data) {
+	foreach ($this->Items_detail_model->get_all_detail() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric

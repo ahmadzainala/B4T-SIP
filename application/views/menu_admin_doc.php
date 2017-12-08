@@ -29,14 +29,17 @@
             </tr><?php
             foreach ($menu_admin_data as $menu_admin)
             {
+                $active = $menu_admin->is_active==1?'AKTIF':'TIDAK AKTIF';
+                $parent = $menu_admin->is_parent>1?'MAINMENU':'SUBMENU'
+                
                 ?>
                 <tr>
 		      <td><?php echo ++$start ?></td>
 		      <td><?php echo $menu_admin->name ?></td>
 		      <td><?php echo $menu_admin->link ?></td>
 		      <td><?php echo $menu_admin->icon ?></td>
-		      <td><?php echo $menu_admin->is_active ?></td>
-		      <td><?php echo $menu_admin->is_parent ?></td>	
+		      <td><?php echo $active ?></td>
+		      <td><?php echo $parent ?></td>	
                 </tr>
                 <?php
             }

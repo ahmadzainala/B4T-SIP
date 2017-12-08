@@ -23,6 +23,7 @@ class Login extends CI_Controller {
 	public function error_login()
 	{
 		//Ada error
+
 		$this->load->view('header');
 		$this->load->view('index');
 		$this->load->view('footer');

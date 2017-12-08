@@ -16,7 +16,7 @@ class Form_content extends CI_Controller
     public function index()
     {
         if($this->session->userdata('id_position')!=NULL && $this->session->userdata('id_position') == 1){
-            $form_content = $this->Form_content_model->get_all();
+            $form_content = $this->Form_content_model->get_all_detail();
 
             $data = array(
                 'form_content_data' => $form_content
@@ -28,13 +28,15 @@ class Form_content extends CI_Controller
 
     public function read($id) 
     {
-        $row = $this->Form_content_model->get_by_id($id);
+        $row = $this->Form_content_model->get_by_id_detail($id);
         if ($row) {
             $data = array(
 		'id_form_content' => $row->id_form_content,
 		'id_form' => $row->id_form,
-		'id_items_detail' => $row->id_items_detail,
-		'id_supplier' => $row->id_supplier,
+        'id_items_detail' => $row->id_items_detail,
+		'name_items' => $row->name_items,
+        'id_supplier' => $row->id_supplier,
+		'name_supplier' => $row->name_supplier,
 		'quantity' => $row->quantity,
 		'status_acc' => $row->status_acc,
 		'unit' => $row->unit,
@@ -43,46 +45,6 @@ class Form_content extends CI_Controller
             $this->template->load('template','form_content_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('form_content'));
-        }
-    }
-
-    public function create() 
-    {
-        $data = array(
-            'button' => 'Create',
-            'action' => site_url('form_content/create_action'),
-	    'id_form_content' => set_value('id_form_content'),
-	    'id_form' => set_value('id_form'),
-	    'id_items_detail' => set_value('id_items_detail'),
-	    'id_supplier' => set_value('id_supplier'),
-	    'quantity' => set_value('quantity'),
-	    'status_acc' => set_value('status_acc'),
-	    'unit' => set_value('unit'),
-	    'quantity_origin' => set_value('quantity_origin'),
-	);
-        $this->template->load('template','form_content_form', $data);
-    }
-    
-    public function create_action() 
-    {
-        $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
-        } else {
-            $data = array(
-		'id_form' => $this->input->post('id_form',TRUE),
-		'id_items_detail' => $this->input->post('id_items_detail',TRUE),
-		'id_supplier' => $this->input->post('id_supplier',TRUE),
-		'quantity' => $this->input->post('quantity',TRUE),
-		'status_acc' => $this->input->post('status_acc',TRUE),
-		'unit' => $this->input->post('unit',TRUE),
-		'quantity_origin' => $this->input->post('quantity_origin',TRUE),
-	    );
-
-            $this->Form_content_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('form_content'));
         }
     }
@@ -192,7 +154,7 @@ class Form_content extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Unit");
 	xlsWriteLabel($tablehead, $kolomhead++, "Quantity Origin");
 
-	foreach ($this->Form_content_model->get_all() as $data) {
+	foreach ($this->Form_content_model->get_all_detail() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric

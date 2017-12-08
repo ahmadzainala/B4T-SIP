@@ -1,5 +1,5 @@
 <?php
-function get_other_field_from_key($table,$field_search,$pk,$this_val){
+function get_select_other_field_from_key($table,$field_search,$pk,$this_val){
     $ci = get_instance();
     $value = "<select name='$pk' class='form-control'>";
     $data = $ci->db->get($table)->result();

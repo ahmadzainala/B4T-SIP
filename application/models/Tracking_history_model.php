@@ -71,7 +71,16 @@ class Tracking_history_model extends CI_Model
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
-     
+    
+    function get_all_detail()
+    {
+        return $this->db->query('select * from tracking_history a, position b, user_akun c, division d, tracking e where a.id_tracking = e.id_tracking and a.id_user_acc=b.id_position and c.id_position = b.id_position and c.id_division = d.id_division and c.date_create <= a.date_acc and c.date_expired >= a.date_acc')->result();
+    }
+
+    function get_by_id_detail($id)
+    {
+         return $this->db->query('select * from tracking_history a, position b, user_akun c, division d, tracking e where a.id_tracking = e.id_tracking and a.id_user_acc=b.id_position and c.id_position = b.id_position and c.id_division = d.id_division and c.date_create <= a.date_acc and c.date_expired >= a.date_acc and a.id_catalog ='.$id)->row();
+    } 
 
 }
 

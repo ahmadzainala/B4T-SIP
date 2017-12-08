@@ -24,7 +24,9 @@
 		<th>Password</th>
 		<th>Name</th>
 		<th>Id Position</th>
-		<th>Id Division</th>
+        <th>Id Division</th>
+        <th>Date Create</th>
+		<th>Date Expired</th>
 		
             </tr><?php
             foreach ($user_akun_data as $user_akun)
@@ -36,7 +38,9 @@
 		      <td><?php echo $user_akun->password ?></td>
 		      <td><?php echo $user_akun->name ?></td>
 		      <td><?php echo $user_akun->id_position ?></td>
-		      <td><?php echo $user_akun->id_division ?></td>	
+              <td><?php echo $user_akun->id_division ?></td>    
+              <td><?php echo $user_akun->date_create ?></td>    
+		      <td><?php echo $user_akun->date_expired ?></td>	
                 </tr>
                 <?php
             }

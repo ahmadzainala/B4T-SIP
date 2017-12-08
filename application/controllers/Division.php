@@ -155,6 +155,7 @@ class Division extends CI_Controller
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
+        xlsWriteNumber($tablebody, $kolombody++, $data->id_division);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->name_division);
 
 	    $tablebody++;

@@ -68,5 +68,15 @@ class Supplier_category_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    function get_all_detail()
+    {
+        return $this->db->query('select * from supplier a, items_category b, supplier_category c where b.id_category = c.id_category and a.id_supplier=c.id_supplier')->result();
+    }
+
+    function get_by_id_detail($id)
+    {
+         return $this->db->query('select * from supplier a, items_category b, supplier_category c where b.id_category = c.id_category and a.id_supplier=c.id_supplier and c.id_supplier_category ='.$id)->row();
+    }
+
 }
 

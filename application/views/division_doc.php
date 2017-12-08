@@ -20,6 +20,7 @@
         <table class="word-table" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
+        <th>Id Division</th>
 		<th>Name Division</th>
 		
             </tr><?php
@@ -28,6 +29,7 @@
                 ?>
                 <tr>
 		      <td><?php echo ++$start ?></td>
+              <td><?php echo $division->id_division ?></td>   
 		      <td><?php echo $division->name_division ?></td>	
                 </tr>
                 <?php

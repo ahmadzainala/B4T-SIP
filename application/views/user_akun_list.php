@@ -19,7 +19,9 @@
 		    <th>Password</th>
 		    <th>Name</th>
 		    <th>Id Position</th>
-		    <th>Id Division</th>
+            <th>Id Division</th>
+            <th>Date Create</th>
+            <th>Date Expired</th>
 		    <th>Action</th>
                 </tr>
             </thead>
@@ -35,7 +37,9 @@
 		    <td><?php echo $user_akun->password ?></td>
 		    <td><?php echo $user_akun->name ?></td>
 		    <td><?php echo $user_akun->id_position ?></td>
-		    <td><?php echo $user_akun->id_division ?></td>
+            <td><?php echo $user_akun->id_division ?></td>
+            <td><?php echo $user_akun->date_create ?></td>
+		    <td><?php echo $user_akun->date_expired ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('user_akun/read/'.$user_akun->id_user),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 

@@ -7,6 +7,7 @@
                 <div class='table-responsive'>
                 <h3 class='box-title'>Form Read</h3>
         <table class="table table-bordered">
+	    <tr><td>Id Form</td><td><?php echo $id_form; ?></td></tr>
 	    <tr><td>Username</td><td><?php echo $name; ?></td></tr>
 	    <tr><td>Date</td><td><?php echo $date; ?></td></tr>
 	    <tr><td>Name Activity</td><td><?php echo $name_activity; ?></td></tr>
@@ -21,7 +22,7 @@
 	    <tr><td>Read Status TU</td><td><?php echo $read_status_TU; ?></td></tr>
 	    <tr><td>Read Status PPK</td><td><?php echo $read_status_PPK; ?></td></tr>
 	    <tr><td>Status Submit</td><td><?php echo $status_submit; ?></td></tr>
-	    <tr><td></td><td><a href="<?php echo site_url('form') ?>" class="btn btn-default">Cancel</a></td></tr>
+	    <tr><td></td><td><a href="<?php echo site_url('form') ?>" class="btn btn-default">Back</a></td></tr>
 	</table>
         </div><!-- /.box-body -->
               </div><!-- /.box -->

@@ -28,8 +28,8 @@
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
-		    <td><?php echo $supplier_category->id_category ?></td>
-		    <td><?php echo $supplier_category->id_supplier ?></td>
+		    <td><?php echo $supplier_category->name_category ?></td>
+		    <td><?php echo $supplier_category->name_supplier ?></td>
 		    <td style="text-align:center" width="140px">
 			<?php 
 			echo anchor(site_url('supplier_category/read/'.$supplier_category->id_supplier_category),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-danger btn-sm')); 
