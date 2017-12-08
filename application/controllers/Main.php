@@ -22,7 +22,7 @@ class Main extends CI_Controller {
 		$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
 		$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
 		if($this->session->userdata('id_position') == 1){ //posisi admin
-			$form = $this->Form_model->get_all_detail();	
+			$form = $this->Form_model->get_all_form_detail();	
 		}else if($this->session->userdata('id_position') == 3){ //posisi Kepala Bidang
 			$form = $this->Form_model->get_by_user_div($this->session->userdata('id_division'));	
 		}else if($this->session->userdata('id_position') == 5){ //posisi Kepala Bagian TU

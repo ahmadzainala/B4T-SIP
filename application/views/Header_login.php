@@ -39,6 +39,13 @@
                        <img src="<?php echo base_url() ?>uploads/profile/<?php echo $this->session->id_user;?>.jpg?dummy=8484744" class="rounded" height="50px" width="50px" onerror=this.src="<?php echo base_url() ?>template/user/img/default_profile.jpg" style="margin: 0px 0px 0px 20px;">
                     </td>
                     <td>
+                      <?php
+                        if($this->session->userdata('id_position') == 1){
+                        ?>
+                        <a class="dropdown-item" href="<?php echo base_url() ?>Menu_admin">Back To Admin Panel</a>
+                        <?php
+                        }
+                      ?>
                       <a class="dropdown-item" href="<?php echo base_url() ?>User_akun/edit_profile">Edit Profile</a>
                       <a class="dropdown-item" style="color: red;" href="<?php echo base_url() ?>Login/logout">Logout</a>
                     </td>

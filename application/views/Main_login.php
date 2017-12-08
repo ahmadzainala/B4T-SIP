@@ -38,7 +38,7 @@
             <table class="table">
               <thead>
                 <div>
-                  <?php if($this->session->userdata('id_position') != 5 && $this->session->userdata('id_position') != 6){?>
+                  <?php if($this->session->userdata('id_position') != 5 && $this->session->userdata('id_position') != 6 && $this->session->userdata('id_position') != 1){?>
                   <th width="170px">
                     <form action="<?php echo base_url(); ?>Form/add_form" method="POST">
                       <button class="btn btn-success" type="submit"><i class="material-icons" style="font-size: 22px">add</i> Buat Pesanan</button>

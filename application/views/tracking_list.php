@@ -11,7 +11,7 @@
 		 </h3>
                 </div><!-- /.box-header -->
                  <div class='table-responsive'>
-        <table class="table-bordered table-striped" id="mytable">
+        <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="80px">No</th>
