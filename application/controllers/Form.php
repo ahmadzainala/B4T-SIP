@@ -113,7 +113,7 @@ class Form extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id User");
+	xlsWriteLabel($tablehead, $kolomhead++, "Username");
 	xlsWriteLabel($tablehead, $kolomhead++, "Date");
 	xlsWriteLabel($tablehead, $kolomhead++, "Information");
 	xlsWriteLabel($tablehead, $kolomhead++, "Information Kabid");
@@ -125,7 +125,7 @@ class Form extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Read Status TU");
 	xlsWriteLabel($tablehead, $kolomhead++, "Read Status PPK");
 	xlsWriteLabel($tablehead, $kolomhead++, "Status Submit");
-	xlsWriteLabel($tablehead, $kolomhead++, "Id Budget");
+	xlsWriteLabel($tablehead, $kolomhead++, "Name Budget");
 	xlsWriteLabel($tablehead, $kolomhead++, "Name Activity");
 
 	foreach ($this->Form_model->get_all_detail() as $data) {
@@ -133,7 +133,7 @@ class Form extends CI_Controller
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->name);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->username);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->date);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->information);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->information_kabid);
@@ -145,7 +145,7 @@ class Form extends CI_Controller
 	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_TU);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->read_status_PPK);
 	    xlsWriteNumber($tablebody, $kolombody++, $data->status_submit);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->name_source);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->name_source);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->name_activity);
 
 	    $tablebody++;
