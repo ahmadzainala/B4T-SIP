@@ -54,13 +54,13 @@ class Main extends CI_Controller {
 		//print_r($data);
 		$this->load->view('Header_login');
 		$this->load->view('Main_login',$data);
-		$this->load->view('footer');
+		$this->load->view('Footer');
 	}
 
 	public function panduan(){
 		$this->load->view('Header_login');
 		$this->load->view('Panduan');
-		$this->load->view('footer');
+		$this->load->view('Footer');
 	}
 
 }

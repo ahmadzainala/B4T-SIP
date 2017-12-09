@@ -41,7 +41,7 @@
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><b><img src="<?php echo base_url() ?>template/user/img/logo.png" style="max-height: 50px; and width: auto"></b></span>
                 </a>
-                <!-- Header Navbar: style can be found in header.less -->
+                <!-- header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -138,7 +138,7 @@
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
+                <!-- Content header (Page header) -->
                 <section class="content-header">
                     <h1>
                         Data Tables

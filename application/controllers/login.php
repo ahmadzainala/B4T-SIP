@@ -12,9 +12,9 @@ class Login extends CI_Controller {
 	{
 		//index login
 		if($this->session->userdata('username')== NULL){
-			$this->load->view('header');
-			$this->load->view('index');
-			$this->load->view('footer');
+			$this->load->view('Header');
+			$this->load->view('Index');
+			$this->load->view('Footer');
 		}else{
 			redirect('Main');
 		}
@@ -24,10 +24,10 @@ class Login extends CI_Controller {
 	{
 		//Ada error
 
-		$this->load->view('header');
-		$this->load->view('index');
-		$this->load->view('footer');
-		$this->load->view('notification');
+		$this->load->view('Header');
+		$this->load->view('Index');
+		$this->load->view('Footer');
+		$this->load->view('Notification');
 	}
 
 	public function validation()

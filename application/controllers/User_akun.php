@@ -232,10 +232,10 @@ class User_akun extends CI_Controller
         $data = array(
             'name_dp' => $name_dp
         );
-        $this->load->view('header_login');
+        $this->load->view('Header_login');
         //$this->load->view('edit_profile_ranggi');
         $this->load->view('Edit_profile',$data);
-        //$this->load->view('footer');
+        //$this->load->view('Footer');
     }
 
     public function submit_profile()
@@ -294,10 +294,10 @@ class User_akun extends CI_Controller
                     'name_dp' => $name_dp,
                     'data' => 3
                 );
-                $this->load->view('header_login');
+                $this->load->view('Header_login');
                 $this->load->view('Edit_profile',$data);
-                $this->load->view('notification',$data);
-                //$this->load->view('footer');
+                $this->load->view('Notification',$data);
+                //$this->load->view('Footer');
             }
         }else{
             $data = array(

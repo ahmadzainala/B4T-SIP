@@ -214,7 +214,7 @@ class Form extends CI_Controller
         //print_r($data);
         $this->load->view('Header_login');
         $this->load->view('Main_login',$data);
-        $this->load->view('footer');
+        $this->load->view('Footer');
     }
 
     public function edit_item(){
@@ -308,9 +308,9 @@ class Form extends CI_Controller
 
         //echo $item_list[0]->name_items;
 
-        $this->load->view('header_login');
+        $this->load->view('Header_login');
         $this->load->view('Form_view',$data);
-        $this->load->view('footer');
+        $this->load->view('Footer');
        //echo "$id_form_content</br>$kategori</br>$item";
     }
     // End Untuk Admin
@@ -433,9 +433,9 @@ class Form extends CI_Controller
 
        //echo $this->session->userdata('id_form');
         
-        $this->load->view('header_login');
+        $this->load->view('Header_login');
         $this->load->view('Form_submit',$data);
-        $this->load->view('footer');
+        $this->load->view('Footer');
     }
 
 
@@ -592,9 +592,9 @@ class Form extends CI_Controller
             );
         }
 
-        $this->load->view('header_login');
+        $this->load->view('Header_login');
         $this->load->view('Form_view',$data);
-        $this->load->view('footer');
+        $this->load->view('Footer');
     }
 
     public function form_acc($id_form = NULL){
@@ -659,7 +659,7 @@ class Form extends CI_Controller
             'id_form' => $id_form
         );
 
-        $this->load->view('header_login');
+        $this->load->view('Header_login');
         $this->load->view('Form_acc',$data);
     }
 
@@ -899,9 +899,9 @@ class Form extends CI_Controller
 
        //echo $this->session->userdata('id_form');
         
-        $this->load->view('header_login');
+        $this->load->view('Header_login');
         $this->load->view('Form_submit',$data);
-        $this->load->view('footer');
+        $this->load->view('Footer');
     }
 
     function pengadaan(){
@@ -956,7 +956,7 @@ class Form extends CI_Controller
             'form_acc' => $form_acc,
             'id_form' => $id_form
         );
-         $this->load->view('header_login');
+         $this->load->view('Header_login');
         $this->load->view('Form_acc_user',$data);
     }
 
