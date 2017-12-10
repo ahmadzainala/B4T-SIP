@@ -79,6 +79,42 @@ class Tracking_model extends CI_Model
         return $this->db->query('select * from Tracking_history b, tracking c where c.id_tracking = b.id_tracking and b.id_user_acc =5')->row();
     }
 
+    //admin
+    function get_total_menunggudisetujui_all(){
+        $this->db->where("(id_status_tracking!='5' AND id_status_tracking!='3' AND id_status_tracking!='4')", NULL, FALSE);
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
+    }
+
+    function get_total_menunggudisetujuiKD_admin(){
+         return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =0 or c.id_status_tracking =10)')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiTU_admin(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =1 or c.id_status_tracking =11)')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPK_admin(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =2 or c.id_status_tracking =12)')->num_rows();
+    }
+
+    function get_total_prosespengadaan_admin(){
+       return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =3)')->num_rows();
+    }
+
+    function get_total_tidakdisetujui_admin(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =4 or c.id_status_tracking =13 or c.id_status_tracking =14)')->num_rows();
+    }
+
+    function get_total_verifikasi_admin(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =6)')->num_rows();
+    }
+
+    function get_total_selesaipengadaan_admin(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =5)')->num_rows();
+    }
+
+    //user
     function get_total_menunggudisetujui($id){
         $this->db->where("(id_status_tracking!='5' AND id_status_tracking!='3' AND id_status_tracking!='4')", NULL, FALSE);
         $this->db->from($this->table);

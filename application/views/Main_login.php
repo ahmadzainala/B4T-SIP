@@ -8,6 +8,14 @@
     ?>
     <div class="container">
       <section class="row text-center placeholders">
+        <?php if($this->session->userdata('id_division') == 5){?>
+        <!-- INI PENGADAAN -->
+        <?php }else{
+                if($this->session->userdata('id_position') == 3 || $this->session->userdata('id_position') == 5 || $this->session->userdata('id_position') == 6){?>
+                <!-- INI KEPALA KEPALA -->
+        
+        <?php }else{?>
+        <!-- INI USER BIASA sama ADMIN -->
         <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
           <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
           <b>Menunggu Disetujui Kabid</b>
@@ -32,6 +40,8 @@
           <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmlselesaipengadaan; ?></h1>
           <b>Selesai Pengadaan</b>
         </div>
+        <?php }
+           }?>
       </section>
 
           <div class="table-responsive" style="padding-top: 22px">

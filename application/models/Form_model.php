@@ -132,7 +132,7 @@ class Form_model extends CI_Model
 
     function get_by_user_div($id)
     {
-        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` JOIN `tracking` JOIN `status_tracking` ON `form`.`id_user` = `user_akun`.`id_user` and `tracking`.`id_form` = `form`.`id_form` and `tracking`.`id_status_tracking` = `status_tracking`.`id_status_tracking` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `read_status_Ketua` ASC, `date` DESC')->result();
+        return $this->db->query('SELECT * FROM `form` JOIN `user_akun` JOIN `tracking` JOIN `status_tracking` ON `form`.`id_user` = `user_akun`.`id_user` and `tracking`.`id_form` = `form`.`id_form` and `tracking`.`id_status_tracking` = `status_tracking`.`id_status_tracking` WHERE `form`.`status_submit`=1 and `user_akun`.`id_division` ='.$id.' ORDER BY `read_status_Ketua` ASC, `status_tracking`.`id_status_tracking` DESC,  `date` DESC')->result();
     }
 
     function get_by_user_div_like($id,$like)
