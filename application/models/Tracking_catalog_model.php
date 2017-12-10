@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 class Tracking_history_model extends CI_Model
 {
 
-    public $table = 'Tracking_history';
+    public $table = 'tracking_history';
     public $id = 'id_catalog';
     public $order = 'DESC';
 
