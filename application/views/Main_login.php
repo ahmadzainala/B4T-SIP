@@ -253,7 +253,7 @@
                           $link = base_url()."Form/detail_form/".$d->id_form;
                           $temp ="";
                           if($this->session->userdata('id_division')!= 5){
-                            if($d->id_status_tracking == 6){
+                            if($d->id_status_tracking == 6 && $d->id_user == $this->session->userdata('id_user')){
                               $temp = "<i class='material-icons' style='color:orange;'>error</i>";
                               $link = base_url()."Form/acc_item/".$d->id_form;
                             }
