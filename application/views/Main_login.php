@@ -10,7 +10,7 @@
       <section class="row text-center placeholders">
         <?php if($this->session->userdata('id_division') == 5){?>
         <!-- INI PENGADAAN -->
-        <div class="col-6 col-sm-2 placeholder">
+        <div class="col-6 col-sm-3 placeholder">
         </div>
         <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">message</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
@@ -21,14 +21,10 @@
           <b>Menunggu Tindakan</b>
         </div>
         <div class="col-6 col-sm-2 placeholder">
-          <h1><i class="material-icons" style="font-size: 28px">assignment_returned</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
-          <b>Menunggu Tersedia</b>
-        </div>
-        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
           <b>Pengadaan Selesai</b>
         </div>
-        <div class="col-6 col-sm-2 placeholder">
+        <div class="col-6 col-sm-3 placeholder">
         </div>
 
         <?php }else{

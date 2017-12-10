@@ -47,16 +47,8 @@
 		    <hr>
 		    <p class="card-text">
 		    	<ul style="list-style-type:disc">
-			    	<li>Login menggunakan Username dan Password anda di siminda.b4t.go.id</li>
-			    	<li>Setelah itu anda akan diarahkan ke halaman Main Dasboard</li>
-			    	<li>Pertama klik tombol <b>Buat Pesanan</b></li>
-			    	<li>Lalu masukan <b>Nama Kegiatan, Agar</b></li>
-			    	<li>Dan <b>Diperlukan Tanggal</b> harap isikan sesuai urgensi pesanan, misal barang tersebut sangat diperlukan segera maka isikan <b>Segera</b> sedangkan bila pesanan sifatnya ditentukan tanggal maka isikan <b>Tanggal</b> sesuai dengan keperluan pesanan</li>
-			    	<li>Langkah selanjutnya masukan <b>Kategori</b> sesuai dengan jenis barang (misal pensil, termasuk kategori ATK), <b>Banyaknya, Satuan</b></li>
-			    	<li>Jika sudah klik tambahkan, jika ingin menambahkan barang lagi maka isikan lagi dibawahnya dan ulangi langkah tadi</li>
-			    	<li>Pilih sumber anggaran apakah dari <b>RM</b> atau <b>BLU</b></li>
-			    	<li>Tambahkan keterangan dan Lampiran file jika memungkinkan, Lampiran file pada form pemesanan hanya mendukung format dalam bentuk Zip dan maksimal berukuran 2MB</li>
-			    	<li>Setelah semua selesai diisi mohon cek kembali dan isikan password lalu klik tombol <b>Submit</b></li>			    	
+			    	<li>Sebelumnya bila pada komputer anda belum memiliki software Zip silahkan unduh terlebih dahulu dengan meminta bantuan Admin</li>			    	
+			    	<li>Jika sudah maka silahkan pilih file yang akan menjadi lampiran </li>			    	
 		    	</ul>
 		    </p>
 		  </div>
