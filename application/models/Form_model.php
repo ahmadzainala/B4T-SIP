@@ -142,48 +142,48 @@ class Form_model extends CI_Model
 
     function get_by_user_acc_TU()
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and e.id_tracking=c.id_tracking and (c.id_status_tracking =1 or c.id_status_tracking =11 or c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =13 or c.id_status_tracking =6
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and e.id_tracking=c.id_tracking and (c.id_status_tracking =1 or c.id_status_tracking =11 or c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =13 or c.id_status_tracking =6
             or c.id_status_tracking =5 or c.id_status_tracking =13 or c.id_status_tracking =14) GROUP BY `b`.`id_form` ORDER BY `read_status_TU` ASC, `date` DESC')->result();
     }
 
     function get_by_user_acc_TU_like($like)
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and e.id_tracking=c.id_tracking and (c.id_status_tracking =1 or c.id_status_tracking =11 or c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =13 or c.id_status_tracking =6
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and e.id_tracking=c.id_tracking and (c.id_status_tracking =1 or c.id_status_tracking =11 or c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =13 or c.id_status_tracking =6
             or c.id_status_tracking =5 or c.id_status_tracking =13 or c.id_status_tracking =14) and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") GROUP BY `b`.`id_form` ORDER BY `read_status_TU` ASC, `date` DESC')->result();
     }
 
     function get_by_user_acc_PPKRM()
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=2 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=2 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
             or c.id_status_tracking =5) GROUP BY `b`.`id_form` ORDER BY `read_status_PPK` ASC, `date` DESC')->result();
     }
 
     function get_by_user_acc_PPKRM_like($like)
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=2 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=2 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
             or c.id_status_tracking =5) and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") GROUP BY `b`.`id_form` ORDER BY `read_status_PPK` ASC, `date` DESC')->result();
     }
 
     function get_by_user_acc_PPKBLU()
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=1 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=1 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
             or c.id_status_tracking =5) GROUP BY `b`.`id_form` ORDER BY `read_status_PPK` ASC, `date` DESC')->result();
     }
 
     function get_by_user_acc_PPKBLU_like($like)
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=1 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and b.id_budget=1 and (c.id_status_tracking =12 or c.id_status_tracking =2 or c.id_status_tracking =3 or c.id_status_tracking =14 or c.id_status_tracking =6
             or c.id_status_tracking =5) and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") GROUP BY `b`.`id_form` ORDER BY `read_status_PPK` ASC, `date` DESC')->result();
     }
 
      function get_by_user_pengadaan()
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =3 or c.id_status_tracking =5 or c.id_status_tracking =6) GROUP BY `b`.`id_form` ORDER BY c.id_tracking DESC, `read_status_Pengadaan` ASC,`date` DESC')->result();
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =3 or c.id_status_tracking =5 or c.id_status_tracking =6) GROUP BY `b`.`id_form` ORDER BY c.id_tracking DESC, `read_status_Pengadaan` ASC,`date` DESC')->result();
     }
 
     function get_by_user_pengadaan_like($like)
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, Tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =3 or c.id_status_tracking =5 or c.id_status_tracking =6) and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") GROUP BY `b`.`id_form` ORDER BY `date` DESC')->result();
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =3 or c.id_status_tracking =5 or c.id_status_tracking =6) and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") GROUP BY `b`.`id_form` ORDER BY `date` DESC')->result();
     }
 
     //get by id user
