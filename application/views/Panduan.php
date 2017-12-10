@@ -1,4 +1,4 @@
-    <div class="jumbotron">
+    <div class="jumbotron" style="margin-bottom: -20px;">
       <div class="container">
       	<div class="alert alert-secondary" role="alert">
 		  <h4 class="alert-heading">Ini Adalah Halaman Panduan</h4>

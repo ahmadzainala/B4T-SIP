@@ -36,6 +36,9 @@
     <div class="fixed-bg"></div>  
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container">
-        <a class="navbar-brand" href=""><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>        
+        <a class="navbar-brand" href=""><img src="<?php echo base_url() ?>template/user/img/logo.png" class="img-fluid" style="max-width: 20%; and height: auto" alt="Responsive image"> Balai Besar Bahan dan Barang Teknik</a>
+         <div class="btn-group" role="group">
+          <a href="<?php echo base_url() ?>Main/panduan" class="btn btn-warning" role="button"><i class="material-icons" style="font-size: 22px">book</i> Panduan</a>        
+         </div>  
       </div>
     </nav>
