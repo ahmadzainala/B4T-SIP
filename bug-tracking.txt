@@ -29,9 +29,6 @@ $ REMOVE CODE YANG TIDAK BERGUNA
 # Dasboard Page
 ! Dasboard untuk pejabat ga berjalan mau dihilangkan apa direvisi 
 
-# Admin Page
-! Tampilan Dasboard pada admin error
-
 # Login Page
 . Tambahkan Remember me (?)
 
