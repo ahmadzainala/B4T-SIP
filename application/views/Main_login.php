@@ -123,7 +123,7 @@
               </thead>
               <tbody>
                   <?php 
-                    if($this->session->userdata('id_position')== 3 || $this->session->userdata('id_position')== 5 || $this->session->userdata('id_position')== 6){
+                    if(($this->session->userdata('id_position')== 3 || $this->session->userdata('id_position')== 5 || $this->session->userdata('id_position')== 6) && $this->session->userdata('id_division')== 5){
                       $temp = "";
                       if(isset($_GET['no_up'])){
                         $min = $_GET['no_bot'];
@@ -298,18 +298,35 @@
                               $link = base_url()."Form/acc_item/".$d->id_form;
                             }
                           }else{
+                            $read_status_Pengadaan = 0;
                             if($d->id_status_tracking == 6 || $d->id_status_tracking == 5){
                               $temp = "<i class='material-icons' style='color:green;'>check_circle</i>";
                             }else{
+                              if($d->read_status_Pengadaan == 0){
+                                $read_status_Pengadaan=1;
+                                //$temp = $d->read_status_Pengadaan;
+                              }else{
+                              $temp = "<i class='material-icons' style='color:orange;'>error</i>";
+                              }
 
                             }
                           }
+                          if(isset($read_status_Pengadaan) && $read_status_Pengadaan == 1){
+                            echo "<tr href='$link' style='font-weight:bold'>";
+                            echo "<td width=45px>".$temp."</td>";
+                            echo "<td>".$d->name."</td>";
+                            echo "<td>".$d->name_activity."</td>";
+                            echo "<td>".$date[0]."</td>";
+                            echo "<td title='$d->description'>";
+                          }else{
+
                             echo "<tr href='$link'>";
                             echo "<td width=45px>".$temp."</td>";
                             echo "<td>".$d->name."</td>";
                             echo "<td>".$d->name_activity."</td>";
                             echo "<td>".$date[0]."</td>";
                             echo "<td title='$d->description'>";
+                          }
                             if($d->id_status_tracking == 0 || $d->id_status_tracking == 10){
                             echo "<i class='material-icons' style='font-size: 22px; color:#b5bab4;'>timelapse</i>
                             <i class='material-icons' style='font-size: 22px; color:#b5bab4;'>assignment_ind</i>

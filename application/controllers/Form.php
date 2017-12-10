@@ -571,6 +571,11 @@ class Form extends CI_Controller
                 'tracking' => $tracking
             );
         }else{
+            $data2 = array(
+                'read_status_Pengadaan' => 1,
+            );
+            $this->Form_model->update($id_form,$data2);
+        
             $this->load->model('Form_content_model');
             $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
             $item_list_pengadaan = $this->Form_content_model->get_all_detail_by_form_pengadaan_only_acc($id_form);
@@ -942,6 +947,7 @@ class Form extends CI_Controller
             $this->Form_content_model->update($_POST['penerimaan'],$data);
         }
         $this->load->model('Form_content_model');
+        
         $item_list = $this->Form_content_model->get_all_detail_by_form_only_acc($id_form);
         $this->load->model('Division_model');
         $form_data = $this->Form_model->get_by_id($id_form);
