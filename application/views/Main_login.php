@@ -1,4 +1,4 @@
-    <!-- Main jumbotron for a primary marketing message or call to action -->
+    
     <?php
 
         $no = 0;
@@ -6,37 +6,81 @@
         $max = 10;
         $this_page = 1;
     ?>
-    <div class="container">
+    <div class="container" style="padding-top: 70px;">
       <section class="row text-center placeholders">
         <?php if($this->session->userdata('id_division') == 5){?>
         <!-- INI PENGADAAN -->
+        <div class="col-6 col-sm-2 placeholder">
+        </div>
+        <div class="col-6 col-sm-2 placeholder">
+          <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <b>Belum Dibaca</b>
+        </div>
+        <div class="col-6 col-sm-2 placeholder">
+          <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <b>Menunggu Tindakan</b>
+        </div>
+        <div class="col-6 col-sm-2 placeholder">
+          <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <b>Menunggu Tersedia</b>
+        </div>
+        <div class="col-6 col-sm-2 placeholder">
+          <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <b>Pengadaan Selesai</b>
+        </div>
+        <div class="col-6 col-sm-2 placeholder">
+        </div>
+
         <?php }else{
                 if($this->session->userdata('id_position') == 3 || $this->session->userdata('id_position') == 5 || $this->session->userdata('id_position') == 6){?>
                 <!-- INI KEPALA KEPALA -->
-        
+                <div class="col-6 col-sm-1 placeholder">
+                </div>
+                <div class="col-6 col-sm-2 placeholder">
+                  <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <b>Belum Dibaca</b>
+                </div>
+                <div class="col-6 col-sm-2 placeholder">
+                  <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <b>Menunggu Tindakan</b>
+                </div>
+                <div class="col-6 col-sm-2 placeholder">
+                  <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <b>Menunggu Pemesan</b>
+                </div>
+                <div class="col-6 col-sm-2 placeholder">
+                  <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <b>Yang Disetujui</b>
+                </div>
+                <div class="col-6 col-sm-2 placeholder">
+                  <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <b>Yang Ditolak</b>
+                </div>
+                <div class="col-6 col-sm-1 placeholder">
+                </div>
         <?php }else{?>
         <!-- INI USER BIASA sama ADMIN -->
-        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">timelapse</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
           <b>Menunggu Disetujui Kabid</b>
         </div>
-        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">assignment_ind</i> <?php echo $jmlmenunggudisetujuiTU; ?></h1>
           <b>Menunggu Disetujui TU</b>
         </div>
-        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">assignment</i> <?php echo $jmlmenunggudisetujuiPPK; ?></h1>
           <b>Menunggu Disetujui PPK</b>
         </div>
-        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">assignment_returned</i> <?php echo $jmlprosespengadaan; ?></h1>
           <b>Proses Pengadaan</b>
         </div>
-        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">assignment_late</i> <?php echo $jmlverifikasi; ?></h1>
           <b>Verifikasi Pengadaan</b>
         </div>
-        <div class="col-6 col-sm-2 placeholder" style="padding-top: 70px">
+        <div class="col-6 col-sm-2 placeholder">
           <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmlselesaipengadaan; ?></h1>
           <b>Selesai Pengadaan</b>
         </div>

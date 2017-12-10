@@ -27,15 +27,13 @@ $ REMOVE CODE YANG TIDAK BERGUNA
 ! Tambahkan keterangan edit nama barang pengadaan
 
 # Dasboard Page
-! Cari berkas belum jalan
 ! Dasboard untuk pejabat ga berjalan mau dihilangkan apa direvisi 
 
 # Admin Page
-! Bug admin edit user malah error (password ke generate padahal tidak diedit)
 ! Tampilan Dasboard pada admin error
 
 # Login Page
-. Lupa password tampilkan alert "Hubungi admin untuk reset kembali password akun anda"
+. Tambahkan Remember me (?)
 
 # Panduan Page
 $ Create when all done (saran berupa F.A.Q jangan video)
