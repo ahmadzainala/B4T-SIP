@@ -76,7 +76,7 @@ class Tracking_model extends CI_Model
     
 
     function get_by_id_tracking_TU($id_track){
-        return $this->db->query('select * from Tracking_history b, tracking c where c.id_tracking = b.id_tracking and b.id_user_acc =5')->row();
+        return $this->db->query('select * from tracking_history b, tracking c where c.id_tracking = b.id_tracking and b.id_user_acc =5')->row();
     }
 
     //admin
