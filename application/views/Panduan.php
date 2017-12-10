@@ -53,5 +53,17 @@
 		    </p>
 		  </div>
 		</div>
+
+		<div class="row">
+			<div class="col-md-offset-5 col-md-2" style="padding-top: 20px">
+	            <form action="<?php echo base_url(); ?>" method="POST">
+	              <table border=0>
+	                <tr>
+	                  <td><input class="btn btn-success" type="submit" name="submit" value="Back"></td>
+	                </tr>                            
+	              </table>
+	            </form>
+			</div>          
+          </div>
       </div>
     </div>

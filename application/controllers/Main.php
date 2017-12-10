@@ -148,8 +148,13 @@ class Main extends CI_Controller {
 	}
 
 	public function panduan(){
-		$this->load->view('Header_login');
-		$this->load->view('Panduan');
+		if($this->session->userdata('id_user')!=Null){
+			$this->load->view('Header_login');
+			$this->load->view('Panduan');
+		}else{
+			$this->load->view('Header');
+			$this->load->view('Panduan');
+		}
 		//$this->load->view('Footer');
 	}
 
