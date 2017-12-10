@@ -59,89 +59,61 @@ class Main extends CI_Controller {
 		        );
 			}else if($this->session->userdata('id_position') == 3){ //posisi Kepala Bidang
 				$form = $this->Form_model->get_by_user_div($this->session->userdata('id_division'));
-				$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK($this->session->userdata('id_user'));
-				$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan($this->session->userdata('id_user'));
-				$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui($this->session->userdata('id_user'));
-				$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
-				$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
+				$jmlunread = $this->Tracking_model->get_total_menunggudisetujuiKD_unread($this->session->userdata('id_division'));
+				$jmlaction = $this->Tracking_model->get_total_menunggudisetujuiKD_action($this->session->userdata('id_division'));
+				$jmlaccept = $this->Tracking_model->get_total_menunggudisetujuiKD_accept($this->session->userdata('id_division'));
+				$jmlreject = $this->Tracking_model->get_total_menunggudisetujuiKD_reject($this->session->userdata('id_division'));
+				
 				$data = array(
 		            'form_data' => $form,
-		            'jmlmenunggudisetujui'=> $jmlmenunggudisetujui,
-		            'jmlselesaipengadaan'=> $jmlselesaipengadaan,
-		            'jmltidakdisetujui'=> $jmltidakdisetujui,
-		            'jmlprosespengadaan'=> $jmlprosespengadaan,
-		            'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
-		            'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
-		            'jmlverifikasi'=> $jmlverifikasi,
-		            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
+		            'jmlunread' => $jmlunread,
+		            'jmlaccept' => $jmlaccept,
+		            'jmlaction' => $jmlaction,
+		            'jmlreject' => $jmlreject,
 		        );	
 			}else if($this->session->userdata('id_position') == 5){ //posisi Kepala Bagian TU
 				$form = $this->Form_model->get_by_user_acc_TU();
-				$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK($this->session->userdata('id_user'));
-				$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan($this->session->userdata('id_user'));
-				$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui($this->session->userdata('id_user'));
-				$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
-				$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
+				$jmlunread = $this->Tracking_model->get_total_menunggudisetujuiTU_unread();
+				$jmlaction = $this->Tracking_model->get_total_menunggudisetujuiTU_action();
+				$jmlaccept = $this->Tracking_model->get_total_menunggudisetujuiTU_accept();
+				$jmlreject = $this->Tracking_model->get_total_menunggudisetujuiTU_reject();
+				
 				$data = array(
 		            'form_data' => $form,
-		            'jmlmenunggudisetujui'=> $jmlmenunggudisetujui,
-		            'jmlselesaipengadaan'=> $jmlselesaipengadaan,
-		            'jmltidakdisetujui'=> $jmltidakdisetujui,
-		            'jmlprosespengadaan'=> $jmlprosespengadaan,
-		            'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
-		            'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
-		            'jmlverifikasi'=> $jmlverifikasi,
-		            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
-		        );	
+		            'jmlunread' => $jmlunread,
+		            'jmlaccept' => $jmlaccept,
+		            'jmlaction' => $jmlaction,
+		            'jmlreject' => $jmlreject,
+		        );
 			}else if($this->session->userdata('id_position') == 6){ //posisi Kepala PPK
-				if($this->session->userdata('id_division') == 3){
+				if($this->session->userdata('id_division') == 3){ //RM
 					$form = $this->Form_model->get_by_user_acc_PPKRM();
-					$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui($this->session->userdata('id_user'));
-					$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD($this->session->userdata('id_user'));
-					$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU($this->session->userdata('id_user'));
-					$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK($this->session->userdata('id_user'));
-					$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan($this->session->userdata('id_user'));
-					$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui($this->session->userdata('id_user'));
-					$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
-					$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
+					$jmlunread = $this->Tracking_model->get_total_menunggudisetujuiPPKRM_unread();
+					$jmlaction = $this->Tracking_model->get_total_menunggudisetujuiPPKRM_action();
+					$jmlaccept = $this->Tracking_model->get_total_menunggudisetujuiPPKRM_accept();
+					$jmlreject = $this->Tracking_model->get_total_menunggudisetujuiPPKRM_reject();
+					
 					$data = array(
 			            'form_data' => $form,
-			            'jmlmenunggudisetujui'=> $jmlmenunggudisetujui,
-			            'jmlselesaipengadaan'=> $jmlselesaipengadaan,
-			            'jmltidakdisetujui'=> $jmltidakdisetujui,
-			            'jmlprosespengadaan'=> $jmlprosespengadaan,
-			            'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
-			            'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
-			            'jmlverifikasi'=> $jmlverifikasi,
-			            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
-			        );	
+			            'jmlunread' => $jmlunread,
+			            'jmlaccept' => $jmlaccept,
+			            'jmlaction' => $jmlaction,
+			            'jmlreject' => $jmlreject,
+			        );
 				}else{
 					$form = $this->Form_model->get_by_user_acc_PPKBLU();
-					$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui($this->session->userdata('id_user'));
-					$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD($this->session->userdata('id_user'));
-					$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU($this->session->userdata('id_user'));
-					$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK($this->session->userdata('id_user'));
-					$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan($this->session->userdata('id_user'));
-					$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui($this->session->userdata('id_user'));
-					$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
-					$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
+					$jmlunread = $this->Tracking_model->get_total_menunggudisetujuiPPKBLU_unread();
+					$jmlaction = $this->Tracking_model->get_total_menunggudisetujuiPPKBLU_action();
+					$jmlaccept = $this->Tracking_model->get_total_menunggudisetujuiPPKBLU_accept();
+					$jmlreject = $this->Tracking_model->get_total_menunggudisetujuiPPKBLU_reject();
+					
 					$data = array(
 			            'form_data' => $form,
-			            'jmlmenunggudisetujui'=> $jmlmenunggudisetujui,
-			            'jmlselesaipengadaan'=> $jmlselesaipengadaan,
-			            'jmltidakdisetujui'=> $jmltidakdisetujui,
-			            'jmlprosespengadaan'=> $jmlprosespengadaan,
-			            'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
-			            'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
-			            'jmlverifikasi'=> $jmlverifikasi,
-			            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
-			        );	
+			            'jmlunread' => $jmlunread,
+			            'jmlaccept' => $jmlaccept,
+			            'jmlaction' => $jmlaction,
+			            'jmlreject' => $jmlreject,
+			        );
 				}
 			}else{ //posisi selain kepala
 				$form = $this->Form_model->get_by_user($this->session->userdata('id_user'));

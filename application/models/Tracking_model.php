@@ -125,12 +125,80 @@ class Tracking_model extends CI_Model
          return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_user = '.$id.' and (c.id_status_tracking =0 or c.id_status_tracking =10)')->num_rows();
     }
 
+    function get_total_menunggudisetujuiKD_unread($id){
+         return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_division = '.$id.' and b.read_status_Ketua=0 and (c.id_status_tracking =0)')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiKD_accept($id){
+         return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and a.id_division = '.$id.' and c.id_tracking=d.id_tracking and d.id_user_acc=3 and d.acc=1')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiKD_reject($id){
+         return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and a.id_division = '.$id.' and c.id_tracking=d.id_tracking and d.id_user_acc=3 and d.acc=0')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiKD_action($id){
+         return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_division = '.$id.' and (c.id_status_tracking =10)')->num_rows();
+    }
+
     function get_total_menunggudisetujuiTU($id){
         return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_user = '.$id.' and (c.id_status_tracking =1 or c.id_status_tracking =11)')->num_rows();
     }
 
+    function get_total_menunggudisetujuiTU_unread(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =1)')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiTU_accept(){
+        return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and d.id_tracking = c.id_tracking and d.id_user_acc=5 and d.acc = 1')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiTU_reject(){
+        return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and d.id_tracking = c.id_tracking and d.id_user_acc=5 and d.acc = 0')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiTU_action(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =11)')->num_rows();
+    }
+
     function get_total_menunggudisetujuiPPK($id){
         return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_user = '.$id.' and (c.id_status_tracking =2 or c.id_status_tracking =12)')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKRM_unread(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =2) and b.id_budget=2')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKRM_accept(){
+        return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and d.id_tracking=c.id_tracking and b.id_budget=2 and d.id_user_acc=6 and d.acc=1')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKRM_reject(){
+        return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and d.id_tracking=c.id_tracking and b.id_budget=2 and d.id_user_acc=6 and d.acc=0')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKRM_action(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =12) and b.id_budget=2')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKBLU_unread(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =2) and b.id_budget=1')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKBLU_accept(){
+        return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and d.id_tracking=c.id_tracking and b.id_budget=1 and d.id_user_acc=6 and d.acc=1')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKBLU_reject(){
+        return $this->db->query('select * from tracking c, form b, user_akun a, tracking_history d where c.id_form=b.id_form and a.id_user = b.id_user and d.id_tracking=c.id_tracking and b.id_budget=1 and d.id_user_acc=6 and d.acc=0')->num_rows();
+    }
+
+    function get_total_menunggudisetujuiPPKBLU_action(){
+        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =12) and b.id_budget=1')->num_rows();
+    }
+
+    function get_total_prosespengadaan($id){
+       return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_user = '.$id.' and (c.id_status_tracking =3)')->num_rows();
     }
 
     function get_total_prosespengadaan($id){

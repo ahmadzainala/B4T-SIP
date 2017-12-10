@@ -37,19 +37,19 @@
                 <div class="col-6 col-sm-2 placeholder">
                 </div>
                 <div class="col-6 col-sm-2 placeholder">
-                  <h1><i class="material-icons" style="font-size: 28px">message</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <h1><i class="material-icons" style="font-size: 28px">message</i> <?php echo $jmlunread; ?></h1>
                   <b>Belum Dibaca</b>
                 </div>
                 <div class="col-6 col-sm-2 placeholder">
-                  <h1><i class="material-icons" style="font-size: 28px">announcement</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <h1><i class="material-icons" style="font-size: 28px">announcement</i> <?php echo $jmlaction; ?></h1>
                   <b>Menunggu Tindakan</b>
                 </div>
                 <div class="col-6 col-sm-2 placeholder">
-                  <h1><i class="material-icons" style="font-size: 28px">check_circle</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <h1><i class="material-icons" style="font-size: 28px">check_circle</i> <?php echo $jmlaccept; ?></h1>
                   <b>Yang Disetujui</b>
                 </div>
                 <div class="col-6 col-sm-2 placeholder">
-                  <h1><i class="material-icons" style="font-size: 28px">cancel</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+                  <h1><i class="material-icons" style="font-size: 28px">cancel</i> <?php echo $jmlreject; ?></h1>
                   <b>Yang Ditolak</b>
                 </div>
                 <div class="col-6 col-sm-2 placeholder">
