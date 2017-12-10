@@ -182,7 +182,7 @@ class Form extends CI_Controller
         $jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
         $jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
         if($this->session->userdata('id_position') == 1){ //posisi admin
-            $form = $this->Form_model->get_all_detail_like($like);    
+            $form = $this->Form_model->get_all_form_detail_like($like);    
         }else if($this->session->userdata('id_position') == 3){ //posisi Kepala Bidang
             $form = $this->Form_model->get_by_user_div_like($this->session->userdata('id_division'),$like);    
         }else if($this->session->userdata('id_position') == 5){ //posisi Kepala Bagian TU

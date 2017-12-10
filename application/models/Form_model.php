@@ -96,6 +96,11 @@ class Form_model extends CI_Model
         return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 ORDER BY `date` DESC')->result();
     }
 
+    function get_all_form_detail_like($like)
+    {
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and b.status_submit=1 and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") ORDER BY `date` DESC')->result();
+    }
+
     function get_all_detail_like($like)
     {
         return $this->db->query('select * from user_akun a, form b where a.id_user = b.id_user and (b.date like "%'.$like.'%" or a.name like "%'.$like.'%" or b.name_activity like "%'.$like.'%") ORDER BY `date` DESC')->result();
