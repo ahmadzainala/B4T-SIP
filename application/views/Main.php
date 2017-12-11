@@ -21,7 +21,7 @@
               <table border=0>
                 <tr>
                   <td><input class="btn btn-success" type="submit" name="submit" value="Login"></td>
-                  <td><input class="btn btn-warning" type="button" name="lupa_password" value="Lupa Password"></td>
+                  <td><input class="btn btn-secondary" type="button" name="lupa_password" value="Lupa Password"></td>
                 </tr>                            
               </table>
             </form>

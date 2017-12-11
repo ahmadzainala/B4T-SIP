@@ -20,7 +20,6 @@ $ REMOVE CODE YANG TIDAK BERGUNA
 # Submit Form
 ! Tambahkan autocomplete pada satuan banyaknya barang tanpa keterkaitan tapi
 ! Tambahkan reqiured pada sumber anggaran (kalau dikosongkan setelah submit formview tidak dapat dilihat)
-. Auto Complete Stuck di ATK ketika masukan "Perbaikan AC" dan hapus masukan category tidak bisa
 . Ada Dialog saat hapus barang di submit form "Anda yakin untuk hapus barang ini ?"
 
 # Pengadaan
@@ -34,6 +33,3 @@ $ REMOVE CODE YANG TIDAK BERGUNA
 
 # Panduan Page
 $ Create when all done (saran berupa F.A.Q jangan video)
-
-# Pemberkasan
-! bootstrap error ketika buka docx

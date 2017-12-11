@@ -24,7 +24,7 @@
               <table border=0>
                 <tr>
                   <td><input class="btn btn-success" type="submit" name="submit" value="Login"></td>
-                  <td><?php echo'<input class="btn btn-warning" type="button" name="lupa_password" value="Lupa Password" onclick="javasciprt: alert(\'Silahkan hubungi Admin untuk mengganti password karena lupa!\')">';?></td>
+                  <td><?php echo'<input class="btn btn-secondary" type="button" name="lupa_password" value="Lupa Password" onclick="javasciprt: alert(\'Silahkan hubungi Admin untuk mengganti password karena lupa!\')">';?></td>
                 </tr>                            
               </table>
             </form>
