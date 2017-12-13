@@ -235,7 +235,7 @@ class User_akun extends CI_Controller
         $this->load->view('Header_login');
         //$this->load->view('edit_profile_ranggi');
         $this->load->view('Edit_profile',$data);
-        //$this->load->view('Footer');
+        //
     }
 
     public function submit_profile()
@@ -297,7 +297,7 @@ class User_akun extends CI_Controller
                 $this->load->view('Header_login');
                 $this->load->view('Edit_profile',$data);
                 $this->load->view('Notification',$data);
-                //$this->load->view('Footer');
+                //
             }
         }else{
             $data = array(

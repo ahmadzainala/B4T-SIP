@@ -214,7 +214,7 @@ class Form extends CI_Controller
         //print_r($data);
         $this->load->view('Header_login');
         $this->load->view('Main_login',$data);
-        $this->load->view('Footer');
+        
     }
 
     public function edit_item(){
@@ -310,7 +310,7 @@ class Form extends CI_Controller
 
         $this->load->view('Header_login');
         $this->load->view('Form_view',$data);
-        $this->load->view('Footer');
+        
        //echo "$id_form_content</br>$kategori</br>$item";
     }
     // End Untuk Admin
@@ -435,7 +435,7 @@ class Form extends CI_Controller
         
         $this->load->view('Header_login');
         $this->load->view('Form_submit',$data);
-        $this->load->view('Footer');
+        
     }
 
 
@@ -599,7 +599,7 @@ class Form extends CI_Controller
 
         $this->load->view('Header_login');
         $this->load->view('Form_view',$data);
-        $this->load->view('Footer');
+        
     }
 
     public function form_acc($id_form = NULL){
@@ -906,7 +906,7 @@ class Form extends CI_Controller
         
         $this->load->view('Header_login');
         $this->load->view('Form_submit',$data);
-        $this->load->view('Footer');
+        
     }
 
     function pengadaan(){

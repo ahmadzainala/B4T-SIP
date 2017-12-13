@@ -144,7 +144,7 @@ class Main extends CI_Controller {
 		//print_r($data);
 		$this->load->view('Header_login');
 		$this->load->view('Main_login',$data);
-		$this->load->view('Footer');
+		
 	}
 
 	public function panduan(){
@@ -155,7 +155,7 @@ class Main extends CI_Controller {
 			$this->load->view('Header');
 			$this->load->view('Panduan');
 		}
-		//$this->load->view('Footer');
+		//
 	}
 
 }
