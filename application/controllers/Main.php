@@ -16,9 +16,9 @@ class Main extends CI_Controller {
 
 		if($this->session->userdata('id_division') == 5){
 				$form = $this->Form_model->get_by_user_pengadaan();
-				$jmlunread = $this->Tracking_model->get_total_prosespengadaan_unread($this->session->userdata('id_division'));
-				$jmlaction = $this->Tracking_model->get_total_prosespengadaan_action($this->session->userdata('id_division'));
-				$jmldone = $this->Tracking_model->get_total_prosespengadaan_done($this->session->userdata('id_division'));
+				$jmlunread = $this->Tracking_model->get_total_prosespengadaan_unread();
+				$jmlaction = $this->Tracking_model->get_total_prosespengadaan_action();
+				$jmldone = $this->Tracking_model->get_total_prosespengadaan_done();
 				
 				
 				$data = array(
