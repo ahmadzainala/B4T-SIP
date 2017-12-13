@@ -201,6 +201,19 @@ class Tracking_model extends CI_Model
        return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_user = '.$id.' and (c.id_status_tracking =3)')->num_rows();
     }
 
+    function get_total_prosespengadaan_unread(){
+       return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =3) and b.read_status_Pengadaan = 0')->num_rows();
+    }
+
+    function get_total_prosespengadaan_action(){
+       return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking =3) and b.read_status_Pengadaan = 1')->num_rows();
+    }
+
+    function get_total_prosespengadaan_done(){
+       return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and (c.id_status_tracking = 5 or c.id_status_tracking = 6)')->num_rows();
+    }
+
+
 
     function get_total_tidakdisetujui($id){
         return $this->db->query('select * from tracking c, form b, user_akun a where c.id_form=b.id_form and a.id_user = b.id_user and a.id_user = '.$id.' and (c.id_status_tracking =4 or c.id_status_tracking =13 or c.id_status_tracking =14)')->num_rows();

@@ -178,7 +178,7 @@ class Form_model extends CI_Model
 
      function get_by_user_pengadaan()
     {
-        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =3 or c.id_status_tracking =5 or c.id_status_tracking =6) GROUP BY `b`.`id_form` ORDER BY c.id_tracking DESC, `read_status_Pengadaan` ASC,`date` DESC')->result();
+        return $this->db->query('select * from user_akun a, form b, tracking c, status_tracking d, tracking_history e where a.id_user = b.id_user and c.id_form = b.id_form and c.id_status_tracking = d.id_status_tracking and e.id_tracking=c.id_tracking and b.status_submit=1 and (c.id_status_tracking =3 or c.id_status_tracking =5 or c.id_status_tracking =6) GROUP BY `b`.`id_form` ORDER BY `read_status_Pengadaan` ASC, c.id_tracking DESC,`date` DESC')->result();
     }
 
     function get_by_user_pengadaan_like($like)

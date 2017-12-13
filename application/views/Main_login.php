@@ -13,15 +13,15 @@
         <div class="col-6 col-sm-3 placeholder">
         </div>
         <div class="col-6 col-sm-2 placeholder">
-          <h1><i class="material-icons" style="font-size: 28px">message</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <h1><i class="material-icons" style="font-size: 28px">message</i> <?php echo $jmlunread; ?></h1>
           <b>Belum Dibaca</b>
         </div>
         <div class="col-6 col-sm-2 placeholder">
-          <h1><i class="material-icons" style="font-size: 28px">announcement</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <h1><i class="material-icons" style="font-size: 28px">announcement</i> <?php echo $jmlaction; ?></h1>
           <b>Menunggu Tindakan</b>
         </div>
         <div class="col-6 col-sm-2 placeholder">
-          <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmlmenunggudisetujuiKD; ?></h1>
+          <h1><i class="material-icons" style="font-size: 28px">assignment_turned_in</i> <?php echo $jmldone; ?></h1>
           <b>Pengadaan Selesai</b>
         </div>
         <div class="col-6 col-sm-3 placeholder">
@@ -119,7 +119,7 @@
               </thead>
               <tbody>
                   <?php 
-                    if(($this->session->userdata('id_position')== 3 || $this->session->userdata('id_position')== 5 || $this->session->userdata('id_position')== 6) && $this->session->userdata('id_division')== 5){
+                    if(($this->session->userdata('id_position')== 3 || $this->session->userdata('id_position')== 5 || $this->session->userdata('id_position')== 6) && $this->session->userdata('id_division')!= 5){
                       $temp = "";
                       if(isset($_GET['no_up'])){
                         $min = $_GET['no_bot'];

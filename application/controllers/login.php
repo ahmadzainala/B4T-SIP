@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 		if($this->session->userdata('username')== NULL){
 			$this->load->view('Header');
 			$this->load->view('Index');
-			
+			$this->load->view('Footer');
 		}else{
 			redirect('Main');
 		}
@@ -26,7 +26,7 @@ class Login extends CI_Controller {
 
 		$this->load->view('Header');
 		$this->load->view('Index');
-		
+		$this->load->view('Footer');
 		$this->load->view('Notification');
 	}
 

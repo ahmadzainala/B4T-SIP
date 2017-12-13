@@ -16,25 +16,17 @@ class Main extends CI_Controller {
 
 		if($this->session->userdata('id_division') == 5){
 				$form = $this->Form_model->get_by_user_pengadaan();
-				$jmlmenunggudisetujui = $this->Tracking_model->get_total_menunggudisetujui($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiKD = $this->Tracking_model->get_total_menunggudisetujuiKD($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiTU = $this->Tracking_model->get_total_menunggudisetujuiTU($this->session->userdata('id_user'));
-				$jmlmenunggudisetujuiPPK = $this->Tracking_model->get_total_menunggudisetujuiPPK($this->session->userdata('id_user'));
-				$jmlprosespengadaan = $this->Tracking_model->get_total_prosespengadaan($this->session->userdata('id_user'));
-				$jmltidakdisetujui = $this->Tracking_model->get_total_tidakdisetujui($this->session->userdata('id_user'));
-				$jmlverifikasi = $this->Tracking_model->get_total_verifikasi($this->session->userdata('id_user'));
-				$jmlselesaipengadaan = $this->Tracking_model->get_total_selesaipengadaan($this->session->userdata('id_user'));
+				$jmlunread = $this->Tracking_model->get_total_prosespengadaan_unread($this->session->userdata('id_division'));
+				$jmlaction = $this->Tracking_model->get_total_prosespengadaan_action($this->session->userdata('id_division'));
+				$jmldone = $this->Tracking_model->get_total_prosespengadaan_done($this->session->userdata('id_division'));
+				
+				
 				$data = array(
 		            'form_data' => $form,
-		            'jmlmenunggudisetujui'=> $jmlmenunggudisetujui,
-		            'jmlselesaipengadaan'=> $jmlselesaipengadaan,
-		            'jmltidakdisetujui'=> $jmltidakdisetujui,
-		            'jmlprosespengadaan'=> $jmlprosespengadaan,
-		            'jmlmenunggudisetujuiPPK'=> $jmlmenunggudisetujuiPPK,
-		            'jmlmenunggudisetujuiTU'=> $jmlmenunggudisetujuiTU,
-		            'jmlverifikasi'=> $jmlverifikasi,
-		            'jmlmenunggudisetujuiKD'=> $jmlmenunggudisetujuiKD
-		        );
+		            'jmlunread' => $jmlunread,
+		            'jmldone' => $jmldone,
+		            'jmlaction' => $jmlaction,
+		        );	
 			}else{
 			if($this->session->userdata('id_position') == 1){ //posisi admin
 				$form = $this->Form_model->get_all_form_detail();
@@ -144,6 +136,7 @@ class Main extends CI_Controller {
 		//print_r($data);
 		$this->load->view('Header_login');
 		$this->load->view('Main_login',$data);
+		$this->load->view('Footer');
 		
 	}
 
@@ -151,6 +144,7 @@ class Main extends CI_Controller {
 		if($this->session->userdata('id_user')!=Null){
 			$this->load->view('Header_login');
 			$this->load->view('Panduan');
+			$this->load->view('Footer');
 		}else{
 			$this->load->view('Header');
 			$this->load->view('Panduan');
